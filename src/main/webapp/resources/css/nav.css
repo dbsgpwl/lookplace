@@ -2,10 +2,7 @@
 
 /* nav */
     nav {
-      position: fixed;
- 	  top: 100px;
    	  height: 80px;
-	  width: 80%;
       color: white;
       padding-top: 10px;
     }

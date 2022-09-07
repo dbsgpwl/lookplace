@@ -14,7 +14,7 @@
 	<jsp:include page="/resources/includes/nav.jsp"></jsp:include>
 	
 	<!-- section 안에 작성 -->
-	<section style="position:fixed; top:180px; width: 80%; height:100%;">
+	<section style="height:100%; margin-top:100px;">
 	
 	</section>
 	
