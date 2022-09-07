@@ -2,9 +2,6 @@
 
  /* header */
     header {
-      position: fixed;
- 	  top: 0;
-	  width: 80%;
       display: flex;
       justify-content: center;
       border-bottom: 3px solid rgb(255, 56, 142);
