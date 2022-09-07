@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+/* footer */
+    footer {
+      bottom: 0;
+      position: absolute;
+	  height: 60px;
+	  width: 80%;
+	  line-height: 60px;
+	  color: #8a8c8f;
+	  border-top: 1px solid #dee5e7;
+	  background-color: #f2f2f2;
+    }

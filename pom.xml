@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.look</groupId>
 	<artifactId>controller</artifactId>
-	<name>Lookplace-project</name>
+	<name>lookplace</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
