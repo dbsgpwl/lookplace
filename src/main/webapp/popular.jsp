@@ -7,14 +7,16 @@
 <title>Insert title here</title>
 
 <style>
-	#p_firstline{
+	.p_firstline{
 		display: flex;
 		justify-content: space-between;
+		margin-bottom : 20px;
 	}
 	#p_location{
 		width: 80%;
 		text-align: center;
 		margin: 0 auto;
+		margin-bottom : 100px;
 	}
 	#p_location tr{
 		height: 60px;
@@ -23,8 +25,12 @@
 		display: flex;
 		justify-content: space-around;
 		padding-top: 30px;
+		margin-bottom:100px;
 	}
-	
+	.p_title{
+		border-left : 1px solid gray; 
+		padding-left : 20px;
+	}
 	.p_top{
 		border : 1px solid black;
 		width:150px;
@@ -42,7 +48,7 @@
 	
 	
 	
-	<section style="height:100%;">
+	<section style="height:100%; margin-top:100px;">
 		<div>
 			<h1><b>인기</b></h1>
 			<hr>
@@ -59,7 +65,7 @@
 		</div>
 		<div>
 			<h3><b>지역</b></h3>
-			<table id = "p_location" border = "1">
+			<table id = "p_location">
 				<tr>
 					<td>전체</td>
 					<td>서울</td>
@@ -85,8 +91,8 @@
 			</table>
 		</div>
 		<div>
-			<h3>9월의 SNS인기 여행지 TOP 10</h3>
-			<div id = "p_firstline">
+			<h3 class = "p_title">9월의 SNS인기 여행지 TOP 10</h3>
+			<div class = "p_firstline">
 				<div class = "p_top">
 					<img>
 					<h3>여행지1</h3>
@@ -108,29 +114,7 @@
 					<h3>여행지5</h3>
 				</div>
 			</div>
-			<div id = "p_firstline">
-				<div class = "p_top">
-					<img>
-					<h3>여행지1</h3>
-				</div>
-				<div class = "p_top">
-					<img>
-					<h3>여행지2</h3>
-				</div>
-				<div class = "p_top">
-					<img>
-					<h3>여행지3</h3>
-				</div>
-				<div class = "p_top">
-					<img>
-					<h3>여행지4</h3>
-				</div>
-				<div class = "p_top">
-					<img>
-					<h3>여행지5</h3>
-				</div>
-			</div>
-			<div id = "p_firstline">
+			<div class = "p_firstline">
 				<div class = "p_top">
 					<img>
 					<h3>여행지1</h3>
@@ -153,6 +137,55 @@
 				</div>
 			</div>
 		</div>
+		<hr>	<div>
+			<h3 class = "p_title">가을의 인기 여행지 TOP 10</h3>
+			<div class = "p_firstline">
+				<div class = "p_top">
+					<img>
+					<h3>여행지1</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지2</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지3</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지4</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지5</h3>
+				</div>
+			</div>
+			<div class = "p_firstline">
+				<div class = "p_top">
+					<img>
+					<h3>여행지1</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지2</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지3</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지4</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지5</h3>
+				</div>
+			</div>
+		</div>
+		
+		
 	</section>
 	
 	
