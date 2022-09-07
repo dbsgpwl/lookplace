@@ -13,26 +13,23 @@
       width: 30%;
       height: 42px;
       text-align: center;
-      padding-top: 90px;
+    }
+    .searchBox i {
+    	position :relative;
+    	left : 25px;
+    	border-right:1px solid black;
+    	height: 30px;
+    	line-height: 30px;
+    	padding-right: 3px;
     }
     .searchBox input {
-      width: 90%;
-      height: 10px;
+      width: 70%;
+      height: 30px;
       padding: 10px;
       border: 1px solid gray;
-      border-radius: 10px 0px 0px 10px;
+      border-radius: 10px;
     }
-    .searchBtn {
-      border: 1px solid gray;
-      background-color: rgba(0, 0, 0, 0);
-      padding: 0;
-      width: 10%;
-      height: 32px;
-      border-radius: 0px 10px 10px 0px;
-    }
-    .searchBtn img {
-      width: 20px;
-    }
+
     .logoBox {
       width: 170px;
       height: 132px;

@@ -26,18 +26,18 @@
         </div>
       </section>
       <section class="logoBox">
-        <img src="LOGO.png" />
+        <img src="/resources/image/logo.png" />
       </section>
       <section class="searchBox">
+      	<i class="fa-solid fa-magnifying-glass"></i>
         <input type="text" />
-        <button class="searchBtn"><img src="searchIcon.png" /></button>
       </section>
       <section class="buttonBox">
         <button onclick="location.href='Login.html'">Login</button>
         <button onclick="location.href='Sign-Up.html'">Sign-Up</button>
         <div>
           <button>
-            <img src="TRAVERMAP.png" />
+            <img src="/resources/image/map.png" />
           </button>
         </div>
       </section>
