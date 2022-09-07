@@ -1,0 +1,33 @@
+@charset "UTF-8";
+@import "/resources/css/header.css";
+@import "/resources/css/footer.css";
+@import "/resources/css/nav.css";
+
+    /* 전역설정 */
+    body {
+      margin: 0 auto;
+      width:80%;
+    }
+    a {
+      color: black;
+      text-decoration: none;
+    }
+    button {
+      cursor: pointer;
+    }
+    .block {
+      display: block;
+    }
+
+    .none {
+      display: none;
+    }
+    
+    
+    
+   
+
+   
+    
+    
+ 
