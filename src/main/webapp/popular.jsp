@@ -5,40 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<style>
-	.p_firstline{
-		display: flex;
-		justify-content: space-between;
-		margin-bottom : 20px;
-	}
-	#p_location{
-		width: 80%;
-		text-align: center;
-		margin: 0 auto;
-		margin-bottom : 100px;
-	}
-	#p_location tr{
-		height: 60px;
-	}
-	#hashtag{
-		display: flex;
-		justify-content: space-around;
-		padding-top: 30px;
-		margin-bottom:100px;
-	}
-	.p_title{
-		border-left : 1px solid gray; 
-		padding-left : 20px;
-	}
-	.p_top{
-		border : 1px solid black;
-		width:150px;
-		height:150px;
-		background-color : gray;
-		text-align: center;
-	}
-</style>
+<link href="/resources/css/travelplace.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 
@@ -52,7 +19,7 @@
 		<div>
 			<h1><b>인기</b></h1>
 			<hr>
-			<div id = "hashtag">
+			<div class = "hashtag">
 				<a href = "#">#전체</a>
 				<a href = "#">#여행지</a>
 				<a href = "#">#관광지</a>
@@ -137,7 +104,8 @@
 				</div>
 			</div>
 		</div>
-		<hr>	<div>
+		<hr>	
+		<div>
 			<h3 class = "p_title">가을의 인기 여행지 TOP 10</h3>
 			<div class = "p_firstline">
 				<div class = "p_top">
@@ -184,7 +152,60 @@
 				</div>
 			</div>
 		</div>
-		
+		<hr>
+		<div>
+			<h3 class = "p_title">이번달 인기 여행지 TOP 10</h3>
+			<div class = "p_firstline">
+				<div class = "p_top">
+					<img>
+					<h3>여행지1</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지2</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지3</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지4</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지5</h3>
+				</div>
+			</div>
+			<div class = "p_firstline">
+				<div class = "p_top">
+					<img>
+					<h3>여행지1</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지2</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지3</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지4</h3>
+				</div>
+				<div class = "p_top">
+					<img>
+					<h3>여행지5</h3>
+				</div>
+			</div>
+		</div>
+		<div>
+			<h3 class = "p_title">인기 여행 기사 TOP 10</h3>
+			
+			
+			
+		</div>
 		
 	</section>
 	
