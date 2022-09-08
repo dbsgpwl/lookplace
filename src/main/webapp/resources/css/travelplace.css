@@ -59,3 +59,49 @@
 	background-color : lightgray;
 	text-align: center;
 }
+
+
+
+
+.e_all{
+	margin: 0 auto;
+	width: 70%;
+	display: flex;
+	justify-content: space-around;
+}
+.e_listorder{
+	text-align: right;
+	margin-top:100px;
+}
+.e_listorder a{
+	color : gray;
+	font-size: 1.2rem;
+}
+.e_card{
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+.e_explain{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+.e_list{
+	display: flex;
+	width: 400px;
+	justify-content: space-between;
+	cursor: pointer;
+}
+.e_heart{
+	font-size: 3rem;
+	cursor: pointer;
+}
+.e_location{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom:20px;
+}
+.e_location a{
+	color : black;
+}
