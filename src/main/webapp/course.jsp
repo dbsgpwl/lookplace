@@ -13,7 +13,7 @@
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	
 	<!-- section 안에 작성 -->
-	<section style="height:100%; margin-top:100px;">
+	<main>
 		<div>
 			<h1><b>코스</b></h1>
 			<hr>
@@ -294,7 +294,7 @@
 			</div>
 	
 		
-	</section>
+	</main>
 	
 	
 	

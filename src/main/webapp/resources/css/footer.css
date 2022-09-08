@@ -2,22 +2,46 @@
 
 /* footer */
     footer {
- 		margin-bottom:50px;
+		background-color: rgb(255, 56, 142);
+		margin-top:100px;
+ 		padding-bottom:50px;
+ 		color:white;
+ 		width:100%;
     }
-    h4{
-    	text-align: center;
-    	 background-color: #f2f2f2;
-    	 padding : 20px 20px;
-    	 width:30%;
-    	 margin:0 auto;
+    footer > p{
+    	 text-align: center;
+    	 background-color: black;
+    	 width:35%;
+    	 margin:2% auto;
+    	 border:2px solid white;
     	 border-radius: 10px;
     }
-    .first-line {
+    .footer-first-line {
     	margin-bottom:20px;
     	margin-top:20px;
+    	padding-left:10px;
+    	
     }
-    .sns_icon{
-    	font-size: 3rem;
+    
+    .footer-first-line span {
+        padding-right:42px;
+    
+    }
+    
+    .footer-second-line{
+    	padding-left:10px;
+    }
+    .footer-second-line span{
+    	padding-right:20px;
+    }
+    .footer-sns-icon{
+    	font-size: 1rem;
     	text-align: center;
     	margin-top: 10px;
     }
+    
+    .footer-sns-icon a{
+    	padding-left:10px;
+    }
+    
+	

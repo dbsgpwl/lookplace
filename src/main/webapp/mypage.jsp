@@ -4,22 +4,22 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰</title>
+<title>마이페이지</title>
 </head>
-
+<jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <body>
 
 	<style>
-#nav-text {
-	text-align: center;
-}
-#mytable tr,td{
-	border: 1px solid gray;
-}
-#mytable {
-	text-align: center;
-}
-</style>
+		#nav-text {
+			text-align: center;
+		}
+		#mytable tr,td{
+			border: 1px solid gray;
+		}
+		#mytable {
+			text-align: center;
+		}
+	</style>
 
 
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>

@@ -4,18 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>인기</title>
 <link href="/resources/css/travelplace.css" rel="stylesheet" type="text/css">
+<jsp:include page="/resources/includes/link.jsp"></jsp:include>
 </head>
 <body>
 
 
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	
+	<jsp:include page="/resources/includes/nav.jsp"></jsp:include>
 	
 	
-	
-	<section style="height:100%; margin-top:100px;">
+	<main>
 		<div>
 			<h1><b>인기</b></h1>
 			<hr>
@@ -207,7 +208,7 @@
 			
 		</div>
 		
-	</section>
+	</main>
 	
 	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>

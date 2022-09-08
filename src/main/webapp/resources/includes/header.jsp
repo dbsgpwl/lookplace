@@ -18,26 +18,33 @@
         </label>
         <div id="side_menu">
           <ul>
-            <li><a href="#">menu1</a></li>
-            <li><a href="#">menu2</a></li>
-            <li><a href="#">menu3</a></li>
+            <li><a href="#"><i class="fa-sharp fa-solid fa-house"></i>홈</a></li>
+            <li><a href="#"><i class="fa-sharp fa-solid fa-location-dot"></i>여행지도</a></li>
+            <li><a href="#"><i class="fa-solid fa-clipboard-list"></i>커뮤니티</a></li>
           </ul>
-          <img src="LOGIN.png" width="150px">
+          
+          <div id="login-button">
+          	<i class="fa-regular fa-user" ></i>
+          	<a href="#">LOGIN</a>
+          	
+         </div>
         </div>
       </section>
       <section class="logoBox">
         <img src="/resources/image/logo.png" />
       </section>
       <section class="searchBox">
-      	<i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" />
+      
+        <input type="text" placeholder="어디로, 어떤 여행을 떠나실 건가요?"/>
+        
+        <a style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
+        
       </section>
       <section class="buttonBox">
-        <button onclick="location.href='Login.html'">Login</button>
-        <button onclick="location.href='Sign-Up.html'">Sign-Up</button>
         <div>
           <button>
-            <img src="/resources/image/map.png" />
+           <i class="fa-solid fa-map-location-dot"></i>
+           <h4 style="margin-top:10px;">여행지도</h4>
           </button>
         </div>
       </section>

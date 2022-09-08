@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰</title>
+<title>자유게시판</title>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/board.css" rel="stylesheet" type="text/css">
@@ -13,7 +13,7 @@
 	
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	
-	<main>
+	<section style="height:100%;">
 	<div class="board-main" >
 		<div >
 			<div class="board-aside"> 
@@ -24,14 +24,14 @@
 			</div>
 			
 				<div class="board-menu">
-					<p style="border-left:2px solid pink;"><b>리뷰</b></p>
-					<p >자유게시판</p>
+					<p style="">리뷰</p>
+					<p style="border-left:2px solid pink;"><b>자유게시판</b></p>
 				</div>
 		</div>
 		
 		<div class="board-main-area">
 			<div style="display:flex; align-items:center; justify-content:space-between">
-				<div><h3>리뷰</h3></div>
+				<div><h3>자유게시판</h3></div>
 				<section class="">
 			        <button class=""><i class="fa-solid fa-magnifying-glass"></i></button>
 			        <input type="text" />
@@ -87,7 +87,7 @@
 		
 		
 	</div>
-	</main>
+	</section>
 	
 	
 	

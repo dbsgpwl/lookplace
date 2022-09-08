@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰</title>
+<title>비밀번호</title>
 </head>
 
 <body>
@@ -63,7 +63,7 @@ button {
 .hidden {
 	display: none;
 }
-</style>
+</style>	
 
 
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>

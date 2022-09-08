@@ -21,13 +21,22 @@ public class BoardController {
 		
 		/* 게시판 목록 페이지 접속 */
 		@GetMapping("/review")
-		// == @RequestMappign(vlaue="list", method=RequestMethod.GET)
-		public void boardListGET(Model model) {
+		public void reviewGET(Model model) {
 			
 			log.info("리뷰 페이지 진입");
 			
 			model.addAttribute("review", bservice.getList());
 		}
+		
+		/* 게시판 목록 페이지 접속 */
+		@GetMapping("/freeboard")
+		public void freeboardGET(Model model) {
+			
+			log.info("자유게시판 페이지 진입");
+			
+			
+		}
+		
 		
 	
 	 
