@@ -29,7 +29,7 @@
 		</div>
 		
 		<div class="board-main-area">
-			<div style="display:flex; align-items:center; justify-content:space-between">
+			<div class="board-main-title">
 				<div><h3>리뷰</h3></div>
 <section class="searchBox">
       
@@ -40,7 +40,7 @@
       </section>
 			</div>
 			<div class="board-table-area">
-				<table class="table board-table">
+				<table class="table border border-1 board-table table-hover">
 					<tr>
 						<td>번호</td>
 						<td>제목</td>
@@ -50,7 +50,7 @@
 					</tr>
 					<tr>
 						<td>1</td>
-						<td>제목</td>
+						<td><a href="#">제목</a></td>
 						<td>작성자</td>
 						<td>날짜</td>
 						<td>조회수</td>
