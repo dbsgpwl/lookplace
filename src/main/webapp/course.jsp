@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 <link href="/resources/css/travelplace.css" rel="stylesheet" type="text/css">
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
+
 </head>
 <body>
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
@@ -27,81 +28,270 @@
 				<a href = "#">#단풍</a>
 			</div>
 		</div>
-		
-
 			<h3 class = "p_title">여행코스</h3>
-			<div class = "C_trable">
-				<div>
-					<h5 class="C_course">대구 여행</h5>
+			<div class = "c_trable">
+				<div class = "c_card">
+					<h5 class="c_course">대구 여행</h5>
 					<div>
 						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소</span>
+						<span>여행장소</span><br>
 						<i class="fa-regular fa-chevron-down"></i>
 					</div>
 					<div>
 						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소1</span>
+						<span>여행장소1</span><br>
 						<i class="fa-regular fa-chevron-down"></i>
 					</div>
 					<div>
 						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소2</span>
+						<span>여행장소2</span><br>
 						<i class="fa-regular fa-chevron-down"></i>
 					</div>
 					<div>
 						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소3</span>
-						<i class="fa-regular fa-chevron-down"></i>
-					</div>
-				</div>
-				<div>
-					<h5 style = "background-image: url(/resources/image/대구.jpeg); width:33%; height: 100px; line-height: 100px; text-align: center;" >대구 여행</h5>
-					<div>
-						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소</span>
+						<span>여행장소3</span><br>
 						<i class="fa-regular fa-chevron-down"></i>
 					</div>
 					<div>
 						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소1</span>
-						<i class="fa-regular fa-chevron-down"></i>
-					</div>
-					<div>
-						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소2</span>
-						<i class="fa-regular fa-chevron-down"></i>
-					</div>
-					<div>
-						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소3</span>
+						<span>여행장소4</span><br>
 						<i class="fa-regular fa-chevron-down"></i>
 					</div>
 				</div>
-				<div>
-					<h5 style = "background-image: url(/resources/image/대구.jpeg); width:33%; height: 100px; line-height: 100px; text-align: center;" >대구 여행</h5>
+				<div class = "c_card">
+					<h5 class="c_course">대구 여행</h5>
 					<div>
 						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소</span>
+						<span>여행장소</span><br>
 						<i class="fa-regular fa-chevron-down"></i>
 					</div>
 					<div>
 						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소1</span>
+						<span>여행장소1</span><br>
 						<i class="fa-regular fa-chevron-down"></i>
 					</div>
 					<div>
 						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소2</span>
+						<span>여행장소2</span><br>
 						<i class="fa-regular fa-chevron-down"></i>
 					</div>
 					<div>
 						<i class="fa-light fa-location-dot"></i>
-						<span>여행장소3</span>
+						<span>여행장소3</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소4</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+				</div>
+				<div class = "c_card">
+					<h5 class="c_course">대구 여행</h5>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소1</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소2</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소3</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소4</span><br>
 						<i class="fa-regular fa-chevron-down"></i>
 					</div>
 				</div>
 			</div>
-
+			
+			
+			<h3 class = "p_title">산책코스</h3>
+			<div class = "c_trable">
+				<div class = "c_card">
+					<h5 class="c_course">대구 여행</h5>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소1</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소2</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소3</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소4</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+				</div>
+				<div class = "c_card">
+					<h5 class="c_course">대구 여행</h5>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소1</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소2</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소3</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소4</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+				</div>
+				<div class = "c_card">
+					<h5 class="c_course">대구 여행</h5>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소1</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소2</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소3</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소4</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+				</div>
+			</div>
+			
+			<h3 class = "p_title">캠핑코스</h3>
+			<div class = "c_trable">
+				<div class = "c_card">
+					<h5 class="c_course">대구 여행</h5>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소1</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소2</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소3</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소4</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+				</div>
+				<div class = "c_card">
+					<h5 class="c_course">대구 여행</h5>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소1</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소2</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소3</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소4</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+				</div>
+				<div class = "c_card">
+					<h5 class="c_course">대구 여행</h5>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소1</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소2</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소3</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+					<div>
+						<i class="fa-light fa-location-dot"></i>
+						<span>여행장소4</span><br>
+						<i class="fa-regular fa-chevron-down"></i>
+					</div>
+				</div>
+			</div>
 	
 		
 	</section>

@@ -13,14 +13,27 @@
 #p_location tr td{
 	border:1px solid black; 
 }
-.C_trable{
-
+.c_trable{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom:100px;
 }
-.C_course{
+.c_card{
+	width:300px;
+	margin : 0 auto;
+	text-align: center;
+	border: 1px solid black;
+	height: 450px;
+	
+}
+.c_course{
 	background-image: url(/resources/image/대구.jpeg); 
-	width:33%; height: 100px; 
+	height: 100px; 
 	line-height: 100px; 
 	text-align: center;
+	background-repeat: no-repeat;
+	background-size : cover;
+	margin-bottom: 40px;
 }
 
 .p_firstline{
@@ -37,6 +50,7 @@
 .p_title{
 	border-left : 1px solid gray; 
 	padding-left : 20px;
+	margin-bottom:20px;
 }
 .p_top{
 	border : 1px solid black;
