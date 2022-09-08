@@ -46,7 +46,7 @@
               class="SignUpInput"
               type="text"
               placeholder="이름"
-              
+              id="username"
             />
           </div>
           <div>
@@ -54,6 +54,7 @@
               class="SignUpInput"
               type="text"
               placeholder="닉네임"
+              id="nickname"
               
             />
           </div>
@@ -67,11 +68,8 @@
 	  		<div class="modal_body">
 		  		<h1>입력내용 확인</h1>
 		  		<hr>
-		  		<div>
-		  			<strong>아이디 : </strong><br>
-		  			<strong>비밀번호 : </strong><br>
-		  			<strong>이름 : </strong><br>
-		  			<strong>주소 : </strong>
+		  		<div id="modalSpace" style="font-size:1.5rem; ">
+		  			
 		  		</div>
 	  			<button class="CancelBtn modal_cancel">취소</button>
 	  			<button class="SignUpBtn">회원가입</button>
@@ -84,13 +82,28 @@
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>
 <script>
-  const BODY = document.querySelector("body");
-  const MODAL = document.querySelector(".modal");
-  const BTNOPENPOPUP = document.querySelector(".btn-open-popup");
-  const MODALCANCEL= document.querySelector(".modal_cancel");
-
+  	const BODY = document.querySelector("body");
+  	const MODAL = document.querySelector(".modal");
+  	const BTNOPENPOPUP = document.querySelector(".btn-open-popup");
+  	const MODALCANCEL= document.querySelector(".modal_cancel");
+	
+  	const USERID = document.querySelector("#userid");
+	const USERPWD = document.querySelector("#userpwd");
+	const USERNAME = document.querySelector("#username");
+	const USERNICKNAME = document.querySelector("#nickname");
+	
+	const MODALSPACE = document.querySelector("#modalSpace");
+	
   BTNOPENPOPUP.addEventListener("click", () => {
+	  
 	  MODAL.classList.toggle("show");
+	  
+	  MODALSPACE.innerHTML+='<div>아이디 : '+USERID.value+'</div>'
+	  MODALSPACE.innerHTML+='<div>비밀번호 : '+USERPWD.value+'</div>'
+	  MODALSPACE.innerHTML+='<div>이름 : '+USERNAME.value+'</div>'
+	  MODALSPACE.innerHTML+='<div>닉네임 : '+USERNICKNAME.value+'</div>'
+
+	  
 
     if (MODAL.classList.contains("show")) {
     	BODY.style.overflow = "hidden";
@@ -100,7 +113,8 @@
   MODAL.addEventListener("click", (event) => {
     if (event.target === MODAL) {
     	MODAL.classList.toggle("show");
-
+    	MODALSPACE.innerHTML=''; /* 모달에서 취소할 시 기존 내용 삭제 */
+    	
       if (!MODAL.classList.contains("show")) {
     	  BODY.style.overflow = "auto";
       }
@@ -111,6 +125,9 @@
   		if (MODAL.classList.contains("show")){
 			MODAL.classList.toggle("show");
   		}
+  		
+  		MODALSPACE.innerHTML=''; /* 모달에서 취소할 시 기존 내용 삭제 */
+  		
 		if (!MODAL.classList.contains("show")) {
 			BODY.style.overflow = "auto";
 		}
