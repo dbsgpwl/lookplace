@@ -68,6 +68,7 @@
 		</div>
 	</div>	
 	
+	
  	<div style="margin-top: 30px; font-weight: bold; font-size: x-large;">
 		<div>
 			<span>여행톡</span>

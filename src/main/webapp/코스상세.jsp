@@ -41,7 +41,8 @@
 	<div style="width:30%; height:250px; background-color:black; margin: 0 auto;">
 		<span style="color: white;">api 지도</span>
 	</div>	
-	
+	 
+	 
 	<div style="width:60%; height:300px; background-color:lightgray; margin:0 auto; margin-top: 30px; ">
 		
 	</div>
