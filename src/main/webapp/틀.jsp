@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰</title>
+<title>틀</title>
 </head>
-
+<jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <body>
 
 	
