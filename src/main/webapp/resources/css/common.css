@@ -3,16 +3,27 @@
 @import "/resources/css/footer.css";
 @import "/resources/css/nav.css";
 
+@font-face {
+	    font-family: 'NanumGothic';
+	    src: url("/resources/font/NanumGothicBold.otf");
+	    font-weight: normal;
+	    font-style: normal;
+	}
+	
+	
     /* 전역설정 */
     body {
+      font-family: 'NanumGothic';
       margin: 0 auto;
-      width:80%;
+      width:100%;
       display: flex;
       justify-content: space-between;
       flex-direction: column;
     }
+    
+	   
     a {
-      color: black;
+      
       text-decoration: none;
     }
     button {
@@ -24,6 +35,12 @@
 
     .none {
       display: none;
+    }
+    
+    main{
+    	width:80%;
+    	height:100%; 
+    	margin: 100px auto 0 auto;
     }
     
     

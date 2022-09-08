@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+#p_location{
+	width: 80%;
+	text-align: center;
+	margin: 0 auto;
+	margin-bottom : 100px;
+	border-collapse: collapse;
+}
+#p_location tr{
+	height: 60px;
+}
+#p_location tr td{
+	border:1px solid black; 
+}
+.c_trable{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom:100px;
+}
+.c_card{
+	width:300px;
+	margin : 0 auto;
+	text-align: center;
+	border: 1px solid black;
+	height: 450px;
+	
+}
+.c_course{
+	background-image: url(/resources/image/대구.jpeg); 
+	height: 100px; 
+	line-height: 100px; 
+	text-align: center;
+	background-repeat: no-repeat;
+	background-size : cover;
+	margin-bottom: 40px;
+}
+
+.p_firstline{
+	display: flex;
+	justify-content: space-between;
+	margin-bottom : 30px;
+}
+.hashtag{
+	display: flex;
+	justify-content: space-around;
+	padding-top: 30px;
+	margin-bottom:100px;
+}
+.p_title{
+	border-left : 1px solid gray; 
+	padding-left : 20px;
+	margin-bottom:20px;
+}
+.p_top{
+	border : 1px solid black;
+	width:150px;
+	height:150px;
+	background-color : lightgray;
+	text-align: center;
+}

@@ -4,19 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰</title>
+<title>틀</title>
 </head>
-
+<jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <body>
 
 	
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	<jsp:include page="/resources/includes/nav.jsp"></jsp:include>
 	
-	<!-- section 안에 작성 -->
-	<section style="position:fixed; top:180px; width: 80%; height:100%;">
+	<!-- main 안에 작성 -->
+	<main>
+
 	
-	</section>
+	</main>
 	
 	
 	
