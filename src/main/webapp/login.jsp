@@ -7,55 +7,9 @@
 <title>로그인</title>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
-<link href="/resources/css/infopage.css" rel="stylesheet" type="text/css">
+<link href="/resources/css/login.css" rel="stylesheet" type="text/css">
 <style>
-    /* login */
-    .loginBox {
-      width: 30vw;
-      height: 60vh;
-      background-color: white;
-      margin: 10vh auto;
-      padding: 70px 90px;
-      border: 1px solid #e1e1e1;
-      border-radius: 6px;
-      text-align: center;
-    }
-    .loginInput {
-      width: 17vw;
-      height: 5vh;
-      font-size: 1.2em;
-      border: 1px solid #e1e1e1;
-    }
-
-    .loginForm {
-      text-align: center;
-    }
-    .loginForm div {
-      margin-bottom: 20px;
-    }
-
-    .loginBtn {
-      width: 17.4vw;
-      height: 5vh;
-      background-color: rgb(255, 56, 142);
-      color: white;
-      font-size: 1.2em;
-      font-weight: 700;
-      border: 1px solid rgba(0, 0, 0, 0);
-      border-radius: 2px;
-    }
-    .autoLoginBox {
-      width: 14vw;
-      margin-left: 8vw;
-      font-size: 13px;
-      align-items: center;
-    }
-    .autoLoginBox input {
-      font-size: 1.2em;
-      width: 12px;
-      height: 12px;
-    }
-
+    
 </style>
 <body>
 
