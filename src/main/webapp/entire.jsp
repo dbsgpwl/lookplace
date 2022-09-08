@@ -13,7 +13,7 @@
 	
 	<!-- main 안에 작성 -->
 	<main>
-		<div class= e_all>
+		<div class= "e_all all">
 			<div style = "width: 50%;">
 				<h1>#전체</h1>
 				<hr>
