@@ -61,11 +61,13 @@
 }
 
 
-
-
-.e_all{
+.all{
 	margin: 0 auto;
 	width: 70%;
+	
+}
+
+.e_all{
 	display: flex;
 	justify-content: space-around;
 }
