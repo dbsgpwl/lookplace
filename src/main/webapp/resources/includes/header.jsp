@@ -44,7 +44,7 @@
         <div>
           <button>
            <i class="fa-solid fa-map-location-dot"></i>
-           <h4 style="margin-top:10px;">여행지도</h4>
+           <p style="margin-top:7px; font-size:15px;">여행지도</p>
           </button>
         </div>
       </section>

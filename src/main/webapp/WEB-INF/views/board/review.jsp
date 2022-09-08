@@ -14,28 +14,30 @@
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	
 	<main>
-	<div class="board-main" >
-		<div >
+	<div class="board-main">
+		<div class="board-aside-menu" style="">
 			<div class="board-aside"> 
-				<div class="board-image">
-					<img src="/resources/image/review.png" alt="" style="width:70px;">
+				<div class="board-icon">
+					<i class="fa-solid fa-clipboard-list"></i>
 				</div>
 				<div class="board-title"><h2>Notice</h2></div>
 			</div>
-			
-				<div class="board-menu">
-					<p style="border-left:2px solid pink;"><b>리뷰</b></p>
-					<p >자유게시판</p>
-				</div>
+			<div class="board-menu">
+				<p style="border-left:2px solid pink;"><b>리뷰</b></p>
+				<p >자유게시판</p>
+			</div>
 		</div>
 		
 		<div class="board-main-area">
 			<div style="display:flex; align-items:center; justify-content:space-between">
 				<div><h3>리뷰</h3></div>
-				<section class="">
-			        <button class=""><i class="fa-solid fa-magnifying-glass"></i></button>
-			        <input type="text" />
-			     </section>
+<section class="searchBox">
+      
+        <input type="text" placeholder="작성자/제목을 검색해보세요"/>
+        
+        <a style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
+        
+      </section>
 			</div>
 			<div class="board-table-area">
 				<table class="table board-table">
