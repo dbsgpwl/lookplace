@@ -23,7 +23,7 @@
     
 	   
     a {
-      
+      color:black;
       text-decoration: none;
     }
     button {
@@ -40,7 +40,7 @@
     main{
     	width:80%;
     	height:100%; 
-    	margin: 100px auto 0 auto;
+    	margin: 100px auto 200px auto;
     }
     
     
