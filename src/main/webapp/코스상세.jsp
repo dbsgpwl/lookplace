@@ -45,7 +45,7 @@
 	<div style="width:60%; height:300px; background-color:lightgray; margin:0 auto; margin-top: 30px; ">
 		
 	</div>
-		
+	
 	<style>
 		input {
 			
