@@ -14,20 +14,21 @@
 	
 	<!-- section 안에 작성 -->
 	<main>
-		<div>
-			<h1><b>코스</b></h1>
-			<hr>
-			<div class = "hashtag">
-				<a href = "#">#전체</a>
-				<a href = "#">#여행지</a>
-				<a href = "#">#관광지</a>
-				<a href = "#">#체험</a>
-				<a href = "#">#자연</a>
-				<a href = "#">#실내여행지</a>
-				<a href = "#">#가을</a>
-				<a href = "#">#단풍</a>
+		<div class = "all">
+			<div>
+				<h1><b>코스</b></h1>
+				<hr>
+				<div class = "hashtag">
+					<a href = "#">#전체</a>
+					<a href = "#">#여행지</a>
+					<a href = "#">#관광지</a>
+					<a href = "#">#체험</a>
+					<a href = "#">#자연</a>
+					<a href = "#">#실내여행지</a>
+					<a href = "#">#가을</a>
+					<a href = "#">#단풍</a>
+				</div>
 			</div>
-		</div>
 			<h3 class = "p_title">여행코스</h3>
 			<div class = "c_trable">
 				<div class = "c_card">
@@ -293,7 +294,7 @@
 				</div>
 			</div>
 	
-		
+		</div>
 	</main>
 	
 	
