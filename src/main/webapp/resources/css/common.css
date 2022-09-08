@@ -43,7 +43,21 @@
     	margin: 100px auto 200px auto;
     }
     
-    
+   
+     /* 스크롤바 */
+	::-webkit-scrollbar {
+	  	width: 0.7vw; 
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: rgb(255, 56, 142,0.5);
+		border-radius: 10px;
+	}
+	::-webkit-scrollbar-track 
+	{
+		background-color: rgb(255, 56, 142,0.2);
+		border-radius: 10px;
+		box-shadow: inset 0px 0px 5px white;
+	}
     
    
 
