@@ -23,8 +23,8 @@
 				<div class="board-title"><h2>Notice</h2></div>
 			</div>
 			<div class="board-menu">
-				<p style="border-left:2px solid pink;"><b>리뷰</b></p>
-				<p >자유게시판</p>
+				<p style="border-left:2px solid pink;"><a href="/board/review">리뷰</a></p>
+				<p ><a href="/board/freeboard">자유게시판</a></p>
 			</div>
 		</div>
 		
@@ -32,9 +32,9 @@
 			<div class="board-main-title">
 				<div><h3>리뷰</h3></div>
 				<div>
-				<span><a href="#">home</a></span> &nbsp;>&nbsp;
-				<span><a href="#">notice</a></span>&nbsp; >&nbsp;
-				<span><a href="#">review</a></span> 
+				<span><a href="/">home</a></span> &nbsp;>&nbsp;
+				<span><a href="/board/notice">notice</a></span>&nbsp; >&nbsp;
+				<span><a href="/board/review">review</a></span> 
 				</div>
 			</div>
 			<div class="board-main-area-firstline">
@@ -43,7 +43,7 @@
 	        		<a style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
 	     		</section>
 	     		<div class="board-write-area" >
-				 <input type="button"  class="board-writer-button" onclick="location.href=''" value="글쓰기">
+				 <input type="button"  class="board-writer-button" onclick="location.href='/board/writer-r'" value="글쓰기">
 				</div>
 			</div>
 			<div class="board-table-area">

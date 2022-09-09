@@ -94,12 +94,46 @@
     
 }
 
+.board-reply-content{
+	border: none;
+    resize: none;
+    border:1px solid lightgray;
+    width:95%;
+    height: 10em;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+}
+.board-reply-o{
+	width:100%; 
+	height:260px; 
+	background-color:rgba(224, 224, 224, 0.29); 
+	text-align:center; 
+	padding-top:20px;
+	
+}
 .board-table input{
 	width:100%;
 	border:0 solid black;
 	border:1px solid #dee2e6;
 }
 
+.board-reply-area{
+	margin:10% auto;
+}
+
+.board-reply-inputbox{
+	border: none;
+	border:2px solid lightgray;
+	width:100px;
+	text-align:center;
+	border-radius: 3px;
+	background-color: rgb(255, 56, 142);
+	color: white;
+}
+
+.board-reply-btn{
+	text-align: right;
+	padding-right:2%;
+}
 .board-writer-button{
 	border:none;
 	background-color: rgb(255, 56, 142);

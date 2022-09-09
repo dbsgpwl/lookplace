@@ -89,28 +89,28 @@
 					<div style = "width: 60%;margin:100px auto 0 auto;">
 						<hr>
 						<div class= "e_location">
-							<a href = "#">#전체</a>
-							<a href = "#">#서울</a>
-							<a href = "#">#대구</a>
-							<a href = "#">#부산</a>
+							<a href = "/trip/entire">#전체</a>
+							<a href = "/trip/area">#서울</a>
+							<a href = "/trip/area">#대구</a>
+							<a href = "/trip/area">#부산</a>
 						</div>
 						<div class= "e_location">
-							<a href = "#">#인천</a>
-							<a href = "#">#울산</a>
-							<a href = "#">#광주</a>
-							<a href = "#">#대전</a>
+							<a href = "/trip/area">#인천</a>
+							<a href = "/trip/area">#울산</a>
+							<a href = "/trip/area">#광주</a>
+							<a href = "/trip/area">#대전</a>
 						</div>
 						<div class= "e_location">
-							<a href = "#">#전체</a>
-							<a href = "#">#서울</a>
-							<a href = "#">#대구</a>
-							<a href = "#">#부산</a>
+							<a href = "/trip/entire">#전체</a>
+							<a href = "/trip/area">#서울</a>
+							<a href = "/trip/area">#대구</a>
+							<a href = "/trip/area">#부산</a>
 						</div>
 						<div class= "e_location">
-							<a href = "#">#전체</a>
-							<a href = "#">#서울</a>
-							<a href = "#">#대구</a>
-							<a href = "#">#부산</a>
+							<a href = "/trip/entire">#전체</a>
+							<a href = "/trip/area">#서울</a>
+							<a href = "/trip/area">#대구</a>
+							<a href = "/trip/area">#부산</a>
 						</div>
 						<hr>
 						

@@ -19,8 +19,12 @@
       display: flex;
       justify-content: space-between;
       flex-direction: column;
+      
+     /*   cursor: url("https://cdn-icons-png.flaticon.com/128/8000/8000373.png")10 20, auto; */
     }
-    
+   /*  a, a:link { cursor: url('https://cdn-icons-png.flaticon.com/128/7914/7914802.png')10 20, auto;} 
+    a:hover, a:focus { cursor: url('https://cdn-icons-png.flaticon.com/128/7914/7914802.png')10 20, auto;} 
+    a:active {cursor: url('https://cdn-icons-png.flaticon.com/128/7914/7914802.png')10 20, auto;}  */
 	   
     a {
       color:black;

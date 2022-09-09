@@ -47,7 +47,7 @@
 	          </div>
 	
 	          <div>
-	            <button class="loginBtn">로그인</button>
+	            <button class="loginBtn" onclick="location.href='/'">로그인</button>
 	          </div>
 	        </form>
         <ul
@@ -61,7 +61,7 @@
           "
         >
           <li style="list-style: none">
-            <a href="#" style="color: gray">회원가입</a>
+            <a href="/member/signup" style="color: gray">회원가입</a>
           </li>
           <li>|</li>
           <li style="list-style: none">

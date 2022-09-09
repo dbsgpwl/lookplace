@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰</title>
+<title>자유게시글 상세</title>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/board.css" rel="stylesheet" type="text/css">
@@ -26,22 +26,21 @@
 				<div class="board-title"><h2>Notice</h2></div>
 			</div>
 			<div class="board-menu">
-				<p style="border-left:2px solid pink;"><b>리뷰</b></p>
-				<p >자유게시판</p>
+				<p><a href="/board/review">리뷰</a></p>
+				<p style="border-left:2px solid pink;"><a href="/board/freeboard">자유게시판</a></p>
 			</div>
 		</div>
 		
 		<div class="board-main-area">
 			<div class="board-main-title">
-				<div><h3>리뷰쓰기</h3></div>
+				<div><h3>게시글보기</h3></div>
 				<div>
-					<span><a href="#">home</a></span> &nbsp;>&nbsp;
-					<span><a href="#">notice</a></span>&nbsp; >&nbsp;
-					<span><a href="#">review</a></span> 
+					<span><a href="/">home</a></span> &nbsp;>&nbsp;
+					<span><a href="/board/notice">notice</a></span>&nbsp; >&nbsp;
+					<span><a href="/board/freeboard">board</a></span> 
 				</div>
 			</div>
 			<div class="board-writer-area">
-				 <form action="" method="">
                        <table class="table border board-table" >
 						    <tr>
 						     <td>작성자</td>
@@ -62,23 +61,37 @@
 						     </td>
 						     
     						</tr>
-    						<tr>
-    						<td colspan="4" style="text-align:left; padding:0;">
-						     	<input type="file" name=""  style="border:0 solid black; ">
-						     </td>
-						     </tr>
 						 </table>
-						 <div  class="board-write-area" >
+						
+						
+						 <div class="board-reply-area">
+						 <h5>댓글</h5>
+							 	<div class="board-reply-o">
+							 		<div>
+							 			<textarea class="board-reply-content" placeholder="로그인 후 댓글을 남겨주세요."></textarea>
+							 		</div>
+							 		<div class="board-reply-btn" >
+							 			<button class="board-reply-inputbox" onclick="">등록</button>
+							 		</div>
+							 		<div>
+							 			페이지네이션
+							 		</div>
+							 	</div>
+						</div>
+						
+						 <div class="board-write-area" >
+							 
 							 <div>
-							 	<input type="button"  class="board-writer-button" onclick="location.href=''" value="LIST">
-							 </div>
-							 <div>
-							 	<input type="submit" value="취소" class="board-writer-button">
-      							<input type="submit" value="글쓰기" class="board-writer-button">
+							 	<input type="button" value="이전글" onclick="location.href=''" class="">
+							 	<input type="button" value="현재글" onclick="location.href=''" class="">
+      							<input type="submit" value="다음글" class="">
 							</div>
+							
+							<div>
+							 	<input type="button"  class="board-writer-button" onclick="location.href='/board/freeboard'" value="LIST">
+							 </div>
 						</div>
 
-				</form>
 			</div>
 		</div>
 	</div>
