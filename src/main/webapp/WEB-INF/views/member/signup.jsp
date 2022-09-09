@@ -95,6 +95,30 @@
 	const MODALSPACE = document.querySelector("#modalSpace");
 	
   BTNOPENPOPUP.addEventListener("click", () => {
+		if(USERID.value==='')
+  		{
+  			alert("아이디가 비어져있습니다")
+  			USERID.focus();
+  			return;
+  		}
+  		if(USERPWD.value==='')
+  		{
+  			alert("비밀번호가 비어져있습니다")
+  			USERPWD.focus();
+  			return;
+  		}
+  		if(USERNAME.value==='')
+  		{
+  			alert("이름이 비어져있습니다")
+  			USERNAME.focus();
+  			return;
+  		}
+  		if(USERNICKNAME.value==='')
+  		{
+  			alert("닉네임이 비어져있습니다")
+  			USERNICKNAME.focus();
+  			return;
+  		}
 	  
 	  MODAL.classList.toggle("show");
 	  
