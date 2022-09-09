@@ -31,7 +31,7 @@
         </div>
       </section>
       <section class="logoBox">
-        <img src="/resources/image/logo.png" />
+        <a href="javascript:location.href='mainpage.jsp'"><img src="/resources/image/logo.png" /></a>
       </section>
       <section class="searchBox">
       
