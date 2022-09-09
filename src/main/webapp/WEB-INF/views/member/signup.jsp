@@ -94,9 +94,8 @@
 	
 	const MODALSPACE = document.querySelector("#modalSpace");
 	
-  	BTNOPENPOPUP.addEventListener("click", () => {
-	  
-  		if(USERID.value==='')
+  BTNOPENPOPUP.addEventListener("click", () => {
+		if(USERID.value==='')
   		{
   			alert("아이디가 비어져있습니다")
   			USERID.focus();
@@ -120,29 +119,31 @@
   			USERNICKNAME.focus();
   			return;
   		}
-  		
-		MODAL.classList.toggle("show");
 	  
-	  	MODALSPACE.innerHTML+='<div>아이디 : '+USERID.value+'</div>'
-	  	MODALSPACE.innerHTML+='<div>비밀번호 : '+USERPWD.value+'</div>'
-	  	MODALSPACE.innerHTML+='<div>이름 : '+USERNAME.value+'</div>'
-	  	MODALSPACE.innerHTML+='<div>닉네임 : '+USERNICKNAME.value+'</div>'
+	  MODAL.classList.toggle("show");
+	  
+	  MODALSPACE.innerHTML+='<div>아이디 : '+USERID.value+'</div>'
+	  MODALSPACE.innerHTML+='<div>비밀번호 : '+USERPWD.value+'</div>'
+	  MODALSPACE.innerHTML+='<div>이름 : '+USERNAME.value+'</div>'
+	  MODALSPACE.innerHTML+='<div>닉네임 : '+USERNICKNAME.value+'</div>'
+
+	  
 
     if (MODAL.classList.contains("show")) {
     	BODY.style.overflow = "hidden";
     }
-  	});
+  });
 
-  	MODAL.addEventListener("click", (event) => {
-    	if (event.target === MODAL) {
-    		MODAL.classList.toggle("show");
-    		MODALSPACE.innerHTML=''; /* 모달에서 취소할 시 기존 내용 삭제 */
+  MODAL.addEventListener("click", (event) => {
+    if (event.target === MODAL) {
+    	MODAL.classList.toggle("show");
+    	MODALSPACE.innerHTML=''; /* 모달에서 취소할 시 기존 내용 삭제 */
     	
-      		if (!MODAL.classList.contains("show")) {
-    	  	BODY.style.overflow = "auto";
-      		}
-    	}
-  	});
+      if (!MODAL.classList.contains("show")) {
+    	  BODY.style.overflow = "auto";
+      }
+    }
+  });
   
   	MODALCANCEL.addEventListener("click", (event)=>{
   		if (MODAL.classList.contains("show")){

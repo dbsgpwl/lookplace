@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>메인</title>
 </head>
-<jsp:include page="/resources/includes/link.jsp"></jsp:include>
-<link href="/resources/css/mainpage.css" rel="stylesheet" type="text/css">
+<jsp:include page="../resources/includes/link.jsp"></jsp:include>
+<link href="../resources/css/mainpage.css" rel="stylesheet" type="text/css">
 <body>
 
 

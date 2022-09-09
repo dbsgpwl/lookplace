@@ -13,7 +13,6 @@
 
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	
-	<jsp:include page="/resources/includes/nav.jsp"></jsp:include>
 	
 	
 	<main>

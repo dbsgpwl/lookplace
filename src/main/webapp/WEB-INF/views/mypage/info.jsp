@@ -24,7 +24,7 @@
 			</div>
 			<div class="info-menu">
 				<p style="border-left:2px solid pink;"><b>나의 정보</b></p>
-				<p>위시리스트</p>
+				<p>찜한 여행</p>
 			</div>
 		</div>
 		

@@ -9,7 +9,6 @@
 </head>
 <body>
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
-	<jsp:include page="/resources/includes/nav.jsp"></jsp:include>
 	
 	<!-- main 안에 작성 -->
 	<main>

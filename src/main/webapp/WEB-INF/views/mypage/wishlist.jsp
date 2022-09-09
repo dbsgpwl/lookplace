@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>위시리스트</title>
+<title>하트 페이지</title>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/infopage.css" rel="stylesheet" type="text/css">
@@ -24,14 +24,14 @@
 			</div>
 			<div class="info-menu">
 				<p><b>나의 정보</b></p>
-				<p style="border-left:2px solid pink;">위시리스트</p>
+				<p style="border-left:2px solid pink;">찜한 여행</p>
 			</div>
 		</div>
 		
 		<div class="info-main-area">
 			<div class="info-main-title">
 				<div style="display:flex; align-items:center; ">
-					<h3 style="height:30px;">위시리스트</h3>
+					<h3 style="height:30px;">찜한 여행</h3>
 					<i style="height:30px; line-height:20px; padding-left: 10px; font-size:2rem; color:rgb(255, 56, 142);" class="fa-solid fa-heart"></i>
 				</div>
 				
