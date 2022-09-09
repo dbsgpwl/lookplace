@@ -28,6 +28,7 @@ public class BoardController {
 			model.addAttribute("review", bservice.getList());
 		}
 		
+		
 		/* 게시판 목록 페이지 접속 */
 		@GetMapping("/freeboard")
 		public void freeboardGET(Model model) {
