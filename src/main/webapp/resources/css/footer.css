@@ -2,19 +2,20 @@
 
 /* footer */
     footer {
-		background-color: rgb(255, 56, 142);
 		margin-top:100px;
  		padding-bottom:50px;
- 		color:white;
  		width:100%;
     }
     footer > p{
     	 text-align: center;
-    	 background-color: black;
+    	 background-color: rgb(255, 56, 142);
     	 width:35%;
     	 margin:2% auto;
-    	 border:2px solid white;
+    	 line-height:40px;
     	 border-radius: 10px;
+    	 border:2px solid lightgray;
+    	 color:white;
+    	 font-size:1.2rem;
     }
     .footer-first-line {
     	margin-bottom:20px;
@@ -24,7 +25,7 @@
     }
     
     .footer-first-line span {
-        padding-right:42px;
+        padding-right:58px;
     
     }
     
@@ -35,13 +36,13 @@
     	padding-right:20px;
     }
     .footer-sns-icon{
-    	font-size: 1rem;
+    	font-size: 2rem;
     	text-align: center;
-    	margin-top: 10px;
+    	
     }
     
     .footer-sns-icon a{
-    	padding-left:10px;
+    	padding-left:30px;
     }
     
 	

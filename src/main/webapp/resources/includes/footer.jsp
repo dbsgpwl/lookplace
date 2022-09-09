@@ -12,9 +12,9 @@
  <footer>
  	<p>lookplace를 sns에서 만나보세요!</p>
  	<div class = "footer-sns-icon">
- 		<a href = "#"><i class="fa-brands fa-instagram" style="color:white;"></i></a>
- 		<a href = "#"><i class="fa-brands fa-facebook-f" style="color:white;"></i></a>
- 		<a href = "#"><i class="fa-brands fa-twitter" style="color:white;"></i></a>
+ 		<a href = "#"><i class="fa-brands fa-square-instagram" style="color:rgb(255, 56, 142);"></i></a>
+ 		<a href = "#"><i class="fa-brands fa-square-facebook" style="color:rgb(255, 56, 142);"></i></a>
+ 		<a href = "#"><i class="fa-brands fa-square-twitter" style="color:rgb(255, 56, 142);"></i></a>
  	</div>
  	<hr>
  	<div>

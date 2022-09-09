@@ -1,5 +1,5 @@
 @charset "UTF-8";
-
+@import "/resources/css/wishlist.css";
 
 .info-main{
 	display:flex; 
@@ -75,6 +75,8 @@
 .info-table{
 	text-align:center;
 }
+
+
 
 
   
