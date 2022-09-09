@@ -18,20 +18,20 @@
         </label>
         <div id="side_menu">
           <ul>
-            <li><a href="#"><i class="fa-sharp fa-solid fa-house"></i>홈</a></li>
+            <li><a href="/"><i class="fa-sharp fa-solid fa-house"></i>홈</a></li>
             <li><a href="#"><i class="fa-sharp fa-solid fa-location-dot"></i>여행지도</a></li>
-            <li><a href="#"><i class="fa-solid fa-clipboard-list"></i>커뮤니티</a></li>
+            <li><a href="/board/notice"><i class="fa-solid fa-clipboard-list"></i>커뮤니티</a></li>
           </ul>
           
           <div id="login-button">
           	<i class="fa-regular fa-user" ></i>
-          	<a href="#">LOGIN</a>
+          	<a href="/member/login">LOGIN</a>
           	
          </div>
         </div>
       </section>
       <section class="logoBox">
-        <a href="javascript:location.href='mainpage.jsp'"><img src="/resources/image/logo.png" /></a>
+        <a href="javascript:location.href='/'"><img src="/resources/image/logo.png" /></a>
       </section>
       <section class="searchBox">
       

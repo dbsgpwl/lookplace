@@ -23,8 +23,8 @@
 				<div class="info-title"><h2>Info</h2></div>
 			</div>
 			<div class="info-menu">
-				<p style="border-left:2px solid pink;"><b>나의 정보</b></p>
-				<p>찜한 여행</p>
+				<p style="border-left:2px solid pink;"><a href="/mypage/info">나의 정보</a></p>
+				<p><a href="/mypage/wishlist">찜한 여행</a></p>
 			</div>
 		</div>
 		
@@ -64,7 +64,7 @@
 			</div>
 			<div class="info-write-area" >
 			 <button type="button" class="btn btn-outline-secondary" >수정</button>
-			 <button type="button" class="btn btn-outline-secondary" >회원탈퇴</button>
+			 <button type="button" class="btn btn-outline-secondary" onclick="location.href='/member/leavemember'">회원탈퇴</button>
 			 
 			</div>
 		</div>
