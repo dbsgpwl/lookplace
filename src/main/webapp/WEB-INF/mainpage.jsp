@@ -14,7 +14,7 @@
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	<jsp:include page="/resources/includes/nav.jsp"></jsp:include>
 	
-	<main style="height:100%; overflow-x:hidden">
+	<main style="height:100%; overflow-x:hidden;">
 		<div class="firstSection">
 			<div style="display: flex; text-align: center;">
 				<div class="firstInLeft test_obj">1</div>

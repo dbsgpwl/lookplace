@@ -5,9 +5,14 @@
    	  height: 80px;
    	  line-height: 80px;
       color: white;
-      padding-top: 10px;
-      margin: 0 auto;
-      width:80%;
+	  position:fixed;
+	  left: 10%;
+	  top:134px;
+	  margin: 0 auto;
+	  width:80%;
+	  z-index: 9999;
+	  background-color: white
+
     }
     
     nav a{
@@ -50,9 +55,9 @@
       list-style: none;
       padding: 0px;
       display: none;
-      width: 10vw;
+      width: 8vw;
       position: relative;
-      left: 0.5vw;
+      left: 0.3vw;
       font-size: 1.3rem;
       line-height: 3em;
       border-radius: 10%;
