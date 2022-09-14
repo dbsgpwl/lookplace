@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%> 
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,9 +48,11 @@
 			</div>
 			<div class="board-writer-area">
                        <table class="table border board-table" >
+                       <%-- <c:forEach items="${review}" var="review" varStatus="x">
 						    <tr>
 						     <td>번호</td>
-						     <td><input name="bno" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>' ></td>
+						     <td><input name="bno" readonly="readonly" value='<c:out value="${cri.total -(cri.pageNum-1) * cri.amount - x.index}"/>' ></td>
+						</c:forEach> --%>
 						     <td>작성자</td>
 						     <td><input name="nickname"  type="text" readonly="readonly" value='<c:out value="${pageInfo.nickname}"/>'></td>
 						     <td>작성일</td>
@@ -79,15 +85,34 @@
 						 <div class="board-reply-area">
 						 <h5>댓글</h5>
 							 	<div class="board-reply-o">
+																	 	
+										<ul>
+											<li>
+												<div>
+													<p>첫번째 댓글 작성자</p>
+													<p>첫번째 댓글</p>
+												</div>
+											</li>
+											<li>
+												<div>
+													<p>두번째 댓글 작성자</p>
+													<p>두번째 댓글</p>
+												</div>
+											</li>
+											<li>
+												<div>
+													<p>세번째 댓글 작성자</p>
+													<p>세번째 댓글</p>
+												</div>
+											</li>
+										</ul>
 							 		<div>
 							 			<textarea class="board-reply-content" placeholder="로그인 후 댓글을 남겨주세요."></textarea>
 							 		</div>
 							 		<div class="board-reply-btn" >
 							 			<button class="board-reply-inputbox" onclick="">등록</button>
 							 		</div>
-							 		<div>
-							 			페이지네이션
-							 		</div>
+							 		
 							 	</div>
 						</div>
 						
