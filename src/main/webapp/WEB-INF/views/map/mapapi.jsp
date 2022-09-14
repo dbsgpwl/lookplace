@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>여행지도</title>
 <style>
 .map_wrap, .map_wrap * {
 	margin: 0;

@@ -18,9 +18,20 @@
         </label>
         <div id="side_menu">
           <ul>
-            <li><a href="/"><i class="fa-sharp fa-solid fa-house"></i>홈</a></li>
-            <li><a href="#"><i class="fa-sharp fa-solid fa-location-dot"></i>여행지도</a></li>
-            <li><a href="/board/notice"><i class="fa-solid fa-clipboard-list"></i>커뮤니티</a></li>
+
+            <li><a href="/"><i class="fa-sharp fa-solid fa-house"></i>홈</a>
+            	<ul class="side_Detail">
+            		<li>인기</li>
+            		<li>코스</li>
+            	</ul>
+            </li>
+            <li><a href="/map/mapapi"><i class="fa-sharp fa-solid fa-location-dot"></i>여행지도</a></li>
+            <li><a href="/board/notice"><i class="fa-solid fa-clipboard-list"></i>커뮤니티</a>
+            	<ul class="side_Detail">
+            		<li>인기</li>
+            		<li>코스</li>
+            	</ul>
+            </li>
           </ul>
           
           <div id="login-button">
@@ -42,8 +53,8 @@
       </section>
       <section class="buttonBox">
         <div>
-          <button>
-           <i class="fa-solid fa-map-location-dot"></i>
+          <button onclick="location.href='/map/mapapi'">
+           <i class="fa-solid fa-map-location-dot" ></i>
            <p style="margin-top:7px; font-size:15px;">여행지도</p>
           </button>
         </div>
