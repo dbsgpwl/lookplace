@@ -10,7 +10,7 @@
     <nav>
       <ul class="menu-level1">
         <li>
-          <a href="/trip/map"><i class="fa-solid fa-location-dot"></i></a>
+          <a href="/map/mapapi"><i class="fa-solid fa-location-dot"></i></a>
         </li>
         <li>
           <a href="#"><i class="fa-solid fa-house"></i></a>

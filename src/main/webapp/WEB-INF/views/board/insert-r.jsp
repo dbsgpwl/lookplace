@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+	<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,18 +44,18 @@
 				</div>
 			</div>
 			<div class="board-writer-area">
-				 <form action="" method="">
+				 <form action="/board/insert-r" method="post">
                        <table class="table border board-table" >
 						    <tr>
 						     <td>작성자</td>
-						     <td><input type="text" placeholder="자동생성" readonly></td>
+						     <td><input type="text" name="nickname"></td>
 						     <td>작성일</td>
 						     <td><input type="text" placeholder="자동생성" readonly></td>
 						    </tr>
 						    <tr>
 						     <td class="board-writer-title">제목</td>
 						     <td colspan="3">
-						     	<input type="text" placeholder="제목을 입력해주세요.">
+						     	<input type="text" name="title" placeholder="제목을 입력해주세요.">
 						     </td>
 						    </tr>
 						    <tr>
@@ -84,7 +87,28 @@
 	</div>
 </main>
 	
-	
+	<script>
+    $(document).ready(function(){
+    
+    	  let result = '<c:out value="${result}"/>';
+    	    
+    	    checkAlert(result);
+    	    
+    	    function checkAlert(result){
+    	        
+    	        if(result === ''){
+    	            reutrn;
+    	        }
+    	        
+    	        if(result === "등록완료"){
+    	            alert("등록이 완료되었습니다.");
+    	        }
+    	        
+    	    }    
+ 
+    });
+ 
+</script>
 	
 	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>

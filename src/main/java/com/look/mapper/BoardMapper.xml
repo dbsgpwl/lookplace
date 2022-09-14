@@ -8,20 +8,66 @@
  		인터페이스 이름 = namespace 속성 값 
  	 -->
   <mapper namespace="com.look.mapper.BoardMapper">
- 	
-  <!-- 게시판 등록 -->
+ 	 <!-- 검색 조건문 -->
+    <sql id="criteria">
+        <trim prefix="where (" suffix=")" prefixOverrides="OR">
+            <foreach collection="typeArr" item="type">
+                <trim prefix="OR">
+                    <choose>
+                        <when test="type == 'T'.toString()">
+                            title like concat('%',#{keyword},'%') 
+                        </when>
+                        <when test="type == 'C'.toString()">
+                            content like concat('%',#{keyword},'%') 
+                        </when>
+                        <when test="type == 'W'.toString()">
+                            nickname like concat('%',#{keyword},'%' )
+                        </when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
+    
+    </sql>
+ <!-- 게시판 등록 -->
     <insert id="insert">
         
-        insert into board(title, content, writer) values (#{title}, #{content}, #{writer})
+        insert into tbl_review(title, content, nickname) values (#{title}, #{content}, #{nickname})
         
     </insert>
     
-    <!-- 게시판 목록 -->
-    <select id="getList" resultType="com.look.model.BoardVO">
     
-        select * from tbl_freeboard;
+    <!-- 게시판 목록 -->
+    <select id="getList" resultType="com.look.model.BoardDTO">
+    
+        select * from tbl_review
     
     </select>
     
+     <!-- 게시물 목록(페이징) -->
+    <select id="getListPaging" resultType="com.look.model.BoardDTO">
+    
+        select * from (
+                select bno, title, nickname, regdate  
+                from tbl_review 
+                <if test="keyword != null">
+                    <include refid="criteria"></include>
+                </if>
+                order by bno desc) as T1
+        limit #{skip},#{amount}
+    
+    </select>
+ 
+ 
+    <!-- 게시물 총 개숫 -->
+    <select id="getTotal" resultType="int">
+    
+        select count(*) from tbl_review
+        
+        <if test="keyword != null">
+            <include refid="criteria"></include>
+        </if>    
+    
+    </select>    
    
   </mapper>
