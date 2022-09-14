@@ -41,7 +41,7 @@
 			</div>
 			<div class="board-main-area-firstline" id="search_wrap">
 			<section class="searchBox" id="search_area">
-				<select name="type">
+				<select name="type" class="board-search-type">
 	                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
 	                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
 	                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
@@ -50,12 +50,13 @@
 	                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
 	                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
 	           	</select>
-	       		<input type="text" name="keyword" value="${pageMaker.cri.keyword }" placeholder="작성자/제목을 검색해보세요"/>
-	        		<button>Search</button>
+	       		<input type="text" name="keyword" value="${pageMaker.cri.keyword }" placeholder="작성자/제목을 검색해보세요" style="text-align:left;"/>
+	        		<button class="board-search-button">검색</button>
 	     	</section>
 	     		<div class="board-write-area" >
 				 <input type="button"  class="board-writer-button" onclick="location.href='/board/insert-r'" value="글쓰기">
 				</div>
+				 
 			</div>
 			
 			<div class="board-table-area">
@@ -81,23 +82,22 @@
 					</c:forEach>
 				</table>
 			</div>
-			<div class="board-page" >
+			<div class="board-pagenation" >
 				<div class="pageInfo_wrap" >
         			<div class="pageInfo_area">
        				 <ul class="pageInfo" id="pageInfo">
-		           <!-- 이전페이지 버튼 -->
+       				 
+		           		<!-- 이전페이지 버튼 -->
 		                <c:if test="${pageMaker.prev}">
-		                    <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}">Previous</a></li>
+		                    <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}"><i class="fas fa-chevron-left"></i></a></li>
 		                </c:if> 	
 		                  <!-- 각 번호 페이지 버튼 -->
 		                <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
 		                    <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
 		                </c:forEach>
-		
-		                
 		                <!-- 다음페이지 버튼 -->
 		                <c:if test="${pageMaker.next}">
-		                    <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+		                    <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }"><i class="fas fa-chevron-right"></i></a></li>
 		                </c:if>    
  					</ul>
         		</div>
@@ -105,10 +105,10 @@
 			</div>
 			
 			<form id="moveForm" method="get">    
-				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
-		        <input type="hidden" name="amount" value="${pageMaker.cri.amount }">  
-		        <input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
-		        <input type="hidden" name="type" value="${pageMaker.cri.type }">
+				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
+		        <input type="hidden" name="amount" value="${pageMaker.cri.amount}">  
+		        <input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+		        <input type="hidden" name="type" value="${pageMaker.cri.type}">
 		    </form>
 			
 		</div>
@@ -138,25 +138,25 @@ $(document).ready(function(){
 			alert("등록이 완료되었습니다.");
 		}
 		
-		if(result === "수정완료"){
-            alert("수정이 완료되었습니다.");
-        }
+		if(result === "modify success"){
+	            alert("수정이 완료되었습니다.");
+	    }
 		if(result === "delete success"){
             alert("삭제가 완료되었습니다.");
         }
 		
 	}	
+ 
 	
 	 let moveForm = $("#moveForm");
 	 
 	    $(".move").on("click", function(e){
 	        e.preventDefault();	//클릭한 <a>태그 기능 정지
-	        moveForm.empty();
 	        
 	        //form 태그 내부에 bno 값을 저장하는 <input>태그 생성
 	        moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
 	        //<form>태그 action 속성 추가
-	        moveForm.attr("action", "/board/article");
+	        moveForm.attr("action", "/board/get-r");
 	        //<form태그 내부 데이터 서버 전송
 	        moveForm.submit();
 	    });
@@ -166,7 +166,7 @@ $(document).ready(function(){
 
 	        e.preventDefault();
 	        moveForm.find("input[name='pageNum']").val($(this).attr("href"));
-	        moveForm.attr("action", "/board/list");
+	        moveForm.attr("action", "/board/review");
 	        moveForm.submit();
 	    });
 	    

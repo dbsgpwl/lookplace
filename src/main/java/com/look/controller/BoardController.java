@@ -24,20 +24,11 @@ public class BoardController {
 	@Autowired
 	private BoardService bservice;
 
-	/*
-	 * 게시판 목록 페이지 접속
-	 * 
-	 * @GetMapping("/review") public void reviewGET(Model model) {
-	 * 
-	 * log.info("리뷰 페이지 진입");
-	 * 
-	 * model.addAttribute("review", bservice.getList()); }
-	 */
-
-	/* 게시판 목록 페이지 접속(페이징 적용) */
+	
+	/* 리뷰 게시판 목록 페이지 접속(페이징 적용) */
 	@GetMapping("/review")
-	public void boardListGET(Model model, Criteria cri) {
-		log.info("boardListGET");
+	public void reviewGET(Model model, Criteria cri) {
+		log.info("리뷰 게시판 목록 페이지 진입");
 
 		model.addAttribute("review", bservice.getListPaging(cri));
 
@@ -99,18 +90,52 @@ public class BoardController {
 
 	/* 게시글 상세 페이지 접속 */
 	@GetMapping("/get-f")
-	public void getFGET(Model model) {
+	public void getFGET(int bno, Model model) {
 
 		log.info("자유게시판 글상세 페이지 진입");
+		model.addAttribute("pageInfo", bservice.getPage(bno));
 
 	}
+	
 
 	/* 리뷰 상세 페이지 접속 */
 	@GetMapping("/get-r")
-	public void getRGET(Model model) {
+	public void getRGET(int bno, Model model, Criteria cri) {
 
 		log.info("리뷰 글상세 페이지 진입");
-
+		model.addAttribute("pageInfo", bservice.getPage(bno));
+		model.addAttribute("cri", cri);
 	}
+	
+	 /* 리뷰 수정 페이지 이동 */
+    @GetMapping("/modify")
+    public void boardModifyGET(int bno, Model model, Criteria cri) {
+    	log.info("리뷰 수정 페이지 진입");
+        model.addAttribute("pageInfo", bservice.getPage(bno));
+        model.addAttribute("cri", cri);
+    }
+    
+    /* 리뷰 페이지 수정 */
+    @PostMapping("/modify")
+    public String boardModifyPOST(BoardDTO board, RedirectAttributes rttr) {
+        
+        bservice.modify(board);
+        
+        rttr.addFlashAttribute("result", "modify success");
+        
+        return "redirect:/board/review";
+        
+    }
+    
+    /* 리뷰 페이지 삭제 */
+    @PostMapping("/delete")
+    public String boardDeletePOST(int bno, RedirectAttributes rttr) {
+        
+        bservice.delete(bno);
+        
+        rttr.addFlashAttribute("result", "delete success");
+        
+        return "redirect:/board/review";
+    }
 
 }

@@ -1,7 +1,5 @@
 package com.look.mapper;
 
-import java.util.Date;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -12,7 +10,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.look.model.BoardDTO;
 
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 public class BoardMapperTests {
@@ -22,20 +19,18 @@ public class BoardMapperTests {
 	@Autowired
 	private BoardMapper mapper;
 
-    @Test
-    public void insert() {
-        
-        BoardDTO rdto = new BoardDTO();
-        
-        rdto.setTitle("mapper test");
-        rdto.setContent("mapper test");
-        rdto.setNickname("mapper test");
-        
-        mapper.insert(rdto);
-        
-    }
-
-
+	
+	  @Test public void insert() {
+	  
+	  BoardDTO rdto = new BoardDTO();
+	  
+	  rdto.setTitle("mapper test"); rdto.setContent("mapper test");
+	  rdto.setNickname("mapper test");
+	  
+	  mapper.insert(rdto);
+	  
+	  }
+	 
 
 
 }

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰 상세</title>
+<title>리뷰 수정</title>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/board.css" rel="stylesheet" type="text/css">
@@ -43,66 +43,50 @@
 				</div>
 			</div>
 			<div class="board-writer-area">
+			<form id="board-modifyForm" action="/board/modify" method="post">
                        <table class="table border board-table" >
 						    <tr>
-						     <td>번호</td>
-						     <td><input name="bno" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>' ></td>
 						     <td>작성자</td>
-						     <td><input name="nickname"  type="text" readonly="readonly" value='<c:out value="${pageInfo.nickname}"/>'></td>
+						     <td><input type="text" name="nickname" readonly="readonly" value='<c:out value="${pageInfo.nickname}"/>'></td>
 						     <td>작성일</td>
 						     <td><input name="regdate" type="text" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/>'></td>
 						    </tr>
 						    <tr>
 						     <td class="board-writer-title">제목</td>
 						     <td colspan="3">
-						     	<input name="title" type="text" readonly="readonly" value='<c:out value="${pageInfo.title}"/>'>
+						     	<input name="title" type="text" value='<c:out value="${pageInfo.title}"/>'>
 						     </td>
 						    </tr>
 						    <tr>
 						     <td class="">글내용</td>
 						     <td colspan="3">
-						     	<textarea  name="content" class="board-writer-content" readonly="readonly" ><c:out value="${pageInfo.content}"/></textarea>
+						     	<textarea  name="content" class="board-writer-content"><c:out value="${pageInfo.content}"/></textarea>
 						     </td>
 						     
     						</tr>
+    						<tr>
+    						<td colspan="2">
+    							<!-- <input type="button" onclick="location.href='/board/review'" value="LIST" style="width:100px;"> -->
+    						 	<a class="btn" id="list_btn_r">목록 페이지</a> 
+        						<a class="btn" id="modify_btn_r">수정 완료</a>
+        						<a class="btn" id="delete_btn_r">삭제</a>
+       						 	<a class="btn" id="cancel_btn_r">수정 취소</a>
+       						 </td>
+ 							</tr>
     						
 						 </table>
-						
-    						<form id="infoForm" action="/board/modify" method="get">
+						 </form>
+							<form id="board-infoForm" action="/board/modify" method="get">
 								<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
 								<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
 								<input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
-								<input type="hidden" name="keyword" value="${cri.keyword}">
-								<input type="hidden" name="type" value="${cri.type}">
+								<input type="hidden" name="keyword" value="${cri.keyword }">
+								<input type="hidden" name="type" value="${cri.type }">
 							</form>
 						
-						 <div class="board-reply-area">
-						 <h5>댓글</h5>
-							 	<div class="board-reply-o">
-							 		<div>
-							 			<textarea class="board-reply-content" placeholder="로그인 후 댓글을 남겨주세요."></textarea>
-							 		</div>
-							 		<div class="board-reply-btn" >
-							 			<button class="board-reply-inputbox" onclick="">등록</button>
-							 		</div>
-							 		<div>
-							 			페이지네이션
-							 		</div>
-							 	</div>
-						</div>
 						
-							 
-							 <div class="board-page">
-							 	<a><i class="fas fa-angle-up"></i> &nbsp;Previous</a>
-							 	<a>현재글</a>
-							 	<a><i class="fas fa-angle-down"></i> &nbsp;Next</a>
-							</div>
-							
-							<div class="board-get-btn-area">
-							 	<!-- <input type="button"  class="board-writer-button" onclick="location.href='/board/review'" value="LIST"> -->
-							 	<a class="btn" id="list_btn">목록 페이지</a> 
-								<a class="board-modify-button" id="modify_btn" style="text-decoration: none;">수정하기</a>
-							 </div>
+						
+						
 
 			</div>
 		</div>
@@ -110,18 +94,32 @@
 </main>
 	
 	<script>
-		let form = $("#infoForm");
-		
-		$("#list_btn").on("click", function(e){
-			form.find("#bno").remove();
-			form.attr("action", "/board/review");
-			form.submit();
-		});
-		
-		$("#modify_btn").on("click", function(e){
-			form.attr("action", "/board/modify");
-			form.submit();
-		});	
+	let form = $("#board-infoForm");        // 페이지 이동 form(리스트 페이지 이동, 조회 페이지 이동)
+    let mForm = $("#board-modifyForm");     // 페이지 데이터 수정 from
+    
+    /* 목록 페이지 이동 버튼 */
+    $("#list_btn_r").on("click", function(e){
+        form.find("#bno").remove();
+        form.attr("action", "/board/review");
+        form.submit();
+    });
+    
+    /* 수정 하기 버튼 */
+    $("#modify_btn_r").on("click", function(e){
+        mForm.submit();
+    });
+    
+    /* 취소 버튼 */
+    $("#cancel_btn_r").on("click", function(e){
+        form.attr("action", "/board/get-r");
+        form.submit();
+    });    
+    /* 삭제 버튼 */
+    $("#delete_btn_r").on("click", function(e){
+        form.attr("action", "/board/delete");
+        form.attr("method", "post");
+        form.submit();
+    });
 	</script>	
 	
 	

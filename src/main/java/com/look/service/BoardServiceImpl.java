@@ -45,10 +45,27 @@ public class BoardServiceImpl implements BoardService{
         return mapper.getTotal(cri);
     }
 
+    /* 게시판 조회 */
+    @Override
+    public BoardDTO getPage(int bno) {
+         
+        return mapper.getPage(bno);
+    }    
 
 
-
-
+    /* 게시판 수정 */
+    @Override
+    public int modify(BoardDTO board) {
+        
+        return mapper.modify(board);
+    }
+    
+    /* 게시판 삭제 */
+    @Override
+    public int delete(int bno) {
+        
+        return mapper.delete(bno);
+    }    
 	
 }
 	

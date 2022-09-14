@@ -29,7 +29,8 @@
         </trim>
     
     </sql>
- <!-- 게시판 등록 -->
+    
+ 	<!-- 게시판 등록 -->
     <insert id="insert">
         
         insert into tbl_review(title, content, nickname) values (#{title}, #{content}, #{nickname})
@@ -57,7 +58,21 @@
         limit #{skip},#{amount}
     
     </select>
+    
+    <!-- 게시판 조회 -->
+    <select id="getPage" resultType="com.look.model.BoardDTO">
+        select * from tbl_review where bno = #{bno}
+    </select>  
+    
+    <!-- 게시판 수정 -->
+    <update id="modify">
+        update tbl_review set title = #{title}, content = #{content}, updatedate = now() where bno = #{bno}
+    </update>
  
+    <!-- 게시판 삭제 -->
+    <delete id="delete">
+        delete from tbl_review where bno = #{bno}
+    </delete>
  
     <!-- 게시물 총 개숫 -->
     <select id="getTotal" resultType="int">
@@ -65,9 +80,11 @@
         select count(*) from tbl_review
         
         <if test="keyword != null">
-            <include refid="criteria"></include>
+           <include refid="criteria"></include>
         </if>    
     
-    </select>    
+    </select>  
+    
+
    
   </mapper>
