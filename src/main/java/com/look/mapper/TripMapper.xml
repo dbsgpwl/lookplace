@@ -18,7 +18,7 @@
     
     <select id = "locationList" resultType="com.look.model.TripDTO">
     
-    	select * from tbl_best_image where address like %#{keyword}% order by heart desc
+    	select * from tbl_best_image where address like concat('%',#{keyword},'%') order by heart desc
     	
     </select>
    		

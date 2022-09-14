@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,12 +10,17 @@
 </head>
 <body>
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
+	<%@page import="java.util.*, com.look.model.*"%>
+	<%
+	%>
 	
 	<!-- main 안에 작성 -->
 	<main>
 		<div class= "e_all all">
 			<div style = "width: 50%;">
-				<h1>#지역</h1>
+				<h1>
+				나중에
+				</h1>
 				<hr>
 				<div class = "e_listorder">
 					<a href = "#">최신순</a>
@@ -24,65 +30,23 @@
 				</div>
 				
 				<!-- 리스트 목록 -->
-				<div class = "e_card">
-					<div class= "e_list">
-						<img alt="" src="/resources/image/대구.jpeg">
-						<div class = "e_explain">
-							<span>여행장소</span>
-							<span>지역</span>
-							<span>#해시태그</span>
+				<c:forEach items="${trip }"  var = "trip">
+					<div class = "e_card">
+						<div class= "e_list">
+							<img alt="" src='/resources/image/<c:out value = "${trip.course }"></c:out>'>
+							<div class = "e_explain">
+								<span><c:out value = "${trip.place }"></c:out></span>
+								<span>지역</span>
+								<span>#해시태그</span>
+							</div>
+						</div>
+						<div class = "e_heart">
+							<i class="fa-regular fa-heart"></i>
 						</div>
 					</div>
-					<div class = "e_heart">
-						<i class="fa-regular fa-heart"></i>
-					</div>
-				</div>
-				<hr>
+					<hr>
+				</c:forEach>
 				
-				<div class = "e_card">
-					<div class= "e_list">
-						<img alt="" src="/resources/image/대구.jpeg">
-						<div class = "e_explain">
-							<span>여행장소</span>
-							<span>지역</span>
-							<span>#해시태그</span>
-						</div>
-					</div>
-					<div class = "e_heart">
-						<i class="fa-regular fa-heart"></i>
-					</div>
-				</div>
-				<hr>
-				
-				<div class = "e_card">
-					<div class= "e_list">
-						<img alt="" src="/resources/image/대구.jpeg">
-						<div class = "e_explain">
-							<span>여행장소</span>
-							<span>지역</span>
-							<span>#해시태그</span>
-						</div>
-					</div>
-					<div class = "e_heart">
-						<i class="fa-regular fa-heart"></i>
-					</div>
-				</div>
-				<hr>
-				
-				<div class = "e_card">
-					<div class= "e_list">
-						<img alt="" src="/resources/image/대구.jpeg">
-						<div class = "e_explain">
-							<span>여행장소</span>
-							<span>지역</span>
-							<span>#해시태그</span>
-						</div>
-					</div>
-					<div class = "e_heart">
-						<i class="fa-regular fa-heart"></i>
-					</div>
-				</div>
-				<hr>
 				
 			</div>
 			<form action="/trip/area" method = "get" id = "">
