@@ -1,87 +1,130 @@
 @charset "UTF-8";
 
-    .SignUpBox {
-      width: 30vw;
-      height: 70vh;
-      background-color: white;
-      margin: 10vh auto;
-      padding-top: 40px;
-      border: 1px solid #e1e1e1;
-      border-radius: 6px;
-      text-align: center;
-    }
-    .SignUpForm {
-      text-align: center;
-    }
-    .SignUpForm div {
-      margin-bottom: 20px;
-    }
+.SignUpBox {
+	width: 30vw;
+	height: 81vh;
+	background-color: white;
+	margin: 10vh auto;
+	padding-top: 40px;
+	border: 1px solid #e1e1e1;
+	border-radius: 6px;
+	text-align: center;
+}
 
-    .SignUpInput {
-      width: 20vw;
-      height: 5vh;
-      font-size: 1.2em;
-      border: 1px solid #e1e1e1;
-      padding: 5px;
-    }
-    .SignUpBtn {
-      width: 7vw;
-      height: 5vh;
-      background-color: rgb(255, 56, 142);
-      color: white;
-      font-size: 1.2em;
-      font-weight: 700;
-      border: 1px solid rgba(0, 0, 0, 0);
-      border-radius: 2px;
-    }
-    .CancelBtn {
-      width: 5vw;
-      height: 5vh;
-      background-color: rgba(128, 128, 128, 0.767);
-      color: white;
-      font-size: 1.2em;
-      font-weight: 700;
-      border: 1px solid rgba(0, 0, 0, 0);
-      border-radius: 2px;
-    }
+.SignUpForm {
+	text-align: center;
+}
 
-	
-	/* Modal */
-	  .modal {
-	    position: absolute;
-	    top: 0;
-	    left: 0;
-	    width: 100%;
-	    height: 100%;
-	    display: none;
-	    background-color: rgba(0, 0, 0, 0.4);
-	  }
-	
-	  .modal.show {
-	    display: block;
-	  }
-	
-	  .modal_body {
-	    position: absolute;
-	    top: 50%;
-	    left: 50%;
-	
-	    width: 500px;
-	    height: 550px;
-	
-	    padding: 40px;
-	
-	    text-align: center;
-	
-	    background-color: rgb(255, 255, 255);
-	    border-radius: 10px;
-	    box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
-	
-	    transform: translateX(-50%) translateY(-50%);
-	  }
-	  
-	  .modalSpace{
-	  	display:flex;
-	  	flex-direction:column;
-	  	
-	  }
+.SignUpForm div {
+	margin-bottom: 20px;
+}
+
+.SignUpInput {
+	width: 20vw;
+	height: 5vh;
+	font-size: 1.2em;
+	border: 1px solid #e1e1e1;
+	padding: 5px;
+}
+
+.SignUpInputEmail {
+	width: 20vw;
+	height: 5vh;
+	font-size: 1.2em;
+	border: 1px solid #e1e1e1;
+	padding: 5px;
+}
+
+.SignUpBtn {
+	width: 7vw;
+	height: 5vh;
+	background-color: rgb(255, 56, 142);
+	color: white;
+	font-size: 1.2em;
+	font-weight: 700;
+	border: 1px solid rgba(0, 0, 0, 0);
+	border-radius: 2px;
+}
+.CancelBtn {
+	width: 5vw;
+	height: 5vh;
+	background-color: rgba(128, 128, 128, 0.767);
+	color: white;
+	font-size: 1.2em;
+	font-weight: 700;
+	border: 1px solid rgba(0, 0, 0, 0);
+	border-radius: 2px;
+}
+/* Modal */
+.modal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	background-color: rgba(0, 0, 0, 0.4);
+}
+
+/* 메일 */
+.mail_check_input{
+	font-size: 1.2em;
+	border: 1px solid #e1e1e1;
+	padding: 5px;
+}
+.mail_check_button{
+	border: 1px solid black;
+    height: 35px;
+    width: 25%;
+    float: right;
+    line-height: 35px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: #ececf7;
+    cursor: pointer;
+}
+
+#mail_check_input_box_false{
+    background-color:#ebebe4;
+}
+ 
+#mail_check_input_box_true{
+    background-color:white;
+}
+
+.correct{
+    color : green;
+    font-size:8px;
+}
+.incorrect{
+    color : red;
+    font-size:8px;
+}
+ 
+
+
+.modal.show {
+	display: block;
+}
+
+.modal_body {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 500px;
+	height: 550px;
+	padding: 40px;
+	text-align: center;
+	background-color: rgb(255, 255, 255);
+	border-radius: 10px;
+	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+	transform: translateX(-50%) translateY(-50%);
+}
+
+
+
+.modalSpace {
+	display: flex;
+	flex-direction: column;
+}

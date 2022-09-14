@@ -16,13 +16,9 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void memberJoin(MemberDTO dto) {
 		mapper.memberJoin(dto);
+		
+		
 	}
-
-	
-
-
-
-	
 }
 	
 

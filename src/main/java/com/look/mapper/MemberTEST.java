@@ -20,20 +20,21 @@ public class MemberTEST {
 	private MemberMapper membermapper;			//MemberMapper.java 인터페이스 의존성 주입
 	
 	//회원가입 쿼리 테스트 메서드
-	@Test
-	public void memberJoin() throws Exception{
-		MemberDTO member = new MemberDTO();
+//	@Test
+//	public void memberJoin() throws Exception{
+//		MemberDTO member = new MemberDTO();
 		
-		Date date = new Date();
-		member.setName("test");
-		member.setEmail("tets3");
-		member.setPassword("test4");
-		member.setNickname("test1112");
-		member.setAddress("test2");
-		member.setGrade("1");
-		member.setCreatedAt(date);
-		
-		membermapper.memberJoin(member);			//쿼리 메서드 실행
-		
-	}
+//		Date date = new Date();
+//		member.setName("test");
+//		member.setEmail("tets3");
+//		member.setPassword("test4");
+//		member.setNickname("test1112");
+//		member.setAddress("test2");
+//		member.setGrade("1");
+//		member.setCreatedAt(date);
+//		
+//	membermapper.memberJoin(member);			//쿼리 메서드 실행
+//		
+//	}
+
 }

@@ -10,11 +10,6 @@
   <mapper namespace="com.look.mapper.MemberMapper">
  	
     <insert id="memberJoin">
-        
-        insert into tbl_member(name, email,password,nickname,address,grade,createdAt) values(#{name}, #{email}, #{password}, #{nickname}, #{address}, #{grade}, now())
-        
+        insert into tbl_member(name, email,password,nickname,address,grade,createdAt) values(#{name}, #{email}, #{password}, #{nickname}, #{address}, #{grade}, now())      
     </insert>
-    
-    
-
   </mapper>
