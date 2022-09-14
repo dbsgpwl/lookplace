@@ -29,5 +29,8 @@ public class BoardDTO {
     
     /* 수정 날짜 */
     private Date updateDate;
+    
+    /* 조회수 */
+    private int count;
 	
 }
