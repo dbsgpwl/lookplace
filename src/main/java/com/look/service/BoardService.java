@@ -13,6 +13,10 @@ public interface BoardService {
     public void insert(BoardDTO rdto);
 
     /* 게시판 목록 조회 */
+<<<<<<< HEAD
+    public List<BoardVO> getList();
+
+=======
     public List<BoardDTO> getList();
     
     /* 게시판 목록(페이징 적용) */
@@ -29,4 +33,5 @@ public interface BoardService {
     
     /* 게시판 삭제 */
     public int delete(int bno);
+>>>>>>> 6754d072c29ba3806eebbbfb791425215dc116df
 }

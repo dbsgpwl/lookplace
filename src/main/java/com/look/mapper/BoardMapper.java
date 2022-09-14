@@ -8,6 +8,11 @@ import com.look.model.Criteria;
 public interface BoardMapper {
 	
     
+<<<<<<< HEAD
+    /* 게시판 목록 */
+    public List<BoardVO> getList();
+
+=======
 	/* 게시판 목록 */
     public List<BoardDTO> getList();
     
@@ -28,4 +33,5 @@ public interface BoardMapper {
     
     /* 게시판 총 갯수 */
     public int getTotal(Criteria cri);
+>>>>>>> 6754d072c29ba3806eebbbfb791425215dc116df
 }

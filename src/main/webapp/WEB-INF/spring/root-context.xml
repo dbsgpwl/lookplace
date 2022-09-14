@@ -6,9 +6,62 @@
 	xsi:schemaLocation="http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+<<<<<<< HEAD
+		<!--<property name="driverClassName" value="com.mysql.jdbc.Driver"></property> 
+			<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ksj?serverTimezone=Asia/Seoul"></property> -->
+
+		<property name="driverClassName"
+			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
+		<property name="jdbcUrl"
+			value="jdbc:log4jdbc:mysql://localhost:3306/lookplace?serverTimezone=Asia/Seoul"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="1234"></property>
+	</bean>
+
+	<bean id="datasource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="close">
+		<constructor-arg ref="hikariConfig"></constructor-arg>
+	</bean>
+
+	<bean id="sqlSessionFactory"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="datasource"></property>
+	</bean>
+
+
+	<bean id="mailSender"
+		class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.naver.com" /> <!-- 메이서버 호스트 -->
+		<property name="port" value="587" /> <!-- 메이서버 포트번호 -->
+		<property name="username" value="min11600@naver.com" /> <!-- 자신의 이메일 아이디 -->
+		<property name="password" value="GJ9WRG8FZ11P" /> <!-- 자신의 비밀번호 -->
+		 
+
+
+
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.smtps.checkserveridentity">true</prop>
+				<prop key="mail.smtps.ssl.trust">*</prop>
+				<prop key="mail.debug">true</prop>
+				<prop key="mail.smtp.socketFactory.class">javax.net.ssl.SSLSocketFactory</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<mybatis-spring:scan base-package="com.look.mapper" />
+	<context:component-scan
+		base-package="com.look.model"></context:component-scan>
+	<context:component-scan
+		base-package="com.look.service"></context:component-scan>
+=======
  		<!--<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
 		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ksj?serverTimezone=Asia/Seoul"></property> -->
 		
@@ -30,4 +83,5 @@
      <mybatis-spring:scan base-package="com.look.mapper"/>
     <context:component-scan base-package="com.look.model"></context:component-scan>
     <context:component-scan base-package="com.look.service"></context:component-scan>    
+>>>>>>> 6754d072c29ba3806eebbbfb791425215dc116df
 </beans>
