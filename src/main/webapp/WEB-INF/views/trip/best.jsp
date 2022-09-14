@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +10,10 @@
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 </head>
 <body>
-
-
+	<%@page import="java.util.*, com.look.model.*"%>
+	<%
+	ArrayList<TripDTO> list = (ArrayList<TripDTO>) request.getAttribute("list");
+	%>
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	
 	
@@ -21,7 +24,7 @@
 				<h1><b>인기</b></h1>
 				<hr>
 				<div class = "hashtag">
-					<a href = "#">#전체</a>
+					<a href = "/trip/entire">#전체</a>
 					<a href = "#">#여행지</a>
 					<a href = "#">#관광지</a>
 					<a href = "#">#체험</a>
@@ -61,48 +64,21 @@
 			<div>
 				<h3 class = "p_title">9월의 SNS인기 여행지 TOP 10</h3>
 				<div class = "p_firstline">
-					<div class = "p_top">
-						<img>
-						<h3>여행지1</h3>
-					</div>
-					<div class = "p_top">
-						<img>
-						<h3>여행지2</h3>
-					</div>
-					<div class = "p_top">
-						<img>
-						<h3>여행지3</h3>
-					</div>
-					<div class = "p_top">
-						<img>
-						<h3>여행지4</h3>
-					</div>
-					<div class = "p_top">
-						<img>
-						<h3>여행지5</h3>
-					</div>
+					<c:forEach items="${list }" var = "best" begin="0" end="4">
+						<div class = "p_top">
+							<img src = '/resources/image/<c:out value = "${best.course }"></c:out>'>
+							<h3><c:out value = "${best.place }"></c:out></h3>
+						</div>
+					</c:forEach>
 				</div>
+				
 				<div class = "p_firstline">
-					<div class = "p_top">
-						<img>
-						<h3>여행지1</h3>
-					</div>
-					<div class = "p_top">
-						<img>
-						<h3>여행지2</h3>
-					</div>
-					<div class = "p_top">
-						<img>
-						<h3>여행지3</h3>
-					</div>
-					<div class = "p_top">
-						<img>
-						<h3>여행지4</h3>
-					</div>
-					<div class = "p_top">
-						<img>
-						<h3>여행지5</h3>
-					</div>
+					<c:forEach items="${list }" var = "best" begin="5" end="9">
+						<div class = "p_top">
+							<img src = '/resources/image/<c:out value = "${best.course }"></c:out>'>
+							<h3><c:out value = "${best.place }"></c:out></h3>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 			<hr>	

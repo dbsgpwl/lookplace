@@ -85,7 +85,8 @@
 				<hr>
 				
 			</div>
-			<div style = "width: 40%; height: 600px; background-color: lightgray; margin-top:60px;">
+			<form action="/trip/area" method = "get" id = "">
+				<div style = "width: 40%; height: 600px; background-color: lightgray; margin-top:60px;">
 					<div style = "width: 60%;margin:100px auto 0 auto;">
 						<hr>
 						<div class= "e_location">
@@ -125,7 +126,8 @@
 							<a href = "#">#임둥</a>
 						</div>
 					</div>
-			</div>
+				</div>
+			</form>
 		</div>
 	</main>
 	
