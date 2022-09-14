@@ -20,12 +20,6 @@ import lombok.AllArgsConstructor;
 @Controller					
 @RequestMapping("/trip/*") 
 @AllArgsConstructor
-
-import com.look.service.BoardService;
-
-@Controller					
-@RequestMapping("/map/*") 
-
 public class TripController {
 	 
 		private static final Logger log = LoggerFactory.getLogger(TripController.class);
@@ -36,6 +30,8 @@ public class TripController {
 		@GetMapping("/area")
 		public void areaGET(Criteria cri, Model model) {
 			model.addAttribute("trip", service.locationList(cri));
+		}
+		
 
 		@GetMapping("/mapapi")
 		public void mapGET(Model model) {
