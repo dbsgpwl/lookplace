@@ -59,6 +59,10 @@
 	background-color : lightgray;
 	text-align: center;
 }
+.p_top img {
+	width: 150px;
+	height: 150px;	
+}
 
 
 .all{
