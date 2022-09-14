@@ -3,17 +3,22 @@
  /* header */
     header {
       display: flex;
-      justify-content: space-evenly;
+      position:fixed;
+      left:10%;
+      justify-content: center;
       border-bottom: 3px solid rgb(255, 56, 142);
       align-items: center;
       margin: 0 auto;
       width:80%;
+      z-index:99999;
+      background-color:white;
     }
 
     .searchBox {
       display: flex;
       width: 40%;
       height: 42px;
+      justify-content:center;
     }
     .searchBox i {
     	position :relative;
@@ -76,7 +81,6 @@
     .burgerBox {
       width: 7%;
       height: 50%;
-      magin-top:100px;
     }
     
     #check_box {
@@ -84,11 +88,6 @@
       padding-left:0px;
     }
 
-    #check_box + label {
-      position: relative;
-      display: block;
-      cursor: pointer;
-    }
 
     #check_box + label > span {
       position: absolute;
@@ -132,7 +131,7 @@
       height: 30px;
       cursor: pointer;
       /* z-index 추가 */
-      z-index: 2;
+      z-index: 1000;
     }
     
     #login-button{
@@ -146,12 +145,12 @@
 
     #side_menu {
       position: fixed;
-      width: 30%;
+      width: 25%;
       height: 100%;
       background-color: rgb(44, 62, 80);
       left: -30%;
       transition: all 300ms;
-      z-index: 1;
+      z-index: 999;
       top: 0px;
       padding: 60px 20px 20px 20px;
       box-sizing: border-box;
@@ -168,6 +167,7 @@
     
     #side_menu a{
     	color:white;
+    	font-size:30px;
     }
     
     #side_menu i{
@@ -177,5 +177,14 @@
     #check_box:checked + label + #side_menu {
       left: 0;
     }
+    
+    .side_Detail{
+    	display:none;
+    }
+    
+    #side_menu > a:hover .side_Detail{
+    	display:block;
+    }
+    
     
     

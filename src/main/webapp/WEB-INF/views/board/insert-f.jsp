@@ -41,7 +41,7 @@
 				</div>
 			</div>
 			<div class="board-writer-area">
-				 <form action="" method="">
+				 <form action="/board/insert-f" method="post">
                        <table class="table border board-table" >
 						    <tr>
 						     <td>작성자</td>

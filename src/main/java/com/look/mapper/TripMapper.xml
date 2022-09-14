@@ -7,21 +7,19 @@
  		
  		인터페이스 이름 = namespace 속성 값 
  	 -->
-  <mapper namespace="com.look.mapper.BoardMapper">
- 	
-  <!-- 게시판 등록 -->
-    <insert id="insert">
-        
-        insert into board(title, content, writer) values (#{title}, #{content}, #{writer})
-        
-    </insert>
+  <mapper namespace="com.look.mapper.TripMapper">
     
     <!-- 게시판 목록 -->
-    <select id="getList" resultType="com.look.model.BoardVO">
+    <select id="getList" resultType="com.look.model.TripDTO">
     
-        select * from tbl_freeboard;
+        select course, address, place from tbl_best_image order by heart desc
     
     </select>
     
-   
+    <select id = "locationList" resultType="com.look.model.TripDTO">
+    
+    	select * from tbl_best_image where address like %#{keyword}% order by heart desc
+    	
+    </select>
+   		
   </mapper>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,26 +45,36 @@
 			<div class="board-writer-area">
                        <table class="table border board-table" >
 						    <tr>
+						     <td>번호</td>
+						     <td><input name="bno" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>' ></td>
 						     <td>작성자</td>
-						     <td><input type="text" placeholder="자동생성" readonly></td>
+						     <td><input name="nickname"  type="text" readonly="readonly" value='<c:out value="${pageInfo.nickname}"/>'></td>
 						     <td>작성일</td>
-						     <td><input type="text" placeholder="자동생성" readonly></td>
+						     <td><input name="regdate" type="text" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/>'></td>
 						    </tr>
 						    <tr>
 						     <td class="board-writer-title">제목</td>
 						     <td colspan="3">
-						     	<input type="text" placeholder="제목을 입력해주세요.">
+						     	<input name="title" type="text" readonly="readonly" value='<c:out value="${pageInfo.title}"/>'>
 						     </td>
 						    </tr>
 						    <tr>
 						     <td class="">글내용</td>
 						     <td colspan="3">
-						     	<textarea  name="content" class="board-writer-content" placeholder="내용을 입력해주세요."></textarea>
+						     	<textarea  name="content" class="board-writer-content" readonly="readonly" ><c:out value="${pageInfo.content}"/></textarea>
 						     </td>
 						     
     						</tr>
+    						
 						 </table>
 						
+    						<form id="infoForm" action="/board/modify" method="get">
+								<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
+								<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
+								<input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
+								<input type="hidden" name="keyword" value="${cri.keyword}">
+								<input type="hidden" name="type" value="${cri.type}">
+							</form>
 						
 						 <div class="board-reply-area">
 						 <h5>댓글</h5>
@@ -79,25 +91,38 @@
 							 	</div>
 						</div>
 						
-						 <div class="board-write-area" >
 							 
-							 <div>
-							 	<input type="button" value="이전글" onclick="location.href=''" class="">
-							 	<input type="button" value="현재글" onclick="location.href=''" class="">
-      							<input type="submit" value="다음글" class="">
+							 <div class="board-page">
+							 	<a><i class="fas fa-angle-up"></i> &nbsp;Previous</a>
+							 	<a>현재글</a>
+							 	<a><i class="fas fa-angle-down"></i> &nbsp;Next</a>
 							</div>
 							
-							<div>
-							 	<input type="button"  class="board-writer-button" onclick="location.href='/board/review'" value="LIST">
+							<div class="board-get-btn-area">
+							 	<!-- <input type="button"  class="board-writer-button" onclick="location.href='/board/review'" value="LIST"> -->
+							 	<a class="btn" id="list_btn">목록 페이지</a> 
+								<a class="board-modify-button" id="modify_btn" style="text-decoration: none;">수정하기</a>
 							 </div>
-						</div>
 
 			</div>
 		</div>
 	</div>
 </main>
 	
-	
+	<script>
+		let form = $("#infoForm");
+		
+		$("#list_btn").on("click", function(e){
+			form.find("#bno").remove();
+			form.attr("action", "/board/review");
+			form.submit();
+		});
+		
+		$("#modify_btn").on("click", function(e){
+			form.attr("action", "/board/modify");
+			form.submit();
+		});	
+	</script>	
 	
 	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>

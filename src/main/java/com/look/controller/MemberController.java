@@ -16,8 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+<<<<<<< HEAD
 import com.look.model.MemberDTO;
 import com.look.service.MemberService;
+=======
+import com.look.service.BoardService;
+>>>>>>> 6754d072c29ba3806eebbbfb791425215dc116df
 
 @Controller					
 @RequestMapping("/member/*") 
