@@ -16,6 +16,7 @@
 	ArrayList<TripDTO> trip = (ArrayList<TripDTO>) request.getAttribute("trip");
 	%>
 	<!-- main 안에 작성 -->
+	
 	<main>
 		<div class= "e_all all">
 			<div style = "width: 50%;">
@@ -32,7 +33,7 @@
 				<c:forEach items="${list }" var = "all">
 					<div class = "e_card">
 						<div class= "e_list">
-							<img src='/resources/image/<c:out value = "${all.course }"></c:out>'>
+							<img class= "e_img" src='/resources/image/<c:out value = "${all.course }"></c:out>'>
 							<div class = "e_explain">
 								<span><c:out value = '${all.place }'></c:out></span>
 								<span>지역</span>
@@ -46,46 +47,44 @@
 					<hr>
 				</c:forEach>
 			</div>
-			<form action="/trip/area" method = "get">
-			<div style = "width: 40%; height: 600px; background-color: lightgray; margin-top:60px;">
-					<div style = "width: 60%;margin:100px auto 0 auto;">
-						<hr>
-						<div class= "e_location">
-							<a href = "#">#전체</a>
-							<a href = "#">#서울</a>
-							<input type="submit" name ="keyword" value ="대구">
-							<a href = "#">#부산</a>
-						</div>
-						<div class= "e_location">
-							<a href = "#">#인천</a>
-							<a href = "#">#울산</a>
-							<a href = "#">#광주</a>
-							<a href = "#">#대전</a>
-						</div>
-						<div class= "e_location">
-							<a href = "#">#전체</a>
-							<a href = "#">#서울</a>
-							<a href = "#">#대구</a>
-							<a href = "#">#부산</a>
-						</div>
-						<div class= "e_location">
-							<a href = "#">#전체</a>
-							<a href = "#">#서울</a>
-							<a href = "#">#대구</a>
-							<a href = "#">#부산</a>
-						</div>
-						<hr>
-						
-						<div class= "e_location">
-							<a href = "#">#해시</a>
-							<a href = "#">#태그</a>
-							<a href = "#">#임둥</a>
-						</div>
-						<div class= "e_location">
-							<a href = "#">#해시</a>
-							<a href = "#">#태그</a>
-							<a href = "#">#임둥</a>
-						</div>
+			<form action="/trip/area" method = "get" style = "width: 40%; height: 600px; background-color: lightgray; margin-top:60px;">
+				<div style = "width: 60%;margin:100px auto 0 auto;">
+					<hr>
+					<div class= "e_location">
+						<a href = "#">#전체</a>
+						<input type="submit" name ="keyword" value ="서울">
+						<input type="submit" name ="keyword" value ="대구">
+						<input type="submit" name ="keyword" value ="부산">
+					</div>
+					<div class= "e_location">
+						<input type="submit" name ="keyword" value ="인천">
+						<input type="submit" name ="keyword" value ="울산">
+						<input type="submit" name ="keyword" value ="광주">
+						<input type="submit" name ="keyword" value ="대전">
+					</div>
+					<div class= "e_location">
+						<a href = "#">#전체</a>
+						<a href = "#">#서울</a>
+						<a href = "#">#대구</a>
+						<a href = "#">#부산</a>
+					</div>
+					<div class= "e_location">
+						<a href = "#">#전체</a>
+						<a href = "#">#서울</a>
+						<a href = "#">#대구</a>
+						<a href = "#">#부산</a>
+					</div>
+					<hr>
+					
+					<div class= "e_location">
+						<a href = "#">#해시</a>
+						<a href = "#">#태그</a>
+						<a href = "#">#임둥</a>
+					</div>
+					<div class= "e_location">
+						<a href = "#">#해시</a>
+						<a href = "#">#태그</a>
+						<a href = "#">#임둥</a>
 					</div>
 				</div>
 			</form>
@@ -94,7 +93,7 @@
 					<input type = "hidden" name ="amount" value = "${pageMaker.cri.amount}">
 					<input type = "hidden" name ="keyword" value = "${pageMaker.cri.keyword}">
 					<input type = "hidden" name ="type" value = "${pageMaker.cri.type}">
-				</form>
+			</form>
 		</div>
 	</main>
 	
