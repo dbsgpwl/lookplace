@@ -68,10 +68,11 @@
 						<td>날짜</td>
 						<td>조회수</td>
 					</tr>
-					<c:forEach items="${review}" var="review">
+					<c:forEach items="${review}" var="review" varStatus="x">
 					<tr>
-						<td><c:out value="${review.bno}"/></td>
-						<td><a class="move" href='<c:out value="${review.bno}"/>'>
+					
+						<td><c:out value="${pageMaker.total -(pageMaker.cri.pageNum-1) * pageMaker.cri.amount - x.index}"/></td>
+						<td><a class="move" href='<c:out value="get-r?bno=${review.bno}"/>'>
 							<c:out value="${review.title}"/>
 						</a></td>
 						 <td><c:out value="${review.nickname}"/></td>
@@ -151,12 +152,12 @@ $(document).ready(function(){
 	 let moveForm = $("#moveForm");
 	 
 	    $(".move").on("click", function(e){
-	        e.preventDefault();	//클릭한 <a>태그 기능 정지
+	        /* e.preventDefault();	//클릭한 <a>태그 기능 정지
 	        
 	        //form 태그 내부에 bno 값을 저장하는 <input>태그 생성
 	        moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
 	        //<form>태그 action 속성 추가
-	        moveForm.attr("action", "/board/get-r");
+	        moveForm.attr("action", "/board/get-r"); */
 	        //<form태그 내부 데이터 서버 전송
 	        moveForm.submit();
 	    });
