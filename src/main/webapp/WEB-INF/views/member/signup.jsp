@@ -199,7 +199,9 @@ $(".mail_check_input").blur(function(){
 	}else{
 		checkResult.html("인증번호를 다시 확인해주세요.");
 		checkResult.attr("class","incorrect");
-		
+		$(".mail_check_input").css('border','1px solid red');
+		$(".mail_check_input").css('background-color','	#FF1493');
+		$(".mail_check_input").css('color','white');
 	}
 })
 
