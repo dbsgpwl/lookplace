@@ -27,10 +27,10 @@ public class TripController {
 		private TripService service;
 		
 
-		@GetMapping("/area")
-		public void areaGET(Criteria cri, Model model) {
-			model.addAttribute("trip", service.locationList(cri));
-		}
+//		@GetMapping("/area")
+//		public void areaGET(Criteria cri, Model model) {
+//			model.addAttribute("trip", service.locationList(cri));
+//		}
 		
 
 		@GetMapping("/mapapi")
@@ -54,8 +54,9 @@ public class TripController {
 		}
 		
 		@GetMapping("/entire")
-		public void entireGET(Model model) {
-			model.addAttribute("list", service.getList());
+		public void entireGET(Criteria cri, Model model) {
+			model.addAttribute("trip", service.locationList(cri));
+			model.addAttribute("key", cri.getKeyword());
 			log.info("전체 페이지 진입");			
 		}
 

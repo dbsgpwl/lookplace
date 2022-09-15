@@ -20,11 +20,11 @@
 	
 	<main>
 		<div class="all">
-			<div>
+			<form action = "/trip/entire" method = "get">
 				<h1><b>인기</b></h1>
 				<hr>
 				<div class = "hashtag">
-					<a href = "/trip/entire">#전체</a>
+					<input type="submit" name ="keyword" value ="전체">
 					<a href = "#">#여행지</a>
 					<a href = "#">#관광지</a>
 					<a href = "#">#체험</a>
@@ -33,12 +33,12 @@
 					<a href = "#">#가을</a>
 					<a href = "#">#단풍</a>
 				</div>
-			</div>
+			</form>
 			<div>
 				<h3><b>지역</b></h3>
 				<table id = "p_location">
 					<tr>
-						<td>전체</td>
+						<td><a href = "#">전체</a></td>
 						<td>서울</td>
 						<td>대전</td>
 						<td>대구</td>
