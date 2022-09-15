@@ -48,7 +48,18 @@
 					</div>
 					<hr>
 				</c:forEach>
+				 <div class="pageInfo_wrap" >
+			        <div class="pageInfo_area">
+			 			<!-- 각 번호 페이지 버튼 -->
+		                <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+		                    <li class="pageInfo_btn"><a href="${num}">${num}</a></li>
+		                </c:forEach>
+			        </div>
+			    </div>
 			</div>
+			
+			
+			<!-- 지역의 관련된 리스트 출력  -->
 			<form action="/trip/entire" method = "get" style = "width: 40%; height: 600px; background-color: lightgray; margin-top:60px;">
 				<div style = "width: 60%;margin:100px auto 0 auto;">
 					<hr>
@@ -90,6 +101,8 @@
 					</div>
 				</div>
 			</form>
+			<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+        	<input type="hidden" name="amount" value="${pageMaker.cri.amount }">   
 		</div>
 	</main>
 	

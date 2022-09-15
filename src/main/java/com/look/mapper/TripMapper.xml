@@ -9,13 +9,14 @@
  	 -->
   <mapper namespace="com.look.mapper.TripMapper">
     
-    <!-- 게시판 목록 -->
+    <!-- 인기 여행 목록 -->
     <select id="getList" resultType="com.look.model.TripDTO">
     
         select course, address, place from tbl_best_image order by heart desc
     
     </select>
     
+    <!-- 전체/지역 목록 -->
     <select id = "locationList" resultType="com.look.model.TripDTO">
     		
     	select * from tbl_best_image 
@@ -25,5 +26,12 @@
     	order by heart desc
     	
     </select>
+    
+    
+    <select id="localTotal" resultType="int">
+    
+        select count(*) from tbl_best_image
+    </select>
+    
    		
   </mapper>

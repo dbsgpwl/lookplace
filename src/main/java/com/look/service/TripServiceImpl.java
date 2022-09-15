@@ -25,4 +25,9 @@ public class TripServiceImpl implements TripService{
 		return mapper.locationList(cri);
 	}
 
+	@Override
+	public int localTotal() {
+		return mapper.localTotal();
+	}
+
 }

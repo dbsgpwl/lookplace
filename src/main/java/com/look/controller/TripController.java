@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 
 import com.look.model.Criteria;
+import com.look.model.PageMakerDTO;
 import com.look.model.TripDTO;
 import com.look.service.TripService;
 
@@ -40,6 +41,7 @@ public class TripController {
 			log.info("지도 페이지 진입");			
 		}
 		
+		/* top10 목록 페이지 접속  */
 
 		@GetMapping("/best")
 		public void bestGET(Model model) {
@@ -47,16 +49,17 @@ public class TripController {
 			log.info("인기 페이지 진입");		
 		}		
 		
-		@GetMapping("/course")
-		public void leavememberGET(Model model) {
-			
-			log.info("코스 페이지 진입");			
-		}
-		
+		/* 전체/지역 목록 페이지 접속  */
 		@GetMapping("/entire")
 		public void entireGET(Criteria cri, Model model) {
 			model.addAttribute("trip", service.locationList(cri));
 			model.addAttribute("key", cri.getKeyword());
+			
+			/*페이징 처리*/
+			int total = service.localTotal();
+			PageMakerDTO pageMake = new PageMakerDTO(cri, total);
+			model.addAttribute("pageMaker", pageMake);
+			
 			log.info("전체 페이지 진입");			
 		}
 

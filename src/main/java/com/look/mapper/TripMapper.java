@@ -12,4 +12,6 @@ public interface TripMapper {
 
 	public List<TripDTO> locationList(Criteria cri);	
 	
+	
+	public int localTotal();
 }

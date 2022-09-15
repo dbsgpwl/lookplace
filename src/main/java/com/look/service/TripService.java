@@ -10,4 +10,6 @@ public interface TripService {
 	public List<TripDTO> getList();
 	
 	public List<TripDTO> locationList(Criteria cri);
+	
+	public int localTotal();
 }
