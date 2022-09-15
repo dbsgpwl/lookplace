@@ -25,4 +25,8 @@
     
     </select>
  
+ 	<!-- 게시판 수정 -->
+ 	<update id="update">
+ 		update tbl_board set title = #{title}, content = #{content}, updatedate = now() where bno=#{bno}
+ 	</update>
   </mapper>

@@ -18,13 +18,17 @@ public class BoardServiceTests {
 	private static final Logger log = LoggerFactory.getLogger(BoardMapperTests.class);
 	@Autowired
 	private NoticeService service;
-	/*게시판 조회*/
+	/* 게시판 수정 */
     @Test
-    public void testGETPage() {
+    public void testModify() {
         
-        int bno = 1;
+        NoticeDTO dto = new NoticeDTO();
+        dto.setBno(2);
+        dto.setTitle("수정 제목");
+        dto.setContent("수정 내용");
         
-        log.info("" + service.getPage(bno));
+       service.update(dto);
+        log.info("result : " +dto);
         
-    }
+    }     
 }
