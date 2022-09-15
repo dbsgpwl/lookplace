@@ -2,7 +2,7 @@
 
 .SignUpBox {
 	width: 30vw;
-	height: 81vh;
+	height: 95vh;
 	background-color: white;
 	margin: 10vh auto;
 	padding-top: 40px;
@@ -26,6 +26,29 @@
 	border: 1px solid #e1e1e1;
 	padding: 5px;
 }
+
+.AddressInput1{
+	font-size: 1.2em;
+	border: 1px solid #e1e1e1;
+	padding: 5px;
+}
+
+.AddressInput2{
+	width: 20vw;
+	height: 5vh;
+	font-size: 1.2em;
+	border: 1px solid #e1e1e1;
+	padding: 5px;	
+}
+
+.AddressInput3{
+	width: 20vw;
+	height: 5vh;
+	font-size: 1.2em;
+	border: 1px solid #e1e1e1;
+	padding: 5px;	
+}
+
 
 .SignUpInputEmail {
 	width: 20vw;
@@ -121,10 +144,22 @@
 	box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
 	transform: translateX(-50%) translateY(-50%);
 }
-
-
-
 .modalSpace {
 	display: flex;
 	flex-direction: column;
+}
+
+/* 주소 */
+
+.Address_button{
+	border: 1px solid black;
+    height: 35px;
+    width: 25%;
+    float: right;
+    line-height: 35px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: #ececf7;
+    cursor: pointer;
 }
