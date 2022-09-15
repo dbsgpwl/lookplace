@@ -24,15 +24,18 @@
             <input class="SignUpInputEmail" type="email" placeholder="E-Mail" id="email" name="email" />
           </div> 
            
-		  <div class="mail_check_input_box">
+		  <div class="mail_check_input_box" >
 		  		<input class="mail_check_input" id="mail_check_input_box_false" type="text" placeholder="인증번호전송" disabled="disabled">
-		  	<div class="mail_check_button">
-		  			<span onclick="alert('인증번호가 전송되었습니다.');">인증번호 전송</span>
-		  	</div>
-			<span id="mail_check_input_box_warn"></span>
-		  	</div>	
+		  		<button type="button" class="mail_check_button" onclick="alert('인증번호가 전송되었습니다.');">
+					인증번호 전송
+		  		</button>
+		  </div>
+		  <div>
+		  	<span id="mail_check_input_box_warn" style="font-size:1em"></span>
+		  </div>	
 		  					  	
           <div>
+          
             <input class="SignUpInput" type="password" placeholder="비밀번호" id="password" name="password"/>
           </div>
           <div>
@@ -44,11 +47,11 @@
           <div>
             <input class="SignUpInput" type="text" placeholder="닉네임"  id="nickname" name="nickname" />
           </div>
-          <div>
+          <div class="Address_box">
             <input class="AddressInput1" type="text" placeholder="우편번호" name="postalcode"  disabled="disabled"/>
-            <div class="Address_button" onclick="execution_daum_address()">
-	          		<span>주소 찾기</span>
-	        </div>
+            <button type="button" class="Address_button" onclick="execution_daum_address()">
+	          		주소 찾기
+	        </button>
           </div>
           <div>
             <input class="AddressInput2" type="text" placeholder="주소"  id="address" name="address" disabled="disabled"/>
@@ -73,7 +76,7 @@
 		  		<div id="modalSpace" style="font-size:1.5rem; ">
 		  			
 		  		</div>
-	  			<button class="CancelBtn modal_cancel">취소</button>
+	  			<button type="button" class="CancelBtn modal_cancel">취소</button>
 	  			<button class="SignUpBtn"  onclick="location.href='/'">회원가입</button>
 	  		</div>
 		</div>

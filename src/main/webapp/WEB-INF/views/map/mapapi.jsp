@@ -200,6 +200,7 @@
 
 <body>
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
+	<main>
 	<div class="map_wrap">
 		<div id="map"
 			style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
@@ -218,6 +219,7 @@
 			<div id="pagination"></div>
 		</div>
 	</div>
+	</main>
 
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 	<script type="text/javascript"
