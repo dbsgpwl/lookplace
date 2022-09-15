@@ -1,5 +1,7 @@
 package com.look.mapper;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -8,8 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.look.model.BoardDTO;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 public class BoardMapperTests {
@@ -17,19 +17,32 @@ public class BoardMapperTests {
 	private static final Logger log = LoggerFactory.getLogger(BoardMapperTests.class);
 
 	@Autowired
-	private BoardMapper mapper;
+	private NoticeMapper mapper;
 
 	
-	  @Test public void insert() {
-	  
-	  BoardDTO rdto = new BoardDTO();
-	  
-	  rdto.setTitle("mapper test"); rdto.setContent("mapper test");
-	  rdto.setNickname("mapper test");
-	  
-	  mapper.insert(rdto);
-	  
-	  }
+	/*
+	 * @Test public void insert() {
+	 * 
+	 * NoticeDTO dto = new NoticeDTO();
+	 * 
+	 * dto.setTitle("mapper test"); dto.setContent("mapper test");
+	 * dto.setNickname("mapper test");
+	 * 
+	 * mapper.enroll(dto);
+	 * 
+	 * }
+	 */
+	
+	/* 게시판 조회 */
+    @Test
+   public void testGetPage() {
+       
+       /* 실제 존재하는 페이지 */
+       int bno = 1;
+       
+       log.info("" + mapper.getPage(bno));
+       
+   }
 	 
 
 

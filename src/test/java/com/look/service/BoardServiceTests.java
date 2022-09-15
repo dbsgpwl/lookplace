@@ -10,27 +10,21 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.look.mapper.BoardMapperTests;
-import com.look.model.BoardDTO;
+import com.look.model.NoticeDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 public class BoardServiceTests {
 	private static final Logger log = LoggerFactory.getLogger(BoardMapperTests.class);
 	@Autowired
-	private BoardService service;
-
-	  /* 게시판 수정 */
+	private NoticeService service;
+	/*게시판 조회*/
     @Test
-    public void testModify() {
+    public void testGETPage() {
         
-        BoardDTO board = new BoardDTO();
-        board.setBno(4106);
-        board.setTitle("서비스 테스트");
-        board.setContent("수정 내용");
+        int bno = 1;
         
-        int result = service.modify(board);
-        log.info("result : " +result);
+        log.info("" + service.getPage(bno));
         
-    }     
-
+    }
 }

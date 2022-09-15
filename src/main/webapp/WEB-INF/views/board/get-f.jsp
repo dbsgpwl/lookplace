@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,21 +46,21 @@
                        <table class="table border board-table" >
 						    <tr>
 						     <td>작성자</td>
-						     <td><input type="text" placeholder="자동생성" readonly></td>
+						     <td><input type="text" name="nickname" value='<c:out value="${pageInfo.nickname }"/>' readonly></td>
 						     <td>작성일</td>
-						     <td><input type="text" placeholder="자동생성" readonly></td>
+						     <td><input name="regdate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate }"/>'></td>
+						     <td>수정일</td>
+						     <td><input name="updatedate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updatedate }"/>'></td>
 						    </tr>
 						    <tr>
 						     <td class="board-writer-title">제목</td>
 						     <td colspan="3">
-						     	<input type="text" placeholder="제목을 입력해주세요.">
+						     	<input type="text" name="title" value='<c:out value="${pageInfo.title }"/>' />
 						     </td>
 						    </tr>
 						    <tr>
 						     <td class="">글내용</td>
-						     <td colspan="3">
-						     	<textarea  name="content" class="board-writer-content" placeholder="내용을 입력해주세요."></textarea>
-						     </td>
+					<td colspan="3"><textarea  name="content" class="board-writer-content" value='<c:out value="${pageInfo.content }"/>'></textarea></td>
 						     
     						</tr>
 						 </table>
@@ -88,8 +90,13 @@
 							</div>
 							
 							<div>
-							 	<input type="button"  class="board-writer-button" onclick="location.href='/board/freeboard'" value="LIST">
+							 	<a class="btn" id="list_btn_f">목록 페이지</a> 
+								<a class="btn" id="modify_btn_f">수정하기</a>
 							 </div>
+	 <form id="infoForm" action="/board/modify-f" method="get">
+		<input type="hidden" id="bno-f" name="bno" value='<c:out value="${pageInfo.bno}"/>' />
+	</form>
+	
 						</div>
 
 			</div>
@@ -102,4 +109,19 @@
 	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>
+
+<script>
+	let form = $("#infoForm");
+	
+	$("#list_btn_f").on("click", function(e){
+		form.find("#bno-f").remove();
+		form.attr("action", "/board/freeboard");
+		form.submit();
+	});
+	
+	$("#modify_btn_f").on("click", function(e){
+		form.attr("action", "/board/modify-f");
+		form.submit();
+	});	
+</script>
 </html>
