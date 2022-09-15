@@ -94,20 +94,30 @@
 	font-size: 1.2em;
 	border: 1px solid #e1e1e1;
 	padding: 5px;
+	width:65%;
 }
 .mail_check_button{
 	border: 1px solid black;
-    height: 35px;
-    width: 25%;
-    float: right;
-    line-height: 35px;
+    height: 40px;
+    line-height: 40px;
+    width: 30%;
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
-    background-color: #ececf7;
+    color:white;
+    border:0px solid gray;
+    background-color: rgb(255, 56, 142);
     cursor: pointer;
+    border-radius:15px;
 }
 
+#mail_check_input_box
+{
+	display:flex; 
+	width:25vw; 
+	padding-left:16.5%; 
+	justify-content:space-between
+}
 #mail_check_input_box_false{
     background-color:#ebebe4;
 }
@@ -151,15 +161,24 @@
 
 /* 주소 */
 
+.Address_box{
+	display:flex; 
+	padding-left:16.5%; 
+	width:25vw; 
+	justify-content:space-between;
+}
 .Address_button{
 	border: 1px solid black;
     height: 35px;
-    width: 25%;
+    width: 30%;
     float: right;
     line-height: 35px;
     text-align: center;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
-    background-color: #ececf7;
+    color:white;
+    border:0px solid gray;
+    background-color: rgb(255, 56, 142);
+    border-radius:15px;
     cursor: pointer;
 }
