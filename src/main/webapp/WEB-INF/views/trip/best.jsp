@@ -10,7 +10,7 @@
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 </head>
 <body>
-	<%@page import="java.util.*, com.look.model.*"%>
+	<%@page import="java.util.*,com.look.model.*"%>
 	<%
 	ArrayList<TripDTO> list = (ArrayList<TripDTO>) request.getAttribute("list");
 	%>

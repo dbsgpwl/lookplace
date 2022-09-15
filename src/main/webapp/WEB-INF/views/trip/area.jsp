@@ -10,7 +10,7 @@
 </head>
 <body>
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
-	<%@page import="java.util.*, com.look.model.*"%>
+	<%@page import="java.util.*,com.look.model.*"%>
 	<%
 	%>
 	

@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.look.mapper.BoardMapper;
-import com.look.model.BoardDTO;
 import com.look.model.Criteria;
+import com.look.model.BoardDTO;
 
 @Service
-public class BoardServiceImpl implements BoardService{
+public class BoardServicelmpl implements BoardService{
 	
 	@Autowired
 	private BoardMapper mapper;
