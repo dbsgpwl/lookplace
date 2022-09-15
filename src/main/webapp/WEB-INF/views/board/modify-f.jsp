@@ -6,12 +6,46 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>자유게시글 상세</title>
+<title>자유게시글 수정</title>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/board.css" rel="stylesheet" type="text/css">
 <body>
+<script>
 
+$(document).ready(function(){
+	let form = $("#infoForm");		// 페이지 이동 form(리스트 페이지 이동, 조회 페이지 이동)
+	let mForm = $("#modifyForm");	// 페이지 데이터 수정 from
+	
+	/* 목록 페이지 이동 버튼 */
+	$("#list_btn").on("click", function(e){
+		form.find("#bno").remove();
+		form.attr("action", "/board/freeboard");
+		form.submit();
+	});
+	
+	/* 수정 하기 버튼 */
+	$("#modify_btn").on("click", function(e){
+		
+		mForm.attr("action", "/board/freeboard");
+		mForm.attr("method", "get");
+		mForm.submit();
+	});
+	
+	/* 취소 버튼 */
+	$("#cancel_btn").on("click", function(e){
+		form.attr("action", "/board/get-f");
+		form.submit();
+	});	
+	
+	/* 삭제 버튼 */
+	$("#delete_btn").on("click", function(e){
+		form.attr("action", "/board/delete");
+		form.attr("method", "post");
+		form.submit();
+	});	
+}
+</script>
 	
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	
@@ -43,28 +77,37 @@
 				</div>
 			</div>
 			<div class="board-writer-area">
+			<form id="modifyForm" action="/board/modify-f" method="post">
                        <table class="table border board-table" >
 						    <tr>
 						     <td>작성자</td>
 						     <td><input type="text" name="nickname" value='<c:out value="${pageInfo.nickname }"/>' readonly></td>
-						     <td>작성일</td>
-						     <td><input name="regdate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate }"/>'></td>
-						     <td>수정일</td>
-						     <td><input name="updatedate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updatedate }"/>'></td>
 						    </tr>
 						    <tr>
 						     <td class="board-writer-title">제목</td>
 						     <td colspan="3">
-						     	<input type="text" readonly="readonly" name="title" value='<c:out value="${pageInfo.title }"/>' />
+						     	<input type="text" name="title" value='<c:out value="${pageInfo.title }"/>' />
 						     </td>
 						    </tr>
 						    <tr>
 						     <td class="">글내용</td>
-							 <td colspan="3"><textarea readonly="readonly" name="content" class="board-writer-content"><c:out value="${pageInfo.content}"/></textarea></td>
+								<td colspan="3">
+								<textarea name="content" class="board-writer-content"><c:out value="${pageInfo.content }"/></textarea>
+								</td>
+    						
     						</tr>
+    						
 						 </table>
+						 
 						
-						
+						<div class="btn_wrap">
+							<button id="list_btn" >목록 페이지</button>
+							<button id="modify_btn" >수정하기</button>
+							<button id="cancel_btn" >수정 취소</button>
+							 	
+							 </div> 
+							 
+						</form>
 						 <div class="board-reply-area">
 						 <h5>댓글</h5>
 							 	<div class="board-reply-o">
@@ -88,12 +131,9 @@
       							<input type="submit" value="다음글" class="">
 							</div>
 							
-							<div>
-							 	<a class="btn" id="list_btn_f">목록 페이지</a> 
-								<a class="btn" id="modify_btn_f">수정하기</a>
-							 </div>
+							
 	 <form id="infoForm" action="/board/modify-f" method="get">
-		<input type="hidden" id="bno-f" name="bno" value='<c:out value="${pageInfo.bno}"/>' />
+		<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>' />
 	</form>
 	
 						</div>
@@ -109,18 +149,5 @@
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>
 
-<script>
-	let form = $("#infoForm");
-	
-	$("#list_btn_f").on("click", function(e){
-		form.find("#bno-f").remove();
-		form.attr("action", "/board/freeboard");
-		form.submit();
-	});
-	
-	$("#modify_btn_f").on("click", function(e){
-		form.attr("action", "/board/modify-f");
-		form.submit();
-	});	
-</script>
+
 </html>

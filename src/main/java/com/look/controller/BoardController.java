@@ -151,7 +151,26 @@ public class BoardController {
 		model.addAttribute("pageInfo", nservice.getPage(bno));
 
 	}
-    
+	
+	/* 수정 페이지 접속 */
+	@GetMapping("/modify-f")
+	public void updateF(int bno, Model model) {
+
+		log.info("자유게시판 글상세 페이지 진입");
+		model.addAttribute("pageInfo", nservice.getPage(bno));
+		
+	}
+
+	/* 페이지 수정 */
+	@PostMapping("/modify-f")
+	public String updateFPOST(NoticeDTO dto, RedirectAttributes rttr) {
+		System.out.println(dto);
+		nservice.update(dto);
+		
+		rttr.addFlashAttribute("result", "modify success");
+		System.out.println(dto);
+		return "redirect:/board/freeboard";
+	}
 	
 
 	

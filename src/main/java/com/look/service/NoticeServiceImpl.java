@@ -30,5 +30,12 @@ public class NoticeServiceImpl implements NoticeService{
 	public NoticeDTO getPage(int bno) {
 		return mapper.getPage(bno);
 	}
+	
+	/* 게시판 수정 */
+    @Override
+    public int update(NoticeDTO dto) {
+        
+        return mapper.update(dto);
+    }
 
 }

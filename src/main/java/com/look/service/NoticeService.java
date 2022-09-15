@@ -13,4 +13,7 @@ public interface NoticeService {
     
     /* 게시판 조회 */
     public NoticeDTO getPage(int bno);
+    
+    /* 게시판 수정 */
+    public int update(NoticeDTO dto);
 }
