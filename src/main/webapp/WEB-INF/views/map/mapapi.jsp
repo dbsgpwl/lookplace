@@ -6,6 +6,12 @@
 <meta charset="UTF-8">
 <title>여행지도</title>
 <style>
+#keyword{
+	border:1px solid gray;
+	padding:0px 5px;
+	border-radius:8px;
+}
+
 .map_wrap, .map_wrap * {
 	margin: 0;
 	padding: 0;
@@ -60,7 +66,11 @@
 }
 
 #menu_wrap .option button {
-	margin-left: 5px;
+
+	background-color: rgb(255, 56, 142);
+	color: white;
+	border: 1px solid rgba(0, 0, 0, 0); 
+	border-radius:8px;
 }
 
 #placesList li {
@@ -201,24 +211,24 @@
 <body>
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	<main>
-	<div class="map_wrap">
-		<div id="map"
-			style="width: 100%; height: 100%; position: relative; overflow: hidden;"></div>
-
-		<div id="menu_wrap" class="bg_white">
-			<div class="option">
-				<div>
-					<form onsubmit="searchPlaces(); return false;">
-						키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15">
-						<button type="submit">검색하기</button>
-					</form>
+		<div class="map_wrap">
+			<div id="map"
+				style="width: 100%; height: 100%; position: relative; overflow: hidden; border-radius:10px;"></div>
+	
+			<div id="menu_wrap" class="bg_white">
+				<div class="option">
+					<div>
+						<form onsubmit="searchPlaces(); return false;">
+							키워드 : <input type="text" value="이태원 맛집" id="keyword" size="15">
+							<button type="submit">검색하기</button>
+						</form>
+					</div>
 				</div>
+				<hr>
+				<ul id="placesList"></ul>
+				<div id="pagination"></div>
 			</div>
-			<hr>
-			<ul id="placesList"></ul>
-			<div id="pagination"></div>
 		</div>
-	</div>
 	</main>
 
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
