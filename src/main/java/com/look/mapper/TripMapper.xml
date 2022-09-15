@@ -31,6 +31,18 @@
     <select id="localTotal" resultType="int">
     
         select count(*) from tbl_best_image
+        
+    </select>
+    
+     <!-- 게시물 목록(페이징) -->
+    <select id="localListPaging" resultType="com.look.model.TripDTO">
+    
+        select * from (
+                select imgno, course, heart, address, place
+                from tbl_best_image 
+                order by imgno desc) as T1
+        limit #{skip},#{amount}
+    
     </select>
     
    		

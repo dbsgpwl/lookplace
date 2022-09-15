@@ -33,34 +33,35 @@
 					<a href = "#">#가을</a>
 					<a href = "#">#단풍</a>
 				</div>
-			</form>
+			
 			<div>
 				<h3><b>지역</b></h3>
 				<table id = "p_location">
 					<tr>
-						<td><a href = "#">전체</a></td>
-						<td>서울</td>
-						<td>대전</td>
-						<td>대구</td>
-						<td>광주</td>
-						<td>부산</td>
-						<td>울산</td>
-						<td>세종</td>
-						<td>경기</td>
+						<td><input type="submit" name ="keyword" value ="전체"></td>
+						<td><input type="submit" name ="keyword" value ="서울"></td>
+						<td><input type="submit" name ="keyword" value ="대전"></td>
+						<td><input type="submit" name ="keyword" value ="대구"></td>
+						<td><input type="submit" name ="keyword" value ="광주"></td>
+						<td><input type="submit" name ="keyword" value ="부산"></td>
+						<td><input type="submit" name ="keyword" value ="울산"></td>
+						<td><input type="submit" name ="keyword" value ="세종"></td>
+						<td><input type="submit" name ="keyword" value ="경기"></td>
 					</tr>
 					<tr>
-						<td>인천</td>
-						<td>강원</td>
-						<td>충북</td>
-						<td>충남</td>
-						<td>경북</td>
-						<td>경남</td>
-						<td>전북</td>
-						<td>전남</td>
-						<td>제주</td>
+						<td><input type="submit" name ="keyword" value ="인천"></td>
+						<td><input type="submit" name ="keyword" value ="강원"></td>
+						<td><input type="submit" name ="keyword" value ="충북"></td>
+						<td><input type="submit" name ="keyword" value ="충남"></td>
+						<td><input type="submit" name ="keyword" value ="경북"></td>
+						<td><input type="submit" name ="keyword" value ="경남"></td>
+						<td><input type="submit" name ="keyword" value ="전북"></td>
+						<td><input type="submit" name ="keyword" value ="전남"></td>
+						<td><input type="submit" name ="keyword" value ="제주"></td>
 					</tr>
 				</table>
 			</div>
+			</form>
 			<div>
 				<h3 class = "p_title">9월의 SNS인기 여행지 TOP 10</h3>
 				<div class = "p_firstline">
