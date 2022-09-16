@@ -9,13 +9,27 @@
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/board.css" rel="stylesheet" type="text/css">
 <body>
-
+<!-- include summernote css/js-->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote-bs4.js"></script>
+<!-- include summernote-ko-KR -->
+<script src="/resources/js/summernote-ko-KR.js"></script>
 	
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	
 	<!-- main 안에 작성 -->
 <main>
-
+<script>
+$(document).ready(function() {
+	  $('#summernote').summernote({
+ 	    	placeholder: 'content',
+	        minHeight: 370,
+	        maxHeight: null,
+	        focus: true, 
+	        lang : 'ko-KR'
+	  });
+	});
+</script>
 	
 	<div class="board-main">
 		<div class="board-aside-menu" style="">
@@ -37,17 +51,15 @@
 				<div>
 					<span><a href="/">home</a></span> &nbsp;>&nbsp;
 					<span><a href="/board/notice">notice</a></span>&nbsp; >&nbsp;
-					<span><a href="/board/freeboard">board</a></span> 
+					<span><a href="freeboard">board</a></span> 
 				</div>
 			</div>
 			<div class="board-writer-area">
-				 <form action="/board/insert-f" method="post">
+				 <form action="/insert-f" method="post">
                        <table class="table border board-table" >
 						    <tr>
 						     <td>작성자</td>
 						     <td><input type="text" name="nickname"></td>
-						    <!--  <td>작성일</td>
-						     <td><input type="text" readonly></td> -->
 						    </tr>
 						    <tr>
 						     <td class="board-writer-title">제목</td>
@@ -58,23 +70,19 @@
 						    <tr>
 						     <td class="">글내용</td>
 						     <td colspan="3">
-						     	<textarea  name="content" class="board-writer-content" placeholder="내용을 입력해주세요."></textarea>
+						     	<textarea id="summernote" name="content" class="board-writer-content" placeholder="내용을 입력해주세요."></textarea>
 						     </td>
 						     
     						</tr>
-    						<tr>
-    						<td colspan="4" style="text-align:left; padding:0;">
-						     	<input type="file" name=""  style="border:0 solid black; ">
-						     </td>
-						     </tr>
+    						
 						 </table>
 						 <div  class="board-write-area" >
 							 <div>
 							 	<input type="button"  class="board-writer-button" onclick="location.href='/board/freeboard'" value="LIST">
 							 </div>
 							 <div>
-							 	<input type="button" value="취소" onclick="location.href='/board/freeboard'" class="board-writer-button">
-      							<button class="board-writer-button">글쓰기</button>
+							 	<input type="button" value="취소" onclick="location.href='freeboard'" class="board-writer-button">
+      							<button class="board-writer-button" onclick="goWrite(this.form)">글쓰기</button>
 							</div>
 						</div>
 
@@ -89,4 +97,25 @@
 	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>
+<script>
+function goWrite(frm) {
+	var title = frm.title.value;
+	var writer = frm.nickname.value;
+	var content = frm.content.value;
+	
+	if (title.trim() == ''){
+		alert("제목을 입력해주세요");
+		return false;
+	}
+	if (nickname.trim() == ''){
+		alert("작성자를 입력해주세요");
+		return false;
+	}
+	if (content.trim() == ''){
+		alert("내용을 입력해주세요");
+		return false;
+	}
+	frm.submit();
+}
+</script>
 </html>

@@ -30,7 +30,7 @@
 			</div>
 			<div class="board-menu">
 				<p style="border-left:2px solid pink;"><a href="/board/review">리뷰</a></p>
-				<p ><a href="/board/freeboard">자유게시판</a></p>
+				<p ><a href="freeboard">자유게시판</a></p>
 			</div>
 		</div>
 		
