@@ -1,5 +1,16 @@
 @charset "UTF-8";
 
+
+ 
+/* 로그인 실패시 경고글 */
+.login_warn{
+    margin-top: 30px;
+    text-align: center;
+    color : red;
+    font-size:13px;
+}
+
+
 /* login */
     .loginBox {
       width: 30vw;

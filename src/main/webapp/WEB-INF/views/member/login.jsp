@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,12 +33,16 @@
 	          <div class="autoLoginBox">
 	            <span>
 	              <input type="checkbox" name="chkbox" />
-	            </span>
+	            </span>	          
 	            <span>자동로그인</span>
 	          </div>
-	
+	          
+	          <c:if test = "${result == 0 }">
+			  <div class="login_warn">사용자 ID 또는 비밀번호를 잘못 입력하였습니다.</div>
+			  </c:if>
+			  
 	          <div>
-	            <button class="loginBtn" onclick="location.href='/'">로그인</button>
+	            <button class="loginBtn">로그인</button>
 	          </div>
 	        </form>
         <ul
@@ -66,7 +71,10 @@
 	</main>
 	
 	<script>
-		
+		$(".loginBtn").click(function(){
+			$("#login_form").attr("action","/member/login");
+			$("#login_form").submit();
+		});
 	</script>
 	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
