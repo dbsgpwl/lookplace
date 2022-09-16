@@ -197,7 +197,7 @@ $('.SignUpInputEmail').on("propertychange change keyup paste input", function(){
 $(".mail_check_button").click(function() {
       var email    = $(".SignUpInputEmail").val(); // 입력한 이메일
       var checkBox = $(".mail_check_input");       // 인증번호 입력란
-      var boxWrap  = $(".mail_check_input_box")    // 인증번호 입력란 박스
+
 
              $.ajax({
                  type: "GET",
@@ -205,7 +205,7 @@ $(".mail_check_button").click(function() {
                  success : function(data){
                  // 	console.log("data : " + data);
                  		checkBox.attr("disabled",false);
-                   		boxWrap.attr("id","mail_check_input_box_true");
+                 		checkBox.attr("id","mail_check_input_box_true");
                    		code = data;
                     }
                 });
@@ -220,12 +220,13 @@ $(".mail_check_input").blur(function(){
 	if(inputCode == code){
 		checkResult.html("인증번호가 일치합니다.");
 		checkResult.attr("class","correct");
+		$(".mail_check_input").css('border','1px solid gray');
+		$(".mail_check_input").css('background-color','	white');
+		$(".mail_check_input").css('color','black');
 	}else{
 		checkResult.html("인증번호를 다시 확인해주세요.");
 		checkResult.attr("class","incorrect");
 		$(".mail_check_input").css('border','1px solid red');
-		$(".mail_check_input").css('background-color','	#FF1493');
-		$(".mail_check_input").css('color','white');
 	}
 })
 
