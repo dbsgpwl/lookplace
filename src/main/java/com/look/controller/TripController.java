@@ -54,7 +54,7 @@ public class TripController {
 		/* 전체/지역 목록 페이지 접속  */
 		@GetMapping("/entire")
 		public void entireGET(Criteria cri, Model model) {
-			model.addAttribute("trip", service.locationList(cri));
+			model.addAttribute("trip", service.localListPaging(cri));
 			model.addAttribute("key", cri.getKeyword());
 			
 			/*페이징 처리*/

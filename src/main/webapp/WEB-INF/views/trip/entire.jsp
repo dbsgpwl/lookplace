@@ -17,30 +17,7 @@
 	ArrayList<TripDTO> trip = (ArrayList<TripDTO>) request.getAttribute("trip");
 	%>
 	<!-- main 안에 작성 -->
-	<script type="text/javascript">
-		let moveForm = $("#moveForm");
-		 
-	    $(".move").on("click", function(e){
-	        e.preventDefault();	//클릭한 <a>태그 기능 정지
-	        
-	        //form 태그 내부에 bno 값을 저장하는 <input>태그 생성
-	        moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
-	        //<form>태그 action 속성 추가
-	        moveForm.attr("action", "/board/get-r");
-	        //<form태그 내부 데이터 서버 전송
-	        moveForm.submit();
-	    });
-    
 	
-		 $(".pageInfo a").on("click", function(e){
-			 
-		        e.preventDefault();
-		        moveForm.find("input[name='pageNum']").val($(this).attr("href"));
-		        moveForm.attr("action", "/board/list");
-		        moveForm.submit();
-		        
-		    });
-	</script>
 	
 	
 	<main>
@@ -72,25 +49,26 @@
 					</div>
 					<hr>
 				</c:forEach>
-				 <div class="pageInfo_wrap" >
-			        <div class="pageInfo_area">
-			        	<ul class="pageInfo" id="pageInfo">
-       				 
-		           		<!-- 이전페이지 버튼 -->
-		                <c:if test="${pageMaker.prev}">
-		                    <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}"><i class="fas fa-chevron-left"></i></a></li>
-		                </c:if> 	
-		                  <!-- 각 번호 페이지 버튼 -->
-		                <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-		                    <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
-		                </c:forEach>
-		                <!-- 다음페이지 버튼 -->
-		                <c:if test="${pageMaker.next}">
-		                    <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }"><i class="fas fa-chevron-right"></i></a></li>
-		                </c:if>    
- 					</ul>
-			        </div>
-			    </div>
+				 <div class="board-pagenation" >
+				<div class="pageInfo_wrap" >
+        			<div class="pageInfo_area">
+	       				<ul class="pageInfo" id="pageInfo">
+			           		<!-- 이전페이지 버튼 -->
+			                <c:if test="${pageMaker.prev}">
+			                    <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}"><i class="fas fa-chevron-left"></i></a></li>
+			                </c:if> 	
+			                  <!-- 각 번호 페이지 버튼 -->
+			                <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+			                    <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
+			                </c:forEach>
+			                <!-- 다음페이지 버튼 -->
+			                <c:if test="${pageMaker.next}">
+			                    <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }"><i class="fas fa-chevron-right"></i></a></li>
+			                </c:if>    
+		 				</ul>
+	        		</div>
+   	 			</div>
+			</div>
 			</div>
 			
 			
@@ -145,7 +123,30 @@
         	</form>
 		</div>
 	</main>
+	<script type="text/javascript">
+		let moveForm = $("#moveForm");
+		 
+	    $(".move").on("click", function(e){
+	        e.preventDefault();	//클릭한 <a>태그 기능 정지
+	        
+	        //form 태그 내부에 bno 값을 저장하는 <input>태그 생성
+	        moveForm.append("<input type='hidden' name='imgno' value='"+ $(this).attr("href")+ "'>");
+	        //<form>태그 action 속성 추가
+	        moveForm.attr("action", "/trip/entrie");
+	        //<form태그 내부 데이터 서버 전송
+	        moveForm.submit();
+	    });
+    
 	
+		 $(".pageInfo a").on("click", function(e){
+			 
+		        e.preventDefault();
+		        moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+		        moveForm.attr("action", "/trip/entire");
+		        moveForm.submit();
+		        
+		    });
+	</script>
 	
 	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
