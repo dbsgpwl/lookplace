@@ -86,23 +86,22 @@
 			<div class="board-pagenation" >
 				<div class="pageInfo_wrap" >
         			<div class="pageInfo_area">
-       				 <ul class="pageInfo" id="pageInfo">
-       				 
-		           		<!-- 이전페이지 버튼 -->
-		                <c:if test="${pageMaker.prev}">
-		                    <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}"><i class="fas fa-chevron-left"></i></a></li>
-		                </c:if> 	
-		                  <!-- 각 번호 페이지 버튼 -->
-		                <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-		                    <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
-		                </c:forEach>
-		                <!-- 다음페이지 버튼 -->
-		                <c:if test="${pageMaker.next}">
-		                    <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }"><i class="fas fa-chevron-right"></i></a></li>
-		                </c:if>    
- 					</ul>
-        		</div>
-   	 		</div>
+	       				<ul class="pageInfo" id="pageInfo">
+			           		<!-- 이전페이지 버튼 -->
+			                <c:if test="${pageMaker.prev}">
+			                    <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}"><i class="fas fa-chevron-left"></i></a></li>
+			                </c:if> 	
+			                  <!-- 각 번호 페이지 버튼 -->
+			                <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
+			                    <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
+			                </c:forEach>
+			                <!-- 다음페이지 버튼 -->
+			                <c:if test="${pageMaker.next}">
+			                    <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }"><i class="fas fa-chevron-right"></i></a></li>
+			                </c:if>    
+		 				</ul>
+	        		</div>
+   	 			</div>
 			</div>
 			
 			<form id="moveForm" method="get">    
@@ -149,7 +148,7 @@ $(document).ready(function(){
 	}	
  
 	
-	 let moveForm = $("#moveForm");
+	 	let moveForm = $("#moveForm");
 	 
 	    $(".move").on("click", function(e){
 	        /* e.preventDefault();	//클릭한 <a>태그 기능 정지

@@ -93,6 +93,12 @@
 	flex-direction: column;
 	justify-content: space-around;
 }
+@media (max-width: 1350px) {
+  .e_explain {
+    display: none;
+  }
+}
+
 .e_list{
 	display: flex;
 	width: 400px;
@@ -107,6 +113,8 @@
 
 .e_heart{
 	font-size: 3rem;
+}
+.e_h{
 	cursor: pointer;
 }
 .e_location{
@@ -117,3 +125,7 @@
 .e_location a{
 	color : black;
 }
+
+
+
+
