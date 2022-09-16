@@ -18,25 +18,15 @@
 	
 	<main>
 		<section class="loginBox">
-	        <form action="/#" method="post" class="loginForm">
+	        <form id="login-form" method="post">
 	          <div style="margin-bottom: 50px">
 	            <h1>로그인</h1>
 	          </div>
 	          <div>
-	            <input
-	              class="loginInput"
-	              type="text"
-	              placeholder="아이디"
-	              required
-	            />
+	            <input class="loginInput" type="text" placeholder="아이디" name="email" required/>
 	          </div>
 	          <div>
-	            <input
-	              class="loginInput"
-	              type="password"
-	              placeholder="패스워드"
-	              required
-	            />
+	            <input class="loginInput" type="password" placeholder="패스워드" name="password" required/>
 	          </div>
 	
 	          <div class="autoLoginBox">
@@ -75,7 +65,9 @@
       </section>
 	</main>
 	
-	
+	<script>
+		
+	</script>
 	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>

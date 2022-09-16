@@ -36,5 +36,31 @@ public class MemberTEST {
 //	membermapper.memberJoin(member);			//쿼리 메서드 실행
 //		
 //	}
-
-}
+	// 아이디 중복 검사
+//	@Test
+//	public void memberIdChk() throws Exception{
+//		String email = "admin";
+//		String email2 = "min11600@naver.com";
+//		
+//		membermapper.idCheck(email);
+//		membermapper.idCheck(email2);
+//	}
+	
+	/* 로그인 테스트 mapper */
+	@Test
+	public void MemberLogin() throws Exception {
+		MemberDTO dto = new MemberDTO();        
+		
+		/* 올바른 아이디 비번 */
+		dto.setEmail("min11600@naver.com");
+		dto.setPassword("1234");
+		
+		/* 올바르지 않은 아이디 비번 */
+/*		dto.setEmail("aaa");
+		dto.setEmail("1234"); */
+		
+		membermapper.memberLogin(dto);
+		
+		System.out.println("결과 값 : " + membermapper.memberLogin(dto));
+	}
+}	

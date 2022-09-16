@@ -15,9 +15,17 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public void memberJoin(MemberDTO dto) {
-		mapper.memberJoin(dto);
-		
-		
+		mapper.memberJoin(dto);	
+	}
+
+	@Override
+	public int idCheck(String email) throws Exception {
+		return mapper.idCheck(email);
+	}
+
+	@Override
+	public MemberDTO memberLogin(MemberDTO dto) throws Exception {
+		return mapper.memberLogin(dto);
 	}
 }
 	
