@@ -5,15 +5,12 @@ import java.util.List;
 import com.look.model.NoticeDTO;
 
 public interface NoticeService {
-	/* 게시판 등록 */
-    public void enroll(NoticeDTO dto);
-    
-    /* 게시판 목록 */
-    public List<NoticeDTO> getList();
-    
-    /* 게시판 조회 */
-    public NoticeDTO getPage(int bno);
-    
-    /* 게시판 수정 */
-    public int update(NoticeDTO dto);
+	// 게시글 전체 목록 조회
+	public List<NoticeDTO> viewAll();
+	
+	// 게시글 상세보기
+	public NoticeDTO viewDetail(int seq);
+	
+	// 조회수 +1
+	public boolean plusCnt(int seq);
 }

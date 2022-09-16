@@ -37,7 +37,7 @@
 				<div>
 					<span><a href="/">home</a></span> &nbsp;>&nbsp;
 					<span><a href="/board/notice">notice</a></span>&nbsp; >&nbsp;
-					<span><a href="/board/freeboard">board</a></span> 
+					<span><a href="freeboard">board</a></span> 
 				</div>
 			</div>
 			<div class="board-writer-area">

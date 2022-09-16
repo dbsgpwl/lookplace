@@ -30,5 +30,5 @@ public class NoticeDTO {
 	private Date updatedate;
 	
 	/* 조회수 */
-	private int viewcnt;
+	private int hit;
 }
