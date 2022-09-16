@@ -19,4 +19,8 @@ public class TripDTO {
 	private String address;
 	/*사진 장소 이름 */
 	private String place;
+	/* 장소 지역 */
+	private String local;
+	
+	
 }

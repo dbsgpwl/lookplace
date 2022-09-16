@@ -34,14 +34,19 @@
         
     </select>
     
+    
+    
      <!-- 게시물 목록(페이징) -->
     <select id="localListPaging" resultType="com.look.model.TripDTO">
     
         select * from (
-                select imgno, course, heart, address, place
+                select imgno, course, heart, address, place, local
                 from tbl_best_image 
-                order by imgno desc) as T1
-        limit #{skip},#{amount}
+                <if test ="!keyword.equals('전체')">
+		    		where address like concat('%',#{keyword},'%') 
+		    	</if>
+                order by heart desc) as T1
+        limit #{skip},#{amount} 
     
     </select>
     

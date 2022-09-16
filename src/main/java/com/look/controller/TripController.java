@@ -64,6 +64,7 @@ public class TripController {
 			
 			log.info("전체 페이지 진입");			
 		}
-
+		
+		
 		
 }
