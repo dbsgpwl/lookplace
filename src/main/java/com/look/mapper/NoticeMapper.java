@@ -14,4 +14,10 @@ public interface NoticeMapper {
 	
 	// 조회수 +1
 	public boolean plusCnt(int seq);
+	
+	// 게시물 작성
+	public int insertBoard(NoticeDTO vo);
+	
+	// 게시물 삭제
+	public boolean deleteBoard(int fbno);
 }

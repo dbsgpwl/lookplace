@@ -17,4 +17,16 @@
 	<update id="plusCnt" parameterType="int">
 	  UPDATE tbl_board SET hit = hit + 1 WHERE bno = #{bno}
 	</update>
+	
+	
+	<!-- 게시판 insert -->
+	<insert id="insertBoard" parameterType="com.look.model.NoticeDTO">
+		INSERT INTO tbl_board (nickname, title, content)
+					VALUES (#{nickname}, #{title}, #{content})
+	</insert>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM tbl_board WHERE bno = #{bno}
+	</delete>
   </mapper>

@@ -98,9 +98,9 @@
 							</div>
 							
 							<div class="board-get-btn-area">
-							 	<input type="button" value="수정" onclick="location.href='modify-r?bno=${board.bno}'">
-	<input type="button" value="삭제" onclick="del(${board.bno})">
-	<input type="button" value="글 목록" onclick="location.href='freeboard';">
+							 	<input type="button" value="수정" onclick="location.href='modify-r?bno=${board.bno}'"/>
+								<input type="button" value="삭제" onclick="del(${board.bno})"/>
+								<input type="button" value="글 목록" onclick="location.href='freeboard';"/>
 							 </div>
 
 			</div>
@@ -109,10 +109,10 @@
 </main>
 	<script>
 //글삭제 확인 스크립트 작성
-	function del(seq) {
+	function del(bno) {
 		var chk = confirm("정말 삭제하시겠습니까?");
 		if (chk) {
-			location.href='delete?bno='+bno;
+			location.href='delete-f?bno='+bno;
 		}
 	}	
 </script>

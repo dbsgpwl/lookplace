@@ -45,7 +45,7 @@
 	        		<a style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
 	     		</section>
 	     		<div class="board-write-area" >
-				 <button class="board-writer-button" onclick="location.href='/board/insert-f'" >글쓰기</button>
+				 <button class="board-writer-button" onclick="location.href='insert-f'" >글쓰기</button>
 				</div>
 			</div>
 			<div class="board-table-area">

@@ -33,5 +33,14 @@ public class NoticeServiceImpl implements NoticeService{
 		return mapper.plusCnt(seq);
 	}
 	
+	// 게시글 insert
+	@Override
+	public int insertBoard(NoticeDTO vo) {
+		return mapper.insertBoard(vo);
+	}
 
+	@Override
+	public boolean deleteBoard(int fbno) {
+		return mapper.deleteBoard(fbno);
+	}
 }
