@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,8 +23,9 @@
           
           <div>
             <input class="SignUpInputEmail" type="email" placeholder="E-Mail" id="email" name="email" />
-          </div> 
-           
+            	  <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
+            	  <span class="id_input_re_2">아이디가 이미 존재합니다.</span>
+          </div>           
 		  <div class="mail_check_input_box" >
 		  		<input class="mail_check_input" id="mail_check_input_box_false" type="text" placeholder="인증번호전송" disabled="disabled">
 		  		<button type="button" class="mail_check_button" onclick="alert('인증번호가 전송되었습니다.');">
@@ -92,8 +94,8 @@ const MODAL = document.querySelector(".modal");
 const BTNOPENPOPUP = document.querySelector(".btn-open-popup");
 const MODALCANCEL = document.querySelector(".modal_cancel");
 
-const USERID = document.querySelector("#userid");
-const USERPWD = document.querySelector("#userpwd");
+const USERID = document.querySelector("#email");
+const USERPWD = document.querySelector("#password");
 const USERNAME = document.querySelector("#name");
 const USERNICKNAME = document.querySelector("#nickname");
 
@@ -101,24 +103,24 @@ const MODALSPACE = document.querySelector("#modalSpace");
 
 BTNOPENPOPUP.addEventListener("click", () => {
     if (USERID.value === '') {
-        alert("아이디가 비어져있습니다")
+        alert("아이디를 입력해주세요.")
         USERID.focus();
-        return;
+        return false;
     }
     if (USERPWD.value === '') {
-        alert("비밀번호가 비어져있습니다")
+        alert("비밀번호를 입력해주세요.")
         USERPWD.focus();
-        return;
+        return false;
     }
     if (USERNAME.value === '') {
-        alert("이름이 비어져있습니다")
+        alert("이름을 입력해주세요.")
         USERNAME.focus();
-        return;
+        return false;
     }
     if (USERNICKNAME.value === '') {
-        alert("닉네임이 비어져있습니다")
+        alert("닉네임을 입력해주세요.")
         USERNICKNAME.focus();
-        return;
+        return false;
     }
 
     MODAL.classList.toggle("show");
@@ -168,6 +170,28 @@ $(document).ready(function() {
                     $("#join_form").submit();
                 });
             });
+            
+/* 아이디 중복 검사 */
+$('.SignUpInputEmail').on("propertychange change keyup paste input", function(){
+	
+	var email = $('.SignUpInputEmail').val();
+	var data  = {email : email}
+	
+	$.ajax({
+		type : "post",
+		url  : "/member/memberIdChk",
+		data : data,
+		success : function(result){
+			if(result != 'fail'){
+				$('.id_input_re_1').css("display", "inline-block");
+				$('.id_input_re_2').css("display","none");
+			}else{
+				$('.id_input_re_2').css("display", "inline-block");
+				$('.id_input_re_1').css("display","none");
+			}
+		}
+	});
+});
             
 /* 인증번호 이메일 */
 $(".mail_check_button").click(function() {

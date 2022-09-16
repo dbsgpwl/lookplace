@@ -25,4 +25,14 @@ public class TripServiceImpl implements TripService{
 		return mapper.locationList(cri);
 	}
 
+	@Override
+	public int localTotal() {
+		return mapper.localTotal();
+	}
+
+	@Override
+	public List<TripDTO> localListPaging(Criteria cri) {
+		return mapper.localListPaging(cri);
+	}
+
 }

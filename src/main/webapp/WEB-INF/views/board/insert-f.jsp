@@ -45,14 +45,14 @@
                        <table class="table border board-table" >
 						    <tr>
 						     <td>작성자</td>
-						     <td><input type="text" placeholder="자동생성" readonly></td>
-						     <td>작성일</td>
-						     <td><input type="text" placeholder="자동생성" readonly></td>
+						     <td><input type="text" name="nickname"></td>
+						    <!--  <td>작성일</td>
+						     <td><input type="text" readonly></td> -->
 						    </tr>
 						    <tr>
 						     <td class="board-writer-title">제목</td>
 						     <td colspan="3">
-						     	<input type="text" placeholder="제목을 입력해주세요.">
+						     	<input type="text" name="title" placeholder="제목을 입력해주세요.">
 						     </td>
 						    </tr>
 						    <tr>
@@ -74,7 +74,7 @@
 							 </div>
 							 <div>
 							 	<input type="button" value="취소" onclick="location.href='/board/freeboard'" class="board-writer-button">
-      							<input type="submit" value="글쓰기" class="board-writer-button">
+      							<button class="board-writer-button">글쓰기</button>
 							</div>
 						</div>
 

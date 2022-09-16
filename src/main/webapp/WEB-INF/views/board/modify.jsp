@@ -43,7 +43,7 @@
 				</div>
 			</div>
 			<div class="board-writer-area">
-			<form id="board-modifyForm" action="/board/modify" method="post">
+			<form id="review-modifyForm" action="/board/modify" method="post">
                        <table class="table border board-table" >
 						    <tr>
 						     <td>작성자</td>
@@ -66,7 +66,6 @@
     						</tr>
     						<tr>
     						<td colspan="2">
-    							<!-- <input type="button" onclick="location.href='/board/review'" value="LIST" style="width:100px;"> -->
     						 	<a class="btn" id="list_btn_r">목록 페이지</a> 
         						<a class="btn" id="modify_btn_r">수정 완료</a>
         						<a class="btn" id="delete_btn_r">삭제</a>
@@ -76,7 +75,7 @@
     						
 						 </table>
 						 </form>
-							<form id="board-infoForm" action="/board/modify" method="get">
+							<form id="review-infoForm" action="/board/modify" method="get">
 								<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
 								<input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
 								<input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
@@ -94,8 +93,8 @@
 </main>
 	
 	<script>
-	let form = $("#board-infoForm");        // 페이지 이동 form(리스트 페이지 이동, 조회 페이지 이동)
-    let mForm = $("#board-modifyForm");     // 페이지 데이터 수정 from
+	let form = $("#review-infoForm");        // 페이지 이동 form(리스트 페이지 이동, 조회 페이지 이동)
+    let mForm = $("#review-modifyForm");     // 페이지 데이터 수정 from
     
     /* 목록 페이지 이동 버튼 */
     $("#list_btn_r").on("click", function(e){

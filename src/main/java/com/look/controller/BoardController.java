@@ -12,19 +12,25 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.look.model.BoardDTO;
 import com.look.model.Criteria;
+import com.look.model.NoticeDTO;
 import com.look.model.PageMakerDTO;
 import com.look.service.BoardService;
+import com.look.service.NoticeService;
+
 
 @Controller // 해당 클래스를 스프링의 빈으로 인식하도록 하기 위함
-@RequestMapping("/board/*") // /board로 시작하는 모든 처리를 BoardController에서 하도록 지정하는 역할
+@RequestMapping("/board/*") // 
 public class BoardController {
 
 	private static final Logger log = LoggerFactory.getLogger(BoardController.class);
 
 	@Autowired
 	private BoardService bservice;
-
 	
+	@Autowired
+	private NoticeService nservice;
+
+// -------       리뷰                ------------------
 	/* 리뷰 게시판 목록 페이지 접속(페이징 적용) */
 	@GetMapping("/review")
 	public void reviewGET(Model model, Criteria cri) {
@@ -39,23 +45,7 @@ public class BoardController {
 		model.addAttribute("pageMaker", pageMake);
 
 	}
-
-	/* 게시판 목록 페이지 접속 */
-	@GetMapping("/freeboard")
-	public void freeboardGET(Model model) {
-
-		log.info("자유게시판 페이지 진입");
-
-	}
-
-	/* 게시판 목록 페이지 접속 */
-	@GetMapping("/notice")
-	public void noticeGET(Model model) {
-
-		log.info("공지사항 페이지 진입");
-
-	}
-
+	
 	/* 리뷰 게시글 쓰기 페이지 접속 */
 	@GetMapping("/insert-r")
 	public void insertRGET() {
@@ -79,25 +69,7 @@ public class BoardController {
 		return "redirect:/board/review"; // 등록 완료 후, 목록 페이지로 이동 : 새로고침을 통해 동일한 내용을 계속 서버에 등록할 수 없게 하기 위함!
 
 	}
-
-	/* 게시글 쓰기 페이지 접속 */
-	@GetMapping("/insert-f")
-	public void insertFGET(Model model) {
-
-		log.info("자유게시판 글쓰기 페이지 진입");
-
-	}
-
-	/* 게시글 상세 페이지 접속 */
-	@GetMapping("/get-f")
-	public void getFGET(int bno, Model model) {
-
-		log.info("자유게시판 글상세 페이지 진입");
-		model.addAttribute("pageInfo", bservice.getPage(bno));
-
-	}
 	
-
 	/* 리뷰 상세 페이지 접속 */
 	@GetMapping("/get-r")
 	public void getRGET(int bno, Model model, Criteria cri) {
@@ -137,5 +109,69 @@ public class BoardController {
         
         return "redirect:/board/review";
     }
+// --------------------------------------------------------------------------
+    /* 게시판 목록 페이지 접속 */
+	@GetMapping("/freeboard")
+	public void freeboardGET(Model model) {
 
+		log.info("자유게시판 페이지 진입");
+		
+		model.addAttribute("list", nservice.getList());
+
+	}
+	@GetMapping("/notice")
+	public void noticeGET() {
+
+		log.info("공지사항 페이지 진입");
+
+	}
+
+	/* 게시글 쓰기 페이지 접속 */
+	@GetMapping("/insert-f")
+	public void insertFGET() {
+
+		log.info("자유게시판 글쓰기 페이지 진입");
+
+	}
+	
+	/* 게시판 등록 */
+	@PostMapping("/insert-f")
+	public String insertFPOST(NoticeDTO dto, RedirectAttributes rttr) {
+		log.info("게시판 내용 : " + dto);
+		nservice.enroll(dto);
+		rttr.addFlashAttribute("result", "enrol success");
+		return "redirect:/board/freeboard";
+	}
+
+	/* 게시글 상세 페이지 접속 */
+	@GetMapping("/get-f")
+	public void getFGET(int bno, Model model) {
+
+		log.info("자유게시판 글상세 페이지 진입");
+		model.addAttribute("pageInfo", nservice.getPage(bno));
+
+	}
+	
+	/* 수정 페이지 접속 */
+	@GetMapping("/modify-f")
+	public void updateF(int bno, Model model) {
+
+		log.info("자유게시판 글상세 페이지 진입");
+		model.addAttribute("pageInfo", nservice.getPage(bno));
+		
+	}
+
+	/* 페이지 수정 */
+	@PostMapping("/modify-f")
+	public String updateFPOST(NoticeDTO dto, RedirectAttributes rttr) {
+		System.out.println(dto);
+		nservice.update(dto);
+		
+		rttr.addFlashAttribute("result", "modify success");
+		System.out.println(dto);
+		return "redirect:/board/freeboard";
+	}
+	
+
+	
 }

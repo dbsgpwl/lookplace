@@ -2,13 +2,13 @@ package com.look.mapper;
 
 import java.util.List;
 
-import com.look.model.BoardDTO;
 import com.look.model.Criteria;
+import com.look.model.BoardDTO;
 
 public interface BoardMapper {
 	
     
-
+// ------------------ 리뷰 ----------------------- 
 	/* 게시판 목록 */
     public List<BoardDTO> getList();
     
@@ -29,5 +29,5 @@ public interface BoardMapper {
     
     /* 게시판 총 갯수 */
     public int getTotal(Criteria cri);
-
+//------------------------------------------------
 }

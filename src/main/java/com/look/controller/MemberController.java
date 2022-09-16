@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-
 import com.look.model.MemberDTO;
 import com.look.service.MemberService;
 
@@ -98,5 +97,22 @@ public class MemberController {
 			
 			return num;
 		}		
+		
+		
+		@RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
+		@ResponseBody
+		public String memberIdChkPOST(String email) throws Exception{
+			// 	System.out.println("memberIdChk 진입");
+			
+			int result = memberservice.idCheck(email);
+			
+			System.out.println("결과값 = " + result);
+			
+			if(result != 0 ) {
+				return "fail";			 // 중복 아이디 존재	
+			} else {
+				return "success";        // 중복 아이디 x
+			}
+		}
 }		
 	

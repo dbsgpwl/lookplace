@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.look.model.BoardDTO;
+import com.look.model.NoticeDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -17,19 +17,35 @@ public class BoardMapperTests {
 	private static final Logger log = LoggerFactory.getLogger(BoardMapperTests.class);
 
 	@Autowired
-	private BoardMapper mapper;
+	private NoticeMapper mapper;
 
 	
-	  @Test public void insert() {
-	  
-	  BoardDTO rdto = new BoardDTO();
-	  
-	  rdto.setTitle("mapper test"); rdto.setContent("mapper test");
-	  rdto.setNickname("mapper test");
-	  
-	  mapper.insert(rdto);
-	  
-	  }
+	/*
+	 * @Test public void insert() {
+	 * 
+	 * NoticeDTO dto = new NoticeDTO();
+	 * 
+	 * dto.setTitle("mapper test"); dto.setContent("mapper test");
+	 * dto.setNickname("mapper test");
+	 * 
+	 * mapper.enroll(dto);
+	 * 
+	 * }
+	 */
+	
+	 /* 게시판 수정 */
+    @Test
+    public void testModify() {
+        
+    	NoticeDTO dto = new NoticeDTO();
+    	dto.setBno(1);
+    	dto.setTitle("수정 제목");
+    	dto.setContent("수정 내용");
+        
+        mapper.update(dto);
+        log.info("result : " +dto);
+        
+    }
 	 
 
 
