@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+/* login */
+
+    .emailBox {
+      width: 30vw;
+      height: 45vh;
+      background-color: white;
+      margin: 10vh auto;
+      padding: 70px 90px;
+      border: 1px solid #e1e1e1;
+      border-radius: 6px;
+      text-align:center;
+    }
+    
+    .findInput{
+	    width: 15vw;
+		height: 5vh;
+		font-size: 1.2em;
+		border: 1px solid #e1e1e1;
+		padding: 5px;
+    }
+    .mail_check_input{
+     	width: 20.6vw;
+		height: 5vh;
+		font-size: 1.2em;
+		border: 1px solid #e1e1e1;
+		padding: 5px;
+    }
+    
+    .mail_check_button{
+		border: 1px solid black;
+	    height: 40px;
+	    line-height: 40px;
+	    width: 25%;
+	    text-align: center;
+	    font-size: 16px;
+	    font-weight: 700;
+	    color:white;
+	    border:0px solid gray;
+	    background-color: rgb(255, 56, 142);
+	    cursor: pointer;
+	    border-radius:15px;
+	}
+    
+	.inputBox{
+		margin-top:20px;
+		margin-bottom:20px;
+	}
+	
+	.findBtn {
+		width: 7vw;
+		height: 5vh;
+		background-color: rgb(255, 56, 142);
+		color: white;
+		font-size: 1.2em;
+		font-weight: 700;
+		border: 1px solid rgba(0, 0, 0, 0);
+		border-radius: 2px;
+	}
+	
+	.CancelBtn {
+		width: 5vw;
+		height: 5vh;
+		background-color: rgba(128, 128, 128, 0.767);
+		color: white;
+		font-size: 1.2em;
+		font-weight: 700;
+		border: 1px solid rgba(0, 0, 0, 0);
+		border-radius: 2px;
+	}
+	
+	
+	
+	.modal.show {
+		display: block;
+	}
+
+	.modal_body {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 500px;
+		height: 550px;
+		padding: 40px;
+		text-align: center;
+		background-color: rgb(255, 255, 255);
+		border-radius: 10px;
+		box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+		transform: translateX(-50%) translateY(-50%);
+	}
+	.modalSpace {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	/*mail check*/
+	
+	#mail_check_input_box_false{
+    	background-color:#ebebe4;
+	}
+ 
+	#mail_check_input_box_true{
+	    background-color:white;
+	}
+	
+	
+	
