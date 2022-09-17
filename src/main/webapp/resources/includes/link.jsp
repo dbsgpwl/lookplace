@@ -7,10 +7,6 @@
 
 <!-- JQ -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-<!-- <script
-  src="https://code.jquery.com/jquery-3.4.1.js" 
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" 
-  crossorigin="anonymous"></script> -->
 
 <!-- 폰트어썸 -->
 <script src="https://kit.fontawesome.com/2c827c8cca.js" crossorigin="anonymous"></script>

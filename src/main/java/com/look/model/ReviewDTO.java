@@ -9,7 +9,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class BoardDTO {
+public class ReviewDTO {
 	
 
     /* 게시판 번호 */
@@ -31,6 +31,6 @@ public class BoardDTO {
     private Date updateDate;
     
     /* 조회수 */
-    private int count;
+    private int hit;
 	
 }
