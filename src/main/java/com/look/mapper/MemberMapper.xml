@@ -20,6 +20,10 @@
     
     <!-- 로그인 -->
     <select id="memberLogin" resultType="com.look.model.MemberDTO">
-    	select email,name,nickname,grade,address from tbl_member where email = #{email} and password= #{password}
+    
+    <!--	select email,name,nickname,grade,address from tbl_member where email =
+    	#{email} and password= #{password}   -->
+    	select email,password,name,nickname,grade,address from tbl_member where email = #{email}
+    	
     </select>	
   </mapper>

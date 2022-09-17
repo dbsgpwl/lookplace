@@ -25,3 +25,7 @@ updatedate timestamp not null default now(),
 hit int default 0,
 primary key (bno)
 );
+
+-- tbl_member 수정(패스워드 인코딩 길이)
+
+alter table tbl_member modify password varchar(100);
