@@ -81,18 +81,19 @@ public class MemberController {
 				return "redirect:/member/login";
 				
 			}
+		}
+		
+		/* 메인 페이지(header) 로그아웃*/
+		@RequestMapping(value="logout", method=RequestMethod.GET)
+		public String logoutMainGET(HttpServletRequest request) throws Exception{
 			
+			System.out.println("logout");
+			HttpSession session = request.getSession(); // session 변수 초기화
 			
+			session.invalidate();
 			
-//			if(mdto==null) {              // 아이디 비밀번호 틀렸을 때
-//				int result = 0;
-//				rttr.addFlashAttribute("result", result);
-//				return  "redirect:/member/login";
-//			}
-//			
-//			session.setAttribute("member", mdto);        // 로그인 성공
-//			
-//			return "redirect:/";
+			return "redirect:/";
+			
 		}
 		
 		@GetMapping("/signup")
