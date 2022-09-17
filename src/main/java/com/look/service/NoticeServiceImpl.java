@@ -13,29 +13,34 @@ public class NoticeServiceImpl implements NoticeService{
 
 	@Autowired
 	private NoticeMapper mapper;
-	
-	/* 게시물 등록 */
-	@Override
-	public void enroll(NoticeDTO dto) {
-		mapper.enroll(dto);
-	}
-	
-	/* 게시판 목록 조회 */
-	@Override
-	public List<NoticeDTO> getList() {
-		return mapper.getList();
-	}
-	/* 게시글 상세 조회 */
-	@Override
-	public NoticeDTO getPage(int bno) {
-		return mapper.getPage(bno);
-	}
-	
-	/* 게시판 수정 */
-    @Override
-    public int update(NoticeDTO dto) {
-        
-        return mapper.update(dto);
-    }
 
+	//게시물 전체 목록 조회
+	@Override
+	public List<NoticeDTO> viewAll() {
+		return mapper.viewAll();
+				
+	}
+	
+	//게시글 상세 조회
+	@Override
+	public NoticeDTO viewDetail(int seq) {
+		return mapper.viewDetail(seq);
+	}
+
+	//조회수+1
+	@Override
+	public boolean plusCnt(int seq) {
+		return mapper.plusCnt(seq);
+	}
+	
+	// 게시글 insert
+	@Override
+	public int insertBoard(NoticeDTO vo) {
+		return mapper.insertBoard(vo);
+	}
+
+	@Override
+	public boolean deleteBoard(int fbno) {
+		return mapper.deleteBoard(fbno);
+	}
 }

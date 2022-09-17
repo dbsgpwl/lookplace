@@ -25,7 +25,8 @@
             <input class="SignUpInputEmail" type="email" placeholder="E-Mail" id="email" name="email" />
             	  <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
             	  <span class="id_input_re_2">아이디가 이미 존재합니다.</span>
-          </div>           
+          </div>
+                     
 		  <div class="mail_check_input_box" >
 		  		<input class="mail_check_input" id="mail_check_input_box_false" type="text" placeholder="인증번호전송" disabled="disabled">
 		  		<button type="button" class="mail_check_button" onclick="alert('인증번호가 전송되었습니다.');">

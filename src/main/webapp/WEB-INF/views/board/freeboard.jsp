@@ -26,7 +26,7 @@
 			</div>
 			<div class="board-menu">
 				<p><a href="/board/review">리뷰</a></p>
-				<p style="border-left:2px solid pink;"><a href="/board/freeboard">자유게시판</a></p>
+				<p style="border-left:2px solid pink;"><a href="freeboard">자유게시판</a></p>
 			</div>
 		</div>
 		
@@ -36,7 +36,7 @@
 				<div>
 				<span><a href="/">home</a></span> &nbsp;>&nbsp;
 				<span><a href="/board/notice">notice</a></span>&nbsp; >&nbsp;
-				<span><a href="/board/freeboard">board</a></span> 
+				<span><a href="freeboard">board</a></span> 
 				</div>
 			</div>
 			<div class="board-main-area-firstline">
@@ -45,7 +45,7 @@
 	        		<a style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
 	     		</section>
 	     		<div class="board-write-area" >
-				 <button class="board-writer-button" onclick="location.href='/board/insert-f'" >글쓰기</button>
+				 <button class="board-writer-button" onclick="location.href='insert-f'" >글쓰기</button>
 				</div>
 			</div>
 			<div class="board-table-area">
@@ -57,15 +57,13 @@
 						<td>날짜</td>
 						<td>조회수</td>
 					</tr>
-					<c:forEach items="${list }" var="list">
+					<c:forEach items="${viewAll }" var="list">
 					<tr>
 						<td><c:out value="${list.bno }" /></td>
-						<td><a class="move" href='<c:out value="${list.bno}"/>'>
-                        		<c:out value="${list.title}"/>
-                    		</a></td>
+						<td><a href='get-f?bno=${list.bno }'>${list.title }</a></td>
 						<td><c:out value="${list.nickname }" /></td>
 						<td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></td>
-						<td><c:out value="${list.viewcnt }" /></td>
+						<td><c:out value="${list.hit }" /></td>
 					</tr>
 					</c:forEach>
 				</table>
@@ -75,8 +73,6 @@
 			</div>
 			
 		</div>
-		<form id="moveForm-f" method="get">
-		</form>
 		
 	</div>
 	</main>
@@ -86,40 +82,5 @@
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>
 
-<script>
-$(document).ready(function(){
-    
-    let result = '<c:out value="${result}"/>';
-    
-    checkAlert(result);
-    
-    function checkAlert(result){
-        
-        if(result === ''){
-            reutrn;
-        }
-        
-        if(result === "enrol success"){
-            alert("등록이 완료되었습니다.");
-        }
-        
-        if(result === "modify success"){
-            alert("수정이 완료되었습니다.");
-        }
-        
-    }    
-    
-});
-
-let moveForm = $("#moveForm-f");
-
-$(".move").on("click", function(e){
-	e.preventDefault();
-	
-	moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+"'>");
-	moveForm.attr("action", "/board/get-f");
-	moveForm.submit();
-})
-</script>
 
 </html>

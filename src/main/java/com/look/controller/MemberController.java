@@ -3,6 +3,8 @@ package com.look.controller;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.look.model.MemberDTO;
 import com.look.service.MemberService;
@@ -40,13 +43,31 @@ public class MemberController {
 			log.info("로그인 페이지 진입");		
 		}
 		
+		/* 로그인 */
+		@RequestMapping(value="login", method=RequestMethod.POST)
+		public String loginPOST(HttpServletRequest request, MemberDTO dto, RedirectAttributes rttr) throws Exception {
+				
+			HttpSession session = request.getSession();
+			MemberDTO mdto = memberservice.memberLogin(dto);
+			
+			if(mdto==null) {              // 아이디 비밀번호 틀렸을 때
+				int result = 0;
+				rttr.addFlashAttribute("result", result);
+				return  "redirect:/member/login";
+			}
+			
+			session.setAttribute("member", mdto);        // 로그인 성공
+			
+			return "redirect:/";
+		}
+		
 		@GetMapping("/signup")
 		public void signupGET(Model model) {
 			
 			log.info("회원가입 페이지 진입");					
 		}
 		
-		
+		/* 회원가입 */
 		@RequestMapping(value="/signup", method=RequestMethod.POST)
 		public String signupPOST(MemberDTO dto) throws Exception{
 			log.info("signup 진입");
@@ -57,7 +78,6 @@ public class MemberController {
 			
 			return "redirect:/";
 		}
-		
 		@RequestMapping(value="/mailCheck", method=RequestMethod.GET)
 		@ResponseBody
 		public String mailCheckGET(String email) throws Exception{
@@ -99,6 +119,7 @@ public class MemberController {
 		}		
 		
 		
+		/* 아이디 중복 체크 */
 		@RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
 		@ResponseBody
 		public String memberIdChkPOST(String email) throws Exception{
