@@ -64,7 +64,7 @@
 		<c:if test="${member!=null}">
           <div id="login-button">
           	<i class="fa-regular fa-user" ></i>
-          	<a href="#">LOGOUT</a>         	
+          	<a href="/member/logout">LOGOUT</a>         	
          </div>
         </c:if> 
         
