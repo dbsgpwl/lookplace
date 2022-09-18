@@ -6,9 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.look.model.Criteria;
 import com.look.model.PageMakerDTO;
@@ -27,7 +29,7 @@ public class BoardReviewController {
 	private ReplyReviewService rservice;
 	
 	// 전체 목록 조회
-	@RequestMapping("review")
+	@RequestMapping("/review")
 	public String board(Model model,Criteria cri) {
 		
 		model.addAttribute("viewAll", service.getListPaging(cri));
@@ -37,13 +39,14 @@ public class BoardReviewController {
 		PageMakerDTO pageMake = new PageMakerDTO(cri, total);
 		
 		model.addAttribute("pageMaker", pageMake);
-		return "board/review";
+		
+		return "/board/review";
 	}
 	
 	// 게시글 상세 조회
-	@GetMapping("get-r")
+	@GetMapping("/get-r")
 	public String viewDetail(Model model, 
-	                        @RequestParam("bno")int bno, Criteria cri) {
+	                        @RequestParam("bno")int bno, @ModelAttribute("cri") Criteria cri) {
 	  
 	  model.addAttribute("board", service.viewDetail(bno));
 	  model.addAttribute("cri", cri);
@@ -54,7 +57,8 @@ public class BoardReviewController {
 	 //댓글 조회
 	  List<ReplyDTO> reply = rservice.replyList(bno);
 	  model.addAttribute("reply", reply);
-	  return "board/get";
+	  
+	  return "/board/get";
 	}
 	
 	//게시글 작성 페이지 이동
@@ -74,20 +78,27 @@ public class BoardReviewController {
 	@GetMapping("delete-r")
 	public String delete(@RequestParam("bno")int bno) {
 		service.deleteBoard(bno);
+		
 		return "redirect: /review";
 	}
 	
 	//게시글 수정 페이지 이동
 	@GetMapping("modify-r")
-	public String modify(@RequestParam("bno")int bno, Model model, Criteria cri) {
+	public String modify(@RequestParam("bno")int bno, Model model, @ModelAttribute("cri") Criteria cri) {
 		model.addAttribute("board", service.viewDetail(bno));
 		model.addAttribute("cri", cri);
 		return "board/modify";
 	}
 
 	@PostMapping("modify-r")
-	public String modify(ReviewDTO vo) {
+	public String modify(ReviewDTO vo,@ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		service.updateBoard(vo);
+		
+		rttr.addAttribute("pageNum", cri.getPageNum());
+		rttr.addAttribute("amount", cri.getAmount());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		rttr.addAttribute("type", cri.getType());
+		
 		return "redirect: /get-r?bno="+ vo.getBno();
 	}
 }

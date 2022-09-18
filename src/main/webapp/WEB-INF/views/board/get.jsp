@@ -55,15 +55,15 @@
 						<td colspan=2 style="text-align:left; padding-left:8%;">Content</td>
 					</tr>
 					<tr>
-						<td colspan=2 style="text-align:left;"><textarea style="width:100%; height:400px;">${board.content }</textarea></td>
+						<td colspan=2 style="text-align:left;"><textarea style="width:100%; height:400px;"><c:out value="${board.content}"/></textarea></td>
 					</tr>
 				</table>
 				
 				
 				<div class="board-get-btn-area">
-					<input type="button" value="수정" onclick="location.href='modify-r?bno=${board.bno}'">
-					<input type="button" value="삭제" onclick="del(${board.bno})">
-					<input type="button" value="글 목록" style="float: right;" onclick="location.href='review';">
+				
+					<button class="btn" id="list_btn_r">목록</button> 
+					<button class="btn" id="modify_btn_r">수정</button>
 			</div>
 			<!-- 댓글 시작 -->
 			<div>
@@ -94,7 +94,6 @@
 				</form>
 			</div>
 			<form id="infoForm" action="modify-r" method="get">
-				<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno }" />'>
 				<input type="hidden" name="pageNum" value="${cri.pageNum }">  
 				<input type="hidden" name="amount" value="${cri.amount }">  
 				<input type="hidden" name="keyword" value="${cri.keyword }">  
@@ -105,14 +104,26 @@
 	</div>
 	</main>
 <script>
-	function del(bno) {
-		var chk = confirm("정말 삭제하시겠습니까?");
-		if (chk) {
-			location.href='delete-r?bno='+bno;
-		}
-	}	
 	
+	/* 목록 버튼 */
+	$("#list_btn_r").on("click", function(e){
+		self.location = "/review?"
+					+ "&pageNum=${cri.pageNum }"
+					+ "&amount=${cri.amount }"
+					+ "&keyword=${cri.keyword }"
+					+ "&type=${cri.type }"
+					});	
 	
+
+	/* 수정 버튼 */
+	$("#modify_btn_r").on("click", function(e){
+		self.location = "/modify-r?bno=${board.bno}"
+					+ "&pageNum=${cri.pageNum }"
+					+ "&amount=${cri.amount }"
+					+ "&keyword=${cri.keyword }"
+					+ "&type=${cri.type }"
+					});	
+
 
 </script>
 	

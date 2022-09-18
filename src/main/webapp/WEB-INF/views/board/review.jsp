@@ -60,7 +60,12 @@
 					<c:forEach items="${viewAll }" var="list">
 					<tr>
 						<td><c:out value="${list.bno }" /></td>
-						<td><a href='get-r?bno=${list.bno }'>${list.title }</a></td>
+						
+						<td><a href="get-r?bno=${list.bno }&
+											pageNum=${pageMaker.cri.pageNum }&
+											amount=${pageMaker.cri.amount }&
+											keyword=${pageMaker.cri.keyword }&
+											type=${pageMaker.cri.type }">${list.title }</a></td>
 						<td><c:out value="${list.nickname }" /></td>
 						<td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></td>
 						<td><c:out value="${list.hit }" /></td>
@@ -106,10 +111,11 @@
 		        </div>
 			</div>
 			<form id="moveForm" method="get">
+				<input type="hidden" id="bno" name="bno" value='<c:out value="${board.bno}"/>'>
 				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }" />
         		<input type="hidden" name="amount" value="${pageMaker.cri.amount }" />
-        		 <input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
-        		 <input type="hidden" name="type" value="${pageMaker.cri.type }">
+        		<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
+        		<input type="hidden" name="type" value="${pageMaker.cri.type }">
         	</form>
 			
 		</div>
@@ -118,6 +124,7 @@
 	</main>
 	<script type="text/javascript">
 	let moveForm = $("#moveForm");
+	
 	$(".pageInfo a").on("click", function(e){
 		e.preventDefault();
 		moveForm.find("input[name='pageNum']").val($(this).attr("href"));

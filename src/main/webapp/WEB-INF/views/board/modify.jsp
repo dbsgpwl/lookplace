@@ -60,12 +60,14 @@
 				</table>
 			<div class="board-get-btn-area" >
 				<input style="margin:1%;"type="button" value="글 수정" style="float: right;" onclick="goModify(this.form)"/>
-				<input style="margin:1%;"type="button" value="취소" onclick="location.href='review';">
-				<input style="margin:1%;"type="button" value="글 목록" style="float: right;" onclick="location.href='review';">
+				<input type="button" value="삭제" onclick="del(${board.bno})">
+				<input style="margin:1%;"type="button" id="cancel_btn_r" value="취소" />
+				<input style="margin:1%;"type="button" id="list_btn_r" value="글 목록" style="float: right;">
+				
 			</div>
 		</form>
 		<form id="infoForm" action="/modify-r" method="get">
-			<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
+			<input type="hidden" id="bno" name="bno" value='<c:out value="${board.bno}"/>'>
 			<input type="hidden" name="pageNum" value="${cri.pageNum }">  
 			<input type="hidden" name="amount" value="${cri.amount }">  
 			<input type="hidden" name="keyword" value="${cri.keyword }">  
@@ -76,6 +78,13 @@
 </div>
 </main>
 <script>
+function del(bno) {
+	var chk = confirm("정말 삭제하시겠습니까?");
+	if (chk) {
+		location.href='delete-r?bno='+bno;
+	}
+}	
+
 function goModify(frm) {
 	var title = frm.title.value;
 	var nickname = frm.nickname.value;
@@ -95,33 +104,26 @@ function goModify(frm) {
 	}
 	frm.submit();
 }
-let form = $("#infoForm");		// 페이지 이동 form(리스트 페이지 이동, 조회 페이지 이동)
-let mForm = $("#modifyForm");	// 페이지 데이터 수정 from
 
-/* 목록 페이지 이동 버튼 */
-$("#list_btn").on("click", function(e){
-	form.find("#bno").remove();
-	form.attr("action", "/review");
-	form.submit();
-});
-
-/* 수정 하기 버튼 */
-$("#modify_btn").on("click", function(e){
-	mForm.submit();
-});
 
 /* 취소 버튼 */
-$("#cancel_btn").on("click", function(e){
-	form.attr("action", "/get-r");
-	form.submit();
-});	
+$("#cancel_btn_r").on("click", function(e){
+	self.location = "/get-r?bno=${board.bno}"
+				+ "&pageNum=${cri.pageNum }"
+				+ "&amount=${cri.amount }"
+				+ "&keyword=${cri.keyword }"
+				+ "&type=${cri.type }"
+				});	
+				
+/* 목록 버튼 */
+$("#list_btn_r").on("click", function(e){
+	self.location = "/review?"
+				+ "&pageNum=${cri.pageNum }"
+				+ "&amount=${cri.amount }"
+				+ "&keyword=${cri.keyword }"
+				+ "&type=${cri.type }"
+				});	
 
-/* 삭제 버튼 */
-$("#delete_btn").on("click", function(e){
-	form.attr("action", "/board/delete");
-	form.attr("method", "post");
-	form.submit();
-});
 
 </script>
 <jsp:include page="/resources/includes/footer.jsp"></jsp:include>
