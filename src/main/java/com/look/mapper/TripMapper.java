@@ -16,4 +16,9 @@ public interface TripMapper {
 	public int localTotal();
 	
 	public List<TripDTO> localListPaging(Criteria cri);
+	
+	public TripDTO Detailpage(int imgno);
+	
+	public int updateCount(int imgno);
+	
 }

@@ -9,7 +9,6 @@
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link href="/resources/css/travelplace.css" rel="stylesheet" type="text/css">
-<link href="/resources/css/board.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
@@ -36,7 +35,7 @@
 				<!-- 리스트 목록 -->
 				<c:forEach items="${trip }" var = "all">
 					<div class = "e_card">
-						<div class= "e_list">
+						<div class= "e_list" onclick= "location.href = '/trip/travel-p?imgno=${all.imgno }'">
 							<img class= "e_img" src='/resources/image/<c:out value = "${all.course }"></c:out>'>
 							<div class = "e_explain">
 								<span><c:out value = '${all.place }'></c:out></span>
