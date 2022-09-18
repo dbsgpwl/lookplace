@@ -26,6 +26,17 @@ hit int default 0,
 primary key (bno)
 );
 
--- tbl_member 수정(패스워드 인코딩 길이)
+-- tbl_member
 
-alter table tbl_member modify password varchar(100);
+CREATE TABLE `lookplace`.`tbl_member` (
+  `membercode` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(50) NOT NULL,
+  `email` VARCHAR(100) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  `nickname` VARCHAR(50) NOT NULL,
+  `address` VARCHAR(100) NULL,
+  `grade` CHAR(1) NOT NULL,
+  `createdAt` DATETIME NOT NULL,
+  PRIMARY KEY (`membercode`),
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
+  UNIQUE INDEX `nickname_UNIQUE` (`nickname` ASC) VISIBLE);

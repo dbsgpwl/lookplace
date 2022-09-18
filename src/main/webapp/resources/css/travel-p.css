@@ -1,3 +1,88 @@
+
+@charset "UTF-8";
+
+img{
+	width:28px;
+	margin-right:10px;
+}
+.travelP_reply-content{
+	width: 59%; height: 140px; background-color: rgba(224, 224, 224, 0.29); 
+	margin: 0 auto; padding: 10px 10px 0 10px; display: flex; flex-direction: column; justify-content: space-between;
+}
+			
+.travelP_reply-content > input {
+	border:none;
+	border:1px solid gray;
+	height: 70px;
+}
+
+.travelP_firstdiv{
+	width:80%;
+	margin: 0 auto;
+}
+.travelP_seconddiv{
+	margin-bottom:30px;
+	text-align: center;
+}
+.travelP_placespan{
+	font-weight:bold;
+	font-size: xx-large;
+	margin-bottom: 50px;
+}
+.travelP_thirddiv{
+	margin-bottom: 20px;
+	text-align: center;
+}
+.travelP_placeaddr{
+	font-size:10px;
+}
+.travelP_description{
+	font-size:x-large;
+}
+
+.travelP_imgdiv{
+	font-size: 16px;
+	margin-top: 30px;
+}
+
+.travelP_travelinfo{
+	display:flex; justify-content: space-between; 
+	margin-bottom: 30px;
+	margin-top: 30px;
+	font-weight: bold;	
+}
+.travelP_travelimg{
+	border-radius: 9px;
+	background-color: rgba(244, 244, 244, p29);
+	width:30%;
+	font-size: 25px;
+	height: 200px;
+	margin: 0 auto;
+	
+}
+.travelP_detailinfo{
+	font-weight: bold;
+	font-size: large;
+}
+.travelP_detailinfo2{
+	height:20%;
+	width:80%;
+	margin-top:10px;
+}
+.travelP_input{
+	width:90px; height:35px; margin-right:10px; font-size: 14px;
+}
+.travelP_input2{
+	width: 90px; height: 35px; margin-right: 10px; text-align: center;
+	font-size: 14px;
+}
+.travelP_input3{
+	width: 90px; height: 35px; font-size: 14px;
+}
+.travelP_button{
+	border-radius: 8px; text-align:right; border:1px solid black;
+    background-color:black; color:white; margin-bottom: 5px;
+=======
 @charset "UTF-8";
 
 .travelP_imgdiv img{
@@ -80,4 +165,5 @@
 .travelP_button{
 	border-radius: 8px; text-align:right; border:1px solid black;
     background-color:black; color:white; margin-bottom: 5px;
+
 }

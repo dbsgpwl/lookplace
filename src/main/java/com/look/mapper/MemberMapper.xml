@@ -26,4 +26,8 @@
     	select email,password,name,nickname,grade,address from tbl_member where email = #{email}
     	
     </select>	
+    
+    <!-- 회원정보 수정 -->
+    
+    
   </mapper>
