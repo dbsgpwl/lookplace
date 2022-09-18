@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<link href="/resources/css/travel-p.css" rel="stylesheet" type="text/css">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>여행지상세</title>
+<link href="/resources/css/travel-p.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -13,23 +14,24 @@
 
 	<!-- section 안에 작성 -->
 	<main>
+	
 	<div class="travelP_firstdiv">
 		<div class="travelP_seconddiv">
 			<div>
-				<span class="travelP_placespan">여행장소 이름 </span>
+				<span class="travelP_placespan"><c:out value = "${detail.place }"></c:out></span>
 			</div>
 
 			<div class="travelP_thirddiv">
-				<span class="travelP_placeaddr">지역명 + 주소</span><br>
+				<span class="travelP_placeaddr"><c:out value = "${detail.local }" /> | <c:out value = "${detail.address }" /></span><br>
 				<span class="travelP_description">열글자 설명</span>
 			</div>
 		</div>
 
 		<div class="travelP_imgdiv">
 				<div>
-				<img src="/resources/image/heart.png">
-				<img src="/resources/image/share.png">
-				 <span style="font-size:12px;">조회수 300</span>
+				<i class="fa-regular fa-heart e_h"></i>&nbsp;
+				<i class="fa-regular fa-share-from-square"></i>&nbsp;
+				 <span style="font-size:12px;">조회수 <c:out value="${detail.count }"></c:out></span>
 				</div>
 			<hr>
 
@@ -41,7 +43,7 @@
 		</div>
 
 		<div class="travelP_travelimg">
-			<div>사진</div>
+			<img src="/resources/image/<c:out value = "${detail.course }"></c:out>">
 		</div>
 
 		<div style="padding-top: 40px;">

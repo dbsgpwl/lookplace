@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.look.model.Criteria;
 import com.look.model.PageMakerDTO;
@@ -64,6 +65,16 @@ public class TripController {
 			log.info("전체 페이지 진입");			
 		}
 		
+		@GetMapping("/travel-p")
+		public void detailGET( Model model, @RequestParam("imgno")int imgno, Criteria cri) {
+			log.info("상세페이지 진입");
+			
+			service.updateCount(imgno);
+			
+			model.addAttribute("detail", service.Detailpage(imgno));
+			model.addAttribute("cri", cri);
+			
+		}
 		
 		
 }
