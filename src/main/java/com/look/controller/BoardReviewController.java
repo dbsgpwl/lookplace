@@ -1,5 +1,7 @@
 package com.look.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.look.model.Criteria;
 import com.look.model.PageMakerDTO;
+import com.look.model.ReplyDTO;
 import com.look.model.ReviewDTO;
+import com.look.service.ReplyReviewService;
 import com.look.service.ReviewService;
 
 @Controller
@@ -18,6 +22,9 @@ public class BoardReviewController {
 
 	@Autowired
 	private ReviewService service;
+	
+	@Autowired
+	private ReplyReviewService rservice;
 	
 	// 전체 목록 조회
 	@RequestMapping("review")
@@ -41,8 +48,12 @@ public class BoardReviewController {
 	  model.addAttribute("board", service.viewDetail(bno));
 	  model.addAttribute("cri", cri);
 
-	//조회수 +1
+	  //조회수 +1
 	  service.plusCnt(bno);
+	  
+	 //댓글 조회
+	  List<ReplyDTO> reply = rservice.replyList(bno);
+	  model.addAttribute("reply", reply);
 	  return "board/get";
 	}
 	
@@ -56,7 +67,6 @@ public class BoardReviewController {
 	@PostMapping("write")
 	public String write(ReviewDTO vo) {
 		service.insertBoard(vo);
-		/* return "redirect: /get-r?bno="+ vo.getBno(); */
 		return "redirect: review";
 	}
 	

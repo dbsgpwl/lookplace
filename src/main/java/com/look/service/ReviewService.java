@@ -30,6 +30,7 @@ public interface ReviewService {
 		
 		// 게시물 수정
 		public boolean updateBoard(ReviewDTO vo);
+
 		
 }
 

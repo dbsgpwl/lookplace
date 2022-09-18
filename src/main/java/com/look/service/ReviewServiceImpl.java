@@ -44,7 +44,7 @@ public class ReviewServiceImpl implements ReviewService{
 	//조회수 +1
 	@Override
 	public boolean plusCnt(int bno) {
-	  return mapper.plusCnt(bno);
+		return mapper.plusCnt(bno);
 	}
 	
 	//게시물 작성

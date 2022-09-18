@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰 상세</title>
+<title>상세</title>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/board.css" rel="stylesheet" type="text/css">
@@ -65,7 +65,34 @@
 					<input type="button" value="삭제" onclick="del(${board.bno})">
 					<input type="button" value="글 목록" style="float: right;" onclick="location.href='review';">
 			</div>
-			
+			<!-- 댓글 시작 -->
+			<div>
+				<ul>
+				<c:forEach items="${reply}" var="reply">
+				<li>
+					<div>
+						<p>${reply.nickname} / <fmt:formatDate value="${reply.regdate}" pattern="yyyy-MM-dd" /></p>
+						<p>${reply.content }</p>
+					</div>
+				</li>	
+				</c:forEach>
+				</ul>
+			</div>
+			<!-- 댓글 끝 -->
+			<div>
+				<form method="post" action="/reply/write">
+					<p>
+						<label>댓글 작성자</label> <input type="text" name="nickname">
+					</p>
+					<p>
+						<textarea rows="5" cols="50" name="content"></textarea>
+					</p>
+					<p>
+						<input type="hidden" name="bno" value="${board.bno }" />
+						<button type="submit">댓글 작성</button>
+					</p>
+				</form>
+			</div>
 			<form id="infoForm" action="modify-r" method="get">
 				<input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno }" />'>
 				<input type="hidden" name="pageNum" value="${cri.pageNum }">  

@@ -32,7 +32,7 @@
     <select id="getListPaging" resultType="com.look.model.ReviewDTO">
     
           select * from (
-                select bno, title, nickname, regdate, updatedate  
+                select bno, title, nickname, regdate, updatedate ,hit 
                 from tbl_review 
                 <if test="keyword != null">
                     <include refid="criteria"></include>
@@ -58,8 +58,8 @@
 	</select>
 	
 	<!-- 조회수 +1 -->
-	<update id="plusCnt" parameterType="int">
-	  UPDATE tbl_review SET hit = hit + 1 WHERE bno = #{bno}
+	<update id="plusCnt"  parameterType="int">
+		update tbl_review set hit = hit + 1 where bno = #{bno}
 	</update>
 	
 	<!-- 게시판 insert -->
