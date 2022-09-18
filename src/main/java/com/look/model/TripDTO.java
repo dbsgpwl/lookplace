@@ -21,6 +21,8 @@ public class TripDTO {
 	private String place;
 	/* 장소 지역 */
 	private String local;
+	/* 조회수 */
+	private int count;
 	
 	
 }

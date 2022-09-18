@@ -139,23 +139,6 @@
 	width:100px;
 	height:40px;
 }
-.board-modify-button{
-	border:none;
-	cursor:pointer;
-	display: inline-block;
-	border:2px solid rgb(255, 56, 142);
-	border-radius: 3px;
-	width:100px;
-	height:40px;
-}
-.board-writer-button:hover {
-	
-	color:black;
-}
-.board-modify-button:hover {
-	
-	color:rgb(255, 56, 142);
-}
 #delete_btn{
     background-color: #f3e3e7;
 }

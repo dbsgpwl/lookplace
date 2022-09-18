@@ -15,4 +15,7 @@ public interface TripService {
 	
 	public List<TripDTO> localListPaging(Criteria cri);
 
+	public TripDTO Detailpage(int imgno);
+	
+	public int updateCount(int imgno);
 }
