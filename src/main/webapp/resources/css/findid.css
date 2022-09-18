@@ -13,14 +13,14 @@
       text-align:center;
     }
     
-    .findInput{
+    .findInputEmail{
 	    width: 15vw;
 		height: 5vh;
 		font-size: 1.2em;
 		border: 1px solid #e1e1e1;
 		padding: 5px;
     }
-    .mail_check_input{
+    .mail_find_input{
      	width: 20.6vw;
 		height: 5vh;
 		font-size: 1.2em;
@@ -28,7 +28,8 @@
 		padding: 5px;
     }
     
-    .mail_check_button{
+    .mail_find_button{
+        margin-top:17px;
 		border: 1px solid black;
 	    height: 40px;
 	    line-height: 40px;
@@ -70,6 +71,12 @@
 		border-radius: 2px;
 	}
 	
+	.correct{
+		color : green;
+	}
+	
+	
+	
 	
 	
 	.modal.show {
@@ -94,13 +101,13 @@
 		flex-direction: column;
 	}
 	
-	/*mail check*/
+	/*mail find check*/
 	
-	#mail_check_input_box_false{
+	#mail_find_input_box_false{
     	background-color:#ebebe4;
 	}
  
-	#mail_check_input_box_true{
+	#mail_find_input_box_true{
 	    background-color:white;
 	}
 	

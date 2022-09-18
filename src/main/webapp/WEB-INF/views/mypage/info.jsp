@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 	
 	<main>
 	<div class="info-main">
-		<div class="info-aside-menu" style="">
+		<div class="info-aside-menu">
 			<div class="info-aside"> 
 				<div class="info-icon">
 					<i class="fa-solid fa-circle-user"></i>
@@ -37,29 +38,49 @@
 				<table class="table border border-1 info-table">
 					<tr>
 						<td>회원코드</td>
-						<td><input type=text class="form-control" ></td>
+						<td>	
+						<c:if test="${member!=null}">					
+						<input type=text class="form-control" value="${member.membercode}" readonly>
+						</c:if>	
+						</td>
 					</tr>
 					<tr>
 						<td>닉네임 *</td>
-						<td><input type=text class="form-control" ></td>
+						<td><input type=text class="form-control" value="${member.nickname}">
+						</td>
 					</tr>
 					<tr>
 						<td>성명 *</td>
-						<td><input type=text class="form-control"></td>
+						<td>
+						<c:if test="${member!=null}">
+						<input type=text class="form-control" value="${member.name}">
+						</c:if>	
+						</td>
 					</tr>
 					<tr>
-						<td>아이디 *</td>
-						<td><input type=text class="form-control" ></td>
+						<td>이메일 *</td>
+						<td>
+						<c:if test="${member!=null}">
+						<input type=text class="form-control" value="${member.email}" readonly>
+						</c:if>	
+						</td>
 					</tr>
 					<tr>
 						<td>비밀번호 *</td>
-						<td><input type=text  class="form-control"></td>
+						<td>
+						<c:if test="${member!=null}">
+						<input type=text  class="form-control" value="${member.password}">
+						</c:if>	
+						</td>
 					</tr>
 					<tr>
 						<td>주소 *</td>
-						<td><input type=text  class="form-control"></td>
+						<td>
+						<c:if test="${member!=null}">
+						<input type=text  class="form-control" value="${member.address} ">
+						</c:if>
+						</td>
 					</tr>
-					
 				</table>
 			</div>
 			<div class="info-write-area" >
