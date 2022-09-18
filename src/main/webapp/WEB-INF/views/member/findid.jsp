@@ -16,15 +16,18 @@
 		<form>
 			<h1>아이디찾기</h1>
 			<div class="inputBox">
-				<input class="findInput findInputEmail"  placeholder="e-mail">
-				<button class="mail_check_button" type="button" onclick="alert('인증번호가 전송되었습니다.');">인증번호 전송</button>
+				<input class="findInputEmail"  placeholder="e-mail">
+				<button class="mail_find_button" type="button" onclick="alert('인증번호가 전송되었습니다.');">인증번호 전송</button>
+			</div>
+			<div>
+				<span id="mail_find_input_box_warn"></span>
 			</div>
 			<div class="inputBox">
-				<input class="mail_check_input" id="mail_check_input_box_false" placeholder="인증번호 입력" disabled="disabled">
+				<input class="mail_find_input" id="mail_find_input_box_false" placeholder="인증번호 입력" disabled="disabled">
 			</div>
 			
 			<div>
-		  		<span id="mail_check_input_box_warn" style="font-size:1em"></span>
+		  		<span id="mail_find_input_box_warn" style="font-size:1em"></span>
 		  	</div>
 		  			  	
 			<button class="CancelBtn" type="button" onclick="location.href='/'">
@@ -43,7 +46,7 @@
 		  			<span></span>
 		  		</div>
 	  			<button type="button" class="CancelBtn modal_cancel">취소</button>
-	  			<button type="button" class="findBtn"  onclick="location.href='/'">확인</button>
+	  			<button type="button" class="findBtn">확인</button>
 	  		</div>
 		</div>
 </main>
@@ -91,46 +94,25 @@ MODALCANCEL.addEventListener("click", (event) => {
     }
 });
 
+var code = "";
 
-
-/* 인증번호 이메일 */
-$(".mail_check_button").click(function() {
-      var email    = $(".findInputEmail").val(); // 입력한 이메일
-      var checkBox = $(".mail_check_input");       // 인증번호 입력란
-      var boxWrap  = $(".mail_check_input_box")    // 인증번호 입력란 박스
-
-             $.ajax({
-                 type: "GET",
-                 url: "mailCheck?email=" + email,
-                 success : function(data){
-                 // 	console.log("data : " + data);
-                 		checkBox.attr("disabled",false);
-                 		checkBox.attr("id","mail_check_input_box_true");
-                   		code = data;
-                    }
-                });
-            });
-
-
-
-/* 인증번호 비교 */
-$(".mail_check_input").blur(function(){
+$(".mail_find_button").click(function(){
+	var email=$(".findInputEmail").val();
+	var checkBox=$(".mail_find_input");
+	var boxWrap=$(".inputBox");
 	
-	var inputCode   = $(".mail_check_input").val();    // 입력코드
-	var checkResult = $("#mail_check_input_box_warn")  // 비교결과 
 	
-	if(inputCode == code){
-		checkResult.html("인증번호가 일치합니다.");
-		checkResult.attr("class","correct");
-		$(".mail_check_input").css('border','1px solid gray');
-		$(".mail_check_input").css('background-color','	white');
-		$(".mail_check_input").css('color','black');
-	}else{
-		checkResult.html("인증번호를 다시 확인해주세요.");
-		checkResult.attr("class","incorrect");
-		$(".mail_check_input").css('border','1px solid red');
-	}
-})
+	$.ajax({
+		
+		type:"GET",
+		url :"mailCheckfind?email=" + email
+		success:function(data){
+			checkBox.attr("disabled",false);
+			boxWrap.attr("id","mail_check_input_box_true");
+			code = data;
+		}
+	});	
+});
 
 </script>
 

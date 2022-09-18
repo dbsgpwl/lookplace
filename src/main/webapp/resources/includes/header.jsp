@@ -90,7 +90,7 @@
           
         <!-- 로그인 한 상태 -->				
 		<c:if test="${member!=null}">
-			<button onclick="location.href='/mypage/myinfo'">
+			<button onclick="location.href='/mypage/info'">
 				<i class="fa-sharp fa-solid fa-user-pen"></i>
 				<p style="margin-top:7px; font-size:15px;">내 정보</p>
 			</button>		
