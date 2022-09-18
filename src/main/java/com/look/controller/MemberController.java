@@ -126,6 +126,8 @@ public class MemberController {
 			
 			return "redirect:/";
 		}
+		
+		/* 회원가입 이메일 인증 */
 		@RequestMapping(value="/mailCheck", method=RequestMethod.GET)
 		@ResponseBody
 		public String mailCheckGET(String email) throws Exception{
@@ -171,6 +173,8 @@ public class MemberController {
 		@ResponseBody
 		public String mailfindCheckGET(String email) throws Exception{
 			/* 인증번호 난수 */
+			System.out.println("이메일데이터전송확이ㄴㄴㄴ");
+			System.out.println("email");
 			Random random = new Random();
 			int checkNum = random.nextInt(888888) + 111111;
 			System.out.println("인증번호 : " + checkNum);
