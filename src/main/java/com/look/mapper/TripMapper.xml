@@ -50,5 +50,14 @@
     
     </select>
     
+    <select id = "Detailpage" resultType = "com.look.model.TripDTO">
+     
+     	SELECT * FROM tbl_best_image WHERE imgno = #{imgno}
+    
+    </select>
+    
+    <update id="updateCount">
+    	UPDATE tbl_best_image SET count = count + 1  WHERE imgno = #{imgno}
+    </update>
    		
   </mapper>

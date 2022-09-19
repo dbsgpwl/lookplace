@@ -35,4 +35,14 @@ public class TripServiceImpl implements TripService{
 		return mapper.localListPaging(cri);
 	}
 
+	@Override
+	public TripDTO Detailpage(int imgno) {
+		return mapper.Detailpage(imgno);
+	}
+
+	@Override
+	public int updateCount(int imgno) {
+		return mapper.updateCount(imgno);
+	}
+
 }
