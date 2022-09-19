@@ -74,6 +74,11 @@
 						<p>${reply.nickname} / <fmt:formatDate value="${reply.regdate}" pattern="yyyy-MM-dd" /></p>
 						<p>${reply.content }</p>
 					</div>
+					<form method="post" action="/reply/delete">
+					<input type="hidden" name="bno" value='<c:out value="reply.bno"></c:out>'>
+					<button class="replyUpdate" type="submit">수정</button>
+					<input class="replyDelete" id="delete_btn_reply" type="button" value="삭제" onclick="del(${reply.rno})">
+					</form>
 				</li>	
 				</c:forEach>
 				</ul>
@@ -81,9 +86,7 @@
 			<!-- 댓글 끝 -->
 			<div>
 				<form method="post" action="/reply/write">
-					<p>
-						<label>댓글 작성자</label> <input type="text" name="nickname">
-					</p>
+				
 					<p>
 						<textarea rows="5" cols="50" name="content"></textarea>
 					</p>
@@ -123,7 +126,13 @@
 					+ "&keyword=${cri.keyword }"
 					+ "&type=${cri.type }"
 					});	
-
+	
+	function del(rno) {
+		var chk = confirm("정말 삭제하시겠습니까?");
+		if (chk) {
+			location.href='/reply/delete?rno='+rno;
+		}
+	}	
 
 </script>
 	

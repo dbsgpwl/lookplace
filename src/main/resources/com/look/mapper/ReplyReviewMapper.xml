@@ -30,7 +30,9 @@
 	<delete id="replyDelete" parameterType="com.look.model.ReplyDTO">
 		delete from tbl_reply_review
 		where rno = #{rno}
-			and bno = ${bno}	
 	</delete>
+
+		
+		
 </mapper>
 
