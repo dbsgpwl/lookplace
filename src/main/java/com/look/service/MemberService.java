@@ -12,4 +12,5 @@ public interface MemberService {
 	/* 로그인 */
 	public MemberDTO memberLogin(MemberDTO dto) throws Exception;
 	
+	
 }

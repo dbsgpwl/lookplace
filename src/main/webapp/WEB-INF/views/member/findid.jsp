@@ -13,7 +13,7 @@
 
 <main>
 	<section class="emailBox">
-		<form>
+		<form action="/member/findid" method="post">
 			<h1>아이디찾기</h1>
 			<div class="inputBox">
 				<input class="findInputEmail"  placeholder="e-mail">

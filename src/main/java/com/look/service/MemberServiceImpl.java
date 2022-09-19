@@ -27,6 +27,8 @@ public class MemberServiceImpl implements MemberService{
 	public MemberDTO memberLogin(MemberDTO dto) throws Exception {
 		return mapper.memberLogin(dto);
 	}
+
+
 }
 	
 

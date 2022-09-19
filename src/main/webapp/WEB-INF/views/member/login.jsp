@@ -60,7 +60,7 @@
           </li>
           <li>|</li>
           <li style="list-style: none">
-            <a href="#" style="color: gray">아이디찾기</a>
+            <a href="/member/findid" style="color: gray">아이디찾기</a>
           </li>
           <li>|</li>
           <li style="list-style: none">

@@ -168,13 +168,13 @@ public class MemberController {
 			return num;
 		}		
 		
+		/* */
+		
 		/* 아이디 찾기 이메일*/
 		@RequestMapping(value="/mailCheckfind", method=RequestMethod.GET)
 		@ResponseBody
 		public String mailfindCheckGET(String email) throws Exception{
 			/* 인증번호 난수 */
-			System.out.println("이메일데이터전송확이ㄴㄴㄴ");
-			System.out.println("email");
 			Random random = new Random();
 			int checkNum = random.nextInt(888888) + 111111;
 			System.out.println("인증번호 : " + checkNum);
@@ -222,5 +222,7 @@ public class MemberController {
 				return "success";        // 중복 아이디 x
 			}
 		}
+		
+		
 }		
 	
