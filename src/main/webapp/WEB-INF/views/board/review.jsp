@@ -122,7 +122,7 @@
 		
 	</div>
 	</main>
-	<script type="text/javascript">
+	<script>
 	let moveForm = $("#moveForm");
 	
 	$(".pageInfo a").on("click", function(e){

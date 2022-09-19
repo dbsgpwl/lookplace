@@ -71,7 +71,7 @@ public class BoardReviewController {
 	@PostMapping("write")
 	public String write(ReviewDTO vo) {
 		service.insertBoard(vo);
-		return "redirect: review";
+		return "redirect:/review";
 	}
 	
 	//게시글 삭제

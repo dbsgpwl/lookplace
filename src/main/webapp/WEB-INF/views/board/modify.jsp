@@ -41,6 +41,8 @@
 		<div class="board-table-area">
 			<form method="post" action="/modify-r" >
 			<input type="hidden" name="bno" value="${board.bno}">
+			<input type="hidden" name="bno" value="${reply.bno}">
+			<input type="hidden" name="rno" value="${reply.rno}">
 				<table class="table border border-1 board-table table-hover">
 					<tr>
 						<td>작성자</td>
