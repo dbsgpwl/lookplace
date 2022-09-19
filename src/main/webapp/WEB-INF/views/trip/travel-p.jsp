@@ -11,7 +11,6 @@
 
 <body>
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
-
 	<!-- section 안에 작성 -->
 	<main>
 	
@@ -23,7 +22,6 @@
 
 			<div class="travelP_thirddiv">
 				<span class="travelP_placeaddr"><c:out value = "${detail.local }" /> | <c:out value = "${detail.address }" /></span><br>
-				<span class="travelP_description">열글자 설명</span>
 			</div>
 		</div>
 
@@ -31,7 +29,7 @@
 				<div>
 				<i class="fa-regular fa-heart e_h"></i>&nbsp;
 				<i class="fa-regular fa-share-from-square"></i>&nbsp;
-				 <span style="font-size:12px;">조회수 <c:out value="${detail.count }"></c:out></span>
+				 <span style="font-size:12px;">조회수 <c:out value="${detail.count }"></c:out></span>	
 				</div>
 			<hr>
 
@@ -64,12 +62,28 @@
 		</div>
 
 		<div style="margin-top: 100px; ">
+
 			<h4>여행톡</h4>
-			<div class="travelP_reply-content">
-				<input type="text" placeholder="로그인 후 댓글을 남겨주세요.">
-				<div style="text-align:right;">
-				<button class="travelP_button">등록</button>
+			<div class="travelP_reply">
+				<form action="/trip/travel-p" method = "post">
+					<input type="text" placeholder="로그인 후 댓글을 남겨주세요." name  = "content">
+					<input type ="hidden" name = "imgno" value = '<c:out value = "${re.imgno }" />'>
+					<input type ="hidden" name = "nickname" value = '<c:out value = "${member.nickname }" />'>
+					<div style="text-align:right;">
+						<button class="travelP_button">등록</button>
+					</div>
+				
+				
+				<c:forEach items="${reply }" var = "reply">
+				<div class = "travelP_reply_content">
+					<div style = "display: flex; justify-content: space-between; margin-bottom: 10px;">
+						<span><c:out value="${reply.nickname }"></c:out></span>
+						<span><c:out value="${reply.regdate }"></c:out></span>
+					</div>
+					<p><c:out value="${reply.content }"></c:out></p>
 				</div>
+				</c:forEach>
+				</form>
 			</div>
 		</div>
 		</div>

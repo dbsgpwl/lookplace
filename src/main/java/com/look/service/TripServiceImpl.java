@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.look.mapper.TripMapper;
 import com.look.model.Criteria;
 import com.look.model.TripDTO;
+import com.look.model.TripReplyDTO;
 
 
 @Service
@@ -43,6 +44,16 @@ public class TripServiceImpl implements TripService{
 	@Override
 	public int updateCount(int imgno) {
 		return mapper.updateCount(imgno);
+	}
+
+	@Override
+	public List<TripReplyDTO> replyList(int imgno) {
+		return mapper.replyList(imgno);
+	}
+
+	@Override
+	public void insertList(TripReplyDTO dto) {
+		mapper.insertList(dto);
 	}
 
 }

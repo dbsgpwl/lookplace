@@ -1,19 +1,19 @@
 package com.look.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.look.model.Criteria;
 import com.look.model.PageMakerDTO;
 import com.look.model.TripDTO;
+import com.look.model.TripReplyDTO;
 import com.look.service.TripService;
 
 import lombok.AllArgsConstructor;
@@ -66,15 +66,24 @@ public class TripController {
 		}
 		
 		@GetMapping("/travel-p")
-		public void detailGET( Model model, @RequestParam("imgno")int imgno, Criteria cri) {
+		public void detailGET( Model model, @RequestParam("imgno")int imgno, Criteria cri, TripDTO dto) {
 			log.info("상세페이지 진입");
 			
 			service.updateCount(imgno);
 			
+			model.addAttribute("re" , dto);
+			model.addAttribute("reply", service.replyList(imgno));
 			model.addAttribute("detail", service.Detailpage(imgno));
 			model.addAttribute("cri", cri);
 			
+			
 		}
+		@PostMapping("/travel-p")
+		public String replyPOST(TripReplyDTO dto, @RequestParam("imgno")int imgno) {
+			service.insertList(dto);
+			return "redirect:/trip/travel-p?imgno=" +imgno;
+		}
+		
 		
 		
 }

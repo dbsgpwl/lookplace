@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.look.model.Criteria;
 import com.look.model.TripDTO;
+import com.look.model.TripReplyDTO;
 
 public interface TripService {
 
@@ -18,4 +19,8 @@ public interface TripService {
 	public TripDTO Detailpage(int imgno);
 	
 	public int updateCount(int imgno);
+	
+	public List<TripReplyDTO> replyList(int imgno);
+	
+	public void insertList(TripReplyDTO dto);
 }
