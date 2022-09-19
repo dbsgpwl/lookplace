@@ -39,6 +39,13 @@ public class ReplyReviewServiceImpl implements ReplyReviewService {
 		return mapper.idCheck(rno);
 	}
 
+	// 댓글 수정
+	@Override
+	public void modifyReply(ReplyDTO reply) {
+		mapper.modifyReply(reply);
+		
+	}
+
 
 
 }

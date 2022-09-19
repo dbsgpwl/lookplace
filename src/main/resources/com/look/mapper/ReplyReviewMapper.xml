@@ -31,7 +31,12 @@
 	   where rno = #{rno}
 	</select>
 
-		
+	<!-- 댓글 수정 -->
+	<update id="modifyReply">
+	   update tbl_reply_review
+	   set content = #{content}
+	   where rno = #{rno} and nickname = #{nickname}
+	</update>
 		
 </mapper>
 

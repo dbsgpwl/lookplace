@@ -17,5 +17,8 @@ public interface ReplyReviewMapper {
 	
 	// 아이디 체크
 	public String idCheck(int rno);
+	
+	// 댓글 수정
+	public void modifyReply(ReplyDTO reply);
 
 }

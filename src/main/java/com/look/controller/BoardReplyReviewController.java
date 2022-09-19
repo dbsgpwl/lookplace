@@ -64,4 +64,24 @@ public class BoardReplyReviewController {
 	   
 	   return result;   
 	}
+	
+	// 상품 소감(댓글) 수정
+	@ResponseBody
+	@RequestMapping(value = "/modify", method = RequestMethod.POST)
+	public int modifyReply(ReplyDTO reply, HttpSession session) throws Exception {
+	   
+	   int result = 0;
+	   
+	   MemberDTO member = (MemberDTO)session.getAttribute("member");
+	   String userId = rservice.idCheck(reply.getRno());
+	   
+	   if(member.getNickname().equals(userId)) {
+	    
+	    reply.setNickname(member.getNickname());
+	    rservice.modifyReply(reply);
+	    result = 1;
+	   }
+	   
+	   return result;
+	}   
 }
