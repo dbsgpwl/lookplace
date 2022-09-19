@@ -54,10 +54,6 @@ public class BoardReviewController {
 	  //조회수 +1
 	  service.plusCnt(bno);
 	  
-	 //댓글 조회
-	  List<ReplyDTO> reply = rservice.replyList(bno);
-	  model.addAttribute("reply", reply);
-	  
 	  return "/board/get";
 	}
 	

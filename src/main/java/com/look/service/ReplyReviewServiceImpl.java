@@ -27,23 +27,18 @@ public class ReplyReviewServiceImpl implements ReplyReviewService {
 		mapper.replyWrite(vo);
 	}
 
-	//댓글 수정
+	//댓글 삭제
 	@Override
-	public void replyModify(ReplyDTO vo) {
-		mapper.replyModify(vo);
+	public void replyDelete(ReplyDTO reply) {
+		mapper.replyDelete(reply);
+	}
+	
+	//아이디 체크
+	@Override
+	public String idCheck(int rno) {
+		return mapper.idCheck(rno);
 	}
 
-	//댓글 삭제 
-	@Override
-	public boolean replyDelete(int rno) {
-		return mapper.replyDelete(rno);
-	}
-
-	//특정 댓글 조회
-	@Override
-	public ReplyDTO readReplySelect(int rno) {
-		return mapper.readReplySelect(rno);
-	}
 
 
 }
