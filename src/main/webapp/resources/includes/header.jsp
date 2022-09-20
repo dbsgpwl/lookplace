@@ -33,7 +33,7 @@
 				<!-- 로그인 한 상태 -->
 					<c:if test="${member!=null}">
 						<div class="login_success_area">
-								<span>${member.nickname}님 </span><br>
+								<span onclick="location.href='/mypage/info'" style="cursor:pointer">${member.nickname}님 </span><br>
 								<span>LookPlace에 오신걸 환영합니다.</span>
 						</div>
 					</c:if>

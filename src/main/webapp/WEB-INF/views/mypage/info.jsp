@@ -36,9 +36,9 @@
 			</div>
 			<!-- 사용자 비밀번호 확인 -->
 			
-			<div id="pwdConfirm">
-				<h1>비밀번호 입력</h1>
-				<input id="userPwd" type="text">
+			<div id="pwdConfirm" style="text-align:center; margin-bottom:5vh">
+				<h1 style="margin-bottom:5vh">비밀번호 입력</h1>
+				<label for=html>비밀번호 :</label> <input id="userPwd" type="password">
 			</div>
 			<!--  -->
 			
@@ -138,5 +138,13 @@ const CANCEL = () => {
 	INFOAREA.innerHTML+= '<button type="button" class="btn btn-outline-secondary" onclick="location.href="/member/leavemember"">회원탈퇴</button>'
 }
 
+
 </script>
+
+
+
+
+
+
+
 </html>
