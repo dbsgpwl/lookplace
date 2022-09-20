@@ -56,4 +56,10 @@ public class TripServiceImpl implements TripService{
 		mapper.insertList(dto);
 	}
 
+	@Override
+	public int deleteReply(int reno) {
+		return mapper.deleteReply(reno);
+	}
+
+
 }

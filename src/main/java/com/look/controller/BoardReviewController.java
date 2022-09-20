@@ -54,10 +54,6 @@ public class BoardReviewController {
 	  //조회수 +1
 	  service.plusCnt(bno);
 	  
-	 //댓글 조회
-	  List<ReplyDTO> reply = rservice.replyList(bno);
-	  model.addAttribute("reply", reply);
-	  
 	  return "/board/get";
 	}
 	
@@ -71,7 +67,7 @@ public class BoardReviewController {
 	@PostMapping("write")
 	public String write(ReviewDTO vo) {
 		service.insertBoard(vo);
-		return "redirect: review";
+		return "redirect:/review";
 	}
 	
 	//게시글 삭제

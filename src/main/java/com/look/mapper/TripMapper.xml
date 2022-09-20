@@ -70,5 +70,12 @@
    	<insert id="insertList">
    		insert into tbl_detail_reply(imgno, nickname, regdate, content) values(#{imgno}, #{nickname},now(), #{content})
    	</insert>
+   	
+   	
+   	<!-- 댓글 삭제 -->
+	<delete id="deleteReply">
+	   delete from tbl_detail_reply where reno = #{reno}
+	</delete>
+   		
    		
   </mapper>

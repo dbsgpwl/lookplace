@@ -23,4 +23,7 @@ public interface TripService {
 	public List<TripReplyDTO> replyList(int imgno);
 	
 	public void insertList(TripReplyDTO dto);
+	
+	public int deleteReply(int reno);
+	
 }

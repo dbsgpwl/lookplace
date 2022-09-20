@@ -26,4 +26,6 @@ public interface TripMapper {
 	
 	public void insertList(TripReplyDTO dto);
 	
+	public int deleteReply(int reno);
+	
 }

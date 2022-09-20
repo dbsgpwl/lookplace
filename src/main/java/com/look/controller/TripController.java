@@ -1,17 +1,24 @@
 package com.look.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.look.model.Criteria;
+import com.look.model.MemberDTO;
 import com.look.model.PageMakerDTO;
+import com.look.model.ReplyDTO;
 import com.look.model.TripDTO;
 import com.look.model.TripReplyDTO;
 import com.look.service.TripService;
@@ -79,11 +86,22 @@ public class TripController {
 			
 		}
 		@PostMapping("/travel-p")
-		public String replyPOST(TripReplyDTO dto, @RequestParam("imgno")int imgno) {
+		public String writePOST(TripReplyDTO dto, @RequestParam("imgno")int imgno) {
 			service.insertList(dto);
 			return "redirect:/trip/travel-p?imgno=" +imgno;
 		}
 		
+		@PostMapping("/delete")
+		public String delete(@RequestParam("imgno")int imgno,@RequestParam("reno")int reno) {
+			
+			log.info("진입 딜리트");
+			service.deleteReply(reno);
+			return "redirect:/trip/travel-p?imgno=" +imgno;
+		}
 		
 		
 }
+
+
+
+
