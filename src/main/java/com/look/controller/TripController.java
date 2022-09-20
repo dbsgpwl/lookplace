@@ -1,6 +1,7 @@
 package com.look.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -92,11 +93,19 @@ public class TripController {
 		}
 		
 		@PostMapping("/delete")
-		public String delete(@RequestParam("imgno")int imgno,@RequestParam("reno")int reno) {
+		public String delete(@RequestParam("imgno")int imgno, HttpServletRequest request) {
 			
 			log.info("진입 딜리트");
-			service.deleteReply(reno);
+			String reno =request.getParameter("reno");
+			int re = Integer.parseInt(reno);
+			System.out.println(re);
+			service.deleteReply(re);
 			return "redirect:/trip/travel-p?imgno=" +imgno;
+		}
+		@PostMapping("/update")
+		public String update(@RequestParam("imgno")int imgno) {
+			
+			return"redirect:/trip/travel-p?imgno=" +imgno;
 		}
 		
 		

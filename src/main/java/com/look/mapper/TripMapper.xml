@@ -77,5 +77,10 @@
 	   delete from tbl_detail_reply where reno = #{reno}
 	</delete>
    		
+   	<!-- 댓글 수정 -->
+   	<update id="updateReply">
+   	
+   		update tbl_detail_reply SET content = #{content} where reno = #{reno}
+   	</update>
    		
   </mapper>
