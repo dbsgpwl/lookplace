@@ -39,7 +39,7 @@
 					</c:if>
 			
             <li><a href="/"><i class="fa-sharp fa-solid fa-house"></i>홈</a>
-            	<button onclick="ShowDetail1()">✔</button>
+            	<button class="side_Btn" onclick="ShowDetail1()" ><i class="fa-solid fa-caret-down"></i></button>
             	<ul class="side_Detail1">
             		<li><a href="/trip/best">인기</a></li>
             		<li><a href="/trip/course">코스</a></li>
@@ -47,7 +47,7 @@
             </li>
             <li><a href="/map/mapapi"><i class="fa-sharp fa-solid fa-location-dot"></i>여행지도</a></li>
             <li><a href="freeboard"><i class="fa-solid fa-clipboard-list"></i>커뮤니티</a>
-            	<button onclick="ShowDetail2()">✔</button>
+            	<button class="side_Btn" onclick="ShowDetail2()"><i class="fa-solid fa-caret-down"></i></button>
             	<ul class="side_Detail2">
             		<li><a href="review">리뷰</a></li>
             		<li><a href="freeboard">자유게시판</a></li>
