@@ -160,9 +160,13 @@
       justify-content:space-between;
     }
     
-    #side_menu ul{
+    .side_title{
     	list-style:none;
     	margin-top:20%;
+    }
+    
+    .side_title span{
+    	font-size:20px
     }
     
     #side_menu a{
@@ -178,13 +182,13 @@
       left: 0;
     }
     
-    .side_Detail{
+    .side_Detail1{
+    	display:none;
+    }
+    .side_Detail2{
     	display:none;
     }
     
-    #side_menu > a:hover .side_Detail{
-    	display:block;
-    }
     
     
     

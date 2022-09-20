@@ -20,7 +20,7 @@
           <span></span>
         </label>
         <div id="side_menu">
-          <ul style="padding-top:20px;">
+          <ul class="side_title" style="padding-top:20px;">
 			
 				<!-- 로그인 하지 않은 상태 -->				
 					<c:if test="${member==null}">
@@ -39,16 +39,18 @@
 					</c:if>
 			
             <li><a href="/"><i class="fa-sharp fa-solid fa-house"></i>홈</a>
-            	<ul class="side_Detail">
-            		<li>인기</li>
-            		<li>코스</li>
+            	<button onclick="ShowDetail1()">✔</button>
+            	<ul class="side_Detail1">
+            		<li><a href="/trip/best">인기</a></li>
+            		<li><a href="/trip/course">코스</a></li>
             	</ul>
             </li>
             <li><a href="/map/mapapi"><i class="fa-sharp fa-solid fa-location-dot"></i>여행지도</a></li>
             <li><a href="freeboard"><i class="fa-solid fa-clipboard-list"></i>커뮤니티</a>
-            	<ul class="side_Detail">
-            		<li>인기</li>
-            		<li>코스</li>
+            	<button onclick="ShowDetail2()">✔</button>
+            	<ul class="side_Detail2">
+            		<li><a href="review">리뷰</a></li>
+            		<li><a href="freeboard">자유게시판</a></li>
             	</ul>
             </li>
           </ul>
@@ -100,4 +102,28 @@
     </header>
 
 </body>
+<script>
+const DETAIL1 = document.querySelector('.side_Detail1')
+const DETAIL2 = document.querySelector('.side_Detail2')
+
+const ShowDetail1 = () =>{
+	if(DETAIL1.classList.contains('side_Detail1')){
+		DETAIL1.style.display='block';
+		DETAIL1.classList.remove('side_Detail1');
+	}else{
+		DETAIL1.style.display='none';
+		DETAIL1.classList.add('side_Detail1');
+	}
+}
+
+const ShowDetail2 = () =>{
+	if(DETAIL2.classList.contains('side_Detail2')){
+		DETAIL2.style.display='block';
+		DETAIL2.classList.remove('side_Detail2');
+	}else{
+		DETAIL2.style.display='none';
+		DETAIL2.classList.add('side_Detail2');
+	}
+}
+</script>
 </html>
