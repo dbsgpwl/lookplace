@@ -86,12 +86,14 @@ public class TripController {
 			
 			
 		}
+		// 댓글 작성
 		@PostMapping("/travel-p")
-		public String writePOST(TripReplyDTO dto, @RequestParam("imgno")int imgno) {
+		public String write(TripReplyDTO dto, @RequestParam("imgno")int imgno) {
 			service.insertList(dto);
 			return "redirect:/trip/travel-p?imgno=" +imgno;
 		}
 		
+		//댓글 삭제
 		@PostMapping("/delete")
 		public String delete(@RequestParam("imgno")int imgno, HttpServletRequest request) {
 			
@@ -101,9 +103,16 @@ public class TripController {
 			System.out.println(re);
 			service.deleteReply(re);
 			return "redirect:/trip/travel-p?imgno=" +imgno;
-		}
+		}	
+		
+		
+		//댓글 업데이트
 		@PostMapping("/update")
-		public String update(@RequestParam("imgno")int imgno) {
+		public String update(TripReplyDTO dto, @RequestParam("imgno")int imgno,@RequestParam("content")String content) {
+			dto.setContent(content);
+			
+			
+			service.updateReply(dto);	
 			
 			return"redirect:/trip/travel-p?imgno=" +imgno;
 		}

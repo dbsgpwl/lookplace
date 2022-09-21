@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,31 +9,14 @@
 <title>여행지상세</title>
 <link href="/resources/css/travel-p.css" rel="stylesheet"
 	type="text/css">
-<style>
-	 section.replyForm-board-reply { padding:30px 0; }
-	 section.replyForm-board-reply div.input_area-board-reply { margin:10px 0; }
-	 section.replyForm-board-reply textarea { font-size:16px; font-family:'맑은 고딕', verdana; padding:10px; width:500px;; height:150px; }
-	 section.replyForm-board-reply button { font-size:20px; padding:5px 10px; margin:10px 0; background:#fff; border:1px solid #ccc; }
-	 
-	 section.replyList-board-reply { padding:30px 0; }
-	 section.replyList-board-reply ol { padding:0; margin:0; list-style:none;}
-	 section.replyList-board-reply ol li { padding:10px 0; border-bottom:2px solid #eee; }
-	 section.replyList-board-reply div.userInfo-board-reply { }
-	 section.replyLis-board-replyt div.userInfo-board-reply .userName-board-reply { font-size:24px; font-weight:bold; }
-	 section.replyList-board-reply div.userInfo-board-reply .date-board-reply { color:#999; display:inline-block; margin-left:10px; }
-	 section.replyList-board-reply div.replyContent-board-reply { padding:10px; margin:20px 0; }
-	 section.replyList-board-reply div.replyFooter-board button { font-size:14px; border: 1px solid #999; background:none; margin-right:10px; }
- div.replyModal { position:relative; z-index:1; display: none;}
- div.modalBackground { position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0, 0, 0, 0.8); z-index:-1; }
- div.modalContent { position:fixed; top:20%; left:calc(50% - 250px); width:500px; height:250px; padding:20px 10px; background:#fff; border:2px solid #666; }
- div.modalContent textarea { font-size:16px; font-family:'맑은 고딕', verdana; padding:10px; width:500px; height:200px; }
- div.modalContent button { font-size:20px; padding:5px 10px; margin:10px 0; background:#fff; border:1px solid #ccc; }
- div.modalContent button.modal_cancel { margin-left:20px; }
-</style>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+
 </head>
 
 <body>
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
+
 	<!-- section 안에 작성 -->
 	<main>
 
@@ -73,7 +57,6 @@
 			<div style="padding-top: 40px;">
 				<div>
 					<span class="travelP_detailinfo">상세정보</span>
-					<hr>
 				</div>
 
 				<div class="travelP_detailinfo2">
@@ -98,8 +81,8 @@
 							type="hidden" name="nickname"
 							value='<c:out value = "${member.nickname }" />'>
 							<c:if test="${member==null}">
-								<div>									
-									<span><a href="/member/login">로그인</a> 후 댓글을 작성해주세요</span>
+								<div style = "margin:10px 0;">									
+									<span><a href="/member/login" style = "color:red;">로그인</a> 후 댓글을 작성해주세요</span>
 								</div>	
 							 </c:if>
 							 <c:if test = "${member!=null }">
@@ -111,17 +94,15 @@
 
 						<c:forEach items="${reply }" var="reply">
 							<div class="travelP_reply_content">
-								<div
-									style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-									<span><c:out value="${reply.nickname }"></c:out></span> <span><c:out
-											value="${reply.regdate }"></c:out></span>
+								<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+									<span><c:out value="${reply.nickname }"></c:out></span> 
+									<span><fmt:formatDate pattern="yyyy/MM/dd" value="${reply.regdate}"/></span>
 								</div>
 								<p>
 									<c:out value="${reply.content }"></c:out>
 									<c:if test ="${member.nickname.equals(reply.nickname) }">
-										<button id="modify_btn_r" type = "button">수정</button>
+										<button id="modify_btn" type = "button" onclick ="modal()" name = "reno" value = "${reply.reno }">수정</button>
 										<button onclick = "javascript: form.action='/trip/delete';"name = "reno" value = "${reply.reno }">삭제</button>
-										
 									</c:if>
 								</p>
 							</div>
@@ -131,28 +112,74 @@
 				</form>
 				
 				<!-- 댓글 수정창 모달 -->
-				<form action="/trip/update" method= "">
-				<div class="replyModal">
-				 <div class="modalContent">
-				  <div>
-				   <textarea class="modal_Content" name="modal_Content"></textarea>
-				  </div>
-				  <div>
-				   <button type="submit" class="modal_modify_btn">수정</button>
-				   <button type="button" class="modal_cancel">취소</button>
-				  </div>
-				 </div>
-				 <div class="modalBackground"></div>
-				</div>
-				</form>
-				
-				
-				<script type="text/javascript">
-				
-				</script>
 			</div>
 		</div>
 	</main>
+	<style>
+#modify {
+	display: none; position : fixed;
+	left: 35%;
+	top: 25%;
+	width: 30%;
+	border: 1px solid black;
+	text-align: center;
+	padding: 30px 0;
+	background-color: #fefefe;
+	border-radius: 3px;
+	position: fixed;
+	box-shadow: 5px 5px 5px 5px pink;
+}
+
+.modal-input {
+	width: 100%;
+}
+
+.btnarea button {
+	border: none;
+	background-color: rgb(255, 56, 142);
+	color: white;
+	border: 2px solid lightgray;
+	border-radius: 3px;
+	width: 100px;
+	height: 40px;
+}
+</style>
+	
+	<div id= "modify">
+		<form action="/trip/update" method = "post">
+			<div id = "modal-input">
+				<textarea placeholder="수정할 내용을 입력하세요." style = "width:80%; height: 300px;margin-bottom:30px;" name ="content"></textarea>
+				<div class= btnarea>
+				<input type="hidden" name="imgno" value='<c:out value = "${re.imgno }" />'>
+					<button id ="modify_btn1" name = "reno">수정</button>
+					<button onclick = "cancel()" type = "button">취소</button>
+				</div>
+			</div>
+		</form>
+	</div>				
+	
+	<script type="text/javascript">
+		function modal(){
+			document.getElementById("modify_btn1").value = document.getElementById("modify_btn").value;
+			var modify = document.getElementById("modify");
+			modify.style.display = "block";
+			modify.style.zIndex = "999";
+			
+		}
+		function cancel(){
+			var modify = document.getElementById("modify");
+			modify.style.display = "none";
+			document.getElementById("modify_btn1") = 0;
+			
+		}
+		
+		
+		
+		
+		
+		
+		
+	</script>
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>
 </html>

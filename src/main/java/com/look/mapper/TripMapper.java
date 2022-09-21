@@ -30,6 +30,7 @@ public interface TripMapper {
 	
 	//댓글 삭제
 	public int deleteReply(int reno);
+	
 	//댓글 수정
-	public int	updateReply(int reno);
+	public void	updateReply(TripReplyDTO dto);
 }

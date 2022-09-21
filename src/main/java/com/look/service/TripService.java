@@ -22,6 +22,7 @@ public interface TripService {
 		public TripDTO Detailpage(int imgno);
 		//조회수 증가
 		public int updateCount(int imgno);
+		
 		//상세페이지 댓글 조회
 		public List<TripReplyDTO> replyList(int imgno);
 		
@@ -31,5 +32,5 @@ public interface TripService {
 		//댓글 삭제
 		public int deleteReply(int reno);
 		//댓글 수정
-		public int updateReply(int reno);
+		public void	updateReply(TripReplyDTO dto);
 }

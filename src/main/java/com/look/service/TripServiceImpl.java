@@ -60,10 +60,11 @@ public class TripServiceImpl implements TripService{
 	public int deleteReply(int reno) {
 		return mapper.deleteReply(reno);
 	}
-
+	
+	
 	@Override
-	public int updateReply(int reno) {
-		return mapper.updateReply(reno);
+	public void updateReply(TripReplyDTO dto) {
+		mapper.updateReply(dto);
 	}
 
 
