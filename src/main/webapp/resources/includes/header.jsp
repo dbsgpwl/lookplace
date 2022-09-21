@@ -87,7 +87,7 @@
         <div>
           <button onclick="location.href='/map/mapapi'">
            <i class="fa-solid fa-map-location-dot" ></i>
-           <p style="margin-top:7px; font-size:15px;">여행지도</p>
+           <p style="margin-top:7px; font-size:15px; color:rgb(255, 56, 142)">여행지도</p>
           </button>
           
         <!-- 로그인 한 상태 -->				
@@ -155,10 +155,14 @@ $(document).ready(function(){
         if($("#check_box").is(":checked")){
         	DETAIL1.style.height='0px';
     		DETAIL1.classList.add('side_Detail1');
+    		DETAIL1.classList.remove('up');
+    		DETAIL1.classList.remove('down');
     		SIDEBTN1.classList.remove('rotate_up');
     		
     		DETAIL2.style.height='0px';
     		DETAIL2.classList.add('side_Detail2');
+    		DETAIL2.classList.remove('up');
+    		DETAIL2.classList.remove('down');
     		SIDEBTN2.classList.remove('rotate_up')
         }
     });
