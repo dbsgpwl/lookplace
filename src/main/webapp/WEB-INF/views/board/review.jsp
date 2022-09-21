@@ -44,6 +44,7 @@
 	       		<input type="text" placeholder="작성자/제목을 검색해보세요"/>
 	        		<a style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
 	     		</section>
+			
 	     		<div class="board-write-area" >
 				 <button class="board-writer-button" onclick="location.href='write'" >글쓰기</button>
 				</div>
@@ -57,9 +58,9 @@
 						<td>날짜</td>
 						<td>조회수</td>
 					</tr>
-					<c:forEach items="${viewAll }" var="list">
+					<c:forEach items="${viewAll }" var="list" varStatus="x">
 					<tr>
-						<td><c:out value="${list.bno }" /></td>
+						<td><c:out value="${pageMaker.total -(pageMaker.cri.pageNum-1) * pageMaker.cri.amount - x.index}"/></td>
 						
 						<td><a href="get-r?bno=${list.bno }&
 											pageNum=${pageMaker.cri.pageNum }&

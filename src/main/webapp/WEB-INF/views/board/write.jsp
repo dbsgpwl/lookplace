@@ -43,7 +43,7 @@
 	<table class="table border border-1 board-table table-hover">
 		<tr>
 			<td>작성자</td>
-			<td><input type="text" name="nickname" placeholder="작성자"/></td>
+			<td><input type="text" name="nickname" value="${member.nickname }"/></td>
 		</tr>
 		<tr>
 			<td>title</td>
@@ -53,9 +53,27 @@
 			<td>Content</td>
 			<td><textarea name="content"></textarea></td>
 		</tr>
-		
-		
 	</table>
+		<!-- <tr>
+			<td>파일 업로드</td>
+			<td><input type="file" name="img" id="review-img" multiple /></td>
+		</tr>
+		<tr>
+			<td colspan=2>
+				<div class="select_img"><img src=""/></div>
+			</td>
+		</tr>
+	<script>
+		$("#review-img").change(function(){
+			if(this.files && this.files[0]){
+				var reader = new FileReader;
+				reader.onload = function(data) {
+				     $(".select_img img").attr("src", data.target.result).width(500);        
+				    }
+				    reader.readAsDataURL(this.files[0]);
+				   }
+				});
+	</script> -->
 		<input type="button" value="글 작성" style="float: right;" onclick="goWrite(this.form)"/>
 		<input type="button" value="글 목록" style="float: right;" onclick="location.href='review';">
 	</form>
@@ -66,14 +84,9 @@
 <script>
 function goWrite(frm) {
 	var title = frm.title.value;
-	var nickname = frm.nickname.value;
 	var content = frm.content.value;
 	
-	if (nickname.trim() == ''){
-		alert("작성자를 입력해주세요");
-		return false;
-	}
-	else if (title.trim() == ''){
+	if (title.trim() == ''){
 		alert("제목을 입력해주세요");
 		return false;
 	}
