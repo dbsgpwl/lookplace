@@ -188,11 +188,27 @@
     }
     
     .side_Detail1{
-    	display:none;
+    	height:0;
+	  	list-style:none;
+	  	overflow:hidden;
     }
+    
     .side_Detail2{
-    	display:none;
+    	height:0;
+	  	list-style:none;
+	  	overflow:hidden;
     }
+    
+    .up{
+	  animation-name:slide_up;
+	  animation-duration:.5s;  
+    }
+    
+    .down{
+	  animation-name:slide_down;
+	  animation-duration:.5s;  
+    }
+
     
     .side_Btn{
     	background-color:rgba(0,0,0,0); 
@@ -200,3 +216,34 @@
     	color:white;
     	font-size:30px;
     }
+    
+    .rotate_up {
+	    transform: rotate(-180deg);
+	    transition: .5s;
+	}
+	
+	.rotate_down {
+	    transform: rotate(0deg);
+	    transition: .5s;
+	}
+	
+	@keyframes slide_up{
+	  0%{
+	    height:80px;
+	  }
+	  100%{
+	    height:0px;
+	  }
+	}
+
+	@keyframes slide_down{
+	  0%{
+	    height:0px;
+	  }
+	  100%{
+	    height:80px;
+	  }
+	}
+	
+	
+	

@@ -19,7 +19,7 @@
           <span></span>
           <span></span>
         </label>
-        <div id="side_menu">
+        <div id="side_menu" class="side_menu">
           <ul class="side_title" style="padding-top:20px;">
 			
 				<!-- 로그인 하지 않은 상태 -->				
@@ -39,7 +39,7 @@
 					</c:if>
 			
             <li><a href="/"><i class="fa-sharp fa-solid fa-house"></i>홈</a>
-            	<button class="side_Btn" onclick="ShowDetail1()" ><i class="fa-solid fa-caret-down"></i></button>
+            	<button id="side_Btn1" class="side_Btn" onclick="ShowDetail1()"><i class="fa-solid fa-caret-down"></i></button>
             	<ul class="side_Detail1">
             		<li><a href="/trip/best">인기</a></li>
             		<li><a href="/trip/course">코스</a></li>
@@ -47,7 +47,7 @@
             </li>
             <li><a href="/map/mapapi"><i class="fa-sharp fa-solid fa-location-dot"></i>여행지도</a></li>
             <li><a href="freeboard"><i class="fa-solid fa-clipboard-list"></i>커뮤니티</a>
-            	<button class="side_Btn" onclick="ShowDetail2()"><i class="fa-solid fa-caret-down"></i></button>
+            	<button id="side_Btn2" class="side_Btn" onclick="ShowDetail2()"><i class="fa-solid fa-caret-down"></i></button>
             	<ul class="side_Detail2">
             		<li><a href="review">리뷰</a></li>
             		<li><a href="freeboard">자유게시판</a></li>
@@ -108,36 +108,65 @@ const DETAIL2 = document.querySelector('.side_Detail2')
 
 var ASIDE = document.querySelector('#check_box');
 
+const SIDEBTN1 = document.querySelector('#side_Btn1')
+const SIDEBTN2 = document.querySelector('#side_Btn2')
+
+
+
 const ShowDetail1 = () =>{
 	if(DETAIL1.classList.contains('side_Detail1')){
-		DETAIL1.style.display='block';
+		DETAIL1.style.height="80px";
 		DETAIL1.classList.remove('side_Detail1');
+		SIDEBTN1.classList.add('rotate_up')
+		SIDEBTN1.classList.remove('rotate_down')
+		DETAIL1.classList.add('down')
+		DETAIL1.classList.remove('up')
 	}else{
-		DETAIL1.style.display='none';
+		DETAIL1.style.height="0px";
 		DETAIL1.classList.add('side_Detail1');
+		SIDEBTN1.classList.add('rotate_down')
+		SIDEBTN1.classList.remove('rotate_up')
+		DETAIL1.classList.add('up')
+		DETAIL1.classList.remove('down')
 	}
 }
 
 const ShowDetail2 = () =>{
 	if(DETAIL2.classList.contains('side_Detail2')){
-		DETAIL2.style.display='block';
+		DETAIL2.style.height="80px";
 		DETAIL2.classList.remove('side_Detail2');
+		SIDEBTN2.classList.add('rotate_up')
+		SIDEBTN2.classList.remove('rotate_down')
+		DETAIL2.classList.add('down')
+		DETAIL2.classList.remove('up')
 	}else{
-		DETAIL2.style.display='none';
+		DETAIL2.style.height="0px";
 		DETAIL2.classList.add('side_Detail2');
+		SIDEBTN2.classList.add('rotate_down')
+		SIDEBTN2.classList.remove('rotate_up')
+		DETAIL2.classList.add('up')
+		DETAIL2.classList.remove('down')
 	}
 }
+
 
 $(document).ready(function(){
     $("#check_box").change(function(){
         if($("#check_box").is(":checked")){
-        	DETAIL1.style.display='none';
+        	DETAIL1.style.height='0px';
     		DETAIL1.classList.add('side_Detail1');
-    		DETAIL2.style.display='none';
+    		SIDEBTN1.classList.remove('rotate_up');
+    		
+    		DETAIL2.style.height='0px';
     		DETAIL2.classList.add('side_Detail2');
+    		SIDEBTN2.classList.remove('rotate_up')
         }
     });
 });
+
+
+
+
 
 /*
 ASIDE.addEventListner('change',()=>{
@@ -149,9 +178,6 @@ ASIDE.addEventListner('change',()=>{
 	}
 })
 */
-
-
-
 
 </script>
 </html>
