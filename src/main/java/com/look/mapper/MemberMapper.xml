@@ -19,10 +19,19 @@
     </select>
     
     <!-- 로그인 -->
-    <select id="memberLogin" resultType="com.look.model.MemberDTO">
-    
+    <select id="memberLogin" resultType="com.look.model.MemberDTO">   
     <!--	select email,name,nickname,grade,address from tbl_member where email =
     	#{email} and password= #{password}   -->
-    	select email,password,name,nickname,grade,address from tbl_member where email = #{email}
-	</select>        
+    	select * from tbl_member where email = #{email}
+	</select>
+	
+	<!-- 회원정보 수정 -->
+	<select id="memberUpdate">
+		update tbl_member set password=#{password},address=#{address},nickname=#{nickname} where email=#{email}
+	</select>
+	<!-- 회원탈퇴 -->
+	<delete id="memberDelete">
+		delete from tbl_member where email=#{email} and password=#{password}
+	</delete>
+	
   </mapper>

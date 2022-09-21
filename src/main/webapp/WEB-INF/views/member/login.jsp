@@ -64,7 +64,7 @@
           </li>
           <li>|</li>
           <li style="list-style: none">
-            <a href="#" style="color: gray">비밀번호찾기</a>
+            <a href="/member/findpwd" style="color: gray">비밀번호찾기</a>
           </li>
         </ul>
       </section>

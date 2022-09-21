@@ -16,7 +16,7 @@
 		<form>
 			<h1>비밀번호 찾기</h1>
 			<div class="inputBox">
-				<input class="findInputEmail"  placeholder="e-mail">
+				<input class="findInputEmail"  placeholder="e-mail" id="email">
 				<button class="mail_find_button" type="button" onclick="alert('인증번호가 전송되었습니다.');">인증번호 전송</button>
 			</div>
 			<div>
@@ -94,8 +94,9 @@ MODALCANCEL.addEventListener("click", (event) => {
     }
 });
 
-var code = "";
+/* 이메일 인증 */
 
+var code = "";
 $(".mail_find_button").click(function(){
 	var email=$(".findInputEmail").val();
 	var checkBox=$(".mail_find_input");
@@ -113,7 +114,6 @@ $(".mail_find_button").click(function(){
 		}
 	});	
 });
-
 </script>
 
 </html>
