@@ -106,6 +106,8 @@
 const DETAIL1 = document.querySelector('.side_Detail1')
 const DETAIL2 = document.querySelector('.side_Detail2')
 
+var ASIDE = document.querySelector('#check_box');
+
 const ShowDetail1 = () =>{
 	if(DETAIL1.classList.contains('side_Detail1')){
 		DETAIL1.style.display='block';
@@ -125,5 +127,31 @@ const ShowDetail2 = () =>{
 		DETAIL2.classList.add('side_Detail2');
 	}
 }
+
+$(document).ready(function(){
+    $("#check_box").change(function(){
+        if($("#check_box").is(":checked")){
+        	DETAIL1.style.display='none';
+    		DETAIL1.classList.add('side_Detail1');
+    		DETAIL2.style.display='none';
+    		DETAIL2.classList.add('side_Detail2');
+        }
+    });
+});
+
+/*
+ASIDE.addEventListner('change',()=>{
+	if(!ASIDE.checked){
+		DETAIL1.style.display='none';
+		DETAIL1.classList.add('side_Detail1');
+		DETAIL2.style.display='none';
+		DETAIL2.classList.add('side_Detail2');
+	}
+})
+*/
+
+
+
+
 </script>
 </html>
