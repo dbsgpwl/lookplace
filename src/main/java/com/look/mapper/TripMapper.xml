@@ -27,11 +27,9 @@
     	
     </select>
     
-    
+    <!-- 게시물 개수 -->
     <select id="localTotal" resultType="int">
-    
         select count(*) from tbl_best_image
-        
     </select>
     
     
@@ -50,14 +48,39 @@
     
     </select>
     
+    <!--상세페이지 조회 -->
     <select id = "Detailpage" resultType = "com.look.model.TripDTO">
      
      	SELECT * FROM tbl_best_image WHERE imgno = #{imgno}
     
     </select>
     
+    <!-- 조회수 증가 -->
     <update id="updateCount">
     	UPDATE tbl_best_image SET count = count + 1  WHERE imgno = #{imgno}
     </update>
+   		
+   		
+   	<!--상페이지 댓글 -->
+   	<select id="replyList" resultType = "com.look.model.TripReplyDTO">
+   		select reno, imgno, nickname, regdate, content from tbl_detail_reply WHERE imgno = #{imgno}
+   	</select>
+   	
+   	<!--상세페이지 댓글 작성  -->
+   	<insert id="insertList">
+   		insert into tbl_detail_reply(imgno, nickname, regdate, content) values(#{imgno}, #{nickname},now(), #{content})
+   	</insert>
+   	
+   	
+   	<!-- 댓글 삭제 -->
+	<delete id="deleteReply">
+	   delete from tbl_detail_reply where reno = #{reno}
+	</delete>
+   		
+   	<!-- 댓글 수정 -->
+   	<update id="updateReply">
+   	
+   		update tbl_detail_reply SET content = #{content} where reno = #{reno}
+   	</update>
    		
   </mapper>
