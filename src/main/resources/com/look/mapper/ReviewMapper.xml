@@ -62,11 +62,11 @@
 		update tbl_review set hit = hit + 1 where bno = #{bno}
 	</update>
 	
-	<!-- 게시판 insert -->
+	<!-- 게시판 등록 -->
 	<insert id="insertBoard" parameterType="com.look.model.ReviewDTO">
 	
-		INSERT INTO tbl_review (nickname, title, content)
-					VALUES (#{nickname}, #{title}, #{content})
+		INSERT INTO tbl_review (nickname, title, content, uploadimg, thumbimg)
+					VALUES (#{nickname}, #{title}, #{content}, #{uploadimg}, #{thumbimg})
 	</insert>
 	
 	<!-- 게시글 삭제 -->

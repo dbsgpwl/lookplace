@@ -42,6 +42,10 @@ function replyList(){
     $("section.replyList-board-reply ol").html(str);
    });
 }
+
+
+   
+ 	
 </script>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
@@ -113,15 +117,16 @@ function replyList(){
 					<tr>
 						<td colspan=2 style="text-align:left;"><textarea style="width:100%; height:400px;"><c:out value="${board.content}"/></textarea></td>
 					</tr>
+					
 				</table>
 				
-				
 				<div class="board-get-btn-area">
-				
 					<button class="btn" id="list_btn_r">목록</button> 
+					<c:if test="${board.nickname == member.nickname}">
 					<button class="btn" id="modify_btn_r">수정</button>
-			</div>
-			
+					</c:if>
+				</div>
+				
 			<!-- 댓글 목록 -->
 			<div id="reply">
 

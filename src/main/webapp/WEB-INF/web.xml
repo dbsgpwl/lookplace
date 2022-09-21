@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/Javaee"
+<web-app version="3.1" xmlns="http://java.sun.com/xml/ns/Javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee https://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 		<!-- 시작페이지 설정 -->
@@ -29,6 +29,14 @@
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
+		
+		<!-- 업로드 관련 설정 -->
+		<multipart-config>
+			<location>C:\\upload\\review</location>		
+			<!-- <max-file-size>20971520</max-file-size>					1MB * 20
+			<max-request-size>41943040</max-request-size>			40MB
+			<file-size-threshold>20971520</file-size-threshold>		20MB -->
+		</multipart-config>
 	</servlet>
 		
 	<servlet-mapping>
