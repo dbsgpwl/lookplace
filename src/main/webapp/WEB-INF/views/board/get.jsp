@@ -42,6 +42,10 @@ function replyList(){
     $("section.replyList-board-reply ol").html(str);
    });
 }
+
+
+   
+ 	
 </script>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
@@ -113,6 +117,7 @@ function replyList(){
 					<tr>
 						<td colspan=2 style="text-align:left;"><textarea style="width:100%; height:400px;"><c:out value="${board.content}"/></textarea></td>
 					</tr>
+					
 				</table>
 				
 				<div class="board-get-btn-area">
