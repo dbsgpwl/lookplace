@@ -71,7 +71,7 @@ public class BoardReplyReviewController {
 	   return result;   
 	}
 	
-	// 상품 소감(댓글) 수정
+	// 댓글 수정
 	@ResponseBody
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
 	public int modifyReply(ReplyDTO reply, HttpSession session) throws Exception {
