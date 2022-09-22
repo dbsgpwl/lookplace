@@ -9,9 +9,7 @@
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/infopage.css" rel="stylesheet" type="text/css">
-<body>
-
-	
+<body>	
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	
 	<main>
@@ -28,65 +26,70 @@
 				<p><a href="/mypage/wishlist">찜한 여행</a></p>
 			</div>
 		</div>
-		
 		<div class="info-main-area">
 			<div class="info-main-title">
 				<div><h3>나의 정보</h3></div>
 
 			</div>
+
 			<!-- 사용자 비밀번호 확인 -->
 			
-			<div id="pwdConfirm">
-				<h1>비밀번호 입력</h1>
-				<input id="userPwd" type="text">
+			<div id="pwdConfirm" style="text-align:center; margin-bottom:5vh">
+				<h1 style="margin-bottom:5vh">비밀번호 입력</h1>
+				<label for=html>비밀번호 :</label> <input id="userPwd" type="password">
 			</div>
 			<!--  -->
 			
 			<div id="infoBox" style="display:none">
+
+			<form>			
+			<div id="infoBox">
+
 				<div class="info-table-area">
 					<table class="table border border-1 info-table">
 						<tr>
 							<td>회원코드</td>
 							<td>	
 							<c:if test="${member!=null}">					
-							<input type=text class="form-control" value="${member.membercode}" readonly>
+							<span>${member.membercode}</span>
 							</c:if>	
 							</td>
 						</tr>
 						<tr>
-							<td>닉네임 *</td>
-							<td><input type=text class="form-control" value="${member.nickname}">
+							<td>닉네임 </td>
+							<td>
+							<span>${member.nickname}</span>
 							</td>
 						</tr>
 						<tr>
-							<td>성명 *</td>
+							<td>성명 </td>
 							<td>
 							<c:if test="${member!=null}">
-							<input type=text class="form-control" value="${member.name}">
+							<span>${member.name}</span>
 							</c:if>	
 							</td>
 						</tr>
 						<tr>
-							<td>이메일 *</td>
+							<td>이메일 </td>
 							<td>
 							<c:if test="${member!=null}">
-							<input type=text class="form-control" value="${member.email}" readonly>
+							<span>${member.email}</span>
 							</c:if>	
 							</td>
 						</tr>
 						<tr>
-							<td>비밀번호 *</td>
+							<td>비밀번호 </td>
 							<td>
 							<c:if test="${member!=null}">
-							<input type=text  class="form-control" value="${member.password}">
+							<span>${member.password}</span>
 							</c:if>	
 							</td>
 						</tr>
 						<tr>
-							<td>주소 *</td>
+							<td>주소 </td>
 							<td>
 							<c:if test="${member!=null}">
-							<input type=text  class="form-control" value="${member.address} ">
+							<span>${member.address}</span>
 							</c:if>
 							</td>
 						</tr>
@@ -94,49 +97,33 @@
 				</div>
 			</div>
 				<div class="info-write-area" >
-			 <button type="button" class="btn btn-outline-secondary" onclick="SeeInfo()">수정</button>
-			 <button type="button" class="btn btn-outline-secondary" onclick="location.href='/member/leavemember'">회원탈퇴</button>
-			 
+			 <button type="button" class="btn btn-outline-secondary" onclick="location.href='/mypage/update'">수정</button>
+			 <button type="button" class="btn btn-outline-secondary" onclick="location.href='/mypage/leavemember'">회원탈퇴</button>			 
 			</div>
-		</div>
-		
-		
+			</form>	
+		</div>		
 	</div>
 	</main>
-	
-	
 	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>
 <script>
+/* 정보수정 */ 
+/* $(document).ready(function() {
+            $("#UpdateBtn").click(function() {
+         			$("#update_form").attr("action", "/mypage/info");
+                    $("#update_form").submit();
+     });            
+});
+*/
 
-//사용자 정보 박스
-const INFOBOX = document.querySelector('#infoBox');
-
-//사용자 비밀번호 인풋
-const PWDCONFIRM = document.querySelector('#pwdConfirm');
-
-const INFOAREA = document.querySelector('.info-write-area');
-
-//수정버튼 눌렀을 때 실행될 함수
-const SeeInfo = () => {
-	//사용자 비밀번호 db값과 일치한지 검사하는 로직 추가필요
-	
-	
-	INFOBOX.style.display='block'
-	PWDCONFIRM.style.display='none';
-	INFOAREA.innerHTML='<button type="button" class="btn btn-outline-secondary" onclick="CANCEL()">취소</button>'
-	
-	//수정 함수 작성 후 추가해야됨
-	INFOAREA.innerHTML+='<button type="button" class="btn btn-outline-secondary">수정</button>'
-}
-
-const CANCEL = () => {
-	INFOBOX.style.display='none'
-	PWDCONFIRM.style.display='block';
-	INFOAREA.innerHTML = '<button type="button" class="btn btn-outline-secondary" onclick="SeeInfo()">수정</button>'
-	INFOAREA.innerHTML+= '<button type="button" class="btn btn-outline-secondary" onclick="location.href="/member/leavemember"">회원탈퇴</button>'
-}
 
 </script>
+
+
+
+
+
+
+
 </html>

@@ -9,9 +9,9 @@ import lombok.ToString;
 @ToString
 public class ReplyDTO {
 
-	private int rno;
-	private int bno;
-	private String nickname;
-	private String content;
-	private Date regdate;
+   private int rno;
+   private int bno;
+   private String nickname;
+   private String content;
+   private Date regdate;
 }

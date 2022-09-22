@@ -144,10 +144,11 @@
     }
 
     #side_menu {
+      border-radius:0px 15px 15px 0px ;
       position: fixed;
       width: 25%;
       height: 100%;
-      background-color: rgb(44, 62, 80);
+      background-color: rgba(44, 62, 80, 0.96);
       left: -30%;
       transition: all 300ms;
       z-index: 999;
@@ -160,9 +161,17 @@
       justify-content:space-between;
     }
     
-    #side_menu ul{
+    .side_title{
     	list-style:none;
-    	margin-top:20%;
+    	margin-top:10%;
+    	margin-left:8%;
+    }
+    
+    .side_title div{
+    	margin-bottom:10%;	
+    }
+    .side_title span{
+    	font-size:20px
     }
     
     #side_menu a{
@@ -178,13 +187,63 @@
       left: 0;
     }
     
-    .side_Detail{
-    	display:none;
+    .side_Detail1{
+    	height:0;
+	  	list-style:none;
+	  	overflow:hidden;
     }
     
-    #side_menu > a:hover .side_Detail{
-    	display:block;
+    .side_Detail2{
+    	height:0;
+	  	list-style:none;
+	  	overflow:hidden;
     }
     
+    .up{
+	  animation-name:slide_up;
+	  animation-duration:.5s;  
+    }
     
+    .down{
+	  animation-name:slide_down;
+	  animation-duration:.5s;  
+    }
+
     
+    .side_Btn{
+    	background-color:rgba(0,0,0,0); 
+    	border: none;
+    	color:white;
+    	font-size:30px;
+    }
+    
+    .rotate_up {
+	    transform: rotate(-180deg);
+	    transition: .5s;
+	}
+	
+	.rotate_down {
+	    transform: rotate(0deg);
+	    transition: .5s;
+	}
+	
+	@keyframes slide_up{
+	  0%{
+	    height:80px;
+	  }
+	  100%{
+	    height:0px;
+	  }
+	}
+
+	@keyframes slide_down{
+	  0%{
+	    height:0px;
+	  }
+	  100%{
+	    height:80px;
+	  }
+	}
+	
+	
+	

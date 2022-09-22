@@ -23,8 +23,10 @@
           
           <div>
             <input class="SignUpInputEmail" type="email" placeholder="E-Mail" id="email" name="email" />
-            	  <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
-            	  <span class="id_input_re_2">아이디가 이미 존재합니다.</span>
+          </div>
+          <div>
+          	<span class="id_input_re_1">사용 가능한 아이디입니다.</span>
+           	<span class="id_input_re_2">아이디가 이미 존재합니다.</span>
           </div>
                      
 		  <div class="mail_check_input_box" >
@@ -51,14 +53,14 @@
             <input class="SignUpInput" type="text" placeholder="닉네임"  id="nickname" name="nickname" />
           </div>
           <div class="Address_box">
-            <input class="AddressInput1" type="text" placeholder="우편번호" name="postalcode"  disabled="disabled"/>
+            <input class="AddressInput1" type="text" placeholder="우편번호" name="address" id="address" readonly/>
             <button type="button" class="Address_button" onclick="execution_daum_address()">
 	          		주소 찾기
 	        </button>
           </div>
           <div>
-            <input class="AddressInput2" type="text" placeholder="주소"  id="address" name="address" disabled="disabled"/>
-            <input class="AddressInput3" type="text" placeholder="나머지 주소" name="readdress" />
+            <input class="AddressInput2" type="text" placeholder="주소" id="address" name="address" readonly/>
+            <input class="AddressInput3" type="text" placeholder="나머지 주소" name="address" />
           </div>
           
           
@@ -74,13 +76,13 @@
       </section>
       <div class="modal">
 	  		<div class="modal_body">
-		  		<h1>입력내용 확인</h1>
+		  		<h3>이대로 가입을 진행하시겠습니까?</h3>
 		  		<hr>
 		  		<div id="modalSpace" style="font-size:1.5rem; ">
 		  			
 		  		</div>
 	  			<button type="button" class="CancelBtn modal_cancel">취소</button>
-	  			<button class="SignUpBtn"  onclick="location.href='/'">회원가입</button>
+	  			<button class="SignUpBtn SignUpBtnFinal"  onclick="location.href='/'">회원가입</button>
 	  		</div>
 		</div>
 	</main>
@@ -126,15 +128,16 @@ BTNOPENPOPUP.addEventListener("click", () => {
 
     MODAL.classList.toggle("show");
 
-    MODALSPACE.innerHTML += '<div>아이디 : ' + USERID.value + '</div>'
-    MODALSPACE.innerHTML += '<div>비밀번호 : ' + USERPWD.value + '</div>'
-    MODALSPACE.innerHTML += '<div>이름 : ' + USERNAME.value + '</div>'
-    MODALSPACE.innerHTML += '<div>닉네임 : ' + USERNICKNAME.value + '</div>'
+    MODALSPACE.innerHTML += '<div style="text-align:left">아이디 : ' + USERID.value + '</div>'
+    MODALSPACE.innerHTML += '<div style="text-align:left">비밀번호 : ' + USERPWD.value + '</div>'
+    MODALSPACE.innerHTML += '<div style="text-align:left">이름 : ' + USERNAME.value + '</div>'
+    MODALSPACE.innerHTML += '<div style="text-align:left">닉네임 : ' + USERNICKNAME.value + '</div>'
 
 
 
     if (MODAL.classList.contains("show")) {
         BODY.style.overflow = "hidden";
+        document.querySelector("header").style.display="none"
     }
 });
 
@@ -145,6 +148,7 @@ MODAL.addEventListener("click", (event) => {
 
         if (!MODAL.classList.contains("show")) {
             BODY.style.overflow = "auto";
+            document.querySelector("header").style.display="flex"
         }
     }
 });
@@ -152,6 +156,7 @@ MODAL.addEventListener("click", (event) => {
 MODALCANCEL.addEventListener("click", (event) => {
     if (MODAL.classList.contains("show")) {
         MODAL.classList.toggle("show");
+        document.querySelector("header").style.display="flex"
     }
 
     MODALSPACE.innerHTML = ''; /* 모달에서 취소할 시 기존 내용 삭제 */
@@ -166,7 +171,7 @@ var code = "";            // 이메일 인증번호 저장
 
 /* 회원가입 */ 
 $(document).ready(function() {
-            $(".SignUpBtn").click(function() {
+            $(".SignUpBtnFinal").click(function() {
          			$("#join_form").attr("action", "/member/signup");
                     $("#join_form").submit();
                 });
@@ -229,7 +234,7 @@ $(".mail_check_input").blur(function(){
 		checkResult.attr("class","incorrect");
 		$(".mail_check_input").css('border','1px solid red');
 	}
-})
+});
 
 /* 다음 주소 연동 */
 function execution_daum_address(){
