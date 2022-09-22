@@ -20,10 +20,10 @@
           </ul>
         </li>
         <li>
-          <a href="/board/notice"><i class="fa-solid fa-clipboard-list"></i></a>
+          <a href="news"><i class="fa-solid fa-clipboard-list"></i></a>
           <ul class="menu-level2">
-            <li class="downMenu"><a href="review">리뷰</a></li>
-            <li><a href="freeboard">자유게시판</a></li>
+            <li class="downMenu"><a href="review">Review</a></li>
+            <li><a href="community">Community</a></li>
           </ul>
         </li>
       </ul>

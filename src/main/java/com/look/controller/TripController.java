@@ -1,26 +1,25 @@
 package com.look.controller;
 
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.look.model.Criteria;
-import com.look.model.MemberDTO;
 import com.look.model.PageMakerDTO;
-import com.look.model.ReplyDTO;
+
 import com.look.model.TripDTO;
+import com.look.model.TripHeartDTO;
 import com.look.model.TripReplyDTO;
 import com.look.service.TripService;
 
@@ -61,9 +60,12 @@ public class TripController {
 		
 		/* 전체/지역 목록 페이지 접속  */
 		@GetMapping("/entire")
-		public void entireGET(Criteria cri, Model model) {
+		public void entireGET(Criteria cri, Model model, TripHeartDTO dto) {
 			model.addAttribute("trip", service.localListPaging(cri));
 			model.addAttribute("key", cri.getKeyword());
+			model.addAttribute("nickCheck",service.nickCheck(dto));
+			
+			System.out.println(dto);
 			
 			/*페이징 처리*/
 			int total = service.localTotal();
@@ -72,6 +74,27 @@ public class TripController {
 			
 			log.info("전체 페이지 진입");			
 		}
+		
+		//게시물 좋아요 기능
+		@PostMapping("/heart")
+		public String heart(@RequestParam("keyword")String keyword, TripHeartDTO dto,Model model) throws UnsupportedEncodingException{
+			
+			String encodedParam = URLEncoder.encode(keyword, "UTF-8");
+			
+			return "redirect:/trip/entire?keyword=" +encodedParam;
+		}
+		
+		//게시물 좋아요 취소
+		@PostMapping("/unheart")
+		public String unheart(TripHeartDTO dto,@RequestParam("keyword")String keyword) throws UnsupportedEncodingException{
+			String encodedParam = URLEncoder.encode(keyword, "UTF-8");
+			
+			service.nickCheck(dto);
+				
+			
+			return "redirect:/trip/entire?keyword=" +encodedParam;
+		}
+		
 		
 		@GetMapping("/travel-p")
 		public void detailGET( Model model, @RequestParam("imgno")int imgno, Criteria cri, TripDTO dto) {
@@ -109,13 +132,14 @@ public class TripController {
 		//댓글 업데이트
 		@PostMapping("/update")
 		public String update(TripReplyDTO dto, @RequestParam("imgno")int imgno,@RequestParam("content")String content) {
-			dto.setContent(content);
 			
 			
 			service.updateReply(dto);	
 			
 			return"redirect:/trip/travel-p?imgno=" +imgno;
 		}
+		
+		
 		
 		
 }

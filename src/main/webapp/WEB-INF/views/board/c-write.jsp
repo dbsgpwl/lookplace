@@ -25,8 +25,8 @@
 				<div class="board-title"><h2>Notice</h2></div>
 			</div>
 			<div class="board-menu">
-				<p style="border-left:2px solid pink;"><a href="/board/review">리뷰</a></p>
-				<p><a href="freeboard">자유게시판</a></p>
+				<p><a href="review">Review</a></p>
+				<p style="border-left:2px solid pink;"><a href="community">Community</a></p>
 			</div>
 		</div>
 		<div class="board-main-area">
@@ -34,48 +34,45 @@
 				<div><h3>글쓰기</h3></div>
 				<div>
 				<span><a href="/">home</a></span> &nbsp;>&nbsp;
-				<span><a href="/board/notice">notice</a></span>&nbsp; >&nbsp;
-				<span><a href="review">review</a></span> 
+				<span><a href="notice">notice</a></span>&nbsp; >&nbsp;
+				<span><a href="community">Community</a></span> 
 				</div>
 			</div>
 <div class="board-table-area">
-	<form method="post" action="/write" enctype="multipart/form-data">
+	<form method="post" action="/write">
 	<table class="table border border-1 board-table table-hover">
 		<tr>
-			<td>작성자</td>
-			<td><input type="text" name="nickname" value="${member.nickname }"/></td>
+			<td>Name</td>
+			<td><input name="nickname" value="${member.nickname }"/></td>
 		</tr>
 		<tr>
 			<td>title</td>
-			<td><input type="text" name="title" placeholder="제목"/></td>
+			<td><input name="title" placeholder="제목"/></td>
 		</tr>
 		<tr>
 			<td>Content</td>
 			<td><textarea name="content"></textarea></td>
 		</tr>
-		 <tr>
-			<td bgcolor="orange" width="70">업로드</td><td align="left">
-			<input type="file" id ="fileItem" name='uploadFile' multiple style="height: 30px;">
-		</tr>
-		<tr>
-			<td colspan=2>
-				<div class="select_img"><img src=""/></div>
-			</td>
-		</tr>
 	</table>
 		<input type="button" value="글 작성" style="float: right;" onclick="goWrite(this.form)"/>
-		<input type="button" value="글 목록" style="float: right;" onclick="location.href='review';">
+		<input type="button" value="글 목록" style="float: right;" onclick="location.href='community';">
 	</form>
 </div>
 </div>
 </div>
 </main>
 <script>
+
 function goWrite(frm) {
 	var title = frm.title.value;
+	var nickname = frm.nickname.value;
 	var content = frm.content.value;
 	
-	if (title.trim() == ''){
+	if (nickname.trim() == ''){
+		alert("작성자를 입력해주세요");
+		return false;
+	}
+	else if (title.trim() == ''){
 		alert("제목을 입력해주세요");
 		return false;
 	}
@@ -83,13 +80,9 @@ function goWrite(frm) {
 		alert("내용을 입력해주세요");
 		return false;
 	}
-	
-	else{
 	frm.submit();
-		
-	}
-	
-	return true;
+	console.log(nickname,content,title)
+	alert("등록 완료!");
 }
 </script>
 <jsp:include page="/resources/includes/footer.jsp"></jsp:include>

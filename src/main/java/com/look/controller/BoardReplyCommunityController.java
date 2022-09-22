@@ -15,21 +15,21 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.look.model.MemberDTO;
-import com.look.model.ReplyDTO;
-import com.look.service.ReplyReviewService;
+import com.look.model.CommunityReplyDTO;
+import com.look.service.CommunityReplyService;
 
 
 @Controller
 @RequestMapping("/reply/*")
-public class BoardReplyReviewController {
+public class BoardReplyCommunityController {
 
 	@Autowired
-	private ReplyReviewService rservice;
+	private CommunityReplyService rservice;
 
 	// 댓글 작성
 	  @ResponseBody
 	  @RequestMapping(value = "/write", method = RequestMethod.POST)
-	  public void registReply(ReplyDTO reply,  HttpSession session) throws Exception {
+	  public void registReply(CommunityReplyDTO reply,  HttpSession session) throws Exception {
 
 	     MemberDTO member = (MemberDTO)session.getAttribute("member");
 	     reply.setNickname(member.getNickname());
@@ -40,9 +40,9 @@ public class BoardReplyReviewController {
 	// 댓글 목록
 	@ResponseBody
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
-	public List<ReplyDTO> getReplyList(@RequestParam("n") int bno) throws Exception {
+	public List<CommunityReplyDTO> getReplyList(@RequestParam("n") int bno) throws Exception {
 
-	 List<ReplyDTO> reply = rservice.replyList(bno);
+	 List<CommunityReplyDTO> reply = rservice.replyList(bno);
 
 	 return reply;
 	} 
@@ -50,7 +50,7 @@ public class BoardReplyReviewController {
 	// 댓글 삭제
 	@ResponseBody
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
-	public int getReplyList(ReplyDTO reply,  HttpSession session) throws Exception {
+	public int getReplyList(CommunityReplyDTO reply,  HttpSession session) throws Exception {
 
 	   int result = 0;
 
@@ -70,7 +70,7 @@ public class BoardReplyReviewController {
 	// 댓글 수정
 	@ResponseBody
 	@RequestMapping(value = "/modify", method = RequestMethod.POST)
-	public int modifyReply(ReplyDTO reply, HttpSession session) throws Exception {
+	public int modifyReply(CommunityReplyDTO reply, HttpSession session) throws Exception {
 	 
 	 int result = 0;
 	 

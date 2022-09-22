@@ -1,4 +1,4 @@
--- 리뷰 게시글 테이블
+-- 커뮤니티 게시글 테이블
 create table tbl_review (
 bno int not null auto_increment,
 title varchar(200) not null,
@@ -10,12 +10,12 @@ hit int default 0,
 primary key (bno)
 );
 
--- 리뷰 게시글 건수 입력
+-- 커뮤니티 게시글 건수 입력
 insert into tbl_review(title,content, nickname) values ('제목','내용','작성자');
-insert into tbl_review(title,content, nickname) values ('제목','내용','작성자');
+insert into tbl_review(title,content, nisckname) values ('제목','내용','작성자');
 
--- 자유게시판 게시글 테이블
-create table tbl_board (
+-- 뉴스 게시판 테이블
+create table tbl_news (
 bno int not null auto_increment,
 title varchar(200) not null,
 content text null,
@@ -26,7 +26,7 @@ hit int default 0,
 primary key (bno)
 );
 
--- tbl_member
+-- 회원 테이블
 
 CREATE TABLE `lookplace`.`tbl_member` (
   `membercode` INT NOT NULL AUTO_INCREMENT,

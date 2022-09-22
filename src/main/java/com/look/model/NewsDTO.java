@@ -12,8 +12,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-@Data
-public class ReviewDTO {
+public class NewsDTO {
 	
 
     /* 게시판 번호 */

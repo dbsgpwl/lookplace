@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>리뷰</title>
+<title>News</title>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/board.css" rel="stylesheet" type="text/css">
@@ -25,29 +25,20 @@
 				<div class="board-title"><h2>Notice</h2></div>
 			</div>
 			<div class="board-menu">
-				<p style="border-left:2px solid pink;"><a href="review">리뷰</a></p>
-				<p><a href="freeboard">자유게시판</a></p>
+				<p><a href="review">Review</a></p>
+				<p style="border-left:2px solid pink;"><a href="community">Community</a></p>
 			</div>
 		</div>
 		
 		<div class="board-main-area">
 			<div class="board-main-title">
-				<div><h3>리뷰</h3></div>
+				<div><h3>News</h3></div>
 				<div>
 				<span><a href="/">home</a></span> &nbsp;>&nbsp;
-				<span><a href="/board/notice">notice</a></span>&nbsp; >&nbsp;
-				<span><a href="freeboard">board</a></span> 
+				<span><a href="news">news</a></span> 
 				</div>
 			</div>
 			<div class="board-main-area-firstline">
-				<section class="searchBox">
-	       		<input type="text" placeholder="작성자/제목을 검색해보세요"/>
-	        		<a style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
-	     		</section>
-			
-	     		<div class="board-write-area" >
-				 <button class="board-writer-button" onclick="location.href='write'" >글쓰기</button>
-				</div>
 			</div>
 			<div class="board-table-area">
 				<table class="table border border-1 board-table table-hover">
@@ -62,7 +53,7 @@
 					<tr>
 						<td><c:out value="${pageMaker.total -(pageMaker.cri.pageNum-1) * pageMaker.cri.amount - x.index}"/></td>
 						
-						<td><a href="get-r?bno=${list.bno }&
+						<td><a href="get-n?bno=${list.bno }&
 											pageNum=${pageMaker.cri.pageNum }&
 											amount=${pageMaker.cri.amount }&
 											keyword=${pageMaker.cri.keyword }&
@@ -129,7 +120,7 @@
 	$(".pageInfo a").on("click", function(e){
 		e.preventDefault();
 		moveForm.find("input[name='pageNum']").val($(this).attr("href"));
-		moveForm.attr("action", "/review");
+		moveForm.attr("action", "/news");
 		moveForm.submit();
 		
 	});	

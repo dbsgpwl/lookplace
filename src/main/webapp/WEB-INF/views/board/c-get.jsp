@@ -73,7 +73,6 @@ function replyList(){
 <body>
 	
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
-	${board.nickname } ${member.nickname } ${reply.nickname }
 	<main>
 	<div class="board-main">
 		<div class="board-aside-menu">
@@ -84,14 +83,14 @@ function replyList(){
 				<div class="board-title"><h2>Notice</h2></div>
 			</div>
 			<div class="board-menu">
-				<p style="border-left:2px solid pink;"><a href="review">리뷰</a></p>
-				<p><a href="freeboard">자유게시판</a></p>
+				<p ><a href="review">Review</a></p>
+				<p style="border-left:2px solid pink;"><a href="community">Community</a></p>
 			</div>
 		</div>
 		
 		<div class="board-main-area">
 			<div class="board-main-title">
-				<div><h3>리뷰</h3></div>
+				<div><h3>Community</h3></div>
 				<div>
 				<span><a href="/">home</a></span> &nbsp;>&nbsp;
 				<span><a href="/board/notice">notice</a></span>&nbsp; >&nbsp;
@@ -221,7 +220,7 @@ function replyList(){
 	
 	/* 게시글 목록 버튼 */
 	$("#list_btn_r").on("click", function(e){
-		self.location = "/review?"
+		self.location = "/community?"
 					+ "&pageNum=${cri.pageNum }"
 					+ "&amount=${cri.amount }"
 					+ "&keyword=${cri.keyword }"

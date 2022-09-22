@@ -25,8 +25,8 @@
 				<div class="board-title"><h2>Notice</h2></div>
 			</div>
 			<div class="board-menu">
-				<p style="border-left:2px solid pink;"><a href="review">리뷰</a></p>
-				<p><a href="freeboard">자유게시판</a></p>
+				<p><a href="review">리뷰</a></p>
+				<p  style="border-left:2px solid pink;"><a href="community">Community</a></p>
 			</div>
 		</div>
 		<div class="board-main-area">
@@ -34,8 +34,8 @@
 				<div><h3>글 수정</h3></div>
 				<div>
 				<span><a href="/">home</a></span> &nbsp;>&nbsp;
-				<span><a href="/board/notice">notice</a></span>&nbsp; >&nbsp;
-				<span><a href="review">review</a></span> 
+				<span><a href="notice">notice</a></span>&nbsp; >&nbsp;
+				<span><a href="community">Community</a></span> 
 				</div>
 			</div>
 		<div class="board-table-area">
@@ -84,6 +84,7 @@ function del(bno) {
 	var chk = confirm("정말 삭제하시겠습니까?");
 	if (chk) {
 		location.href='delete-r?bno='+bno;
+		alert("삭제 완료!");
 	}
 }	
 
@@ -105,6 +106,7 @@ function goModify(frm) {
 		return false;
 	}
 	frm.submit();
+	alert("수정 완료!");
 }
 
 
@@ -119,7 +121,7 @@ $("#cancel_btn_r").on("click", function(e){
 				
 /* 목록 버튼 */
 $("#list_btn_r").on("click", function(e){
-	self.location = "/review?"
+	self.location = "/community?"
 				+ "&pageNum=${cri.pageNum }"
 				+ "&amount=${cri.amount }"
 				+ "&keyword=${cri.keyword }"
