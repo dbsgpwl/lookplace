@@ -11,7 +11,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Data
-public class ReplyDTO {
+public class CommunityReplyDTO {
 
    private int rno;
    private int bno;

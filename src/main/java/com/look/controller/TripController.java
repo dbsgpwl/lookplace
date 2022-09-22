@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.look.model.Criteria;
 import com.look.model.MemberDTO;
 import com.look.model.PageMakerDTO;
-import com.look.model.ReplyDTO;
+import com.look.model.CommunityReplyDTO;
 import com.look.model.TripDTO;
 import com.look.model.TripReplyDTO;
 import com.look.service.TripService;

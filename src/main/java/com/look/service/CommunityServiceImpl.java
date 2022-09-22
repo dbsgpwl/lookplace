@@ -5,25 +5,25 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.look.mapper.ReviewMapper;
+import com.look.mapper.CommunityMapper;
 import com.look.model.Criteria;
-import com.look.model.ReviewDTO;
+import com.look.model.CommunityDTO;
 
 @Service
-public class ReviewServiceImpl implements ReviewService{
+public class CommunityServiceImpl implements CommunityService{
 
 	@Autowired
-	private ReviewMapper mapper;
+	private CommunityMapper mapper;
 
 	//게시글 전체 목록 조회
 	@Override
-	public List<ReviewDTO> viewAll() {
+	public List<CommunityDTO> viewAll() {
 		return mapper.viewAll();
 	}
 	
 	/* 게시판 목록(페이징 적용) */
     @Override
-    public List<ReviewDTO> getListPaging(Criteria cri) {
+    public List<CommunityDTO> getListPaging(Criteria cri) {
         
         return mapper.getListPaging(cri);
     }  
@@ -37,7 +37,7 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	//게시글 상세 조회
 	@Override
-	public ReviewDTO viewDetail(int bno) {
+	public CommunityDTO viewDetail(int bno) {
 	  return mapper.viewDetail(bno);
 	}
 	
@@ -49,7 +49,7 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	//게시물 작성
 	@Override
-	public int insertBoard(ReviewDTO vo) {
+	public int insertBoard(CommunityDTO vo) {
 		return mapper.insertBoard(vo);
 	}
 
@@ -61,7 +61,7 @@ public class ReviewServiceImpl implements ReviewService{
 	
 	//게시물 수정
 	@Override
-	public boolean updateBoard(ReviewDTO vo) {
+	public boolean updateBoard(CommunityDTO vo) {
 		return mapper.updateBoard(vo);
 	}
 	
