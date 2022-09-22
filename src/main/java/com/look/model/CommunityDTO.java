@@ -4,6 +4,7 @@ import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -11,7 +12,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ReviewDTO {
+public class CommunityDTO {
 	
 
     /* 게시판 번호 */
@@ -34,7 +35,4 @@ public class ReviewDTO {
     
     /* 조회수 */
     private int hit;
-
-    private String uploadimg;
-    private String thumbimg;
 }

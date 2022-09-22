@@ -3,11 +3,15 @@ package com.look.model;
 import java.util.Date;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
-@Data
+@Getter
+@Setter
 @ToString
-public class ReplyDTO {
+@Data
+public class CommunityReplyDTO {
 
    private int rno;
    private int bno;

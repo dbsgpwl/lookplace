@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
-<mapper namespace="com.look.mapper.ReviewMapper">
+<mapper namespace="com.look.mapper.CommunityMapper">
  <!-- 검색 조건문 -->
     <sql id="criteria">
         <trim prefix="where (" suffix=")" prefixOverrides="OR">
@@ -24,16 +24,16 @@
     </sql>
     
 	<!-- 전체 내용 조회 -->
-	<select id="viewAll" resultType="com.look.model.ReviewDTO">
-		SELECT * FROM tbl_review ORDER BY bno DESC
+	<select id="viewAll" resultType="com.look.model.CommunityDTO">
+		SELECT * FROM tbl_board ORDER BY bno DESC
 	</select>
 	
 	<!-- 게시물 목록(페이징) -->
-    <select id="getListPaging" resultType="com.look.model.ReviewDTO">
+    <select id="getListPaging" resultType="com.look.model.CommunityDTO">
     
           select * from (
                 select bno, title, nickname, regdate, updatedate ,hit 
-                from tbl_review 
+                from tbl_board 
                 <if test="keyword != null">
                     <include refid="criteria"></include>
                 </if>
@@ -45,7 +45,7 @@
 	 <!-- 게시물 총 개숫 -->
     <select id="getTotal" resultType="int">
     
-        select count(*) from tbl_review
+        select count(*) from tbl_board
         
         <if test="keyword != null">
             <include refid="criteria"></include>
@@ -53,29 +53,29 @@
     </select>
     
 	<!-- 글 상세조회 -->
-	<select id="viewDetail" resultType="com.look.model.ReviewDTO" parameterType="int">
-	  SELECT * FROM tbl_review WHERE bno = #{bno}
+	<select id="viewDetail" resultType="com.look.model.CommunityDTO" parameterType="int">
+	  SELECT * FROM tbl_board WHERE bno = #{bno}
 	</select>
 	
 	<!-- 조회수 +1 -->
 	<update id="plusCnt"  parameterType="int">
-		update tbl_review set hit = hit + 1 where bno = #{bno}
+		update tbl_board set hit = hit + 1 where bno = #{bno}
 	</update>
 	
 	<!-- 게시판 등록 -->
-	<insert id="insertBoard" parameterType="com.look.model.ReviewDTO">
+	<insert id="insertBoard" parameterType="com.look.model.CommunityDTO">
 	
-		INSERT INTO tbl_review (nickname, title, content, uploadimg, thumbimg)
-					VALUES (#{nickname}, #{title}, #{content}, #{uploadimg}, #{thumbimg})
+		INSERT INTO tbl_board (nickname, title, content)
+					VALUES (#{nickname}, #{title}, #{content})
 	</insert>
 	
 	<!-- 게시글 삭제 -->
 	<delete id="deleteBoard" parameterType="int">
-		DELETE FROM tbl_review WHERE bno = #{bno}
+		DELETE FROM tbl_board WHERE bno = #{bno}
 	</delete>
 	
 	<!-- 게시글 수정 -->
-	<update id="updateBoard" parameterType="com.look.model.ReviewDTO">
-		UPDATE tbl_review SET title = #{title}, CONTENT = #{content} WHERE bno = #{bno}
+	<update id="updateBoard" parameterType="com.look.model.CommunityDTO">
+		UPDATE tbl_board SET title = #{title}, CONTENT = #{content} WHERE bno = #{bno}
 	</update>
 </mapper>

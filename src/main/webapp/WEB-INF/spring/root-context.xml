@@ -36,7 +36,7 @@
 		<property name="dataSource" ref="datasource"></property>
 	</bean>
 
-
+	<!-- 메일 인증 -->
 	<bean id="mailSender"
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" /> <!-- 메이서버 호스트 -->
@@ -44,8 +44,6 @@
 		<property name="username" value="jamyoung1160@gmail.com" /> <!-- 자신의 이메일 아이디 -->
 		<property name="password" value="vpbanuvrljijfwka" /> <!-- 자신의 비밀번호 -->
 		 
-
-
 
 		<property name="javaMailProperties">
 			<props>
@@ -59,8 +57,13 @@
 			</props>
 		</property>
 	</bean>
-
-
+	
+	<!-- 트랜잭션 -->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="datasource"></property>
+	</bean>
+	<tx:annotation-driven />
+	
 	<mybatis-spring:scan base-package="com.look.mapper" />
 	<context:component-scan
 		base-package="com.look.model"></context:component-scan>
