@@ -17,9 +17,6 @@
 	ArrayList<TripDTO> trip = (ArrayList<TripDTO>) request.getAttribute("trip");
 	%>
 	<!-- main 안에 작성 -->
-	
-	
-	
 	<main>
 		<div class= "e_all all">
 			<div style = "width: 50%;">
@@ -43,13 +40,17 @@
 								<span>#해시태그</span>
 							</div>
 						</div>
-						<div class = "e_heart">
-							<i class="fa-regular fa-heart e_h"></i>
-						</div>
+						<form method = "post">
+							<div class = "e_heart">
+								<input type="hidden" name="keyword" value="${key }">
+								<input type = "hidden" name ="nickname" value = "${member.nickname }">
+								<button onclick = "javascript: form.action='/trip/heart';"name = "imgno" value ="${all.imgno }"><i class="fa-regular fa-heart e_h"></i></button>
+							</div>
+						</form>
 					</div>
 					<hr>
 				</c:forEach>
-				 <div class="board-pagenation" >
+			 <div class="board-pagenation" >
 				<div class="pageInfo_wrap" >
         			<div class="pageInfo_area">
 	       				<ul class="pageInfo" id="pageInfo">
@@ -70,9 +71,6 @@
    	 			</div>
 			</div>
 			</div>
-			
-			
-			
 			
 			<!-- 지역의 관련된 리스트 출력  -->
 			<form action="/trip/entire" method = "get" style = "width: 40%; height: 600px; background-color: lightgray; margin-top:60px;">
