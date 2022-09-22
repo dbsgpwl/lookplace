@@ -53,14 +53,14 @@
             <input class="SignUpInput" type="text" placeholder="닉네임"  id="nickname" name="nickname" />
           </div>
           <div class="Address_box">
-            <input class="AddressInput1" type="text" placeholder="우편번호" name="postalcode"  disabled="disabled"/>
+            <input class="AddressInput1" type="text" placeholder="우편번호" name="address" id="address" readonly/>
             <button type="button" class="Address_button" onclick="execution_daum_address()">
 	          		주소 찾기
 	        </button>
           </div>
           <div>
-            <input class="AddressInput2" type="text" placeholder="주소"  id="address" name="address" disabled="disabled"/>
-            <input class="AddressInput3" type="text" placeholder="나머지 주소" name="readdress" />
+            <input class="AddressInput2" type="text" placeholder="주소" id="address" name="address" readonly/>
+            <input class="AddressInput3" type="text" placeholder="나머지 주소" name="address" />
           </div>
           
           
@@ -234,7 +234,7 @@ $(".mail_check_input").blur(function(){
 		checkResult.attr("class","incorrect");
 		$(".mail_check_input").css('border','1px solid red');
 	}
-})
+});
 
 /* 다음 주소 연동 */
 function execution_daum_address(){
