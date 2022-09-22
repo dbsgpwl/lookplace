@@ -70,15 +70,7 @@
 		border: 1px solid rgba(0, 0, 0, 0);
 		border-radius: 2px;
 	}
-	
-	.correct{
-		color : green;
-	}
-	
-	
-	
-	
-	
+
 	.modal.show {
 		display: block;
 	}
@@ -111,5 +103,13 @@
 	    background-color:white;
 	}
 	
+	.mail_input_correct{
+		color: green;
+		font-size:13px;
+	}
+	.mail_input__incorrect{
+		color: red;
+		font-size:13px;
+	}
 	
 	

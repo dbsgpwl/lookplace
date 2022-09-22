@@ -1,5 +1,6 @@
 package com.look.controller;
 
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import com.look.model.MemberDTO;
 import com.look.model.ReplyDTO;
 import com.look.service.ReplyReviewService;
@@ -22,6 +24,7 @@ import com.look.service.ReplyReviewService;
 @Controller
 @RequestMapping("/reply/*")
 public class BoardReplyReviewController {
+
 
 	@Autowired
 	private ReplyReviewService rservice;
@@ -90,4 +93,5 @@ public class BoardReplyReviewController {
 	   
 	   return result;
 	}   
+
 }

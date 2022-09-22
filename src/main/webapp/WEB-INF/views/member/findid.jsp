@@ -13,17 +13,16 @@
 
 <main>
 	<section class="emailBox">
-		<form>
+		<form action="/member/findid" method="post">
 			<h1>아이디찾기</h1>
 			<div class="inputBox">
 				<input class="findInputEmail"  placeholder="e-mail">
 				<button class="mail_find_button" type="button" onclick="alert('인증번호가 전송되었습니다.');">인증번호 전송</button>
 			</div>
 			<div>
-				<span id="mail_find_input_box_warn"></span>
 			</div>
 			<div class="inputBox">
-				<input class="mail_find_input" id="mail_find_input_box_false" placeholder="인증번호 입력" disabled="disabled">
+				<input class="mail_find_input" placeholder="인증번호 입력" disabled="disabled">
 			</div>
 			
 			<div>
@@ -97,23 +96,36 @@ MODALCANCEL.addEventListener("click", (event) => {
 var code = "";
 
 $(".mail_find_button").click(function(){
-	var email=$(".findInputEmail").val();
-	var checkBox=$(".mail_find_input");
-	var boxWrap=$(".inputBox");
+	var email = $(".findInputEmail").val();
+	var checkBox = $(".mail_find_input");
+	var boxWrap = $(".inputBox");
 	
-	
-	$.ajax({
-		
-		type:"GET",
-		url :"mailCheckfind?email=" + email
-		success:function(data){
-			checkBox.attr("disabled",false);
-			boxWrap.attr("id","mail_check_input_box_true");
-			code = data;
-		}
-	});	
+	 $.ajax({
+	        
+	        type:"GET",
+	        url:"mailCheckfind?email=" + email,
+	 // success 코드 넣으면 controller 접근이 안되는거 같다..
+	 		success:function(finddata){
+	 			checkBox.attr("disabled",false);
+	 			boxWrap.attr("id","mail_find_input_box_true");
+	 			code = finddata;
+	 		}	 
+	    });
 });
 
+/* 인증번호 비교 */
+$(".mail_find_input").blur(function(){
+	var inputCode = $(".mail_find_input").val();			// 입력코드
+	var checkResult = $("#mail_find_input_box_warn");		// 비교결과
+	
+	if(inputCode == code){
+		checkResult.html("인증번호가 일치합니다.");
+		checkResult.attr("class","mail_input_correct");
+	}else{
+		checkResult.html("인증번호를 다시 확인해주세요.");
+		checkResult.attr("class","mail_input_incorrect");
+	}
+});
 </script>
 
 </html>
