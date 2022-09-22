@@ -42,15 +42,14 @@
             	<button id="side_Btn1" class="side_Btn" onclick="ShowDetail1()"><i class="fa-solid fa-caret-down"></i></button>
             	<ul class="side_Detail1">
             		<li><a href="/trip/best">인기</a></li>
-            		<li><a href="/trip/course">코스</a></li>
             	</ul>
             </li>
             <li><a href="/map/mapapi"><i class="fa-sharp fa-solid fa-location-dot"></i>여행지도</a></li>
-            <li><a href="freeboard"><i class="fa-solid fa-clipboard-list"></i>커뮤니티</a>
+            <li><a href="freeboard"><i class="fa-solid fa-clipboard-list"></i>News</a>
             	<button id="side_Btn2" class="side_Btn" onclick="ShowDetail2()"><i class="fa-solid fa-caret-down"></i></button>
             	<ul class="side_Detail2">
-            		<li><a href="review">리뷰</a></li>
-            		<li><a href="freeboard">자유게시판</a></li>
+            		<li><a href="review">Review</a></li>
+            		<li><a href="community">Community</a></li>
             	</ul>
             </li>
           </ul>
@@ -115,11 +114,11 @@ const SIDEBTN2 = document.querySelector('#side_Btn2')
 
 const ShowDetail1 = () =>{
 	if(DETAIL1.classList.contains('side_Detail1')){
-		DETAIL1.style.height="80px";
+		DETAIL1.style.height="50px";
 		DETAIL1.classList.remove('side_Detail1');
 		SIDEBTN1.classList.add('rotate_up')
 		SIDEBTN1.classList.remove('rotate_down')
-		DETAIL1.classList.add('down')
+		DETAIL1.classList.add('down1')
 		DETAIL1.classList.remove('up')
 	}else{
 		DETAIL1.style.height="0px";
@@ -127,7 +126,7 @@ const ShowDetail1 = () =>{
 		SIDEBTN1.classList.add('rotate_down')
 		SIDEBTN1.classList.remove('rotate_up')
 		DETAIL1.classList.add('up')
-		DETAIL1.classList.remove('down')
+		DETAIL1.classList.remove('down1')
 	}
 }
 
@@ -156,7 +155,7 @@ $(document).ready(function(){
         	DETAIL1.style.height='0px';
     		DETAIL1.classList.add('side_Detail1');
     		DETAIL1.classList.remove('up');
-    		DETAIL1.classList.remove('down');
+    		DETAIL1.classList.remove('down1');
     		SIDEBTN1.classList.remove('rotate_up');
     		
     		DETAIL2.style.height='0px';
