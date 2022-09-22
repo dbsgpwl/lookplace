@@ -81,6 +81,20 @@
    	<update id="updateReply">
    	
    		update tbl_detail_reply SET content = #{content} where reno = #{reno}
-   	</update>
    		
+   	</update>
+   	
+   	<!-- 좋아요  -->
+   	<insert id="insertHeart">
+   		
+   		insert into tbl_heart(nickname, imgno) values(#{nickname}, #{imgno})
+   	</insert>
+   	
+   	<!-- 닉네임이 좋아요한 게시물 유무 확인 -->
+	<select id="nickCheck" resultType = "com.look.model.TripHeartDTO">
+	
+		select * from tbl_heart where nickname = #{nickname}
+	
+	</select>   	
+   	
   </mapper>

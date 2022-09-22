@@ -116,33 +116,7 @@
 		</div>
 	</main>
 	<style>
-#modify {
-	display: none; position : fixed;
-	left: 35%;
-	top: 25%;
-	width: 30%;
-	border: 1px solid black;
-	text-align: center;
-	padding: 30px 0;
-	background-color: #fefefe;
-	border-radius: 3px;
-	position: fixed;
-	box-shadow: 5px 5px 5px 5px pink;
-}
 
-.modal-input {
-	width: 100%;
-}
-
-.btnarea button {
-	border: none;
-	background-color: rgb(255, 56, 142);
-	color: white;
-	border: 2px solid lightgray;
-	border-radius: 3px;
-	width: 100px;
-	height: 40px;
-}
 </style>
 	
 	<div id= "modify">
@@ -170,14 +144,7 @@
 			var modify = document.getElementById("modify");
 			modify.style.display = "none";
 			document.getElementById("modify_btn1") = 0;
-			
 		}
-		
-		
-		
-		
-		
-		
 		
 	</script>
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
