@@ -29,22 +29,9 @@
 		<div class="info-main-area">
 			<div class="info-main-title">
 				<div><h3>나의 정보</h3></div>
-
 			</div>
-
-			<!-- 사용자 비밀번호 확인 -->
-			
-			<div id="pwdConfirm" style="text-align:center; margin-bottom:5vh">
-				<h1 style="margin-bottom:5vh">비밀번호 입력</h1>
-				<label for=html>비밀번호 :</label> <input id="userPwd" type="password">
-			</div>
-			<!--  -->
-			
-			<div id="infoBox" style="display:none">
-
 			<form>			
 			<div id="infoBox">
-
 				<div class="info-table-area">
 					<table class="table border border-1 info-table">
 						<tr>
@@ -109,13 +96,13 @@
 </body>
 <script>
 /* 정보수정 */ 
-/* $(document).ready(function() {
+ $(document).ready(function() {
             $("#UpdateBtn").click(function() {
          			$("#update_form").attr("action", "/mypage/info");
                     $("#update_form").submit();
      });            
 });
-*/
+
 
 
 </script>
