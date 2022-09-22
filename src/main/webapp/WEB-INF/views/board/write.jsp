@@ -63,8 +63,8 @@
 			</td>
 		</tr>
 	</table>
-	<div id="uploadResult">
-				</div>
+	<!-- <div id="uploadResult">
+				</div> -->
 	<script>
 	/* 이미지 업로드 */
 		$("#fileItem").change(function(){

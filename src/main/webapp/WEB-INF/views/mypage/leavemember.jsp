@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +16,7 @@
 	
 	<main>
 	<div class="info-main">
-		<div class="info-aside-menu" style="">
+		<div class="info-aside-menu">
 			<div class="info-aside"> 
 				<div class="info-icon">
 					<i class="fa-solid fa-circle-user"></i>
@@ -39,11 +40,11 @@
 						<td>비밀번호</td>
 						<td><input type=text class="form-control" placeholder="password 입력"></td>
 					</tr>
+	
 				</table>
 			</div>
 			<div class="info-write-area" >
-			 <button type="button" class="btn btn-outline-secondary" >탈퇴</button>
-			 
+			 <button type="button" class="btn btn-outline-secondary" >탈퇴</button>		 
 			</div>
 		</div>
 		
