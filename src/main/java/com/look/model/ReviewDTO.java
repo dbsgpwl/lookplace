@@ -2,6 +2,8 @@ package com.look.model;
 
 import java.util.Date;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -32,5 +34,7 @@ public class ReviewDTO {
     
     /* 조회수 */
     private int hit;
-	
+
+    private String uploadimg;
+    private String thumbimg;
 }

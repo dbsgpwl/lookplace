@@ -14,25 +14,29 @@
 	 <!-- 댓글 작성  -->
 	<insert id="replyWrite" parameterType="com.look.model.ReplyDTO">
 		insert into tbl_reply_review(bno, nickname, content)
-			value(#{bno}, #{nickname}, #{content})
+		values(#{bno}, #{nickname}, #{content})
 	</insert>
 		
-	<!-- 댓글 수정 -->
-	<update id="replyModify" parameterType="com.look.model.ReplyDTO">
-		update tbl_reply_review set
-			writer = #{nickname},
-			content = #{content}
-		where rno = #{rno}
-			and bno = #{bno}	
-	</update>
-
 	<!-- 댓글 삭제 -->
-	<delete id="replyDelete" parameterType="com.look.model.ReplyDTO">
-		delete from tbl_reply_review
-		where rno = #{rno}
+	<delete id="replyDelete">
+	   delete from tbl_reply_review
+	   where rno = #{rno}
+	   and nickname = #{nickname}
 	</delete>
+	
+	<!-- 아이디 체크 -->
+	<select id="idCheck" resultType="String">
+	   select nickname
+	   from tbl_reply_review
+	   where rno = #{rno}
+	</select>
 
-		
+	<!-- 댓글 수정 -->
+	<update id="modifyReply">
+	   update tbl_reply_review
+	   set content = #{content}
+	   where rno = #{rno} and nickname = #{nickname}
+	</update>
 		
 </mapper>
 

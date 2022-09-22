@@ -39,11 +39,11 @@
 				</div>
 			</div>
 <div class="board-table-area">
-	<form method="post" action="/write">
+	<form method="post" action="/write" enctype="multipart/form-data">
 	<table class="table border border-1 board-table table-hover">
 		<tr>
 			<td>작성자</td>
-			<td><input type="text" name="nickname" placeholder="작성자"/></td>
+			<td><input type="text" name="nickname" value="${member.nickname }"/></td>
 		</tr>
 		<tr>
 			<td>title</td>
@@ -53,9 +53,100 @@
 			<td>Content</td>
 			<td><textarea name="content"></textarea></td>
 		</tr>
-		
-		
+		 <tr>
+			<td bgcolor="orange" width="70">업로드</td><td align="left">
+			<input type="file" id ="fileItem" name='uploadFile' multiple style="height: 30px;">
+		</tr>
+		<tr>
+			<td colspan=2>
+				<div class="select_img"><img src=""/></div>
+			</td>
+		</tr>
 	</table>
+	<div id="uploadResult">
+				</div>
+	<script>
+	/* 이미지 업로드 */
+		$("#fileItem").change(function(){
+			let formData = new FormData();
+			let fileInput = $('input[name="uploadFile"]');
+			let fileList = fileInput[0].files;
+			let fileObj = fileList[0];
+			
+			/* if(!fileCheck(fileObj.name, fileObj.size)){
+				return false;
+			} */
+			
+			for(let i = 0; i < fileList.length; i++){
+				formData.append("uploadFile", fileList[i]);
+			}
+			
+			$.ajax({
+				url: '/uploadAjaxAction',
+				processData : false,
+		    	contentType : false,
+		    	data : formData,
+		    	type : 'POST',
+		    	dataType : 'json',
+		    	success : function(result){
+		    		console.log(result);
+		    		showUploadImage(result);
+		    	},
+		    	error : function(result){
+		    		alert("이미지 파일이 아닙니다.");
+		    	}
+			});	
+			
+			/* var, method related with attachFile */
+			let regex = new RegExp("(.*?)\.(jpg|png)$");
+			let maxSize = 1048576; //1MB	
+			
+			function fileCheck(fileName, fileSize){
+
+				if(fileSize >= maxSize){
+					alert("파일 사이즈 초과");
+					return false;
+				}
+					  
+				if(!regex.test(fileName)){
+					alert("해당 종류의 파일은 업로드할 수 없습니다.");
+					return false;
+				}
+				
+				return true;		
+				
+			}
+			
+			/* 이미지 출력 */
+			function showUploadImage(uploadResultArr){
+				
+				/* 전달받은 데이터 검증 */
+				if(!uploadResultArr || uploadResultArr.length == 0){return}
+				
+				let uploadResult = $("#uploadResult");
+				
+				let obj = uploadResultArr[0];
+				
+				let str = "";
+				
+				let fileCallPath = obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName;
+				str += "<div id='result_card'>";
+				str += "<img src='/display?fileName=" + fileCallPath +"'>";
+				str += "<div class='imgDeleteBtn'>x</div>";
+				str += "</div>";		
+				
+				uploadResult.append(str);  
+				   
+			}
+			if(this.files && this.files[0]){
+				var reader = new FileReader;
+				reader.onload = function(data) {
+				     $(".select_img img").attr("src", data.target.result).width(500);        
+				    }
+				    reader.readAsDataURL(this.files[0]);
+				   }
+				});
+	</script> 
 		<input type="button" value="글 작성" style="float: right;" onclick="goWrite(this.form)"/>
 		<input type="button" value="글 목록" style="float: right;" onclick="location.href='review';">
 	</form>
@@ -66,14 +157,9 @@
 <script>
 function goWrite(frm) {
 	var title = frm.title.value;
-	var nickname = frm.nickname.value;
 	var content = frm.content.value;
 	
-	if (nickname.trim() == ''){
-		alert("작성자를 입력해주세요");
-		return false;
-	}
-	else if (title.trim() == ''){
+	if (title.trim() == ''){
 		alert("제목을 입력해주세요");
 		return false;
 	}
