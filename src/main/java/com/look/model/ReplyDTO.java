@@ -3,10 +3,14 @@ package com.look.model;
 import java.util.Date;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import lombok.ToString;
 
-@Data
+@Getter
+@Setter
 @ToString
+@Data
 public class ReplyDTO {
 
    private int rno;

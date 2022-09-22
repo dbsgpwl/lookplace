@@ -41,17 +41,10 @@
 		class="org.springframework.mail.javamail.JavaMailSenderImpl">
 		<property name="host" value="smtp.gmail.com" /> <!-- 메이서버 호스트 -->
 		<property name="port" value="587" /> <!-- 메이서버 포트번호 -->
-<<<<<<< HEAD
-		<property name="username" value="min11600@naver.com" /> <!-- 자신의 이메일 아이디 -->
-		<property name="password" value="GJ9WRG8FZ11P" /> <!-- 자신의 비밀번호 -->
-=======
 		<property name="username" value="jamyoung1160@gmail.com" /> <!-- 자신의 이메일 아이디 -->
 		<property name="password" value="vpbanuvrljijfwka" /> <!-- 자신의 비밀번호 -->
 		 
 
-
-
->>>>>>> 79dc5c8994b90103542951a6fe18e28aef508119
 		<property name="javaMailProperties">
 			<props>
 				<prop key="mail.smtp.ssl.protocols">TLSv1.2</prop>

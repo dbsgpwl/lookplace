@@ -1,4 +1,4 @@
-package com.look.mapper;
+package com.look.service;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

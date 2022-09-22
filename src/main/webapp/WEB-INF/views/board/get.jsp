@@ -15,7 +15,7 @@ function replyList(){
     
     $(data).each(function(){
      
-     console.log(data);
+    
      
      var regdate = new Date(this.regdate);
      regdate = regdate.toLocaleDateString("ko-US")
@@ -44,7 +44,6 @@ function replyList(){
 }
 
 
-   
  	
 </script>
 </head>
@@ -74,7 +73,7 @@ function replyList(){
 <body>
 	
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
-	
+	${board.nickname } ${member.nickname } ${reply.nickname }
 	<main>
 	<div class="board-main">
 		<div class="board-aside-menu">
@@ -128,9 +127,9 @@ function replyList(){
 				</div>
 				
 			<!-- 댓글 목록 -->
-			<div id="reply">
+<div id="reply">
 
-			<c:if test="${member==null}">
+			 <c:if test="${member==null}">
 				<div>									
 					<span><a href="/member/login">로그인</a> 후 댓글을 작성해주세요</span>
 				</div>	
@@ -142,8 +141,6 @@ function replyList(){
 				  	replyList();
 				  </script>  
 				  <script>
-				  
-				 	/* 댓글 삭제 */
 				   $(document).on("click", ".delete-reply", function(){
 				    var deleteChk = confirm("정말로 삭제하시겠습니까?");
 				    
@@ -173,45 +170,43 @@ function replyList(){
 				</section>
 			 <c:if test="${member != null}">
 			 <section class="replyForm-board-reply">
-				 <form method="post"> 
-				  <input type="hidden" name="bno" id="bno" value="${board.bno}">
-				   <div class="input_area-board-reply">
-				    <textarea name="content" id="content"></textarea>
-				   </div>
-   			  <!-- 댓글 작성 -->
+			 <form method="post"> 
+			  <input type="hidden" name="bno" id="bno" value="${board.bno}">
+			   <div class="input_area-board-reply">
+			    <textarea name="content" id="content"></textarea>
+			   </div>
+
 			   <div class="input_area-board-reply">
 			    <button type="button" id="reply_btn-board-reply">댓글 남기기</button>
-<script>
-			$("#reply_btn-board-reply").click(function(){
-				    
-			var formObj = $(".replyForm-board-reply form[role='form']");
-			var bno = $("#bno").val();
-			var content = $("#content").val()
-				    
-			var data = {
-				 bno : bno,
-				 content : content
-				};
-				    
-			$.ajax({
-				 url : "/reply/write",
-				 type : "post",
-				 data : data,
-				 success : function(){
-				 replyList();
-		   $("#content").val("");
-			 }
-		 });
-	});
-</script>
-		   </div>
-		 </form>
-		</section>
-		</c:if>
- 
+			    <script>
+			   $("#reply_btn-board-reply").click(function(){
+			    
+			    var formObj = $(".replyForm-board-reply form[role='form']");
+			    var bno = $("#bno").val();
+			    var content = $("#content").val()
+			    
+			    var data = {
+			    	bno : bno,
+			    	content : content
+			      };
+			    
+			    $.ajax({
+			     url : "/reply/write",
+			     type : "post",
+			     data : data,
+			     success : function(){
+			      replyList();
+			      $("#content").val("");
+			     }
+			    });
+			   });
+			</script>
+   </div>
 
-
-			</div>
+ </form>
+ </section>
+ </c:if>
+	</div>
 			<form id="infoForm" action="modify-r" method="get">
 				<input type="hidden" name="pageNum" value="${cri.pageNum }">  
 				<input type="hidden" name="amount" value="${cri.amount }">  
@@ -248,7 +243,7 @@ function replyList(){
 	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 	
-	<!-- 댓글 수정창 모달 -->
+<!-- 댓글 수정창 모달 -->
 	<div class="replyModal">
 	 <div class="modalContent">
 	  <div>
@@ -267,7 +262,6 @@ function replyList(){
 $(".modal_cancel").click(function(){
   $(".replyModal").fadeOut(200);
 });
-
 $(document).on("click", ".modify-reply", function(){
    $(".replyModal").fadeIn(200); /* 200은 0.2초 */
    
@@ -279,7 +273,7 @@ $(document).on("click", ".modify-reply", function(){
    
 });
 	
-	$(".modal_modify_btn").click(function(e){
+	$(".modal_modify_btn").click(function(){
 	   var modifyChk = confirm("정말로 수정하시겠습니까?");
 	   
 	   if(modifyChk) {
