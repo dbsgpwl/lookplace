@@ -34,9 +34,10 @@ public interface TripService {
 		public int deleteReply(int reno);
 		//댓글 수정
 		public void	updateReply(TripReplyDTO dto);
+		
 		//좋아요 
 		public void insertHeart(TripHeartDTO dto);
 		
 		//닉네임이 좋아요한 게시물 유무 확인
-		public List<TripHeartDTO> nickCheck(TripHeartDTO dto);
+		public List<TripHeartDTO> nickCheck(String nickname);
 }

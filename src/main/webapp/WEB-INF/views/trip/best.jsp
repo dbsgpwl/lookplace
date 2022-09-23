@@ -21,6 +21,7 @@
 	<main>
 		<div class="all">
 			<form action = "/trip/entire" method = "get">
+				<input type = "hidden" value = "<c:out value = "${member.nickname }"></c:out>" name = "nickname">
 				<h1><b>인기</b></h1>
 				<hr>
 				<div class = "hashtag">

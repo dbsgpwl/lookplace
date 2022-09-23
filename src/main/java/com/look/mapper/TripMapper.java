@@ -40,7 +40,7 @@ public interface TripMapper {
 	public void insertHeart(TripHeartDTO dto);
 	
 	//닉네임이 좋아요한 게시물 유무 확인
-	public List<TripHeartDTO> nickCheck(TripHeartDTO dto);
+	public List<TripHeartDTO> nickCheck(String nickname);
 	
 	
 }
