@@ -21,8 +21,8 @@
  		<div class = "footer-first-line">
 	 		<a href="#">개인정보처리방침</a>
 	 		<a href="#">이용약관</a>
-	 		<a href="#">notice</a>
 	 		<a href="#">찾아오시는길</a>
+	 		<a href="#">Notice</a>
  		</div>
  		<div class= "footer-second-line">
  			<span>TEL : 053-0000-0000</span>

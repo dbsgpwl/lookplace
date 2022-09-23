@@ -21,31 +21,33 @@
     
     .footer-Box
     {
-    	width:100%; 
-    	height:60%; 
-    	padding-top:0.5%; 
-    	color:white; 
-    	background-color:rgb(255, 56, 142); 
-    	border-radius:15px 15px 0px 0px
+    	width:100%;
+    	margin-top: 50px;height:60%; 
+    	padding-top:0.5%;
+    	color:
+    	black; 
+ 		border-top:2px solid
+    	rgb(255, 56, 142);
     }
     
     .footer-first-line {
     	margin-bottom:20px;
     	margin-top:20px;
-    	padding-left:10%;
+    	text-align:center;
     	
     }
     
     .footer-first-line a {
-    	color:white;
-        padding-right:58px;
+    	color:black;
+        padding:0 30px;
+        
     }
     
     .footer-second-line{
-    	padding-left:10%
+    	text-align:center;
     }
     .footer-second-line span{
-    	padding-right:20px;
+    	padding: 0px 20px;
     }
     .footer-sns-icon{
     	font-size: 2rem;
@@ -56,5 +58,3 @@
     .footer-sns-icon a{
     	padding-left:30px;
     }
-    
-	
