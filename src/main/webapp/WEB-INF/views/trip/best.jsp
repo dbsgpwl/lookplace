@@ -21,10 +21,10 @@
 	<main>
 		<div class="all">
 			<form action = "/trip/entire" method = "get">
-				<input type = "hidden" value = "<c:out value = "${member.nickname }"></c:out>" name = "nickname">
 				<h1><b>인기</b></h1>
 				<hr>
 				<div class = "hashtag">
+					<input type = "hidden" name = "nickname" value = "${member.nickname }">
 					<input type="submit" name ="keyword" value ="전체">
 					<a href = "#">#여행지</a>
 					<a href = "#">#관광지</a>

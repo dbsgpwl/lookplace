@@ -39,5 +39,10 @@ public interface TripService {
 		public void insertHeart(TripHeartDTO dto);
 		
 		//닉네임이 좋아요한 게시물 유무 확인
-		public List<TripHeartDTO> nickCheck(String nickname);
-}
+		public List<Integer> nickCheck(String nickname);
+		
+		//좋아요 취소
+		public void unheart(TripHeartDTO dto);
+		//좋아요 테이블 조회
+		public List<TripHeartDTO> getHeartList();
+	}
