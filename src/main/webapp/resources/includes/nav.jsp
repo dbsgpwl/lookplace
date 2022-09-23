@@ -16,7 +16,6 @@
           <a href="#"><i class="fa-solid fa-house"></i></a>
           <ul class="menu-level2">
             <li class="downMenu"><a href="/trip/best">인기</a></li>
-            <li><a href="/trip/course">코스</a></li>
           </ul>
         </li>
         <li>

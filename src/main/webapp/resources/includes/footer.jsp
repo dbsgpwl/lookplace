@@ -21,7 +21,7 @@
  		<div class = "footer-first-line">
 	 		<span>개인정보처리방침</span>
 	 		<span>이용약관</span>
-	 		<span>Q&A</span>
+	 		<span>notice</span>
 	 		<span>찾아오시는길</span>
  		</div>
  		<div class= "footer-second-line">
