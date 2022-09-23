@@ -22,7 +22,7 @@
 	 		<a href="#">개인정보처리방침</a>
 	 		<a href="#">이용약관</a>
 	 		<a href="#">찾아오시는길</a>
-	 		<a href="#">Notice</a>
+	 		<a href="#">뉴스</a>
  		</div>
  		<div class= "footer-second-line">
  			<span>TEL : 053-0000-0000</span>
