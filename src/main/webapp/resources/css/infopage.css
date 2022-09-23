@@ -29,6 +29,17 @@
 	font-size:3rem;
 }
 
+.Address_button {
+	width: 5vw;
+	height: 4vh;
+	background-color: rgb(255, 56, 142);
+	color: white;
+	font-size: 1.0em;
+	font-weight: 500;
+	border: 1px solid rgba(0, 0, 0, 0);
+	border-radius: 2px;
+}
+
 .info-icon i{
 	
 }

@@ -208,6 +208,11 @@
 	  animation-name:slide_down;
 	  animation-duration:.5s;  
     }
+    
+    .down1{
+	  animation-name:slide_down1;
+	  animation-duration:.5s;  
+    }
 
     
     .side_Btn{
@@ -242,6 +247,15 @@
 	  }
 	  100%{
 	    height:80px;
+	  }
+	}
+	
+	@keyframes slide_down1{
+	  0%{
+	    height:0px;
+	  }
+	  100%{
+	    height:50px;
 	  }
 	}
 	

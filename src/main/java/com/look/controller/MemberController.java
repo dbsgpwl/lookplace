@@ -65,8 +65,7 @@ public class MemberController {
 			 
 			
 		     HttpSession session = request.getSession();
-			 MemberDTO mdto = memberservice.memberLogin(dto);
-			
+			 MemberDTO mdto = memberservice.memberLogin(dto);		
 			
 			 if(mdto == null) {                                // 일치하지 않는 아이디, 비밀번호 입력 경우
 		            

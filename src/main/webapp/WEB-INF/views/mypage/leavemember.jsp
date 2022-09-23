@@ -15,6 +15,7 @@
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	
 	<main>
+	<form id="delete_form" method="post" class="DeleteForm">
 	<div class="info-main">
 		<div class="info-aside-menu">
 			<div class="info-aside"> 
@@ -28,32 +29,59 @@
 				<p><a href="/mypage/wishlist">찜한 여행</a></p>
 			</div>
 		</div>
-		
 		<div class="info-main-area">
 			<div class="info-main-title">
 				<div><h3>회원탈퇴</h3></div>
-
 			</div>
 			<div class="info-table-area">
 				<table class="table border border-1 info-table">
 					<tr>
-						<td>비밀번호</td>
-						<td><input type=text class="form-control" placeholder="password 입력"></td>
+						<td>이메일</td>
+						<td><input type=email id="email" class="form-control" placeholder="E-mail 입력" name="email" value="${member.email}" readonly></td>
 					</tr>
-	
+					<tr>
+						<td>비밀번호</td>
+						<td><input type=text  id="password" class="form-control" placeholder="password 입력" name="password"></td>
+					</tr>											
 				</table>
 			</div>
 			<div class="info-write-area" >
-			 <button type="button" class="btn btn-outline-secondary" >탈퇴</button>		 
-			</div>
-		</div>
-		
-		
+			 <button type="button" class="DeleteBtn btn btn-outline-secondary">탈퇴</button>
+			 <button type="button" class="btn btn-outline-secondary" onclick="location.href='/'">취소</button>			 
+			</div>	
+			<div>
+				<c:if test="${msg==false}">
+			<span style="color: red; font-size:13px;">비밀번호가 맞지 않습니다.</span>
+				</c:if>
+	</div>		
+		</div>		
 	</div>
-	</main>
-	
-	
-	
+	</form>
+	</main>	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>
+<script>
+$(document).ready(function(){
+	$("#submit").on("click", function(){
+		if($("#password").val()==""){
+			alert("비밀번호를 입력해주세요.");
+			$("#password").focus();
+			return false;
+		}
+	});
+})
+
+/* 회원탈퇴 */ 
+$(document).ready(function() {
+            $(".DeleteBtn").click(function() {
+         			$("#delete_form").attr("action", "/mypage/leavemember");
+                    $("#delete_form").submit();
+                });
+            });
+            
+
+</script>
+<script>
+
+</script>
 </html>
