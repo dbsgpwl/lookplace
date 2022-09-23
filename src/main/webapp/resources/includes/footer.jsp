@@ -16,13 +16,13 @@
  		<a href = "#"><i class="fa-brands fa-square-facebook" style="color:rgb(255, 56, 142);"></i></a>
  		<a href = "#"><i class="fa-brands fa-square-twitter" style="color:rgb(255, 56, 142);"></i></a>
  	</div>
- 	<hr>
- 	<div>
+
+ 	<div class="footer-Box">
  		<div class = "footer-first-line">
-	 		<span>개인정보처리방침</span>
-	 		<span>이용약관</span>
-	 		<span>notice</span>
-	 		<span>찾아오시는길</span>
+	 		<a href="#">개인정보처리방침</a>
+	 		<a href="#">이용약관</a>
+	 		<a href="#">notice</a>
+	 		<a href="#">찾아오시는길</a>
  		</div>
  		<div class= "footer-second-line">
  			<span>TEL : 053-0000-0000</span>
