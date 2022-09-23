@@ -41,7 +41,7 @@ public class MemberServiceImpl implements MemberService{
 		mapper.memberDelete(dto);
 		
 	}
-
+	
 }
 
 	

@@ -71,21 +71,39 @@ public class MypageController {
 
 		return "redirect:/";
 	}
-
+	
 	/* 회원 탈퇴 */
-	/*
-	 * @RequestMapping(value="/leavemember", method = RequestMethod.POST) public
-	 * String memberDelete(MemberDTO dto, HttpSession session, RedirectAttributes
-	 * rttr) throws Exception { 세션에 있는 mdto를 가져와 member변수에 넣어준다. MemberDTO mdto =
-	 * (MemberDTO) session.getAttribute("member");
-	 * 
-	 * // 세션에 있는 비밀번호 String sessionPass = mdto.getPassword(); // dto로 들어오는 비밀번호
-	 * String dtoPass = dto.getPassword();
-	 * 
-	 * if(!(sessionPass.equals(dtoPass))) { rttr.addFlashAttribute("msg",false);
-	 * return "redirect:/member/leavemember"; } memberservice.memberDelete(mdto);
-	 * session.invalidate(); return "redirect:/";
-	 * 
-	 * }
-	 */
+	@RequestMapping(value="/leavemember", method = RequestMethod.POST)
+	public String deletePOST(MemberDTO dto, HttpSession session, RedirectAttributes rttr) throws Exception {
+	
+		
+		
+		// 세션에 있는 member를 가져와 member 변수에 넣어준다.
+		MemberDTO member = (MemberDTO)session.getAttribute("member");
+		
+		/*  세션에 값이 들어가는지 확인
+		String aa = member.getEmail();
+		String bb = member.getPassword();
+		
+		System.out.println("aa : " + aa);
+		System.out.println("bb : " + bb);
+		*/
+		
+		// 세션에 있는 비밀번호
+		String sessionPW = member.getPassword();
+		
+		// dto로 들어오는 비밀번호
+		String dtoPW = dto.getPassword();
+		
+		if(!(sessionPW.equals(dtoPW))) {
+			rttr.addFlashAttribute("msg",false);
+			return "redirect:/mypage/leavemember";
+		}
+		memberservice.memberDelete(dto);
+		session.invalidate();
+		return "redirect:/";
+		
+		
+		
+	}	 
 }
