@@ -93,7 +93,7 @@
 		<c:if test="${member!=null}">
 			<button onclick="location.href='/mypage/info'">
 				<i class="fa-sharp fa-solid fa-user-pen"></i>
-				<p style="margin-top:7px; font-size:15px;">내 정보</p>
+				<p style="margin-top:7px; font-size:15px; color:rgb(255, 56, 142)">내 정보</p>
 			</button>		
         </c:if> 
         </div>
