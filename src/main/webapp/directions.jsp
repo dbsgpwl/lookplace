@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 <title>찾아오시는길</title>
 </head>
+
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="../resources/css/directions.css" rel="stylesheet" type="text/css">
 <body>
@@ -20,9 +21,10 @@
 				<p style="font-size: 2rem;">저희 LookPlace는 번화가에 위치하고 있어</p>
 				<p style="font-size: 2rem;">대중교통을 이용하면 빠르게 오실 수 있습니다.</p>
 				<br>
-				<p style="font-size: 1.5rem;">인근 지하철역 : 반월당역</p>
-				<p style="font-size: 1.5rem;">인근 버스 정류장 : </p>
-				<p style="font-size: 1.5rem;">약령시, 봉산문화거리, 2.28 기념공원</p>			
+				<p style="font-size: 1.7em;">주변 지하철</p>
+				<span style="font-size: 1.5em;">반월당역</span><br><br>
+				<p style="font-size: 1.7em;">주변 정류장</p>
+				<span style="font-size: 1.5em;">약령시건너(동성로입구), 2.28기념공원, 봉산문화거리건너</span>
 			</div>
 			
 		</div>
