@@ -25,7 +25,7 @@
     	margin-top: 50px;height:60%; 
     	padding-top:0.5%;
     	color:
-    	black; 
+    	rgb(255, 56, 142); 
  		border-top:2px solid
     	rgb(255, 56, 142);
     }
@@ -38,7 +38,7 @@
     }
     
     .footer-first-line a {
-    	color:black;
+    	color:rgb(255, 56, 142);
         padding:0 30px;
         
     }
@@ -47,7 +47,7 @@
     	text-align:center;
     }
     .footer-second-line span{
-    	padding: 0px 20px;
+    	padding: 0px 60px;
     }
     .footer-sns-icon{
     	font-size: 2rem;
