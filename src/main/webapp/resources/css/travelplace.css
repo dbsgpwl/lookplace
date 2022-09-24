@@ -63,6 +63,7 @@
 	height:150px;
 	background-color : lightgray;
 	text-align: center;
+	cursor: pointer;
 }
 .p_top img {
 	width: 150px;

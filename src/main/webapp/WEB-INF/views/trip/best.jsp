@@ -67,7 +67,7 @@
 				<h3 class = "p_title">9월의 SNS인기 여행지 TOP 10</h3>
 				<div class = "p_firstline">
 					<c:forEach items="${list }" var = "best" begin="0" end="4">
-						<div class = "p_top">
+						<div class = "p_top" onclick= "location.href = '/trip/travel-p?imgno=${best.imgno }'">
 							<img src = '/resources/image/<c:out value = "${best.course }"></c:out>'>
 							<h3><c:out value = "${best.place }"></c:out></h3>
 						</div>
@@ -76,7 +76,7 @@
 				
 				<div class = "p_firstline">
 					<c:forEach items="${list }" var = "best" begin="5" end="9">
-						<div class = "p_top">
+						<div class = "p_top" onclick= "location.href = '/trip/travel-p?imgno=${best.imgno }'">
 							<img src = '/resources/image/<c:out value = "${best.course }"></c:out>'>
 							<h3><c:out value = "${best.place }"></c:out></h3>
 						</div>
@@ -89,7 +89,7 @@
 				<h3 class = "p_title">가을의 인기 여행지 TOP 10</h3>
 				<div class = "p_firstline">
 					<c:forEach items="${autumn }" var = "autumn" begin="0" end="4">
-						<div class = "p_top">
+						<div class = "p_top" onclick= "location.href = '/trip/travel-p?imgno=${autumn.imgno }'">
 							<img src = '/resources/image/<c:out value = "${autumn.course }"></c:out>'>
 							<h3><c:out value = "${autumn.place }"></c:out></h3>
 						</div>
@@ -98,7 +98,7 @@
 				
 				<div class = "p_firstline">
 					<c:forEach items="${autumn }" var = "autumn" begin="5" end="9">
-						<div class = "p_top">
+						<div class = "p_top" onclick= "location.href = '/trip/travel-p?imgno=${autumn.imgno }'">
 							<img src = '/resources/image/<c:out value = "${autumn.course }"></c:out>'>
 							<h3><c:out value = "${autumn.place }"></c:out></h3>
 						</div>
