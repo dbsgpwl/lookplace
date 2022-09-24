@@ -101,6 +101,9 @@
 	<delete id="unheart">
 		 delete from tbl_heart where imgno = #{imgno} and nickname = #{nickname}
 	</delete>
+	<update id = "minusHeart">
+		update tbl_best_image set heart = heart -1 where imgno = #{imgno}
+	</update>
 	
 	
 	
@@ -109,6 +112,9 @@
 		select * from tbl_heart
 	</select>
 	
-	
+	<!-- 좋아요 증가 -->
+	<update id="PlusHeart">
+		update tbl_best_image set heart = heart + 1 where imgno = #{imgno}
+	</update>
 	
    	</mapper>

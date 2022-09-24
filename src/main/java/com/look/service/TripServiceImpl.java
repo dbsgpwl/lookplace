@@ -89,6 +89,16 @@ public class TripServiceImpl implements TripService{
 		 mapper.unheart(dto);
 	}
 
+	@Override
+	public void PlusHeart(TripHeartDTO dto) {
+		mapper.PlusHeart(dto);
+	}
+
+	@Override
+	public void minusHeart(TripHeartDTO dto) {
+		mapper.minusHeart(dto);
+	}
+
 
 
 

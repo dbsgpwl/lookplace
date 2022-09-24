@@ -79,6 +79,13 @@ public class TripController {
 		}
 		
 		
+		//전체 지역 최신순 인기순 
+		@PostMapping("/hit")
+		public String hitPOST() {
+			return null;
+		}
+		
+		
 		@PostMapping("/pop")
 		public String popPOST(@RequestParam("keyword")String keyword) throws UnsupportedEncodingException{
 			String encodedParam = URLEncoder.encode(keyword, "UTF-8");
@@ -105,6 +112,7 @@ public class TripController {
 			}
 			
 			service.insertHeart(dto);
+			service.PlusHeart(dto);	
 			
 			
 			return "redirect:/trip/entire?"+"nickname="+encodedParam1+"&keyword=" +encodedParam;
@@ -117,6 +125,7 @@ public class TripController {
 			String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
 			
 			service.unheart(dto);
+			service.minusHeart(dto);
 			
 			return "redirect:/trip/entire?"+"nickname="+encodedParam1+"&keyword=" +encodedParam;
 		}
