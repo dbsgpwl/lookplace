@@ -76,11 +76,8 @@
         <a href="javascript:location.href='/'"><img src="/resources/image/logo.png" /></a>
       </section>
       <section class="searchBox">
-      
         <input type="text" placeholder="어디로, 어떤 여행을 떠나실 건가요?"/>
-        
         <a style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
-        
       </section>
       <section class="buttonBox">
         <div>

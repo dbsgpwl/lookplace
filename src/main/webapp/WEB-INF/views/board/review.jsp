@@ -12,7 +12,6 @@
 <link href="/resources/css/board.css" rel="stylesheet" type="text/css">
 <body>
 
-
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 
 	<main>
@@ -46,22 +45,15 @@
 						<span><a href="review">Review</a></span>
 					</div>
 				</div>
-				<div style="padding-left:80%;">
-					<div>
-						<button class="board-writer-button"
-							onclick="location.href='insertImage'">글쓰기</button>
-					</div>
-				</div>
 				<div class="row">
 				<c:forEach items="${viewAll }" var="list">
+				
 					<div class="col-md-3">
+					<span>${hit }</span>
 					<div class="thumbnail">
-						<img src="${list.filename}"style="width: 300px;
-  height: 150px;
-  object-fit: cover;">
+						<img src="${list.filename}"style="width: 147px;height: 130px;object-fit: cover;">
 						<div class="caption">
-							<h5>${list.title }</h5>
-							<p>${list.content }</p>
+							<span>${list.title }</span>
 							<a href="#" class="btn">리뷰보기</a>
 						</div>
 						</div>
@@ -92,6 +84,12 @@
 							</c:if>
 						</ul>
 
+					</div>
+				</div>
+				<div style="padding-left:80%;">
+					<div>
+						<button class="board-writer-button"
+							onclick="location.href='insertImage'">글쓰기</button>
 					</div>
 				</div>
 				<form id="moveForm" method="get">
