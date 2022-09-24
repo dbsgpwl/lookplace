@@ -69,10 +69,12 @@
 	margin-top:10%;
 	text-align:center;
 }
-
+.board-table-area{
+	width:100%;
+}
 .board-table{
 	text-align:center;
-	font-size:13px;
+	font-size:11px;
 }
 
 .board-title{
@@ -144,30 +146,6 @@
     background-color: #f3e3e7;
 }
 
-/* 페이지 네이션 css */
-.pageInfo{
-      list-style : none;
-      display: flex;
-   	  margin: 50px 100px 0 40px;    
-}
-.pageInfo li{
-    margin-right: 20px;
-    padding: 7px;
-    font-weight: 500;
-}
- a:link {color:black; text-decoration: none;}
- a:visited {color:black; text-decoration: none;}
- a:hover {color:black; text-decoration: underline;}
- 
- .active{
-      background-color: rgb(255, 56, 142);
-      border-radius: 200px;
-  }
-  
-
-
-
-   
 .board-search-type{
 	width:35%;
 	height:40px;
@@ -207,4 +185,49 @@
     	
     }
    
+ /* 페이지 네이션 css */
+.pageInfo{
+      list-style : none;
+      display: flex;
+   	  margin: 50px 100px 0 40px;    
+}
+.pageInfo li{
+    margin-right: 20px;
+    padding: 7px;
+    font-weight: 500;
+}
+ a:link {color:black; text-decoration: none;}
+ a:visited {color:black; text-decoration: none;}
+ a:hover {color:black; text-decoration: underline;}
  
+ .active{
+      background-color: rgb(255, 56, 142);
+      border-radius: 200px;
+  }
+  
+  /* 검색창 css */
+  
+  .search_area{
+  	width:100%
+  }
+  
+  .search_area select{
+  	  height: 40px;
+      line-height:40px;
+      width:10%;
+      border:1px solid lightgray;
+  }
+  
+  .search_area input{
+  height: 40px;
+      line-height:40px;
+      width:40%;
+      border:1px solid lightgray;
+  
+ 	}
+ 	
+ 	.search_area button{
+ 	height:39px;
+      width:6%;
+      border:1px solid lightgray;
+ 	}
