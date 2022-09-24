@@ -12,32 +12,25 @@
 </head>
 <body>
     <header>
-      <section class="burgerBox">
-        <input type="checkbox" id="check_box" />
-        <label for="check_box">
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
-        <div id="side_menu" class="side_menu">
-          <ul class="side_title" style="padding-top:20px;">
-			
-				<!-- 로그인 하지 않은 상태 -->				
-					<c:if test="${member==null}">
-						<div>									
-							<span>로그인 후</span><br>
-							<span>LookPlace를 즐겨보세요</span>
-						</div>	
-					</c:if>
+    	<div id="sidemenu-s1" class="sidemenu sidemenu-vertical sidemenu-left">
+          <div style="position:absolute; top:12%; left:15%;font-size:1.5em;">
+          	<!-- 로그인 하지 않은 상태 -->				
+			<c:if test="${member==null}">
+				<div>									
+					<span>로그인 후</span><br>
+					<span>LookPlace를 즐겨보세요</span>
+				</div>	
+			</c:if>
 				
-				<!-- 로그인 한 상태 -->
-					<c:if test="${member!=null}">
-						<div class="login_success_area">
-								<span onclick="location.href='/mypage/info'" style="cursor:pointer">${member.nickname}님 </span><br>
-								<span>LookPlace에 오신걸 환영합니다.</span>
-						</div>
-					</c:if>
-			
+			<!-- 로그인 한 상태 -->
+			<c:if test="${member!=null}">
+				<div class="login_success_area">
+					<span onclick="location.href='/mypage/info'" style="cursor:pointer">${member.nickname}님 </span><br>
+					<span>LookPlace에 오신걸 환영합니다.</span>
+				</div>
+			</c:if>
+          </div>
+          <ul class="side_title" style="padding-top:20px; position:absolute; top:17%;">
             <li><a href="/"><i class="fa-sharp fa-solid fa-house"></i>홈</a>
             	<button id="side_Btn1" class="side_Btn" onclick="ShowDetail1()"><i class="fa-solid fa-caret-down"></i></button>
             	<ul class="side_Detail1">
@@ -53,31 +46,37 @@
             	</ul>
             </li>
           </ul>
-       	<!-- 로그인 하지 않은 상태 -->				
-		<c:if test="${member==null}">
-          <div id="login-button">
-          	<i class="fa-regular fa-user" ></i>
-          	<a href="/member/login">LOGIN</a>         	
-         </div>
-        </c:if> 
+       	<div style="position:absolute; top:85%; left:37%;">
+	     <!-- 로그인 하지 않은 상태 -->				
+			<c:if test="${member==null}">
+	          <div id="login-button">
+	          	<i class="fa-regular fa-user" ></i>
+	          	<a href="/member/login">LOGIN</a>         	
+	         </div>
+	        </c:if> 
         
         <!-- 로그인 하지 않은 상태 -->				
-		<c:if test="${member!=null}">
-          <div id="login-button">
-          	<i class="fa-regular fa-user" ></i>
-          	<a href="/member/logout">LOGOUT</a>         	
-         </div>
-        </c:if> 
-        
-        
-        </div>
-      </section>
+			<c:if test="${member!=null}">
+	          <div id="login-button">
+	          	<i class="fa-regular fa-user" ></i>
+	          	<a href="/member/logout">LOGOUT</a>         	
+	         </div>
+	        </c:if> 
+     	</div> 
+     </div> 
+    
+      <button id="showLeft" style="z-index:9999;">
+	        <i class="fa-solid fa-bars" style="color:rgb(255, 56, 142); font-size:2em; "></i>
+	  </button>
       <section class="logoBox">
         <a href="javascript:location.href='/'"><img src="/resources/image/logo.png" /></a>
       </section>
       <section class="searchBox">
+      
         <input type="text" placeholder="어디로, 어떤 여행을 떠나실 건가요?"/>
+        
         <a style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
+        
       </section>
       <section class="buttonBox">
         <div>
@@ -99,14 +98,32 @@
 
 </body>
 <script>
+
+var menuLeft = document.getElementById( 'sidemenu-s1' ),
+	showLeft = document.getElementById( 'showLeft' )
+
 const DETAIL1 = document.querySelector('.side_Detail1')
 const DETAIL2 = document.querySelector('.side_Detail2')
-
-var ASIDE = document.querySelector('#check_box');
 
 const SIDEBTN1 = document.querySelector('#side_Btn1')
 const SIDEBTN2 = document.querySelector('#side_Btn2')
 
+	
+showLeft.onclick = function() {
+	menuLeft.classList.toggle('sidemenu-open');
+	
+	if(!DETAIL1.classList.contains('side_Detail1')){
+		DETAIL1.classList.add('side_Detail1');
+		DETAIL1.style.height="0px";
+		SIDEBTN1.classList.add('rotate_down')
+	}
+	if(!DETAIL2.classList.contains('side_Detail2')){
+		DETAIL2.classList.add('side_Detail2');
+		DETAIL2.style.height="0px";
+		SIDEBTN2.classList.add('rotate_down')
+	}
+
+};	
 
 
 const ShowDetail1 = () =>{
@@ -144,40 +161,6 @@ const ShowDetail2 = () =>{
 		DETAIL2.classList.remove('down')
 	}
 }
-
-
-$(document).ready(function(){
-    $("#check_box").change(function(){
-        if($("#check_box").is(":checked")){
-        	DETAIL1.style.height='0px';
-    		DETAIL1.classList.add('side_Detail1');
-    		DETAIL1.classList.remove('up');
-    		DETAIL1.classList.remove('down1');
-    		SIDEBTN1.classList.remove('rotate_up');
-    		
-    		DETAIL2.style.height='0px';
-    		DETAIL2.classList.add('side_Detail2');
-    		DETAIL2.classList.remove('up');
-    		DETAIL2.classList.remove('down');
-    		SIDEBTN2.classList.remove('rotate_up')
-        }
-    });
-});
-
-
-
-
-
-/*
-ASIDE.addEventListner('change',()=>{
-	if(!ASIDE.checked){
-		DETAIL1.style.display='none';
-		DETAIL1.classList.add('side_Detail1');
-		DETAIL2.style.display='none';
-		DETAIL2.classList.add('side_Detail2');
-	}
-})
-*/
 
 </script>
 </html>
