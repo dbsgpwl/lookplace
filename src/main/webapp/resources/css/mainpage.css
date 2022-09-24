@@ -35,6 +35,15 @@
   
 
 	/* main */
+	.m_img{
+		margin-bottom:50px;
+		display: flex;
+		 text-align: center;
+	}
+	.m_main{
+		overflow-x: hidden;
+		width:70%;
+	}
 	
 	.firstSection{
 		display:flex; 
@@ -44,15 +53,23 @@
 	}
 	.firstInLeft{
 		width:50%; 
-		height:500px; 
-		background-color: black
+	}
+	.firstInLeft img{
+		width: 70%;
+		height: 300px;
 	}
 	.firstRight{
 		width:50%; 
-		height: 500px; 
-		line-height:500px; 
-		background-color: skyblue;
-		border:1px solid gray;
+		padding: 40px;
+	}
+	.firstRight button{
+		background-color: rgb(255, 56, 142);
+		color: white;
+		font-size: 1.2rem;
+		font-weight: 500;
+		border: 1px solid rgba(0, 0, 0, 0);
+		border-radius: 15px;
+		margin-top:30px;
 	}
 	
 	.secondSection{

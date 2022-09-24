@@ -57,7 +57,6 @@ public class TripController {
 		public void bestGET(Model model) {
 			model.addAttribute("list", service.getList());
 			model.addAttribute("autumn",service.autumnList());
-			System.out.println(service.autumnList());
 		
 			log.info("인기 페이지 진입");		
 		}		
@@ -73,9 +72,7 @@ public class TripController {
 			}	
 			if(type.equals("인기순")) {
 				model.addAttribute("trip", service.HitGetList(cri));
-				System.out.println(service.HitGetList(cri));
 			}else {
-				System.out.println(service.localListPaging(cri));
 				model.addAttribute("trip", service.localListPaging(cri));
 			}
 			
@@ -98,7 +95,6 @@ public class TripController {
 			String encodedParam = URLEncoder.encode(keyword, "UTF-8");
 			String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
 			String type = request.getParameter("type");
-			System.out.println(type);
 			
 			
 			/*페이징 처리*/
