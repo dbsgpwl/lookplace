@@ -22,7 +22,7 @@
 				<div class="board-icon">
 					<i class="fa-solid fa-clipboard-list"></i>
 				</div>
-				<div class="board-title"><h2>Notice</h2></div>
+				<div class="board-title"><h2>커뮤니티</h2></div>
 			</div>
 			<div class="board-menu">
 				<p><a href="review">Review</a></p>
@@ -35,20 +35,26 @@
 				<div><h3>Community</h3></div>
 				<div>
 				<span><a href="/">home</a></span> &nbsp;>&nbsp;
-				<span><a href="notice">Notice</a></span>&nbsp; >&nbsp;
 				<span><a href="community">Community</a></span> 
 				</div>
 			</div>
-			<div class="board-main-area-firstline">
-				<section class="searchBox">
-	       		<input type="text" placeholder="작성자/제목을 검색해보세요"/>
-	        		<a style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
-	     		</section>
+			<div class="search_wrap">
+		        <div class="search_area"  >
+		        <select name="type"  >
+	                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>검색</option>
+	                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+	                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
+	                <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
+	                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
+	                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
+	                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+	            </select>   
+		            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+		            <button><i class="fa-solid fa-magnifying-glass" style="color:white;"></i></button>
+		        </div>
+		    </div> 
 			
-	     		<div class="board-write-area" >
-				 <button class="board-writer-button" onclick="location.href='write'" >글쓰기</button>
-				</div>
-			</div>
+	     		
 			<div class="board-table-area">
 				<table class="table border border-1 board-table table-hover">
 					<tr>
@@ -74,21 +80,9 @@
 					</c:forEach>
 				</table>
 			</div>
-			 <div class="search_wrap">
-		        <div class="search_area">
-		        <select name="type">
-	                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
-	                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
-	                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
-	                <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
-	                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
-	                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
-	                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
-	            </select>   
-		            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-		            <button>Search</button>
-		        </div>
-		    </div>   
+			<div class="board-write-area" >
+				 <button class="board-writer-button" onclick="location.href='write'" >글쓰기</button>
+				</div>
 			<div class="board-page" >
 		        <div class="pageInfo_area">
 		        <ul id="pageInfo" class="pageInfo">

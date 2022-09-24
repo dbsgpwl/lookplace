@@ -93,7 +93,6 @@ function replyList(){
 				<div><h3>Community</h3></div>
 				<div>
 				<span><a href="/">home</a></span> &nbsp;>&nbsp;
-				<span><a href="/board/notice">notice</a></span>&nbsp; >&nbsp;
 				<span><a href="review">review</a></span> 
 				</div>
 			</div>
@@ -110,7 +109,7 @@ function replyList(){
 					</tr>
 					
 					<tr>
-						<td colspan=2 style="text-align:left; padding-left:8%;">Content</td>
+						<td>Content</td>
 					</tr>
 					<tr>
 						<td colspan=2 style="text-align:left;"><textarea style="width:100%; height:400px;"><c:out value="${board.content}"/></textarea></td>

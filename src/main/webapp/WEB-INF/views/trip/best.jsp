@@ -23,17 +23,6 @@
 			<form action = "/trip/entire" method = "get">
 				<h1><b>인기</b></h1>
 				<hr>
-				<div class = "hashtag">
-					<input type = "hidden" name = "nickname" value = "${member.nickname }">
-					<input type="submit" name ="keyword" value ="전체">
-					<a href = "#">#여행지</a>
-					<a href = "#">#관광지</a>
-					<a href = "#">#체험</a>
-					<a href = "#">#자연</a>
-					<a href = "#">#실내여행지</a>
-					<a href = "#">#가을</a>
-					<a href = "#">#단풍</a>
-				</div>
 			
 			<div>
 				<h3><b>지역</b></h3>

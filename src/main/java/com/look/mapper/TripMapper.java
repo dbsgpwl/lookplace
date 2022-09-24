@@ -26,6 +26,7 @@ public interface TripMapper {
 	
 	//상세페이지 조회
 	public TripDTO Detailpage(int imgno);
+	
 	//조회수 증가
 	public int updateCount(int imgno);
 	//상세페이지 댓글 조회
