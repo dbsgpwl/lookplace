@@ -64,7 +64,7 @@ public class BoardImageController {
 	@PostMapping("/uploadFormAction")
 	public String uploadFormPost(ImageDTO vo, Model model, HttpServletRequest request) throws Exception {
 
-		vo.setFilename(FileUtil.upload("/upload", vo.getImagefile(), request));
+		vo.setFilename(FileUtil.upload("/resources/upload", vo.getImagefile(), request));
 		service.insertBoard(vo);
 		return "redirect:/review";
 	}

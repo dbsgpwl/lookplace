@@ -149,7 +149,6 @@
       list-style : none;
       display: flex;
    	  margin: 50px 100px 0 40px;    
-   	  border:1px solid gray;  
 }
 .pageInfo li{
     margin-right: 20px;
@@ -162,6 +161,7 @@
  
  .active{
       background-color: rgb(255, 56, 142);
+      border-radius: 200px;
   }
   
 
@@ -198,7 +198,6 @@
     
     .board-page{
     	width:100%;
-    	border:1px solid #dee2e6;
     }
     .board-page a{
     	display: block;
