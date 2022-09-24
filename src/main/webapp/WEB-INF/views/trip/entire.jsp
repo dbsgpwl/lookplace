@@ -20,7 +20,9 @@
 			<div style = "width: 50%;">
 				<h1><c:out value = "${key }"></c:out></h1>
 				<hr>
-				<form action = "/trip/entire" method="post" class = "e_listorder">
+				<form action = "/trip/entire" method="get	" class = "e_listorder">
+					<input type="hidden" name="keyword" value="${key }">
+					<input type = "hidden" name ="nickname" value = "${member.nickname }">
 					<input type="submit" name ="type" value ="최신순">
 					<span>|</span>
 					<input type="submit" name ="type" value ="인기순">
@@ -91,30 +93,6 @@
 						<input type="submit" name ="keyword" value ="울산">
 						<input type="submit" name ="keyword" value ="광주">
 						<input type="submit" name ="keyword" value ="대전">
-					</div>
-					<div class= "e_location">
-						<a href = "#">#전체</a>
-						<a href = "#">#서울</a>
-						<a href = "#">#대구</a>
-						<a href = "#">#부산</a>
-					</div>
-					<div class= "e_location">
-						<a href = "#">#전체</a>
-						<a href = "#">#서울</a>
-						<a href = "#">#대구</a>
-						<a href = "#">#부산</a>
-					</div>
-					<hr>
-					
-					<div class= "e_location">
-						<a href = "#">#해시</a>
-						<a href = "#">#태그</a>
-						<a href = "#">#임둥</a>
-					</div>
-					<div class= "e_location">
-						<a href = "#">#해시</a>
-						<a href = "#">#태그</a>
-						<a href = "#">#임둥</a>
 					</div>
 				</div>
 			   <input type="hidden" name="nickname" value="${member.nickname}">

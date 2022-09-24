@@ -26,7 +26,6 @@
 					<span class="travelP_placespan"><c:out
 							value="${detail.place }"></c:out></span>
 				</div>
-
 				<div class="travelP_thirddiv">
 					<span class="travelP_placeaddr"><c:out
 							value="${detail.local }" /> | <c:out value="${detail.address }" /></span><br>
@@ -35,10 +34,9 @@
 
 			<div class="travelP_imgdiv">
 				<div>
-					<i class="fa-regular fa-heart e_h"></i>&nbsp; <i
-						class="fa-regular fa-share-from-square"></i>&nbsp; <span
-						style="font-size: 12px;">조회수 <c:out
-							value="${detail.count }"></c:out></span>
+			<!-- 		<i class="fa-regular fa-heart e_h"></i>&nbsp; 
+					<i class="fa-regular fa-share-from-square"></i>&nbsp;  -->
+					<span style="font-size: 12px;">조회수 <c:out value="${detail.count }"></c:out></span>
 				</div>
 				<hr>
 
@@ -61,21 +59,27 @@
 
 				<div class="travelP_detailinfo2">
 					<span>상세정보란</span>
+					<h1><c:out value = "${detail.place }"></c:out></h1>
+					<h3><c:out value = "${detail.address }"></c:out></h3>
 				</div>
-
 				<div>
 					<input type="text" value="#해시태그" class="travelP_input"> <input
 						type="text" value="#지역" class="travelP_input2"> <input
 						type="text" value="#친구와함께" class="travelP_input3">
 				</div>
 			</div>
-
+			
 			<div style="margin-top: 100px;">
 
 				<h4>여행톡</h4>
 				<form  method="post" name = "form">
 					<div class="travelP_reply">
-						<input type="text" placeholder="로그인 후 댓글을 남겨주세요." name="content">
+						<c:if test="${member==null}">
+							<input type="text" placeholder="로그인 후 댓글을 남겨주세요." name="content" disabled="disabled">
+						</c:if>
+						<c:if test="${member!=null}">
+							<input type="text" placeholder="댓글 작성 하기" name="content">
+						</c:if>
 						<input type="hidden" name="imgno"
 							value='<c:out value = "${re.imgno }" />'> <input
 							type="hidden" name="nickname"

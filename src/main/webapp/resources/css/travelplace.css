@@ -7,6 +7,10 @@
 	margin-bottom : 100px;
 	border-collapse: collapse;
 }
+.p_list_title{
+	padding-bottom:30px;
+}
+
 #p_location tr{
 	height: 60px;
 }
@@ -39,13 +43,8 @@
 .p_firstline{
 	display: flex;
 	justify-content: space-between;
-	margin-bottom : 30px;
-}
-.hashtag{
-	display: flex;
-	justify-content: space-around;
-	padding-top: 30px;
-	margin-bottom:100px;
+	margin-bottom : 50px;
+	padding-bottom: 20px;
 }
 .p_title{
 	border-left : 1px solid gray; 
@@ -58,6 +57,7 @@
 	height:150px;
 	background-color : lightgray;
 	text-align: center;
+	cursor: pointer;
 }
 .p_top img {
 	width: 150px;
@@ -137,4 +137,35 @@
 }
 
 
+ .board-page{
+ 	width:100%;
+ 	border:1px solid #dee2e6;
+ }
+ .board-page a{
+ 	display: block;
+ 	width:90%;
+ 	margin: 2% 0 2% 2%;
+ 	cursor: pointer;
+ 	
+ }
+ 
+ /* 페이지 네이션 css */
+.pageInfo{
+      list-style : none;
+      display: flex;
+   	  margin: 50px 100px 0 40px;    
+   	  border:1px solid gray;  
+}
+.pageInfo li{
+    margin-right: 20px;
+    padding: 7px;
+    font-weight: 500;
+}
+ a:link {color:black; text-decoration: none;}
+ a:visited {color:black; text-decoration: none;}
+ a:hover {color:black; text-decoration: underline;}
+ 
+ .active{
+      background-color: rgb(255, 56, 142);
+  }
 

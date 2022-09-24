@@ -56,22 +56,32 @@ public class TripController {
 		@GetMapping("/best")
 		public void bestGET(Model model) {
 			model.addAttribute("list", service.getList());
+			model.addAttribute("autumn",service.autumnList());
+		
 			log.info("인기 페이지 진입");		
 		}		
 		
 		/* 전체/지역 목록 페이지 접속  */
 		@GetMapping("/entire")
-		public void entireGET(Criteria cri, Model model, @RequestParam(defaultValue = "")String nickname ) {
+		public void entireGET(Criteria cri, Model model, @RequestParam(defaultValue = "")String nickname,HttpServletRequest request) {
 			
 			
-			model.addAttribute("trip", service.localListPaging(cri));
+			String type = request.getParameter("type");
+			if(type==null) {
+				type = "최신순";
+			}	
+			if(type.equals("인기순")) {
+				model.addAttribute("trip", service.HitGetList(cri));
+			}else {
+				model.addAttribute("trip", service.localListPaging(cri));
+			}
+			
 			model.addAttribute("key", cri.getKeyword());
 			model.addAttribute("nick", service.nickCheck(nickname));
-			System.out.println(service.nickCheck(nickname));
 			
 			
 			/*페이징 처리*/
-			int total = service.localTotal();
+			int total = service.localTotal(cri);
 			PageMakerDTO pageMake = new PageMakerDTO(cri, total);
 			model.addAttribute("pageMaker", pageMake);
 			
@@ -79,12 +89,22 @@ public class TripController {
 		}
 		
 		
-		@PostMapping("/pop")
-		public String popPOST(@RequestParam("keyword")String keyword) throws UnsupportedEncodingException{
+		//전체 지역 최신순 인기순 
+		@PostMapping("/type")
+		public String popPOST(@RequestParam("keyword")String keyword,Criteria cri,TripHeartDTO dto, HttpServletRequest request, Model model) throws UnsupportedEncodingException{
 			String encodedParam = URLEncoder.encode(keyword, "UTF-8");
+			String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
 			
 			
-			return "redirect:/trip/entire?keyword=" +encodedParam;
+			/*페이징 처리*/
+			int total = service.localTotal(cri);
+			PageMakerDTO pageMake = new PageMakerDTO(cri, total);
+			model.addAttribute("pageMaker", pageMake);
+			if(dto.getNickname().equals("")) {
+				return "redirect:/trip/entire?keyword=" +encodedParam;
+			}else {
+				return "redirect:/trip/entire?"+"nickname="+encodedParam1+"&keyword=" +encodedParam;
+			}
 		}
 		
 		
@@ -105,6 +125,7 @@ public class TripController {
 			}
 			
 			service.insertHeart(dto);
+			service.PlusHeart(dto);	
 			
 			
 			return "redirect:/trip/entire?"+"nickname="+encodedParam1+"&keyword=" +encodedParam;
@@ -117,6 +138,7 @@ public class TripController {
 			String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
 			
 			service.unheart(dto);
+			service.minusHeart(dto);
 			
 			return "redirect:/trip/entire?"+"nickname="+encodedParam1+"&keyword=" +encodedParam;
 		}
@@ -149,7 +171,6 @@ public class TripController {
 			log.info("진입 딜리트");
 			String reno =request.getParameter("reno");
 			int re = Integer.parseInt(reno);
-			System.out.println(re);
 			service.deleteReply(re);
 			return "redirect:/trip/travel-p?imgno=" +imgno;
 		}	
