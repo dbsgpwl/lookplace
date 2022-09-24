@@ -1,6 +1,7 @@
 package com.look.controller;
 
 import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
@@ -150,15 +151,17 @@ public class MemberController {
 	
 	//아이디 찾기 페이지 이동
 	@RequestMapping(value = "findidform")
-	public String findIdView( HttpServletRequest request) throws Exception {
-        request.setCharacterEncoding("UTF-8");
+	public String findIdView() throws Exception {
 		return "/member/findid";
 	}
 	
 	// 아이디 찾기 실행
 	@RequestMapping(value = "findidform", method=RequestMethod.POST)
-	public String findIdAction(MemberDTO dto, Model model) {
+	public String findIdAction(MemberDTO dto, Model model) throws Exception {
 		MemberDTO user = memberservice.findId(dto);
+		
+		String encodedParam = URLEncoder.encode(dto.getName(), "UTF-8");
+		String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
 		
 		
 		if (user == null) {
@@ -168,7 +171,7 @@ public class MemberController {
 			model.addAttribute("id", user.getEmail());
 		}
 		
-		return "/member/findid";
+		return "/member/findid?"+"name="+ encodedParam1+ "&keyword=" + encodedParam;
 	}
 	
 	// 비밀번호 찾기 페이지로 이동

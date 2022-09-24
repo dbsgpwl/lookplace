@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
@@ -137,18 +137,18 @@ body {
 					type="submit" value="check">
 			</div>
 
-			<!-- ÀÌ¸§°ú ÀüÈ­¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾ÊÀ» ¶§-->
+			<!-- ì´ë¦„ê³¼ ì „í™”ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•Šì„ ë•Œ-->
 			<c:if test="${check == 1}">
 				<script>
 					opener.document.findform.name.value = "";
 					opener.document.findform.phone.value = "";
 				</script>
-				<label>ÀÏÄ¡ÇÏ´Â Á¤º¸°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.</label>
+				<label>ì¼ì¹˜í•˜ëŠ” ì •ë³´ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.</label>
 			</c:if>
 
-			<!-- ÀÌ¸§°ú ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾ÊÀ» ¶§ -->
+			<!-- ì´ë¦„ê³¼ ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•Šì„ ë•Œ -->
 			<c:if test="${check == 0 }">
-				<label>Ã£À¸½Ã´Â ¾ÆÀÌµğ´Â' ${id}' ÀÔ´Ï´Ù.</label>
+				<label>ì°¾ìœ¼ì‹œëŠ” ì•„ì´ë””ëŠ”' ${id}' ì…ë‹ˆë‹¤.</label>
 				<div class="form-label-group">
 					<input class="btn btn-lg btn-secondary btn-block text-uppercase"
 						type="button" value="OK" onclick="closethewindow()">
