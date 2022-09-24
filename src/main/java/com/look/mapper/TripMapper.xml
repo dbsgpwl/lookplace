@@ -16,6 +16,12 @@
     
     </select>
     
+    <!-- 가을 인기 목록 -->
+    <select id="autumnList" resultType="com.look.model.TripDTO">
+    	select course, address, place from tbl_best_image where tag like concat('%','가을','%') order by heart desc
+    </select>
+    
+    
     <!-- 전체/지역 목록 -->
     <select id = "locationList" resultType="com.look.model.TripDTO">
     		
@@ -30,6 +36,9 @@
     <!-- 게시물 개수 -->
     <select id="localTotal" resultType="int">
         select count(*) from tbl_best_image
+        	 <if test ="!keyword.equals('전체')">
+		    		where address like concat('%',#{keyword},'%') 
+		    </if>
     </select>
     
     
@@ -43,9 +52,20 @@
                 <if test ="!keyword.equals('전체')">
 		    		where address like concat('%',#{keyword},'%') 
 		    	</if>
-                order by heart desc) as T1
+                order by imgno asc) as T1
         limit #{skip},#{amount} 
     
+    </select>
+    
+    <select id="HitGetList" resultType="com.look.model.TripDTO">
+    	select * from (
+                select imgno, course, heart, address, place, local
+                from tbl_best_image 
+                <if test ="!keyword.equals('전체')">
+		    		where address like concat('%',#{keyword},'%') 
+		    	</if>
+                order by heart desc) as T1
+        limit #{skip},#{amount} 
     </select>
     
     <!--상세페이지 조회 -->
@@ -101,6 +121,9 @@
 	<delete id="unheart">
 		 delete from tbl_heart where imgno = #{imgno} and nickname = #{nickname}
 	</delete>
+	<update id = "minusHeart">
+		update tbl_best_image set heart = heart -1 where imgno = #{imgno}
+	</update>
 	
 	
 	
@@ -109,6 +132,9 @@
 		select * from tbl_heart
 	</select>
 	
-	
+	<!-- 좋아요 증가 -->
+	<update id="PlusHeart">
+		update tbl_best_image set heart = heart + 1 where imgno = #{imgno}
+	</update>
 	
    	</mapper>

@@ -16,9 +16,12 @@ public interface TripMapper {
 	public List<TripDTO> locationList(Criteria cri);	
 	
 	//게시물 개수
-	public int localTotal();
-	//게시물 목록(페이징)
+	public int localTotal(Criteria cri);
+	//게시물 최신순 조회 (페이징)
 	public List<TripDTO> localListPaging(Criteria cri);
+	
+	//게시물 인기순 조회 (페이징)
+	public List<TripDTO> HitGetList(Criteria cri);
 	
 	//상세페이지 조회
 	public TripDTO Detailpage(int imgno);
@@ -26,6 +29,9 @@ public interface TripMapper {
 	public int updateCount(int imgno);
 	//상세페이지 댓글 조회
 	public List<TripReplyDTO> replyList(int imgno);
+	
+	//가을 인기 장소 목록
+	public List<TripDTO> autumnList();
 	
 	//댓글 
 	public void insertList(TripReplyDTO dto);
@@ -39,6 +45,9 @@ public interface TripMapper {
 	//좋아요 
 	public void insertHeart(TripHeartDTO dto);
 	
+	//이미지 테이블 heart 수 증가
+	public void PlusHeart(TripHeartDTO dto);
+	
 	//닉네임이 좋아요한 게시물 유무 확인
 	public List<Integer> nickCheck(String nickname);
 	
@@ -47,4 +56,7 @@ public interface TripMapper {
 	
 	//좋아요 취소
 	public void unheart(TripHeartDTO dto);
+	
+	//좋아요 취소 heart 수 감소
+	public void  minusHeart(TripHeartDTO dto);
 }
