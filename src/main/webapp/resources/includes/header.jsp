@@ -30,7 +30,7 @@
 				</div>
 			</c:if>
           </div>
-          <ul class="side_title" style="padding-top:20px; position:absolute; top:17%;">
+          <ul class="side_title" style="padding-top:20px; position:absolute; top:17%;left:12%">
             <li><a href="/"><i class="fa-sharp fa-solid fa-house"></i>홈</a>
             	<button id="side_Btn1" class="side_Btn" onclick="ShowDetail1()"><i class="fa-solid fa-caret-down"></i></button>
             	<ul class="side_Detail1">
