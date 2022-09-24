@@ -22,7 +22,7 @@
 						<i class="fa-solid fa-clipboard-list"></i>
 					</div>
 					<div class="board-title">
-						<h2>Notice</h2>
+						<h2>커뮤니티</h2>
 					</div>
 				</div>
 				<div class="board-menu">
@@ -45,16 +45,36 @@
 						<span><a href="review">Review</a></span>
 					</div>
 				</div>
-				<div class="row">
+				<div class="search_wrap">
+		        <div class="search_area"  >
+		        <select name="type"  >
+	                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>검색</option>
+	                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+	                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
+	                <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
+	                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
+	                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
+	                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+	            </select>   
+		            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+		            <button><i class="fa-solid fa-magnifying-glass" style="color:white;"></i></button>
+		        </div>
+		    </div> 
+				<div class="" style="display: flex;
+    flex-wrap: wrap; border:1px solid gray;">
 				<c:forEach items="${viewAll }" var="list">
 				
-					<div class="col-md-3">
-					<span>${hit }</span>
+					<div class="col-md-6">
+					<span>${list.hit }</span>
 					<div class="thumbnail">
-						<img src="${list.filename}"style="width: 147px;height: 130px;object-fit: cover;">
+						<img src="${list.filename}"style="width: 300px;height: 250px;object-fit: cover;">
 						<div class="caption">
 							<span>${list.title }</span>
-							<a href="#" class="btn">리뷰보기</a>
+							<a class="btn" href="getImage?bno=${list.bno }&
+											pageNum=${pageMaker.cri.pageNum }&
+											amount=${pageMaker.cri.amount }&
+											keyword=${pageMaker.cri.keyword }&
+											type=${pageMaker.cri.type }">리뷰보기</a>
 						</div>
 						</div>
 					</div>
@@ -93,13 +113,11 @@
 					</div>
 				</div>
 				<form id="moveForm" method="get">
-					<input type="hidden" id="bno" name="bno"
-						value='<c:out value="${board.bno}"/>'> <input
-						type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }" />
+					<input type="hidden" id="bno" name="bno" value='<c:out value="${board.bno}"/>'>
+					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }" />
 					<input type="hidden" name="amount" value="${pageMaker.cri.amount }" />
-					<input type="hidden" name="keyword"
-						value="${pageMaker.cri.keyword }"> <input type="hidden"
-						name="type" value="${pageMaker.cri.type }">
+					<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }"> 
+					<input type="hidden" name="type" value="${pageMaker.cri.type }">
 				</form>
 
 			</div>

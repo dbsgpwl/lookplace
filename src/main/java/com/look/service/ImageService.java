@@ -25,7 +25,7 @@ public interface ImageService {
 	// 게시물 작성
 	public int insertBoard(ImageDTO vo);
 
-	/*
-	 * // 게시물 삭제 public boolean deleteImage(int bno);
-	 */
+	// 게시물 삭제
+	public boolean deleteImage(int bno);
+
 }

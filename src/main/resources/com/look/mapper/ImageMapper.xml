@@ -70,13 +70,9 @@
 	</insert>
 	
 	<!-- 게시글 삭제 -->
-	<delete id="deleteBoard" parameterType="int">
+	<delete id="deleteImage" parameterType="int">
 		DELETE FROM tbl_review WHERE bno = #{bno}
 	</delete>
 	
-	<!-- 게시글 수정 -->
-	<update id="updateBoard" parameterType="com.look.model.ImageDTO">
-		UPDATE tbl_review SET title = #{title}, CONTENT = #{content} WHERE bno = #{bno}
-	</update>
 	
 </mapper>

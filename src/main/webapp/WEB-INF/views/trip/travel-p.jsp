@@ -26,7 +26,6 @@
 					<span class="travelP_placespan"><c:out
 							value="${detail.place }"></c:out></span>
 				</div>
-
 				<div class="travelP_thirddiv">
 					<span class="travelP_placeaddr"><c:out
 							value="${detail.local }" /> | <c:out value="${detail.address }" /></span><br>
@@ -75,7 +74,12 @@
 				<h4>여행톡</h4>
 				<form  method="post" name = "form">
 					<div class="travelP_reply">
-						<input type="text" placeholder="로그인 후 댓글을 남겨주세요." name="content">
+						<c:if test="${member==null}">
+							<input type="text" placeholder="로그인 후 댓글을 남겨주세요." name="content" disabled="disabled">
+						</c:if>
+						<c:if test="${member!=null}">
+							<input type="text" placeholder="댓글 작성 하기" name="content">
+						</c:if>
 						<input type="hidden" name="imgno"
 							value='<c:out value = "${re.imgno }" />'> <input
 							type="hidden" name="nickname"

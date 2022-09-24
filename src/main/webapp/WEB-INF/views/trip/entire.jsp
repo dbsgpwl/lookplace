@@ -94,30 +94,6 @@
 						<input type="submit" name ="keyword" value ="광주">
 						<input type="submit" name ="keyword" value ="대전">
 					</div>
-					<div class= "e_location">
-						<a href = "#">#전체</a>
-						<a href = "#">#서울</a>
-						<a href = "#">#대구</a>
-						<a href = "#">#부산</a>
-					</div>
-					<div class= "e_location">
-						<a href = "#">#전체</a>
-						<a href = "#">#서울</a>
-						<a href = "#">#대구</a>
-						<a href = "#">#부산</a>
-					</div>
-					<hr>
-					
-					<div class= "e_location">
-						<a href = "#">#해시</a>
-						<a href = "#">#태그</a>
-						<a href = "#">#임둥</a>
-					</div>
-					<div class= "e_location">
-						<a href = "#">#해시</a>
-						<a href = "#">#태그</a>
-						<a href = "#">#임둥</a>
-					</div>
 				</div>
 			   <input type="hidden" name="nickname" value="${member.nickname}">
 				

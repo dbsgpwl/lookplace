@@ -94,7 +94,6 @@ public class TripController {
 		public String popPOST(@RequestParam("keyword")String keyword,Criteria cri,TripHeartDTO dto, HttpServletRequest request, Model model) throws UnsupportedEncodingException{
 			String encodedParam = URLEncoder.encode(keyword, "UTF-8");
 			String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
-			String type = request.getParameter("type");
 			
 			
 			/*페이징 처리*/

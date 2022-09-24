@@ -1,6 +1,8 @@
 package com.look.service;
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import com.look.model.MemberDTO;
 @Service
 public class MemberServiceImpl implements MemberService{
 	
+	
+
 	@Autowired
 	private MemberMapper mapper;
 
@@ -40,6 +44,22 @@ public class MemberServiceImpl implements MemberService{
 	public void memberDelete(MemberDTO dto) throws Exception {
 		mapper.memberDelete(dto);
 		
+	}
+
+	@Override
+	public MemberDTO findId(MemberDTO dto) {
+		
+		return mapper.findId(dto);
+	}
+
+	@Override
+	public MemberDTO findPassword(MemberDTO dto) {
+		return mapper.findPassword(dto);
+	}
+
+	@Override
+	public void updatePassword(MemberDTO dto) {
+		mapper.updatePassword(dto);
 	}
 	
 }
