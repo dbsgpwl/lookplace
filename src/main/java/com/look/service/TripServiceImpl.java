@@ -74,9 +74,28 @@ public class TripServiceImpl implements TripService{
 	}
 
 	@Override
-	public List<TripHeartDTO> nickCheck(TripHeartDTO dto) {
-		return mapper.nickCheck(dto);
+	public List<Integer> nickCheck(String nickname) {
+		return mapper.nickCheck(nickname);
 	}
+
+
+	@Override
+	public List<TripHeartDTO> getHeartList() {
+		return mapper.getHeartList();
+	}
+
+	@Override
+	public void unheart(TripHeartDTO dto) {
+		 mapper.unheart(dto);
+	}
+
+
+
+
+
+
+
+	
 
 
 

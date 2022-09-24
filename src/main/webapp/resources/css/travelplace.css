@@ -109,6 +109,7 @@
 	border:none;
 	background-color: white;
 	height: 50px;
+	color :  rgb(255, 56, 142,0.5);
 	
 }
 
@@ -121,6 +122,8 @@
 	font-size: 3rem;
 	height: 50px;
 }
+
+
 .e_h{
 	cursor: pointer;
 }
