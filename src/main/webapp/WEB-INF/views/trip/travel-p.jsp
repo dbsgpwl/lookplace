@@ -35,10 +35,9 @@
 
 			<div class="travelP_imgdiv">
 				<div>
-					<i class="fa-regular fa-heart e_h"></i>&nbsp; <i
-						class="fa-regular fa-share-from-square"></i>&nbsp; <span
-						style="font-size: 12px;">조회수 <c:out
-							value="${detail.count }"></c:out></span>
+			<!-- 		<i class="fa-regular fa-heart e_h"></i>&nbsp; 
+					<i class="fa-regular fa-share-from-square"></i>&nbsp;  -->
+					<span style="font-size: 12px;">조회수 <c:out value="${detail.count }"></c:out></span>
 				</div>
 				<hr>
 
@@ -61,15 +60,16 @@
 
 				<div class="travelP_detailinfo2">
 					<span>상세정보란</span>
+					<h1><c:out value = "${detail.place }"></c:out></h1>
+					<h3><c:out value = "${detail.address }"></c:out></h3>
 				</div>
-
 				<div>
 					<input type="text" value="#해시태그" class="travelP_input"> <input
 						type="text" value="#지역" class="travelP_input2"> <input
 						type="text" value="#친구와함께" class="travelP_input3">
 				</div>
 			</div>
-
+			
 			<div style="margin-top: 100px;">
 
 				<h4>여행톡</h4>

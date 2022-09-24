@@ -20,7 +20,9 @@
 			<div style = "width: 50%;">
 				<h1><c:out value = "${key }"></c:out></h1>
 				<hr>
-				<form action = "/trip/entire" method="post" class = "e_listorder">
+				<form action = "/trip/entire" method="get	" class = "e_listorder">
+					<input type="hidden" name="keyword" value="${key }">
+					<input type = "hidden" name ="nickname" value = "${member.nickname }">
 					<input type="submit" name ="type" value ="최신순">
 					<span>|</span>
 					<input type="submit" name ="type" value ="인기순">

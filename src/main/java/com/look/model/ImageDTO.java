@@ -1,21 +1,19 @@
 package com.look.model;
-
 import java.util.Date;
 
 import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
-@Getter
-@Setter
-@ToString
-public class CommunityDTO {
+@Data
+public class ImageDTO {
 	
-
-    /* 게시판 번호 */
+	/* db에 저장되는 첨부파일명 */
+	private String filename;
+	
+	// 첨부되어서 올라오는 파일
+	private MultipartFile imagefile;
+	 /* 게시판 번호 */
     private int bno;
     
     /* 게시판 제목 */
@@ -35,6 +33,6 @@ public class CommunityDTO {
     
     /* 조회수 */
     private int hit;
-    
-    
+
 }
+    

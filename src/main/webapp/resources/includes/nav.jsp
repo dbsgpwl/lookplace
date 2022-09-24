@@ -13,7 +13,7 @@
           <a href="/map/mapapi"><i class="fa-solid fa-location-dot"></i></a>
         </li>
         <li>
-          <a href="#"><i class="fa-solid fa-house"></i></a>
+          <a href="/trip/best"><i class="fa-solid fa-house"></i></a>
           <ul class="menu-level2">
             <li class="downMenu"><a href="/trip/best">인기</a></li>
           </ul>

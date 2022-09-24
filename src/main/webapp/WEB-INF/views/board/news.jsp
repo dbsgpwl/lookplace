@@ -22,11 +22,11 @@
 				<div class="board-icon">
 					<i class="fa-solid fa-clipboard-list"></i>
 				</div>
-				<div class="board-title"><h2>Notice</h2></div>
+				<div class="board-title"><p>커뮤니티</p></div>
 			</div>
 			<div class="board-menu">
 				<p><a href="review">Review</a></p>
-				<p style="border-left:2px solid pink;"><a href="community">Community</a></p>
+				<p><a href="community">Community</a></p>
 			</div>
 		</div>
 		
@@ -38,11 +38,10 @@
 				<span><a href="news">news</a></span> 
 				</div>
 			</div>
-			<div class="board-main-area-firstline">
-			</div>
 			<div class="board-table-area">
-				<table class="table border border-1 board-table table-hover">
-					<tr>
+				<table class="table border border-1 board-table">
+					<thead>
+					<tr class="table-dark">
 						<td>번호</td>
 						<td>제목</td>
 						<td>작성자</td>
@@ -65,9 +64,10 @@
 					</c:forEach>
 				</table>
 			</div>
+
 			 <div class="search_wrap">
-		        <div class="search_area">
-		        <select name="type">
+		        <div class="search_area"  >
+		        <select name="type"  >
 	                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
 	                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
 	                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
@@ -76,8 +76,8 @@
 	                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
 	                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
 	            </select>   
-		            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-		            <button>Search</button>
+		            <input   type="text" name="keyword" value="${pageMaker.cri.keyword }">
+		            <button  ><i class="fa-solid fa-magnifying-glass"></i></button>
 		        </div>
 		    </div>   
 			<div class="board-page" >
