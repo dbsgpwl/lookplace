@@ -91,10 +91,24 @@
    	</insert>
    	
    	<!-- 닉네임이 좋아요한 게시물 유무 확인 -->
-	<select id="nickCheck" resultType = "com.look.model.TripHeartDTO">
+	<select id="nickCheck" resultType = "int">
 	
-		select * from tbl_heart where nickname = #{nickname}
+		SELECT imgno FROM tbl_heart where nickname= #{nickname}
 	
 	</select>   	
-   	
-  </mapper>
+	
+	<!--좋아요 취소 기능  -->
+	<delete id="unheart">
+		 delete from tbl_heart where imgno = #{imgno} and nickname = #{nickname}
+	</delete>
+	
+	
+	
+	<!--좋아요 테이블 조회  -->
+	<select id="getHeartList" resultType = "com.look.model.TripHeartDTO">
+		select * from tbl_heart
+	</select>
+	
+	
+	
+   	</mapper>
