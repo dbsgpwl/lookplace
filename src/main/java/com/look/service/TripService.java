@@ -9,16 +9,22 @@ import com.look.model.TripReplyDTO;
 
 public interface TripService {
 
-	//여행 목록
+		//여행 목록
 		public List<TripDTO> getList();
+		//가을 인기 장소 목록
+		public List<TripDTO> autumnList();
 
 		//지역 페에지 목록
 		public List<TripDTO> locationList(Criteria cri);	
 		
 		//게시물 개수
-		public int localTotal();
-		//게시물 목록(페이징)
+		public int localTotal(Criteria cri);
+		
+		//게시물 최신순 조회 (페이징)
 		public List<TripDTO> localListPaging(Criteria cri);
+		
+		//게시물 인기순 조회 (페이징)
+		public List<TripDTO> HitGetList(Criteria cri);
 		//상세페이지 조회
 		public TripDTO Detailpage(int imgno);
 		//조회수 증가

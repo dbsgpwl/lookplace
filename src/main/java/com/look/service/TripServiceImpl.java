@@ -28,8 +28,8 @@ public class TripServiceImpl implements TripService{
 	}
 
 	@Override
-	public int localTotal() {
-		return mapper.localTotal();
+	public int localTotal(Criteria cri) {
+		return mapper.localTotal(cri);
 	}
 
 	@Override
@@ -97,6 +97,16 @@ public class TripServiceImpl implements TripService{
 	@Override
 	public void minusHeart(TripHeartDTO dto) {
 		mapper.minusHeart(dto);
+	}
+
+	@Override
+	public List<TripDTO> HitGetList(Criteria cri) {
+		return mapper.HitGetList(cri);
+	}
+
+	@Override
+	public List<TripDTO> autumnList() {
+		return mapper.autumnList();
 	}
 
 
