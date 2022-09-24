@@ -1,10 +1,10 @@
 package com.look.controller;
 
+import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -13,12 +13,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -153,7 +150,8 @@ public class MemberController {
 	
 	//아이디 찾기 페이지 이동
 	@RequestMapping(value = "findidform")
-	public String findIdView() {
+	public String findIdView( HttpServletRequest request) throws Exception {
+        request.setCharacterEncoding("UTF-8");
 		return "/member/findid";
 	}
 	
@@ -161,6 +159,7 @@ public class MemberController {
 	@RequestMapping(value = "findidform", method=RequestMethod.POST)
 	public String findIdAction(MemberDTO dto, Model model) {
 		MemberDTO user = memberservice.findId(dto);
+		
 		
 		if (user == null) {
 			model.addAttribute("check", 1);
@@ -174,7 +173,8 @@ public class MemberController {
 	
 	// 비밀번호 찾기 페이지로 이동
 	@RequestMapping(value = "findpwform")
-	public String findPwView() {
+	public String findPwView(HttpServletRequest request) throws Exception {
+        request.setCharacterEncoding("UTF-8");
 		return "/member/findpwd";
 	}
 	
