@@ -38,6 +38,21 @@
 				<span><a href="news">news</a></span> 
 				</div>
 			</div>
+			<div class="search_wrap">
+		        <div class="search_area"  >
+		        <select name="type"  >
+	                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>검색</option>
+	                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+	                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
+	                <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
+	                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
+	                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
+	                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+	            </select>   
+		            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+		            <button><i class="fa-solid fa-magnifying-glass" style="color:white;"></i></button>
+		        </div>
+		    </div> 
 			<div class="board-table-area">
 				<table class="table border border-1 board-table">
 					<thead>
@@ -65,21 +80,7 @@
 				</table>
 			</div>
 
-			 <div class="search_wrap">
-		        <div class="search_area"  >
-		        <select name="type"  >
-	                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
-	                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
-	                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
-	                <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
-	                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
-	                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
-	                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
-	            </select>   
-		            <input   type="text" name="keyword" value="${pageMaker.cri.keyword }">
-		            <button  ><i class="fa-solid fa-magnifying-glass"></i></button>
-		        </div>
-		    </div>   
+			   
 			<div class="board-page" >
 		        <div class="pageInfo_area">
 		        <ul id="pageInfo" class="pageInfo">

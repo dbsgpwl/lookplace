@@ -22,7 +22,7 @@
 				<div class="board-icon">
 					<i class="fa-solid fa-clipboard-list"></i>
 				</div>
-				<div class="board-title"><h2>Notice</h2></div>
+				<div class="board-title"><h2>커뮤니티</h2></div>
 			</div>
 			<div class="board-menu">
 				<p><a href="review">Review</a></p>
@@ -34,7 +34,6 @@
 				<div><h3>글쓰기</h3></div>
 				<div>
 				<span><a href="/">home</a></span> &nbsp;>&nbsp;
-				<span><a href="notice">notice</a></span>&nbsp; >&nbsp;
 				<span><a href="community">Community</a></span> 
 				</div>
 			</div>
