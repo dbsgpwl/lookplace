@@ -17,6 +17,7 @@ public interface TripMapper {
 	
 	//게시물 개수
 	public int localTotal(Criteria cri);
+	
 	//게시물 최신순 조회 (페이징)
 	public List<TripDTO> localListPaging(Criteria cri);
 	

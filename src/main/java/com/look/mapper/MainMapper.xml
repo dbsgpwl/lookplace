@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.look.mapper.MainMapper">
+  	
+  	<select id="getList" resultType="com.look.model.TripDTO">
+  		select imgno, course, address, place from tbl_best_image order by heart desc
+  	</select>
+  	
+  
+  </mapper>
