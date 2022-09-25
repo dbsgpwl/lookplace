@@ -41,11 +41,11 @@
 	</delete>
 	
 	<select id="findId" resultType="com.look.model.MemberDTO">
-		select * from tbl_member where name=#{name} and nickname=#{nickname}
+		select * from tbl_member where name=#{name} and phone=#{phone}
 	</select>
 	
 	<select id="findPassword" resultType="com.look.model.MemberDTO">
-		select * from tbl_member where email=#{email} and name=#{name} and nickname=#{nickname}
+		select * from tbl_member where email=#{email} and name=#{name} and phone=#{phone}
 	</select>
 	
 	<update id="updatePassword">

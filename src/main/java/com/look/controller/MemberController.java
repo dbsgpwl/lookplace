@@ -160,10 +160,6 @@ public class MemberController {
 	public String findIdAction(MemberDTO dto, Model model) throws Exception {
 		MemberDTO user = memberservice.findId(dto);
 		
-		String encodedParam = URLEncoder.encode(dto.getName(), "UTF-8");
-		String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
-		
-		
 		if (user == null) {
 			model.addAttribute("check", 1);
 		} else {
@@ -171,7 +167,7 @@ public class MemberController {
 			model.addAttribute("id", user.getEmail());
 		}
 		
-		return "/member/findid?"+"name="+ encodedParam1+ "&keyword=" + encodedParam;
+		return "/member/findid";
 	}
 	
 	// 비밀번호 찾기 페이지로 이동

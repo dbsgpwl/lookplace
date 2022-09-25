@@ -44,22 +44,24 @@ public class BoardImageController {
 	}
 
 	// 게시글 상세 조회
-	/*
-	 * @GetMapping("/getImage") public String viewDetail(Model
-	 * model, @RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri) {
-	 * 
-	 * model.addAttribute("board", service.viewDetail(bno));
-	 * model.addAttribute("cri", cri);
-	 * 
-	 * // 조회수 +1 service.plusCnt(bno);
-	 * 
-	 * return "/board/r-get"; }
-	 */
+
+	@GetMapping("/getImage")
+	public String viewDetail(Model model, @RequestParam("bno") int bno, @ModelAttribute("cri") Criteria cri) {
+
+		model.addAttribute("board", service.viewDetail(bno));
+		model.addAttribute("cri", cri);
+
+		// 조회수 +1 service.plusCnt(bno);
+
+		return "/board/r-get";
+	}
+
 	// 이미지 등록 페이지 이동
 	@GetMapping("/insertImage")
 	public String insertImage() {
 		return "/board/r-write";
 	}
+
 	// 이미지 등록하기
 	@PostMapping("/uploadFormAction")
 	public String uploadFormPost(ImageDTO vo, Model model, HttpServletRequest request) throws Exception {
@@ -70,11 +72,12 @@ public class BoardImageController {
 	}
 
 	// 게시글 삭제
-	/*
-	 * @GetMapping("/deleteImage") public String delete(@RequestParam("bno") int
-	 * bno) { service.deleteImage(bno);
-	 * 
-	 * return "redirect: /review"; }
-	 */
+
+	@GetMapping("/deleteImage")
+	public String delete(@RequestParam("bno") int bno) {
+		service.deleteImage(bno);
+
+		return "redirect: /review";
+	}
 
 }
