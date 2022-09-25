@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
@@ -125,7 +125,7 @@ body {
 		<form method="post" class="form-signin" action="findpwform" name="findform">
 <div class="form-label-group">
 			<input type="text" id="id" name="email" class="form-control"/>
-			<label for="id">ID</label>
+			<label for="id">Email</label>
 		</div>
 		
 		<div class="form-label-group">
@@ -143,20 +143,20 @@ body {
 				type="submit" value="check">
 		</div>
 
-		<!-- Á¤º¸°¡ ÀÏÄ¡ÇÏÁö ¾ÊÀ» ¶§-->
+		<!-- ì •ë³´ê°€ ì¼ì¹˜í•˜ì§€ ì•Šì„ ë•Œ-->
 		<c:if test="${check == 1}">
 			<script>
 			opener.document.findform.id.value = "";
 				opener.document.findform.name.value = "";
 				opener.document.findform.phone.value = "";
 			</script>
-			<label>ÀÏÄ¡ÇÏ´Â Á¤º¸°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.</label>
+			<label>ì¼ì¹˜í•˜ëŠ” ì •ë³´ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.</label>
 		</c:if>
 
-		<!-- ÀÌ¸§°ú ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾ÊÀ» ¶§ -->
+		<!-- ì´ë¦„ê³¼ ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•Šì„ ë•Œ -->
 		<c:if test="${check == 0 }">
 		<div>
-			<label>ºñ¹Ğ¹øÈ£¸¦ º¯°æÇØÁÖ¼¼¿ä.</label>
+			<label>ë¹„ë°€ë²ˆí˜¸ë¥¼ ë³€ê²½í•´ì£¼ì„¸ìš”.</label>
 		</div>
 		<div class="form-label-group">
 		<input type="hidden" id="id" name="updateid" value="${updateid }">
@@ -184,10 +184,10 @@ body {
 <script type="text/javascript">
 		function updatePassword(){
 			if(document.findform.password.value==""){
-				alert("ºñ¹Ğ¹øÈ£¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+				alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				document.findform.pwd.focus();
 			} else if(document.findform.password.value != document.findform.confirmpwd.value){
-				alert("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù.");
+				alert("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 				document.findform.confirmpwd.focus();
 			} else {
 				document.findform.action="update_password";
