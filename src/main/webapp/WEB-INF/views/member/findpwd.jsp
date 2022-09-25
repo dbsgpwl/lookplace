@@ -31,10 +31,10 @@
 			<input type="text" id="phone" name="phone" class="form-control"/>
 			<label for="phone">phone</label>
 		</div>
-
+		<div class="inputbox">
 			<input id="check" class="btn btn-lg btn-secondary btn-block text-uppercase"
 				type="submit" value="check">
-	
+	    </div>
 		<!-- 정보가 일치하지 않을 때-->
 		<c:if test="${check == 1}">
 			<script>
@@ -60,9 +60,10 @@
 			<input type="password" id="confirmpassword" name="confirmpwd" class="form-control"/>
 			<label for="confirmpassword">비밀번호 확인</label>
 		</div>
-		
+		<div class="inputbox">
 				<input id="Ok" class="btn btn-lg btn-secondary btn-block text-uppercase"
 					type="button" value="수정하기" onclick="updatePassword()">
+		</div>
 		</c:if>
 
 	</form>
