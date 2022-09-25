@@ -11,9 +11,13 @@ public interface TripService {
 
 		//여행 목록
 		public List<TripDTO> getList();
+		
 		//가을 인기 장소 목록
 		public List<TripDTO> autumnList();
-
+		
+		//해쉬태그 가져오기
+		public String hashtag(TripDTO dto);
+		
 		//지역 페에지 목록
 		public List<TripDTO> locationList(Criteria cri);	
 		
@@ -25,8 +29,10 @@ public interface TripService {
 		
 		//게시물 인기순 조회 (페이징)
 		public List<TripDTO> HitGetList(Criteria cri);
+		
 		//상세페이지 조회
 		public TripDTO Detailpage(int imgno);
+		
 		//조회수 증가
 		public int updateCount(int imgno);
 		
@@ -38,11 +44,13 @@ public interface TripService {
 		
 		//댓글 삭제
 		public int deleteReply(int reno);
+		
 		//댓글 수정
 		public void	updateReply(TripReplyDTO dto);
 		
 		//좋아요 
 		public void insertHeart(TripHeartDTO dto);
+		
 		//좋아요 heart 수 증가
 		public void PlusHeart(TripHeartDTO dto);
 		
@@ -51,6 +59,7 @@ public interface TripService {
 		
 		//좋아요 취소
 		public void unheart(TripHeartDTO dto);
+		
 		//좋아요 취소 heart 수 감소
 		public void  minusHeart(TripHeartDTO dto);
 		

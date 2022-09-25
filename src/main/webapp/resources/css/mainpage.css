@@ -130,3 +130,7 @@
 	  border-top-left-radius:5px;
 	  border-top-right-radius:5px;
 	}
+	
+	.post-info a{
+		font-size: 1.2rem;
+	}
