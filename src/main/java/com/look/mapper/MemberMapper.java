@@ -1,5 +1,7 @@
 package com.look.mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.look.model.MemberDTO;
@@ -21,4 +23,12 @@ public interface MemberMapper {
 	 /* 회원 탈퇴 */
 	 public void memberDelete(MemberDTO dto);
 	 
+	 /* 아이디 찾기 */
+	 public MemberDTO findId(MemberDTO dto);
+	 
+	 /* 비밀번호 찾기 */
+	 public MemberDTO findPassword(MemberDTO dto);
+	 
+	 /* 비밀번호 수정 */
+	 public void updatePassword(MemberDTO dto);
 }

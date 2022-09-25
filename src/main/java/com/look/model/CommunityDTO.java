@@ -35,4 +35,6 @@ public class CommunityDTO {
     
     /* 조회수 */
     private int hit;
+    
+    
 }

@@ -1,119 +1,199 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/findid.css" rel="stylesheet" type="text/css">
 <body>
-<jsp:include page="/resources/includes/header.jsp"></jsp:include>
+<style>
+:root { -
+	-input-padding-x: 1.5rem; -
+	-input-padding-y: .75rem;
+}
 
+body {
+	background-color: white;
+}
+
+.card-signin {
+	border: 0;
+	border-radius: 1rem;
+	box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+}
+
+.card-signin .card-title {
+	margin-bottom: 2rem;
+	font-weight: 300;
+	font-size: 1.5rem;
+}
+
+.card-signin .card-body {
+	padding: 2rem;
+}
+
+.form-signin {
+	width: 100%;
+}
+
+.form-signin .btn {
+	font-size: 80%;
+	border-radius: 5rem;
+	letter-spacing: .1rem;
+	font-weight: bold;
+	padding: 1rem;
+	transition: all 0.2s;
+}
+
+.form-label-group {
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+.form-label-group input {
+	height: auto;
+	border-radius: 2rem;
+}
+
+.form-label-group>input, .form-label-group>label {
+	padding: var(- -input-padding-y) var(- -input-padding-x);
+}
+
+.form-label-group>label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline_block;
+	width: 100%;
+	margin-bottom: 0;
+	/* Override default `<label>` margin */
+	line-height: 1.5;
+	color: #495057;
+	border: 1px solid transparent;
+	border-radius: .25rem;
+	transition: all .1s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+	color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+	color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+	color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+	color: transparent;
+}
+
+.form-label-group input::placeholder {
+	color: transparent;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+	padding-top: calc(var(- -input-padding-y)+ var(- -input-padding-y)* (2/3));
+	padding-bottom: calc(var(- -input-padding-y)/3);
+}
+
+.form-label-group input:not(:placeholder-shown) ~label {
+	padding-top: calc(var(- -input-padding-y)/3);
+	padding-bottom: calc(var(- -input-padding-y)/3);
+	font-size: 12px;
+	color: #777;
+}
+
+</style>
+<!-- Bootstrap core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="css/modern-business.css" rel="stylesheet">
+
+<!-- Bootstrap core JavaScript -->
+<script src="jquery/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
 <main>
-	<section class="emailBox">
-		<form>
-			<h1>ºñ¹Ğ¹øÈ£ Ã£±â</h1>
-			<div class="inputBox">
-				<input class="findInputEmail"  placeholder="e-mail" id="email">
-				<button class="mail_find_button" type="button" onclick="alert('ÀÎÁõ¹øÈ£°¡ Àü¼ÛµÇ¾ú½À´Ï´Ù.');">ÀÎÁõ¹øÈ£ Àü¼Û</button>
-			</div>
-			<div>
-				<span id="mail_find_input_box_warn"></span>
-			</div>
-			<div class="inputBox">
-				<input class="mail_find_input" id="mail_find_input_box_false" placeholder="ÀÎÁõ¹øÈ£ ÀÔ·Â" disabled="disabled">
-			</div>
-			
-			<div>
-		  		<span id="mail_find_input_box_warn" style="font-size:1em"></span>
-		  	</div>
-		  			  	
-			<button class="CancelBtn" type="button" onclick="location.href='/'">
-				Ãë¼Ò
-			</button>
-			<button class="findBtn btn-open-popup" type="button">
-				ºñ¹øÃ£±â
-			</button>
-		</form>
-	</section>
-		<div class="modal">
-	  		<div class="modal_body">
-		  		<h1>ºñ¹Ğ¹øÈ£</h1>
-		  		<hr>
-		  		<div id="modalSpace" style="font-size:1.5rem; ">
-		  			<span></span>
-		  		</div>
-	  			<button type="button" class="CancelBtn modal_cancel">Ãë¼Ò</button>
-	  			<button type="button" class="findBtn">È®ÀÎ</button>
-	  		</div>
+		<form method="post" class="form-signin" action="findpwform" name="findform">
+<div class="form-label-group">
+			<input type="text" id="id" name="email" class="form-control"/>
+			<label for="id">Email</label>
 		</div>
+		
+		<div class="form-label-group">
+			<input type="text" id="name" name="name" class="form-control"/>
+			<label for="name">name</label>
+		</div>
+		
+		<div class="form-label-group">
+			<input type="text" id="phone" name="nickname" class="form-control"/>
+			<label for="phone">nickname</label>
+		</div>
+
+		<div class="form-label-group">
+			<input class="btn btn-lg btn-secondary btn-block text-uppercase"
+				type="submit" value="check">
+		</div>
+
+		<!-- ì •ë³´ê°€ ì¼ì¹˜í•˜ì§€ ì•Šì„ ë•Œ-->
+		<c:if test="${check == 1}">
+			<script>
+			opener.document.findform.id.value = "";
+				opener.document.findform.name.value = "";
+				opener.document.findform.phone.value = "";
+			</script>
+			<label>ì¼ì¹˜í•˜ëŠ” ì •ë³´ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.</label>
+		</c:if>
+
+		<!-- ì´ë¦„ê³¼ ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•Šì„ ë•Œ -->
+		<c:if test="${check == 0 }">
+		<div>
+			<label>ë¹„ë°€ë²ˆí˜¸ë¥¼ ë³€ê²½í•´ì£¼ì„¸ìš”.</label>
+		</div>
+		<div class="form-label-group">
+		<input type="hidden" id="id" name="updateid" value="${updateid }">
+		
+			<input type="password" id="password" name="password" class="form-control"/>
+			<label for="password">password</label>
+		</div>
+		
+		<div class="form-label-group">
+			<input type="password" id="confirmpassword" name="confirmpwd" class="form-control"/>
+			<label for="confirmpassword">confirm password</label>
+		</div>
+		
+		<div class="form-label-group">
+				<input class="btn btn-lg btn-secondary btn-block text-uppercase"
+					type="button" value="update password" onclick="updatePassword()">
+			</div>
+		</c:if>
+
+	</form>
 </main>
 
-<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>
 
-<script>
-const BODY = document.querySelector("body");
-const MODAL = document.querySelector(".modal");
-const BTNOPENPOPUP = document.querySelector(".btn-open-popup");
-const MODALCANCEL = document.querySelector(".modal_cancel");
-
-const MODALSPACE = document.querySelector("#modalSpace");
-
-BTNOPENPOPUP.addEventListener("click", () => {
-    
-    MODAL.classList.toggle("show");
-
-    if (MODAL.classList.contains("show")) {
-        BODY.style.overflow = "hidden";
-    }
-});
-
-MODAL.addEventListener("click", (event) => {
-    if (event.target === MODAL) {
-        MODAL.classList.toggle("show");
-        MODALSPACE.innerHTML = ''; /* ¸ğ´Ş¿¡¼­ Ãë¼ÒÇÒ ½Ã ±âÁ¸ ³»¿ë »èÁ¦ */
-
-        if (!MODAL.classList.contains("show")) {
-            BODY.style.overflow = "auto";
-        }
-    }
-});
-
-MODALCANCEL.addEventListener("click", (event) => {
-    if (MODAL.classList.contains("show")) {
-        MODAL.classList.toggle("show");
-    }
-
-    MODALSPACE.innerHTML = ''; /* ¸ğ´Ş¿¡¼­ Ãë¼ÒÇÒ ½Ã ±âÁ¸ ³»¿ë »èÁ¦ */
-
-    if (!MODAL.classList.contains("show")) {
-        BODY.style.overflow = "auto";
-    }
-});
-
-/* ÀÌ¸ŞÀÏ ÀÎÁõ */
-
-var code = "";
-$(".mail_find_button").click(function(){
-	var email=$(".findInputEmail").val();
-	var checkBox=$(".mail_find_input");
-	var boxWrap=$(".inputBox");
-	
-	
-	$.ajax({
-		
-		type:"GET",
-		url :"mailCheckfind?email=" + email
-		success:function(data){
-			checkBox.attr("disabled",false);
-			boxWrap.attr("id","mail_check_input_box_true");
-			code = data;
+<script type="text/javascript">
+		function updatePassword(){
+			if(document.findform.password.value==""){
+				alert("ë¹„ë°€ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
+				document.findform.pwd.focus();
+			} else if(document.findform.password.value != document.findform.confirmpwd.value){
+				alert("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
+				document.findform.confirmpwd.focus();
+			} else {
+				document.findform.action="update_password";
+				document.findform.submit();
+			}
 		}
-	});	
-});
-</script>
+	</script>
 
 </html>

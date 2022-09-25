@@ -28,8 +28,8 @@ public class TripServiceImpl implements TripService{
 	}
 
 	@Override
-	public int localTotal() {
-		return mapper.localTotal();
+	public int localTotal(Criteria cri) {
+		return mapper.localTotal(cri);
 	}
 
 	@Override
@@ -74,9 +74,48 @@ public class TripServiceImpl implements TripService{
 	}
 
 	@Override
-	public List<TripHeartDTO> nickCheck(TripHeartDTO dto) {
-		return mapper.nickCheck(dto);
+	public List<Integer> nickCheck(String nickname) {
+		return mapper.nickCheck(nickname);
 	}
+
+
+	@Override
+	public List<TripHeartDTO> getHeartList() {
+		return mapper.getHeartList();
+	}
+
+	@Override
+	public void unheart(TripHeartDTO dto) {
+		 mapper.unheart(dto);
+	}
+
+	@Override
+	public void PlusHeart(TripHeartDTO dto) {
+		mapper.PlusHeart(dto);
+	}
+
+	@Override
+	public void minusHeart(TripHeartDTO dto) {
+		mapper.minusHeart(dto);
+	}
+
+	@Override
+	public List<TripDTO> HitGetList(Criteria cri) {
+		return mapper.HitGetList(cri);
+	}
+
+	@Override
+	public List<TripDTO> autumnList() {
+		return mapper.autumnList();
+	}
+
+
+
+
+
+
+
+	
 
 
 

@@ -1,10 +1,12 @@
 package com.look.controller;
 
 
+import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.look.model.Criteria;
 import com.look.model.PageMakerDTO;
-
 import com.look.model.TripDTO;
 import com.look.model.TripHeartDTO;
 import com.look.model.TripReplyDTO;
@@ -55,44 +56,92 @@ public class TripController {
 		@GetMapping("/best")
 		public void bestGET(Model model) {
 			model.addAttribute("list", service.getList());
+			model.addAttribute("autumn",service.autumnList());
+		
 			log.info("인기 페이지 진입");		
 		}		
 		
 		/* 전체/지역 목록 페이지 접속  */
 		@GetMapping("/entire")
-		public void entireGET(Criteria cri, Model model, TripHeartDTO dto) {
-			model.addAttribute("trip", service.localListPaging(cri));
-			model.addAttribute("key", cri.getKeyword());
-			model.addAttribute("nickCheck",service.nickCheck(dto));
+		public void entireGET(Criteria cri, Model model, @RequestParam(defaultValue = "")String nickname,HttpServletRequest request) {
 			
-			System.out.println(dto);
+			
+			String type = request.getParameter("type");
+			if(type==null) {
+				type = "최신순";
+			}	
+			if(type.equals("인기순")) {
+				model.addAttribute("trip", service.HitGetList(cri));
+			}else {
+				model.addAttribute("trip", service.localListPaging(cri));
+			}
+			
+			model.addAttribute("key", cri.getKeyword());
+			model.addAttribute("nick", service.nickCheck(nickname));
+			
 			
 			/*페이징 처리*/
-			int total = service.localTotal();
+			int total = service.localTotal(cri);
 			PageMakerDTO pageMake = new PageMakerDTO(cri, total);
 			model.addAttribute("pageMaker", pageMake);
 			
 			log.info("전체 페이지 진입");			
 		}
 		
+		
+		//전체 지역 최신순 인기순 
+		@PostMapping("/type")
+		public String popPOST(@RequestParam("keyword")String keyword,Criteria cri,TripHeartDTO dto, HttpServletRequest request, Model model) throws UnsupportedEncodingException{
+			String encodedParam = URLEncoder.encode(keyword, "UTF-8");
+			String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
+			String type = request.getParameter("type");
+			
+			
+			/*페이징 처리*/
+			int total = service.localTotal(cri);
+			PageMakerDTO pageMake = new PageMakerDTO(cri, total);
+			model.addAttribute("pageMaker", pageMake);
+			if(dto.getNickname().equals("")) {
+				return "redirect:/trip/entire?keyword=" +encodedParam;
+			}else {
+				return "redirect:/trip/entire?"+"nickname="+encodedParam1+"&keyword=" +encodedParam;
+			}
+		}
+		
+		
 		//게시물 좋아요 기능
 		@PostMapping("/heart")
-		public String heart(@RequestParam("keyword")String keyword, TripHeartDTO dto,Model model) throws UnsupportedEncodingException{
+		public String heart(@RequestParam("keyword")String keyword, TripHeartDTO dto, HttpServletResponse response) throws Exception{
 			
 			String encodedParam = URLEncoder.encode(keyword, "UTF-8");
+			String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
 			
-			return "redirect:/trip/entire?keyword=" +encodedParam;
+			response.setContentType("text/html; charset=euc-kr");
+			
+			if(dto.getNickname().equals("")) {
+				PrintWriter out = response.getWriter();
+				out.println("<script>alert('로그인 후 이용하세요'); </script>");
+				out.println("<script>var link = '/'; location.href=link;location.replace(link);</script>");
+				out.flush();
+			}
+			
+			service.insertHeart(dto);
+			service.PlusHeart(dto);	
+			
+			
+			return "redirect:/trip/entire?"+"nickname="+encodedParam1+"&keyword=" +encodedParam;
 		}
 		
 		//게시물 좋아요 취소
 		@PostMapping("/unheart")
-		public String unheart(TripHeartDTO dto,@RequestParam("keyword")String keyword) throws UnsupportedEncodingException{
+		public String unheart(TripHeartDTO dto,@RequestParam("keyword")String keyword, HttpServletRequest request,  @RequestParam(defaultValue = "")String nickname) throws UnsupportedEncodingException{
 			String encodedParam = URLEncoder.encode(keyword, "UTF-8");
+			String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
 			
-			service.nickCheck(dto);
-				
+			service.unheart(dto);
+			service.minusHeart(dto);
 			
-			return "redirect:/trip/entire?keyword=" +encodedParam;
+			return "redirect:/trip/entire?"+"nickname="+encodedParam1+"&keyword=" +encodedParam;
 		}
 		
 		
@@ -123,7 +172,6 @@ public class TripController {
 			log.info("진입 딜리트");
 			String reno =request.getParameter("reno");
 			int re = Integer.parseInt(reno);
-			System.out.println(re);
 			service.deleteReply(re);
 			return "redirect:/trip/travel-p?imgno=" +imgno;
 		}	
@@ -138,8 +186,6 @@ public class TripController {
 			
 			return"redirect:/trip/travel-p?imgno=" +imgno;
 		}
-		
-		
 		
 		
 }

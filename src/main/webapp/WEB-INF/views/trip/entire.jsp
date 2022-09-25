@@ -13,24 +13,23 @@
 <body>
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	<%@page import="java.util.*,com.look.model.*"%>
-	<%
-	ArrayList<TripDTO> trip = (ArrayList<TripDTO>) request.getAttribute("trip");
-	%>
 	<!-- main 안에 작성 -->
+		
 	<main>
 		<div class= "e_all all">
 			<div style = "width: 50%;">
 				<h1><c:out value = "${key }"></c:out></h1>
 				<hr>
-				<form action = "/trip/entire" method="post" class = "e_listorder">
+				<form action = "/trip/entire" method="get	" class = "e_listorder">
+					<input type="hidden" name="keyword" value="${key }">
+					<input type = "hidden" name ="nickname" value = "${member.nickname }">
 					<input type="submit" name ="type" value ="최신순">
 					<span>|</span>
 					<input type="submit" name ="type" value ="인기순">
 					<hr>
 				</form>
-				
 				<!-- 리스트 목록 -->
-				<c:forEach items="${trip }" var = "all">
+				<c:forEach items="${trip }" var = "all" varStatus="status" >
 					<div class = "e_card">
 						<div class= "e_list" onclick= "location.href = '/trip/travel-p?imgno=${all.imgno }'">
 							<img class= "e_img" src='/resources/image/<c:out value = "${all.course }"></c:out>'>
@@ -40,13 +39,20 @@
 								<span>#해시태그</span>
 							</div>
 						</div>
-						<form method = "post">
-							<div class = "e_heart">
-								<input type="hidden" name="keyword" value="${key }">
-								<input type = "hidden" name ="nickname" value = "${member.nickname }">
-								<button onclick = "javascript: form.action='/trip/heart';"name = "imgno" value ="${all.imgno }"><i class="fa-regular fa-heart e_h"></i></button>
-							</div>
-						</form>
+							<form method = "post" name = "form">
+								<div class = "e_heart">
+									<input type="hidden" name="keyword" value="${key }">
+									<input type = "hidden" name ="nickname" value = "${member.nickname }">
+									
+									<c:if test="${!nick.contains(all.imgno) }">
+										<button onclick = "javascript: form.action='/trip/heart';"name = "imgno" value ="${all.imgno }"><i class="fa-regular fa-heart e_h"></i></button>
+									</c:if>
+									<c:if test="${nick.contains(all.imgno) }">
+										<button onclick = "javascript: form.action='/trip/unheart';"name = "imgno" value ="${all.imgno }"><i class="fa-solid fa-heart"></i></button>
+									</c:if>
+									
+								</div>
+							</form>
 					</div>
 					<hr>
 				</c:forEach>
@@ -79,7 +85,7 @@
 					<div class= "e_location">
 						<input type="submit" name ="keyword" value ="전체">
 						<input type="submit" name ="keyword" value ="서울">
-						<input type="submit" name ="keyword" value ="대구" id = "name" onchange='printName()'>
+						<input type="submit" name ="keyword" value ="대구">
 						<input type="submit" name ="keyword" value ="부산">
 					</div>
 					<div class= "e_location">
@@ -113,6 +119,8 @@
 						<a href = "#">#임둥</a>
 					</div>
 				</div>
+			   <input type="hidden" name="nickname" value="${member.nickname}">
+				
 			</form>
 			<form id = "moveForm" method ="get">
 				<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">

@@ -23,6 +23,7 @@ public class TripDTO {
 	private String local;
 	/* 조회수 */
 	private int count;
-	
+	/* 테그 */
+	private String tag;
 	
 }
