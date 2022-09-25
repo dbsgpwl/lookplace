@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.look.mapper.EmpMapper">
+
+    <select id="selectAll" resultType="com.look.model.Emp">
+        SELECT *
+        FROM EMP
+    </select>
+
+    <select id="selectByEmpno" parameterType="int" resultType="Emp">
+        SELECT *
+        FROM EMP
+        WHERE empno = #{empno}
+    </select>
+
+    <insert id="insert" parameterType="Emp">
+        INSERT INTO EMP(EMPNO, ENAME, JOB, MGR, HIREDATE, SAL, COMM, DEPTNO)
+        VALUES(empno_seq.nextval, #{ename}, #{job}, #{MGR}, sysdate , #{SAL}, #{COMM}, #{DEPTNO})
+    </insert>
+
+    <update id="update" parameterType="Emp">
+        UPDATE EMP
+        SET ename = #{ename},
+            job = #{job}
+        WHERE empno = #{EMPNO}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE EMP
+		WHERE empno = #{empno}
+    </delete>
+
+</mapper>
