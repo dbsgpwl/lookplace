@@ -10,7 +10,9 @@
 
 <!-- JQ -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-
+<!-- 슬릭 -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <!-- 폰트어썸 -->
 <script src="https://kit.fontawesome.com/2c827c8cca.js" crossorigin="anonymous"></script>
 
