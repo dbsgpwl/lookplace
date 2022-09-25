@@ -15,6 +15,9 @@ public interface TripMapper {
 	//지역 페에지 목록
 	public List<TripDTO> locationList(Criteria cri);	
 	
+	//해쉬태그 가져오기
+	public String hashtag(TripDTO dto);
+	
 	//게시물 개수
 	public int localTotal(Criteria cri);
 	

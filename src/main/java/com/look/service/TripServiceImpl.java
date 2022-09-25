@@ -109,6 +109,11 @@ public class TripServiceImpl implements TripService{
 		return mapper.autumnList();
 	}
 
+	@Override
+	public String hashtag(TripDTO dto) {
+		return mapper.hashtag(dto);
+	}
+
 
 
 
