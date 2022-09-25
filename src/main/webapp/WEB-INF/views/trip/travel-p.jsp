@@ -58,14 +58,14 @@
 				</div>
 
 				<div class="travelP_detailinfo2">
-					<span>상세정보란</span>
 					<h1><c:out value = "${detail.place }"></c:out></h1>
 					<h3><c:out value = "${detail.address }"></c:out></h3>
 				</div>
 				<div>
-					<input type="text" value="#해시태그" class="travelP_input"> <input
-						type="text" value="#지역" class="travelP_input2"> <input
-						type="text" value="#친구와함께" class="travelP_input3">
+					
+					<input type="text" value='# ${hash[0] }' class="travelP_input"> 
+					<input type="text" value="# ${hash[1] }" class="travelP_input"> 
+					<input type="text" value="# ${hash[2] }" class="travelP_input">
 				</div>
 			</div>
 			
