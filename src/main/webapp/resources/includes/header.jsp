@@ -46,7 +46,7 @@
             	</ul>
             </li>
           </ul>
-       	<div style="position:absolute; top:85%; left:37%;">
+       	<div style="position:absolute; top:85%; left:25%;">
 	     <!-- 로그인 하지 않은 상태 -->				
 			<c:if test="${member==null}">
 	          <div id="login-button">
@@ -65,9 +65,13 @@
      	</div> 
      </div> 
     
-      <button id="showLeft" style="z-index:9999;">
-	        <i class="fa-solid fa-bars" style="color:rgb(255, 56, 142); font-size:2em; "></i>
-	  </button>
+      
+	 <div id="showLeft" class="burger">
+	      <div class="line1"></div>
+	      <div class="line2"></div>
+	      <div class="line3"></div>
+	 </div>
+	  
       <section class="logoBox">
         <a href="javascript:location.href='/'"><img src="/resources/image/logo.png" /></a>
       </section>
@@ -101,17 +105,20 @@
 
 var menuLeft = document.getElementById( 'sidemenu-s1' ),
 	showLeft = document.getElementById( 'showLeft' )
-
+	
 const DETAIL1 = document.querySelector('.side_Detail1')
 const DETAIL2 = document.querySelector('.side_Detail2')
 
 const SIDEBTN1 = document.querySelector('#side_Btn1')
 const SIDEBTN2 = document.querySelector('#side_Btn2')
 
-	
+const burger = document.querySelector('.burger');
+
+
 showLeft.onclick = function() {
-	menuLeft.classList.toggle('sidemenu-open');
 	
+	menuLeft.classList.toggle('sidemenu-open');
+	burger.classList.toggle('toggle');
 	if(!DETAIL1.classList.contains('side_Detail1')){
 		DETAIL1.classList.add('side_Detail1');
 		DETAIL1.style.height="0px";
@@ -122,7 +129,7 @@ showLeft.onclick = function() {
 		DETAIL2.style.height="0px";
 		SIDEBTN2.classList.add('rotate_down')
 	}
-
+	
 };	
 
 
