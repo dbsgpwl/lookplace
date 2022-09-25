@@ -69,11 +69,9 @@
 							<td>주소</td>
 							<td>
 							<input type=text class="updateAddress1 form-control" name="address" placeholder="우편번호" style="width:50%; margin-bottom:13px;" readonly>
-							<button type="button" class="Address_button" onclick="update_daum_address()">
-	          				주소 찾기
-	        				</button>
 							<input type=text class="updateAddress2 form-control" name="address" placeholder="주소" style="margin-bottom:13px;" readonly>
 							<input type=text class="updateAddress3 form-control" name="address" placeholder="나머지 주소">
+							<button type="button" class="Address_button" onclick="update_daum_address()">주소 찾기</button>
 							</td>
 						</tr>
 					</table>
