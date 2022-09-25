@@ -13,7 +13,7 @@
 <body>
     <header>
     	<div id="sidemenu-s1" class="sidemenu sidemenu-vertical sidemenu-left">
-          <div style="position:absolute; top:12%; left:15%;font-size:1.5em;">
+          <div style="position:absolute; top:12%; left:20%;font-size:1.5em;">
           	<!-- 로그인 하지 않은 상태 -->				
 			<c:if test="${member==null}">
 				<div>									
@@ -25,8 +25,8 @@
 			<!-- 로그인 한 상태 -->
 			<c:if test="${member!=null}">
 				<div class="login_success_area">
-					<span onclick="location.href='/mypage/info'" style="cursor:pointer">${member.nickname}님 </span><br>
-					<span>LookPlace에 오신걸 환영합니다.</span>
+					<span onclick="location.href='/mypage/info'" style="cursor:pointer;">${member.nickname}님 </span><br>
+					<span>LookPlace에 오신걸 <br> 환영합니다.</span>
 				</div>
 			</c:if>
           </div>

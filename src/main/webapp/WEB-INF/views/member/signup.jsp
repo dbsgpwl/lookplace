@@ -83,7 +83,7 @@
 		  			
 		  		</div>
 	  			<button type="button" class="CancelBtn modal_cancel">취소</button>
-	  			<button class="SignUpBtn SignUpBtnFinal"  onclick="location.href='/'">회원가입</button>
+	  			<button class="SignUpBtn SignUpBtnFinal">회원가입</button>
 	  		</div>
 		</div>
 	</main>
