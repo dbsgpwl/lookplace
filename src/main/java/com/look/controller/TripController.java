@@ -4,6 +4,7 @@ package com.look.controller;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -154,6 +155,9 @@ public class TripController {
 			model.addAttribute("reply", service.replyList(imgno));
 			model.addAttribute("detail", service.Detailpage(imgno));
 			model.addAttribute("cri", cri);
+			String[] list = service.hashtag(dto).split(",");
+			model.addAttribute("hash", list);
+			
 			
 			
 		}

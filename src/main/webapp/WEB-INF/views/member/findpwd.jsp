@@ -153,13 +153,14 @@ body {
 			<label>일치하는 정보가 존재하지 않습니다.</label>
 		</c:if>
 
+
 		<!-- 이름과 비밀번호가 일치하지 않을 때 -->
 		<c:if test="${check == 0 }">
 		<div>
 			<label>비밀번호를 변경해주세요.</label>
 		</div>
 		<div class="form-label-group">
-		<input type="hidden" id="id" name="updateid" value="${updateid }">
+		<input type="hidden" id="id" name="updateid" value="${updateid}">
 		
 			<input type="password" id="password" name="password" class="form-control"/>
 			<label for="password">password</label>
