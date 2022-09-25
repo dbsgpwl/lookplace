@@ -40,7 +40,11 @@
 <div class="board-table-area">
 	<form action="/uploadFormAction" method="post" enctype="multipart/form-data">
 	<div class="form-group">
-		<label for="title">제목</label>
+		<label for="nickname">작성자</label>
+		<input name="nickname" id="title" class="form-control" value="${member.nickname }">
+	</div>
+	<div class="form-group">
+		<label for="title">여행지명</label>
 		<input name="title" id="title" class="form-control">
 	</div>
 	<div class="form-group">

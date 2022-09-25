@@ -34,55 +34,58 @@
 					</p>
 				</div>
 			</div>
-
 			<div class="board-main-area">
 				<div class="board-main-title">
 					<div>
 						<h3>review</h3>
 					</div>
 					<div>
-						<span><a href="/">home</a></span> &nbsp;>&nbsp; <span><a
-							href="review">review</a></span>&nbsp; >&nbsp;
+						<span><a href="/">home</a></span> &nbsp;>&nbsp; <span>
+						<a href="review">review</a></span>&nbsp;
 					</div>
 				</div>
-
 				<div class="board-table-area">
-					<input type="hidden" name="bno" value="${board.bno}">
-					<table class="table border border-1 board-table table-hover">
-						<tr>
-							<td>작성자</td>
-							<td><input
-								value='<c:out value="${board.nickname }"></c:out>' /></td>
-						</tr>
-						<tr>
-							<td>제목</td>
-							<td><input value='<c:out value="${board.title }"></c:out>' /></td>
-						</tr>
-
-						<tr>
-							<td colspan=2 style="text-align: left;"><img src='<c:out value="${board.filename }"></c:out>' style="width: 500px;height: 400px;object-fit: cover;"/></td>
-						</tr>
-
-					</table>
-
-					<div class="board-get-btn-area">
-						<button class="btn" id="list_btn_r">목록</button>
-						<input type="button" value="삭제" onclick="deleteImage(${board.bno})">
-					</div>
-				
-				
-				
+				<table class="table border border-1 board-table">
+					<thead>
+					<tr>
+						<td class="table-dark">제목</td>
+						<td style="text-align:left;"><c:out value="${board.title }" /></td>
+					</tr>
+					<tr>
+						<td class="table-dark">작성자</td>
+						<td style="text-align:left;"><c:out value="${board.nickname }" /></td>
+					</tr>
+					<tr>
+						<td class="table-dark">내용</td>
+						<td style="text-align:left;">
+							<c:out value="${board.content }" />
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><img src='<c:out value="${board.filename }"></c:out>' style="width: 500px; height: 400px; object-fit: cover;" /></td>
+					</tr>
+				</table>
 			</div>
+						<div class="board-get-btn-area">
+							<button class="board-get-button" id="list_btn_r">목록</button>
+							<c:if test="${board.nickname == member.nickname}">
+								<button class="board-get-button" onclick="deleteImage(${board.bno})">삭제</button>
+							</c:if>
+						</div>
+
+
 
 				</div>
 
-				<form id="infoForm" action="modify-r" method="get">
-					<input type="hidden" name="pageNum" value="${cri.pageNum }">
-					<input type="hidden" name="amount" value="${cri.amount }">
-					<input type="hidden" name="keyword" value="${cri.keyword }">
-					<input type="hidden" name="type" value="${cri.type }">
-				</form>
 			</div>
+
+			<form id="infoForm" action="modify-r" method="get">
+				<input type="hidden" name="pageNum" value="${cri.pageNum }">
+				<input type="hidden" name="amount" value="${cri.amount }"> <input
+					type="hidden" name="keyword" value="${cri.keyword }"> <input
+					type="hidden" name="type" value="${cri.type }">
+			</form>
 	</main>
 	<script>
 		/* 게시글 목록 버튼 */

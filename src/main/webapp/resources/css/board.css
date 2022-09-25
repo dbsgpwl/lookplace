@@ -148,9 +148,21 @@
 	height:40px;
 }
 
-..board-writer-button:hover{
-	color: black;
-	
+.board-writer-button:hover{
+	color: rgb(128, 255, 0);
+	background-color: black;
+}
+
+.board-get-button{
+	border:2px dashed pink;
+	background-color: white;
+	border-radius: 5px;
+}
+
+.board-get-button:hover{
+	color: rgb(128, 255, 0);
+	background-color: black;
+	border: 2px solid black;
 }
 #delete_btn{
     background-color: #f3e3e7;

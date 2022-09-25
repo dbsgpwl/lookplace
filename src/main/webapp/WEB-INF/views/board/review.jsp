@@ -45,7 +45,7 @@
 						<span><a href="review">Review</a></span>
 					</div>
 				</div>
-				<div class="search_wrap">
+				<div class="search_wrap" style="display:flex; align-items:center; padding-right: 5%;">
 		        <div class="search_area"  >
 		        <select name="type"  >
 	                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>검색</option>
@@ -59,22 +59,31 @@
 		            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
 		            <button><i class="fa-solid fa-magnifying-glass" style="color:white;"></i></button>
 		        </div>
+		        <div>
+						<button class="board-writer-button"
+							onclick="location.href='insertImage'">글쓰기</button>
+					</div>
 		    </div> 
-				<div class="" style="display: flex;
-    flex-wrap: wrap; border:1px solid gray;">
+		    <div style="padding-left:80%;">
+					
+				</div>
+				<div class="" style="display: flex; flex-wrap: wrap;">
 				<c:forEach items="${viewAll }" var="list">
 				
 					<div class="col-md-6">
-					<span>${list.hit }</span>
-					<div class="thumbnail">
-						<img src="${list.filename}"style="width: 300px;height: 250px;object-fit: cover;">
-						<div class="caption">
-							<span>${list.title }</span>
-							<a class="btn" href="getImage?bno=${list.bno }&
-											pageNum=${pageMaker.cri.pageNum }&
-											amount=${pageMaker.cri.amount }&
-											keyword=${pageMaker.cri.keyword }&
-											type=${pageMaker.cri.type }">리뷰보기</a>
+					<div class="thumbnail" style="border:2px dashed pink; width:305px; margin-bottom:15%;">
+						<img src="${list.filename}"style="width: 300px;height: 250px;object-fit: cover; ">
+						<div class="caption" >
+							<div style="margin:5% 0; text-align:center; padding-right:6%;">
+								<span># ${list.title }</span>
+							</div>
+							<div style="text-align: center; padding-right:4%; margin:5% 0;">
+								<a class="board-get-button" style="text-decoration: none; padding: 5px;" href="getImage?bno=${list.bno }&
+									pageNum=${pageMaker.cri.pageNum }&
+									amount=${pageMaker.cri.amount }&
+									keyword=${pageMaker.cri.keyword }&
+									type=${pageMaker.cri.type }">✨ Click ✨</a>
+							</div>
 						</div>
 						</div>
 					</div>
@@ -106,12 +115,7 @@
 
 					</div>
 				</div>
-				<div style="padding-left:80%;">
-					<div>
-						<button class="board-writer-button"
-							onclick="location.href='insertImage'">글쓰기</button>
-					</div>
-				</div>
+				
 				<form id="moveForm" method="get">
 					<input type="hidden" id="bno" name="bno" value='<c:out value="${board.bno}"/>'>
 					<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }" />
