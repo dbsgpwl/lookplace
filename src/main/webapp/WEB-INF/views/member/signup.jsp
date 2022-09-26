@@ -41,8 +41,10 @@
 		  </div>	
 		  					  	
           <div>
-          
             <input class="SignUpInput" type="password" placeholder="비밀번호" id="password" name="password"/>
+          </div>
+          <div>
+          	<span style="color:red">*8글자 이상, (숫자, 영문, 특수문자) 중 2가지 이상 포함</span>
           </div>
           <div>
             <input class="SignUpInput" type="password" placeholder="비밀번호확인" id="pwdchk" />

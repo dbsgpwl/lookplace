@@ -164,6 +164,7 @@ body {
 		
 			<input type="password" id="password" name="password" class="form-control"/>
 			<label for="password">password</label>
+			<span style="color:red">*8글자 이상, (숫자, 영문, 특수문자) 중 2가지 이상 포함</span>
 		</div>
 		
 		<div class="form-label-group">
@@ -184,10 +185,25 @@ body {
 
 <script type="text/javascript">
 		function updatePassword(){
+			var num = document.findform.password.value.search(/[0-9]/g);
+			var eng = document.findform.password.value.search(/[a-z]/ig);
+			var spe = document.findform.password.value.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 			if(document.findform.password.value==""){
 				alert("비밀번호를 입력해주세요.");
 				document.findform.pwd.focus();
-			} else if(document.findform.password.value != document.findform.confirmpwd.value){
+			} else if(document.findform.password.value.length < 8 || document.findform.password.value.length > 20){
+           		 alert("비밀번호는 8자리 ~ 20자리 이내로 입력해주세요.");
+           		document.findform.pwd.focus();
+           		 return false;
+           	} else if(document.findform.password.value.search(/\s/) != -1){
+           		 alert("비밀번호는 공백 없이 입력해주세요.");
+           		document.findform.pwd.focus();
+           		 return false;
+           	} else if( (num < 0 && eng < 0) || (eng < 0 && spe < 0) || (spe < 0 && num < 0) ){
+           		 alert("영문,숫자, 특수문자 중 2가지 이상을 혼합하여 입력해주세요.");
+           		document.findform.pwd.focus();
+           		 return false;
+           	}else if(document.findform.password.value != document.findform.confirmpwd.value){
 				alert("비밀번호가 일치하지 않습니다.");
 				document.findform.confirmpwd.focus();
 			} else {
