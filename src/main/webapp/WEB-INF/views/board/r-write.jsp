@@ -25,8 +25,8 @@
 				<div class="board-title"><h2>커뮤니티</h2></div>
 			</div>
 			<div class="board-menu">
-				<p><a href="review">Review</a></p>
-				<p style="border-left:2px solid pink;"><a href="community">Community</a></p>
+				<p style="border-left:2px solid pink;"><a href="review">Review</a></p>
+				<p><a href="community">Community</a></p>
 			</div>
 		</div>
 		<div class="board-main-area">
@@ -55,8 +55,10 @@
 		<label for="imagefile">첨부파일</label>
 		<input type="file" name="imagefile" id="imagefile" class="form-control">
 	</div>
-		<button class="btn">등록</button>
-		<button class="btn" type="reset">새로입력</button>
+		<div style="margin:5% 0; padding-left:65%;">
+			<button class="board-writer-button">등록</button>
+			<button class="board-writer-button" type="reset">새로입력</button>
+		</div>
 	</form>
 </div>
 </div>

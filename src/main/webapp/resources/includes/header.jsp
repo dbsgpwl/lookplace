@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page isELIgnored="false" %>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,90 +11,103 @@
 <link href="/resources/css/common.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <header>
-    	<div id="sidemenu-s1" class="sidemenu sidemenu-vertical sidemenu-left">
-          <div style="position:absolute; top:12%; left:15%;font-size:1.5em;">
-          	<!-- 로그인 하지 않은 상태 -->				
-			<c:if test="${member==null}">
-				<div>									
-					<span>로그인 후</span><br>
-					<span>LookPlace를 즐겨보세요</span>
-				</div>	
-			</c:if>
-				
-			<!-- 로그인 한 상태 -->
-			<c:if test="${member!=null}">
-				<div class="login_success_area">
-					<span onclick="location.href='/mypage/info'" style="cursor:pointer">${member.nickname}님 </span><br>
-					<span>LookPlace에 오신걸 환영합니다.</span>
-				</div>
-			</c:if>
-          </div>
-          <ul class="side_title" style="padding-top:20px; position:absolute; top:17%;left:12%">
-            <li><a href="/"><i class="fa-sharp fa-solid fa-house"></i>홈</a>
-            	<button id="side_Btn1" class="side_Btn" onclick="ShowDetail1()"><i class="fa-solid fa-caret-down"></i></button>
-            	<ul class="side_Detail1">
-            		<li><a href="/trip/best">인기</a></li>
-            	</ul>
-            </li>
-            <li><a href="/map/mapapi"><i class="fa-sharp fa-solid fa-location-dot"></i>여행지도</a></li>
-            <li><a href="freeboard"><i class="fa-solid fa-clipboard-list"></i>News</a>
-            	<button id="side_Btn2" class="side_Btn" onclick="ShowDetail2()"><i class="fa-solid fa-caret-down"></i></button>
-            	<ul class="side_Detail2">
-            		<li><a href="review">Review</a></li>
-            		<li><a href="community">Community</a></li>
-            	</ul>
-            </li>
-          </ul>
-       	<div style="position:absolute; top:85%; left:37%;">
-	     <!-- 로그인 하지 않은 상태 -->				
-			<c:if test="${member==null}">
-	          <div id="login-button">
-	          	<i class="fa-regular fa-user" ></i>
-	          	<a href="/member/login">LOGIN</a>         	
-	         </div>
-	        </c:if> 
-        
-        <!-- 로그인 하지 않은 상태 -->				
-			<c:if test="${member!=null}">
-	          <div id="login-button">
-	          	<i class="fa-regular fa-user" ></i>
-	          	<a href="/member/logout">LOGOUT</a>         	
-	         </div>
-	        </c:if> 
-     	</div> 
-     </div> 
-    
-      <button id="showLeft" style="z-index:9999;">
-	        <i class="fa-solid fa-bars" style="color:rgb(255, 56, 142); font-size:2em; "></i>
-	  </button>
-      <section class="logoBox">
-        <a href="javascript:location.href='/'"><img src="/resources/image/logo.png" /></a>
-      </section>
-      <section class="searchBox">
-      
-        <input type="text" placeholder="어디로, 어떤 여행을 떠나실 건가요?"/>
-        
-        <a style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
-        
-      </section>
-      <section class="buttonBox">
-        <div>
-          <button onclick="location.href='/map/mapapi'">
-           <i class="fa-solid fa-map-location-dot" ></i>
-           <p style="margin-top:7px; font-size:15px; color:rgb(255, 56, 142)">여행지도</p>
-          </button>
-          
-        <!-- 로그인 한 상태 -->				
-		<c:if test="${member!=null}">
-			<button onclick="location.href='/mypage/info'">
-				<i class="fa-sharp fa-solid fa-user-pen"></i>
-				<p style="margin-top:7px; font-size:15px; color:rgb(255, 56, 142)">내 정보</p>
-			</button>		
-        </c:if> 
-        </div>
-      </section>
-    </header>
+	<header>
+		<div id="sidemenu-s1" class="sidemenu sidemenu-vertical sidemenu-left">
+			<div class="login_area">
+				<!-- 로그인 하지 않은 상태 -->
+				<c:if test="${member==null}">
+					<div>
+						<span>로그인 후</span><br> <span>LookPlace를 즐겨보세요</span>
+					</div>
+				</c:if>
+
+				<!-- 로그인 한 상태 -->
+				<c:if test="${member!=null}">
+					<div class="login_success_area">
+						<span onclick="location.href='/mypage/info'"
+							style="cursor: pointer">${member.nickname}님 </span><br> <span>LookPlace에
+							오신걸 환영합니다.</span>
+					</div>
+				</c:if>
+			</div>
+			<ul class="side_title">
+				<li><a href="/"><i class="fa-sharp fa-solid fa-house"></i>홈</a>
+					<button id="side_Btn1" class="side_Btn" onclick="ShowDetail1()">
+						<i class="fa-solid fa-caret-down"></i>
+					</button>
+					<ul class="side_Detail1">
+						<li><a href="/trip/best">인기</a></li>
+					</ul></li>
+				<li><a href="/map/mapapi"><i
+						class="fa-sharp fa-solid fa-location-dot"></i>여행지도</a></li>
+				<li><a href="freeboard"><i
+						class="fa-solid fa-clipboard-list"></i>뉴스</a>
+					<button id="side_Btn2" class="side_Btn" onclick="ShowDetail2()">
+						<i class="fa-solid fa-caret-down"></i>
+					</button>
+					<ul class="side_Detail2">
+						<li><a href="review">리뷰</a></li>
+						<li><a href="community">커뮤니티</a></li>
+					</ul></li>
+			</ul>
+			<div class="aside-user-area">
+				<!-- 로그인 하지 않은 상태 -->
+				<c:if test="${member==null}">
+					<div id="login-button">
+						<div>
+							<i class="fa-regular fa-user" style="font-size:25px;"></i>
+						</div>
+						<div>
+							<a href="/member/login">&nbsp;&nbsp;로  그  인</a>
+						</div>
+					</div>
+				</c:if>
+
+				<!-- 로그인 한 상태 -->
+				<c:if test="${member!=null}">
+					<div id="login-button">
+						<div>
+							<i class="fa-regular fa-user" style="font-size:25px;"></i>
+						</div>
+						<div>
+							<a href="/member/logout">로그아웃</a>
+						</div>
+					</div>
+				</c:if>
+			</div>
+		</div>
+
+		<button id="showLeft" style="z-index: 9999;">
+			<i class="fa-solid fa-bars"
+				style="color: rgb(255, 56, 142); font-size: 2em;"></i>
+		</button>
+		<section class="logoBox">
+			<a href="javascript:location.href='/'"><img
+				src="/resources/image/logo.png" /></a>
+		</section>
+		<section class="searchBox">
+
+			<input type="text" placeholder="어디로, 어떤 여행을 떠나실 건가요?" /> <a
+				style="cursor: pointer;"><i class="fa-solid fa-magnifying-glass"></i></a>
+
+		</section>
+		<section class="buttonBox">
+			<div>
+				<button onclick="location.href='/map/mapapi'">
+					<i class="fa-solid fa-map-location-dot"></i>
+					<p style="margin-top: 7px; font-size: 15px;">여행지도</p>
+				</button>
+
+				<!-- 로그인 한 상태 -->
+				<c:if test="${member!=null}">
+					<button onclick="location.href='/mypage/info'">
+						<i class="fa-sharp fa-solid fa-user-pen"></i>
+						<p style="margin-top: 7px; font-size: 15px;">내 정보</p>
+					</button>
+				</c:if>
+			</div>
+		</section>
+	</header>
 
 </body>
 <script>

@@ -38,7 +38,7 @@
 				<span><a href="community">Community</a></span> 
 				</div>
 			</div>
-			<div class="search_wrap">
+			<div class="search_wrap" style="">
 		        <div class="search_area"  >
 		        <select name="type"  >
 	                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>검색</option>
@@ -50,14 +50,18 @@
 	                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
 	            </select>   
 		            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-		            <button><i class="fa-solid fa-magnifying-glass" style="color:white;"></i></button>
+		            <button><i class="fa-solid fa-magnifying-glass" ></i></button>
 		        </div>
+		        <div>
+						<button class="board-writer-button"
+							onclick="location.href='write'">글쓰기</button>
+					</div>
 		    </div> 
 			
 	     		
 			<div class="board-table-area">
-				<table class="table border border-1 board-table table-hover">
-					<tr>
+				<table class="table border border-1 board-table ">
+					<tr class="table-dark">
 						<td>번호</td>
 						<td>제목</td>
 						<td>작성자</td>
@@ -80,9 +84,6 @@
 					</c:forEach>
 				</table>
 			</div>
-			<div class="board-write-area" >
-				 <button class="board-writer-button" onclick="location.href='write'" >글쓰기</button>
-				</div>
 			<div class="board-page" >
 		        <div class="pageInfo_area">
 		        <ul id="pageInfo" class="pageInfo">

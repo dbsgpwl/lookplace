@@ -50,13 +50,13 @@
 	                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
 	            </select>   
 		            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-		            <button><i class="fa-solid fa-magnifying-glass" style="color:white;"></i></button>
+		            <button><i class="fa-solid fa-magnifying-glass"></i></button>
 		        </div>
 		    </div> 
 			<div class="board-table-area">
-				<table class="table border border-1 board-table">
+				<table class="table border border-1 board-table" style="font-size:12px;">
 					<thead>
-					<tr class="table-dark">
+					<tr class="table-dark" style="font-size:14px;">
 						<td>번호</td>
 						<td>제목</td>
 						<td>작성자</td>

@@ -14,7 +14,9 @@
 	    z-index:99999;
 		background-color:white;
 	}
-
+	.aside-user-area{
+		position: absolute; top: 85%; left: 37%;
+	}
     .searchBox {
       display: flex;
       width: 40%;
@@ -47,6 +49,10 @@
       padding-top: 8%;
       width: 90%;
       height: 80%;
+    }
+    
+    .login_area{
+    	position:absolute; top:12%; left:15%;font-size:1em;
     }
     
     .buttonBox {
@@ -125,12 +131,12 @@
     }
     
     .side_title span{
-    	font-size:20px
+    	font-size:1em;
     }
     
     .sidemenu a{
     	color:white;
-    	font-size:27px;
+    	font-size:1em;
     }
     
     .sidemenu i{
@@ -163,12 +169,14 @@
 	  animation-name:slide_down1;
 	  animation-duration:.5s;  
     }
-    
+    .side_title{
+    	padding-top:20px; position:absolute; top:17%;left:12%;
+    }
     .side_Btn{
     	background-color:rgba(0,0,0,0); 
     	border: none;
     	color:white;
-    	font-size:30px;
+    	font-size:1em;
     }
     
     .rotate_up {

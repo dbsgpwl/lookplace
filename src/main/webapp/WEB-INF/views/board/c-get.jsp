@@ -126,7 +126,6 @@ function replyList(){
 				
 			<!-- 댓글 목록 -->
 <div id="reply">
-
 			 <c:if test="${member==null}">
 				<div>									
 					<span><a href="/member/login">로그인</a> 후 댓글을 작성해주세요</span>
@@ -217,24 +216,25 @@ function replyList(){
 	</main>
 <script>
 	
-	/* 게시글 목록 버튼 */
-	$("#list_btn_r").on("click", function(e){
-		self.location = "/community?"
-					+ "&pageNum=${cri.pageNum }"
-					+ "&amount=${cri.amount }"
-					+ "&keyword=${cri.keyword }"
-					+ "&type=${cri.type }"
-					});	
-	
+/* 게시글 목록 버튼 */
+$("#list_btn_r").on("click", function(e){
+	self.location = "/community?"
+				+ "&pageNum=${cri.pageNum }"
+				+ "&amount=${cri.amount }"
+				+ "&keyword=${cri.keyword }"
+				+ "&type=${cri.type }"
+				});	
 
-	/* 게시글 수정 버튼 */
-	$("#modify_btn_r").on("click", function(e){
-		self.location = "/modify-r?bno=${board.bno}"
-					+ "&pageNum=${cri.pageNum }"
-					+ "&amount=${cri.amount }"
-					+ "&keyword=${cri.keyword }"
-					+ "&type=${cri.type }"
-					});	
+
+/* 게시글 수정 버튼 */
+$("#modify_btn_r").on("click", function(e){
+	self.location = "/modify-r?bno=${board.bno}"
+				+ "&pageNum=${cri.pageNum }"
+				+ "&amount=${cri.amount }"
+				+ "&keyword=${cri.keyword }"
+				+ "&type=${cri.type }"
+				});	
+				
 	
 </script>
 	

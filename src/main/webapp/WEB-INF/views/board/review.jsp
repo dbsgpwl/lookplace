@@ -45,7 +45,7 @@
 						<span><a href="review">Review</a></span>
 					</div>
 				</div>
-				<div class="search_wrap" style="display:flex; align-items:center; padding-right: 5%;">
+				<div class="search_wrap" style="">
 		        <div class="search_area"  >
 		        <select name="type"  >
 	                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>검색</option>
@@ -57,21 +57,18 @@
 	                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
 	            </select>   
 		            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-		            <button><i class="fa-solid fa-magnifying-glass" style="color:white;"></i></button>
+		            <button><i class="fa-solid fa-magnifying-glass"></i></button>
 		        </div>
 		        <div>
 						<button class="board-writer-button"
 							onclick="location.href='insertImage'">글쓰기</button>
 					</div>
 		    </div> 
-		    <div style="padding-left:80%;">
-					
-				</div>
-				<div class="" style="display: flex; flex-wrap: wrap;">
+				<div class="" style="display: flex; flex-wrap: wrap; ">
 				<c:forEach items="${viewAll }" var="list">
 				
-					<div class="col-md-6">
-					<div class="thumbnail" style="border:2px dashed pink; width:305px; margin-bottom:15%;">
+					<div class="col-md-6 review-card" style="">
+					<div class="thumbnail" style=" width:305px; margin-bottom:15%;">
 						<img src="${list.filename}"style="width: 300px;height: 250px;object-fit: cover; ">
 						<div class="caption" >
 							<div style="margin:5% 0; text-align:center; padding-right:6%;">
@@ -101,8 +98,8 @@
 							<!-- 각 번호 페이지 버튼 -->
 							<c:forEach var="num" begin="${pageMaker.startPage}"
 								end="${pageMaker.endPage}">
-								<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a
-									href="${num}">${num}</a></li>
+								<li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }">
+								<a href="${num}">${num}</a></li>
 							</c:forEach>
 
 
