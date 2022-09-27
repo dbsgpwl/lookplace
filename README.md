@@ -1,5 +1,5 @@
 # 🎈 프로젝트 기획
-
+기간 : 2022/09/02 - 2022/09/25 (3주간)
 
 ## 1) 프로젝트 소개🎖️ 
 <br>
@@ -64,14 +64,52 @@
 ## 2) ERD / 테이블 정의서
 <br>
 
-수정중
+![](https://velog.velcdn.com/images/dbsgpwl/post/2a8e8b54-d822-4b62-a0b9-a073f83b30a3/image.png)
+
 <br>
 
 ## 3) UseCaseDiagram
-수정중
+![](https://velog.velcdn.com/images/dbsgpwl/post/96432a23-2395-4fff-b916-8db483daf794/image.png)
+
+
 <br>
 
 ## 4) 결과물 소개
 <br>
+🪄 메인 화면
 
-## 5) 핵심 기능 로직 소개 
+![image](https://user-images.githubusercontent.com/103105338/192481939-f0969acf-31f2-456f-ab3b-a228ba364ef9.png)
+🪄 여행지도 화면
+![image](https://velog.velcdn.com/images/dbsgpwl/post/47b2ff69-8100-4b57-b5b3-f39cb420e595/image.png)
+🪄 멤버 서비스 화면
+![](https://velog.velcdn.com/images/dbsgpwl/post/37243cee-e190-4c57-a430-d7d522e244e3/image.png)
+
+![](https://velog.velcdn.com/images/dbsgpwl/post/051590bf-718a-4ce0-b0d6-e7ee0f4bf73d/image.png)
+
+![](https://velog.velcdn.com/images/dbsgpwl/post/9d425372-2999-4fa1-b79c-df8730194c13/image.png)
+
+![](https://velog.velcdn.com/images/dbsgpwl/post/e1166f28-a8cb-4f50-b9da-3dc42efc1ee0/image.png)
+
+![](https://velog.velcdn.com/images/dbsgpwl/post/9c4ea889-7458-4518-8230-478c60f1f8df/image.png)
+
+🪄 인기 지역 화면
+![](https://velog.velcdn.com/images/dbsgpwl/post/8af69fba-0caa-4743-9f03-0c6e73e0a7d9/image.png)
+
+![](https://velog.velcdn.com/images/dbsgpwl/post/96517728-e30b-4774-92b9-c91f95a21d04/image.png)
+
+🪄 지역 상세 화면
+![](https://velog.velcdn.com/images/dbsgpwl/post/92e98b49-6658-41bd-a560-ba7be07d0d19/image.png)
+
+🪄 게시판 화면
+![](https://velog.velcdn.com/images/dbsgpwl/post/082508a3-fb3a-427f-ab29-8baa8565f835/image.png)
+
+![](https://velog.velcdn.com/images/dbsgpwl/post/2ee715e9-46a3-4771-a6ac-8809b0341280/image.png)
+
+![](https://velog.velcdn.com/images/dbsgpwl/post/5225b7d6-619a-4b3b-b7a5-384562b316b1/image.png)
+
+
+🪄 게시판 상세글 화면
+![](https://velog.velcdn.com/images/dbsgpwl/post/4a724b00-8449-43e0-89c0-9bb31e1ce69a/image.png)
+
+![](https://velog.velcdn.com/images/dbsgpwl/post/f52d9c18-ef6a-455e-9205-3a652594c5fe/image.png)
+
