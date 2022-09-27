@@ -27,10 +27,10 @@
 				</div>
 				<div class="board-menu">
 					<p style="border-left: 2px solid pink;">
-						<a href="review">Review</a>
+						<a href="review">리뷰</a>
 					</p>
 					<p>
-						<a href="community">Community</a>
+						<a href="community">커뮤니티</a>
 					</p>
 				</div>
 			</div>
@@ -38,7 +38,7 @@
 			<div class="board-main-area">
 				<div class="board-main-title">
 					<div>
-						<h3>Review</h3>
+						<h3>리뷰</h3>
 					</div>
 					<div>
 						<span><a href="/">home</a></span> &nbsp;>&nbsp; 

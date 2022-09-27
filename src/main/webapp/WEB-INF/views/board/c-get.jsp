@@ -104,23 +104,23 @@ function replyList(){
 						<td><input value='<c:out value="${board.nickname }"></c:out>'/> </td>
 					</tr>
 					<tr>
-						<td>title</td>
+						<td>제목</td>
 						<td><input value='<c:out value="${board.title }"></c:out>'/></td>
 					</tr>
 					
 					<tr>
-						<td>Content</td>
+						<td colspan="2">내용</td>
 					</tr>
 					<tr>
-						<td colspan=2 style="text-align:left;"><textarea style="width:100%; height:400px;"><c:out value="${board.content}"/></textarea></td>
+						<td colspan=2 style="text-align:left;"><textarea><c:out value="${board.content}"/></textarea></td>
 					</tr>
 					
 				</table>
 				
 				<div class="board-get-btn-area">
-					<button class="btn" id="list_btn_r">목록</button> 
+					<button class="board-get-button" id="list_btn_r">목록</button> 
 					<c:if test="${board.nickname == member.nickname}">
-					<button class="btn" id="modify_btn_r">수정</button>
+					<button class="board-get-button " id="modify_btn_r">수정</button>
 					</c:if>
 				</div>
 				

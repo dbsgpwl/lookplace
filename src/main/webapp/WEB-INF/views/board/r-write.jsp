@@ -25,8 +25,8 @@
 				<div class="board-title"><h2>커뮤니티</h2></div>
 			</div>
 			<div class="board-menu">
-				<p style="border-left:2px solid pink;"><a href="review">Review</a></p>
-				<p><a href="community">Community</a></p>
+				<p style="border-left:2px solid pink;"><a href="review">리뷰</a></p>
+				<p><a href="community">커뮤니티</a></p>
 			</div>
 		</div>
 		<div class="board-main-area">

@@ -22,11 +22,11 @@
 				<div class="board-icon">
 					<i class="fa-solid fa-clipboard-list"></i>
 				</div>
-				<div class="board-title"><h2>Notice</h2></div>
+				<div class="board-title"><h2>커뮤니티</h2></div>
 			</div>
 			<div class="board-menu">
-				<p><a href="review">Review</a></p>
-				<p style="border-left:2px solid pink;"><a href="community">Community</a></p>
+				<p><a href="review">리뷰</a></p>
+				<p style="border-left:2px solid pink;"><a href="community">커뮤니티</a></p>
 			</div>
 		</div>
 		<div class="board-main-area">
@@ -42,20 +42,20 @@
 	<form method="post" action="/write">
 	<table class="table border border-1 board-table table-hover">
 		<tr>
-			<td>Name</td>
+			<td>작성자</td>
 			<td><input name="nickname" value="${member.nickname }"/></td>
 		</tr>
 		<tr>
-			<td>title</td>
+			<td>제목</td>
 			<td><input name="title" placeholder="제목"/></td>
 		</tr>
 		<tr>
-			<td>Content</td>
-			<td><textarea name="content"></textarea></td>
+			<td>내용</td>
+			<td><textarea name="content" placeholder="내용을 작성해주세요."></textarea></td>
 		</tr>
 	</table>
-		<input type="button" value="글 작성" style="float: right;" onclick="goWrite(this.form)"/>
-		<input type="button" value="글 목록" style="float: right;" onclick="location.href='community';">
+		<input type="button" class="board-get-button" value="글 작성" style="float: right;" onclick="goWrite(this.form)"/>
+		<input type="button" class="board-get-button" value="글 목록" style="float: right;" onclick="location.href='community';">
 	</form>
 </div>
 </div>

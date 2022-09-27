@@ -58,7 +58,7 @@
 							<i class="fa-regular fa-user" style="font-size:25px;"></i>
 						</div>
 						<div>
-							<a href="/member/login">로그인</a>
+							<a href="/member/login">&nbsp;&nbsp;로그인</a>
 						</div>
 					</div>
 				</c:if>
@@ -77,7 +77,7 @@
 			</div>
 		</div>
 
-		<button id="showLeft" style="z-index: 9999;">
+		<button id="showLeft" style="z-index: 9999; background-color: transparent;border: none;">
 			<i class="fa-solid fa-bars"
 				style="color: rgb(255, 56, 142); font-size: 2em;"></i>
 		</button>

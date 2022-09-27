@@ -26,7 +26,7 @@
 			</div>
 			<div class="board-menu">
 				<p><a href="review">리뷰</a></p>
-				<p  style="border-left:2px solid pink;"><a href="community">Community</a></p>
+				<p  style="border-left:2px solid pink;"><a href="community">커뮤니티</a></p>
 			</div>
 		</div>
 		<div class="board-main-area">
@@ -61,10 +61,10 @@
 					
 				</table>
 			<div class="board-get-btn-area" >
-				<input style="margin:1%;"type="button" value="글 수정" style="float: right;" onclick="goModify(this.form)"/>
-				<input type="button" value="삭제" onclick="del(${board.bno})">
-				<input style="margin:1%;"type="button" id="cancel_btn_r" value="취소" />
-				<input style="margin:1%;"type="button" id="list_btn_r" value="글 목록" style="float: right;">
+				<input class="board-get-button" type="button" value="글 수정" onclick="goModify(this.form)"/>
+				<input class="board-get-button" type="button" value="삭제" onclick="del(${board.bno})"/>
+				<input class="board-get-button" type="button" id="cancel_btn_r" value="취소" />
+				<input class="board-get-button" type="button" id="list_btn_r" value="글 목록" style="float: right;">
 				
 			</div>
 		</form>

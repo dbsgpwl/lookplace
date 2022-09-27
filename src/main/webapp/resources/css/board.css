@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+textarea{
+	width:100%; height:400px; resize: none; border:1px solid #dee2e6;
+	
+}
 .board-aside {
 	display: flex;
 	align-items: center;
