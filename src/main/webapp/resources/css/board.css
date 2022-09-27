@@ -9,7 +9,10 @@ textarea{
 	align-items: center;
 	justify-content: center;
 }
-
+.select_img img{
+	
+	margin:20px 0;
+}
 .board-aside-menu {
 	display: flex;
 	flex-direction: column;

@@ -22,22 +22,22 @@
 						<i class="fa-solid fa-clipboard-list"></i>
 					</div>
 					<div class="board-title">
-						<h2>News</h2>
+						<h2>커뮤니티</h2>
 					</div>
 				</div>
 				<div class="board-menu">
 					<p>
-						<a href="review">Review</a>
+						<a href="review">리뷰</a>
 					</p>
 					<p>
-						<a href="community">Community</a>
+						<a href="community">커뮤니티</a>
 					</p>
 				</div>
 			</div>
 			<div class="board-main-area">
 				<div class="board-main-title">
 					<div>
-						<h3>review</h3>
+						<h3>리뷰</h3>
 					</div>
 					<div>
 						<span><a href="/">home</a></span> &nbsp;>&nbsp; <span>
@@ -58,7 +58,12 @@
 						</tr>
 
 						<tr>
-							<td colspan=2 style="text-align: left;"><img src='<c:out value="${board.filename }"></c:out>' style="width: 500px;height: 400px;object-fit: cover;"/></td>
+							<td>내용</td>
+							<td><input value='<c:out value="${board.content }"></c:out>' /></td>
+						</tr>
+						<tr>
+							
+							<td colspan=2 style="text-align:center;"><img src='<c:out value="${board.filename }"></c:out>' style="width: 500px;height: 400px;object-fit: cover;"/></td>
 						</tr>
 					</table>
 				

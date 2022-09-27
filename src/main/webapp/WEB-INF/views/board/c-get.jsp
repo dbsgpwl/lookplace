@@ -80,11 +80,11 @@ function replyList(){
 				<div class="board-icon">
 					<i class="fa-solid fa-clipboard-list"></i>
 				</div>
-				<div class="board-title"><h2>Notice</h2></div>
+				<div class="board-title"><h2>커뮤니티</h2></div>
 			</div>
 			<div class="board-menu">
-				<p ><a href="review">Review</a></p>
-				<p style="border-left:2px solid pink;"><a href="community">Community</a></p>
+				<p ><a href="review">리뷰</a></p>
+				<p style="border-left:2px solid pink;"><a href="community">커뮤니티</a></p>
 			</div>
 		</div>
 		
@@ -93,7 +93,7 @@ function replyList(){
 				<div><h3>Community</h3></div>
 				<div>
 				<span><a href="/">home</a></span> &nbsp;>&nbsp;
-				<span><a href="review">review</a></span> 
+				<span><a href="community">community</a></span> 
 				</div>
 			</div>
 			

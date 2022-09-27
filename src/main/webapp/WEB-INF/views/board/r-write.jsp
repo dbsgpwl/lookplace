@@ -54,7 +54,19 @@
 	<div class="form-group">
 		<label for="imagefile">첨부파일</label>
 		<input type="file" name="imagefile" id="imagefile" class="form-control">
+		<div class="select_img"><img src="" /></div>
 	</div>
+	 <script>
+	  $("#imagefile").change(function(){
+	   if(this.files && this.files[0]) {
+	    var reader = new FileReader;
+	    reader.onload = function(data) {
+	     $(".select_img img").attr("src", data.target.result).width(500);        
+	    }
+	    reader.readAsDataURL(this.files[0]);
+	   }
+	  });
+ </script>
 		<div style="margin:5% 0; padding-left:65%;">
 			<button class="board-writer-button">등록</button>
 			<button class="board-writer-button" type="reset">새로입력</button>
