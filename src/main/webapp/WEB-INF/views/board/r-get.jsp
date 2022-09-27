@@ -60,7 +60,9 @@
 						</tr>
 
 						<tr>
-							<td colspan=2 style="text-align: left;"><img src='<c:out value="${board.filename }"></c:out>' /></td>
+
+							<td colspan=2 style="text-align: left;"><img src='<c:out value="${board.filename }"></c:out>' style="width: 500px;height: 400px;object-fit: cover;"/></td>
+
 						</tr>
 
 					</table>

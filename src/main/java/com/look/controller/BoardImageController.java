@@ -1,8 +1,11 @@
 package com.look.controller;
 
 import java.io.File;
+import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.look.model.Criteria;
 import com.look.model.ImageDTO;
+import com.look.model.MemberDTO;
 import com.look.model.PageMakerDTO;
 import com.look.service.ImageService;
 import com.look.util.FileUtil;
@@ -58,7 +62,17 @@ public class BoardImageController {
 
 	// 이미지 등록 페이지 이동
 	@GetMapping("/insertImage")
-	public String insertImage() {
+	public String insertImage(HttpServletRequest req, HttpServletResponse res) {
+		HttpSession session = req.getSession();
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+
+		if (member == null) {
+			try {
+				res.sendRedirect("/member/login");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 		return "/board/r-write";
 	}
 

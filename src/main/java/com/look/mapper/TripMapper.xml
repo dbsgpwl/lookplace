@@ -12,13 +12,17 @@
     <!-- 인기 여행 목록 -->
     <select id="getList" resultType="com.look.model.TripDTO">
     
-        select course, address, place from tbl_best_image order by heart desc
+        select imgno, course, address, place from tbl_best_image order by heart desc
     
+    </select>
+    
+    <select id="hashtag" resultType="String">
+    	select tag from tbl_best_image where imgno = #{imgno}
     </select>
     
     <!-- 가을 인기 목록 -->
     <select id="autumnList" resultType="com.look.model.TripDTO">
-    	select course, address, place from tbl_best_image where tag like concat('%','가을','%') order by heart desc
+    	select imgno,course, address, place from tbl_best_image where tag like concat('%','가을','%') order by heart desc
     </select>
     
     

@@ -4,6 +4,7 @@ package com.look.controller;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Iterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -94,7 +95,6 @@ public class TripController {
 		public String popPOST(@RequestParam("keyword")String keyword,Criteria cri,TripHeartDTO dto, HttpServletRequest request, Model model) throws UnsupportedEncodingException{
 			String encodedParam = URLEncoder.encode(keyword, "UTF-8");
 			String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
-			String type = request.getParameter("type");
 			
 			
 			/*페이징 처리*/
@@ -155,6 +155,9 @@ public class TripController {
 			model.addAttribute("reply", service.replyList(imgno));
 			model.addAttribute("detail", service.Detailpage(imgno));
 			model.addAttribute("cri", cri);
+			String[] list = service.hashtag(dto).split(",");
+			model.addAttribute("hash", list);
+			
 			
 			
 		}

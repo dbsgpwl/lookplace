@@ -62,18 +62,18 @@
 						<tr>
 							<td>비밀번호</td>
 							<td>
-							<input type=password  class="form-control" name="password">
+							<input type=password  class="form-control" name="password" id="password">
+							<br>
+								<span style="color:red">*8글자 이상, (숫자, 영문, 특수문자) 중 2가지 이상 포함</span>
 							</td>
 						</tr>
 						<tr>
 							<td>주소</td>
 							<td>
 							<input type=text class="updateAddress1 form-control" name="address" placeholder="우편번호" style="width:50%; margin-bottom:13px;" readonly>
-							<button type="button" class="Address_button" onclick="update_daum_address()">
-	          				주소 찾기
-	        				</button>
 							<input type=text class="updateAddress2 form-control" name="address" placeholder="주소" style="margin-bottom:13px;" readonly>
 							<input type=text class="updateAddress3 form-control" name="address" placeholder="나머지 주소">
+							<button type="button" class="Address_button" onclick="update_daum_address()">주소 찾기</button>
 							</td>
 						</tr>
 					</table>
@@ -90,16 +90,34 @@
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>
 <script>
-
 /* 정보수정 */ 
 $(document).ready(function() {
             $(".UpdateBtn").click(function() {
+            	/* 비밀번호 유효성 검사용 변수 */
+            	var userpw = document.querySelector("#password")
+            	var pw = userpw.value;
+            	var num = pw.search(/[0-9]/g);
+            	var eng = pw.search(/[a-z]/ig);
+            	var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+            	if(pw.length < 8 || pw.length > 20){
+	           		 alert("비밀번호는 8자리 ~ 20자리 이내로 입력해주세요.");
+	           		 userpw.focus();
+	           		 return false;
+	           	} else if(pw.search(/\s/) != -1){
+	           		 alert("비밀번호는 공백 없이 입력해주세요.");
+	           		 userpw.focus();
+	           		 return false;
+	           	} else if( (num < 0 && eng < 0) || (eng < 0 && spe < 0) || (spe < 0 && num < 0) ){
+	           		 alert("영문,숫자, 특수문자 중 2가지 이상을 혼합하여 입력해주세요.");
+	           		 userpw.focus();
+	           		 return false;
+	           	} else{
          			$("#update_form").attr("action", "/mypage/update");
                     $("#update_form").submit();
                     alert("수정되었습니다. 재로그인 해주세요");
-                });
+                };
             });
-            
+});
 /* 다음 주소 연동 */
 function update_daum_address(){	
 	new daum.Postcode({

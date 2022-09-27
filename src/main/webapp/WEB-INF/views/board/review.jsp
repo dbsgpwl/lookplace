@@ -64,10 +64,10 @@
     flex-wrap: wrap; border:1px solid gray;">
 				<c:forEach items="${viewAll }" var="list">
 				
-					<div class="col-md-3">
-					<span>${hit }</span>
+					<div class="col-md-6">
+					<span>${list.hit }</span>
 					<div class="thumbnail">
-						<img src="${list.filename}"style="width: 147px;height: 130px;object-fit: cover;">
+						<img src="${list.filename}"style="width: 300px;height: 250px;object-fit: cover;">
 						<div class="caption">
 							<span>${list.title }</span>
 							<a class="btn" href="getImage?bno=${list.bno }&

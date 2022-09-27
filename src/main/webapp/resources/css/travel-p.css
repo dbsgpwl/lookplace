@@ -80,15 +80,12 @@
 	margin-top:10px;
 }
 .travelP_input{
-	width:90px; height:35px; margin-right:10px; font-size: 14px;
+	width: 10%;
+	margin-right:10px; 
+	font-size: 1.1rem;
+	text-align: center;
 }
-.travelP_input2{
-	width: 90px; height: 35px; margin-right: 10px; text-align: center;
-	font-size: 14px;
-}
-.travelP_input3{
-	width: 90px; height: 35px; font-size: 14px;
-}
+
 .travelP_button{
 	border-radius: 8px; 
 	text-align:right; 
@@ -98,7 +95,8 @@
     margin: 10px 0;
 }
 #modify {
-	display: none; position : fixed;
+	display: none; 
+	position : fixed;
 	left: 35%;
 	top: 25%;
 	width: 30%;
