@@ -64,7 +64,7 @@ public class TripController {
 		
 		/* 전체/지역 목록 페이지 접속  */
 		@GetMapping("/entire")
-		public void entireGET(Criteria cri, Model model, @RequestParam(defaultValue = "")String nickname,HttpServletRequest request) {
+		public void entireGET(Criteria cri,TripDTO dto, Model model,@RequestParam(defaultValue = "")String nickname,HttpServletRequest request) {
 			
 			
 			String type = request.getParameter("type");
@@ -79,7 +79,6 @@ public class TripController {
 			
 			model.addAttribute("key", cri.getKeyword());
 			model.addAttribute("nick", service.nickCheck(nickname));
-			
 			
 			/*페이징 처리*/
 			int total = service.localTotal(cri);

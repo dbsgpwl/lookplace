@@ -51,7 +51,7 @@
     <select id="localListPaging" resultType="com.look.model.TripDTO">
     
         select * from (
-                select imgno, course, heart, address, place, local
+                select imgno, course, heart, address, place, local, tag
                 from tbl_best_image 
                 <if test ="!keyword.equals('전체')">
 		    		where address like concat('%',#{keyword},'%') 
@@ -63,7 +63,7 @@
     
     <select id="HitGetList" resultType="com.look.model.TripDTO">
     	select * from (
-                select imgno, course, heart, address, place, local
+                select imgno, course, heart, address, place, local, tag
                 from tbl_best_image 
                 <if test ="!keyword.equals('전체')">
 		    		where address like concat('%',#{keyword},'%') 
