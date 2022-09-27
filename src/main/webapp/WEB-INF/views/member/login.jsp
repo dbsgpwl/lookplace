@@ -64,7 +64,7 @@
           </li>
           <li>|</li>
           <li style="list-style: none">
-            <a href="/member/findpwform" onclick="window.open(`/member/findpwform`, '회사소개','width=500px, height=500px'); return false" style="color: gray">비밀번호찾기</a>
+            <a href="/member/findpwform" onclick="window.open(`/member/findpwform`, '회사소개','width=500px, height=650px'); return false" style="color: gray">비밀번호찾기</a>
           </li>
         </ul>
       </section>

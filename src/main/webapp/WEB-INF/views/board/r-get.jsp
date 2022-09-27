@@ -45,46 +45,40 @@
 					</div>
 				</div>
 				<div class="board-table-area">
-				<table class="table border border-1 board-table">
-					<thead>
-					<tr>
-						<td class="table-dark">제목</td>
-						<td style="text-align:left;"><c:out value="${board.title }" /></td>
-					</tr>
-					<tr>
-						<td class="table-dark">작성자</td>
-						<td style="text-align:left;"><c:out value="${board.nickname }" /></td>
-					</tr>
-					<tr>
-						<td class="table-dark">내용</td>
-						<td style="text-align:left;">
-							<c:out value="${board.content }" />
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td><img src='<c:out value="${board.filename }"></c:out>' style="width: 500px; height: 400px; object-fit: cover;" /></td>
-					</tr>
-				</table>
-			</div>
-						<div class="board-get-btn-area">
+					<input type="hidden" name="bno" value="${board.bno}">
+					<table class="table border border-1 board-table table-hover">
+						<tr>
+							<td>작성자</td>
+							<td><input
+								value='<c:out value="${board.nickname }"></c:out>' /></td>
+						</tr>
+						<tr>
+							<td>제목</td>
+							<td><input value='<c:out value="${board.title }"></c:out>' /></td>
+						</tr>
+
+						<tr>
+							<td colspan=2 style="text-align: left;"><img src='<c:out value="${board.filename }"></c:out>' style="width: 500px;height: 400px;object-fit: cover;"/></td>
+						</tr>
+					</table>
+				
+
+				</div>
+				<div class="board-get-btn-area">
 							<button class="board-get-button" id="list_btn_r">목록</button>
 							<c:if test="${board.nickname == member.nickname}">
 								<button class="board-get-button" onclick="deleteImage(${board.bno})">삭제</button>
 							</c:if>
-						</div>
+						</div>		
 
-
-
-				</div>
 
 			</div>
-
+			</div>
 			<form id="infoForm" action="modify-r" method="get">
 				<input type="hidden" name="pageNum" value="${cri.pageNum }">
-				<input type="hidden" name="amount" value="${cri.amount }"> <input
-					type="hidden" name="keyword" value="${cri.keyword }"> <input
-					type="hidden" name="type" value="${cri.type }">
+				<input type="hidden" name="amount" value="${cri.amount }"> 
+				<input type="hidden" name="keyword" value="${cri.keyword }"> 
+				<input type="hidden" name="type" value="${cri.type }">
 			</form>
 	</main>
 	<script>

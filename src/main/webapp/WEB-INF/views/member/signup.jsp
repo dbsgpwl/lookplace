@@ -27,6 +27,7 @@
           <div>
           	<span class="id_input_re_1">사용 가능한 아이디입니다.</span>
            	<span class="id_input_re_2">아이디가 이미 존재합니다.</span>
+           	<span class="id_input_re_3">이메일 형식에 맞지 않습니다.</span>
           </div>
                      
 		  <div class="mail_check_input_box" >
@@ -40,11 +41,13 @@
 		  </div>	
 		  					  	
           <div>
-          
             <input class="SignUpInput" type="password" placeholder="비밀번호" id="password" name="password"/>
           </div>
           <div>
-            <input class="SignUpInput" type="password" placeholder="비밀번호확인" />
+          	<span style="color:red">*8글자 이상, (숫자, 영문, 특수문자) 중 2가지 이상 포함</span>
+          </div>
+          <div>
+            <input class="SignUpInput" type="password" placeholder="비밀번호확인" id="pwdchk" />
           </div>
           <div>
             <input class="SignUpInput"  type="text"  placeholder="이름" id="name"  name="name"/>
@@ -76,13 +79,13 @@
       </section>
       <div class="modal">
 	  		<div class="modal_body">
-		  		<h3>이대로 가입을 진행하시겠습니까?</h3>
+		  		<h4>입력하신 정보가 맞는지 확인해주세요.</h4>
 		  		<hr>
-		  		<div id="modalSpace" style="font-size:1.5rem; ">
+		  		<div id="modalSpace" style="font-size:1.5rem;text-align:left">
 		  			
 		  		</div>
 	  			<button type="button" class="CancelBtn modal_cancel">취소</button>
-	  			<button class="SignUpBtn SignUpBtnFinal"  onclick="location.href='/'">회원가입</button>
+	  			<button class="SignUpBtn SignUpBtnFinal">회원가입</button>
 	  		</div>
 		</div>
 	</main>
@@ -98,22 +101,54 @@ const BTNOPENPOPUP = document.querySelector(".btn-open-popup");
 const MODALCANCEL = document.querySelector(".modal_cancel");
 
 const USERID = document.querySelector("#email");
+const MAILCHK = document.querySelector(".mail_check_input");
 const USERPWD = document.querySelector("#password");
+const PWDCHK = document.querySelector("#pwdchk");
 const USERNAME = document.querySelector("#name");
 const USERNICKNAME = document.querySelector("#nickname");
 
 const MODALSPACE = document.querySelector("#modalSpace");
+var email = USERID.value
+var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+
 
 BTNOPENPOPUP.addEventListener("click", () => {
+	var pw = USERPWD.value
+	var pwchk = PWDCHK.value
+	var num = pw.search(/[0-9]/g);
+	var eng = pw.search(/[a-z]/ig);
+	var spe = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
+	
+
     if (USERID.value === '') {
         alert("아이디를 입력해주세요.")
         USERID.focus();
         return false;
     }
+    if(MAILCHK.value===''){
+    	alert("인증번호를 입력해주세요")
+    	return false;
+    }
     if (USERPWD.value === '') {
         alert("비밀번호를 입력해주세요.")
         USERPWD.focus();
         return false;
+    } else if(pw.length < 8 || pw.length > 20){
+		 alert("비밀번호는 8자리 ~ 20자리 이내로 입력해주세요.");
+		 USERPWD.focus();
+		 return false;
+	} else if(pw.search(/\s/) != -1){
+		 alert("비밀번호는 공백 없이 입력해주세요.");
+		 USERPWD.focus();
+		 return false;
+	} else if( (num < 0 && eng < 0) || (eng < 0 && spe < 0) || (spe < 0 && num < 0) ){
+		 alert("영문,숫자, 특수문자 중 2가지 이상을 혼합하여 입력해주세요.");
+		 USERPWD.focus();
+		 return false;
+	}else if (pw!==pwchk){
+    	alert("비밀번호가 일치하지 않습니다!")
+    	PWDCHK.focus();
+    	return false;
     }
     if (USERNAME.value === '') {
         alert("이름을 입력해주세요.")
@@ -125,16 +160,14 @@ BTNOPENPOPUP.addEventListener("click", () => {
         USERNICKNAME.focus();
         return false;
     }
-
+    
     MODAL.classList.toggle("show");
 
-    MODALSPACE.innerHTML += '<div style="text-align:left">아이디 : ' + USERID.value + '</div>'
-    MODALSPACE.innerHTML += '<div style="text-align:left">비밀번호 : ' + USERPWD.value + '</div>'
-    MODALSPACE.innerHTML += '<div style="text-align:left">이름 : ' + USERNAME.value + '</div>'
-    MODALSPACE.innerHTML += '<div style="text-align:left">닉네임 : ' + USERNICKNAME.value + '</div>'
-
-
-
+    MODALSPACE.innerHTML += '<div>아이디 : ' + USERID.value + '</div>'
+    MODALSPACE.innerHTML += '<div>비밀번호 : ' + USERPWD.value + '</div>'
+    MODALSPACE.innerHTML += '<div>이름 : ' + USERNAME.value + '</div>'
+    MODALSPACE.innerHTML += '<div>닉네임 : ' + USERNICKNAME.value + '</div>'
+    
     if (MODAL.classList.contains("show")) {
         BODY.style.overflow = "hidden";
         document.querySelector("header").style.display="none"
@@ -183,20 +216,30 @@ $('.SignUpInputEmail').on("propertychange change keyup paste input", function(){
 	var email = $('.SignUpInputEmail').val();
 	var data  = {email : email}
 	
-	$.ajax({
-		type : "post",
-		url  : "/member/memberIdChk",
-		data : data,
-		success : function(result){
-			if(result != 'fail'){
-				$('.id_input_re_1').css("display", "inline-block");
-				$('.id_input_re_2').css("display","none");
-			}else{
-				$('.id_input_re_2').css("display", "inline-block");
-				$('.id_input_re_1').css("display","none");
+	if(exptext.test(email)==false){
+		//이메일 형식이 알파벳+숫자@알파벳+숫자.알파벳+숫자 형식이 아닐경우			
+		$('.id_input_re_3').css("display", "inline-block");
+		$('.id_input_re_1').css("display","none");
+		$('.id_input_re_2').css("display","none");
+		
+	}else{
+		$.ajax({
+			type : "post",
+			url  : "/member/memberIdChk",
+			data : data,
+			success : function(result){
+				if(result != 'fail'){
+					$('.id_input_re_1').css("display", "inline-block");
+					$('.id_input_re_2').css("display","none");
+					$('.id_input_re_3').css("display","none");
+				}else{
+					$('.id_input_re_2').css("display", "inline-block");
+					$('.id_input_re_1').css("display","none");
+					$('.id_input_re_3').css("display","none");
+				}
 			}
-		}
-	});
+		});
+	}
 });
             
 /* 인증번호 이메일 */

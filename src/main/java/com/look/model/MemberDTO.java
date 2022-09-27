@@ -18,6 +18,7 @@ public class MemberDTO {
 	private int membercode;
 	private String name;
 	private String email;
+	private String phone;
 	private String password;
 	private String nickname;
 	private String address;

@@ -87,10 +87,31 @@
 	}
     
      /* 사이드메뉴 */
-     #showLeft{
-     	border:0px;
-     	background-color:rgba(0,0,0,0)
+     #showLeft{    	
+     	z-index:9999; 
+     	cursor:pointer
      }
+     .burger div{
+     	background-color:rgb(255, 56, 142);
+     	width:35px;
+     	height:5px;
+     	margin:5px;
+     	transition:all 0.5s;
+     }
+     
+     .toggle .line1{
+     	transform:rotate(-45deg) translate(-8px,6px);
+     }
+     
+     .toggle .line2{
+     	opacity:0;
+     }
+     
+     .toggle .line3{
+     	transform:rotate(45deg) translate(-8px,-6px);
+     }
+     
+     
 	.sidemenu {
 		background:  rgba(44, 62, 80, 0.96);
 		position: fixed;

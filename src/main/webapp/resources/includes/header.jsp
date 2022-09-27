@@ -58,7 +58,7 @@
 							<i class="fa-regular fa-user" style="font-size:25px;"></i>
 						</div>
 						<div>
-							<a href="/member/login">&nbsp;&nbsp;로  그  인</a>
+							<a href="/member/login">로그인</a>
 						</div>
 					</div>
 				</c:if>

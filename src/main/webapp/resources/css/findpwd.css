@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+.inputbox input{
+	float: right;
+}
+
+#title {
+  text-align: center;
+}
+
+.form-label-group input {
+  font-family: 'Noto Sans KR','Noto Sans Korean', "Nanum Gothic",
+  sans-serif !important;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  border: 0;
+  outline: none;
+  font-size: 10px;
+  width : 100%;
+}
+
+.form-label-group {
+  width: 100%;
+  border: 1px solid #dddddd !important;
+  font-size: 1rem;
+  line-height: 1.45;
+  letter-spacing: -0.04rem;
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 12px;
+}
+.form-label-group input::placeholder {
+  color : #d9d9d9;
+}
+.form-label-group {
+  width: 50%;
+  box-sizeing: border-box;
+  margin: 20px auto;
+  position: relative;
+}
+
+.form-label-group label {
+  display: inline-block;
+  position: absolute;
+  top: -5px;
+  left: 14px;
+  padding: 10px;
+  font-size: 14px;
+  color: #888;
+  font-weight: bold;
+}
+
+
+#check {
+
+  background-color: #FFCCD2;
+  border: none;
+  color: #362222;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  float: right;
+}
+
+#Ok {
+  background-color: #FFCCD2;
+  border: none;
+  color: #362222;
+  padding: 15px 30px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
