@@ -36,7 +36,11 @@
 							<div class = "e_explain">
 								<span><c:out value = '${all.place }'></c:out></span>
 								<span><c:out value = "${all.local }"></c:out></span>
-								<span>#해시태그</span>
+								<div style = "display: flex;">
+									<span>#<c:out value = "${all.tag.split(',')[0] }"></c:out></span>
+									<span>#<c:out value = "${all.tag.split(',')[1] }"></c:out></span>
+									<span>#<c:out value = "${all.tag.split(',')[2] }"></c:out></span>
+								</div>
 							</div>
 						</div>
 							<form method = "post" name = "form">
@@ -79,7 +83,7 @@
 			</div>
 			
 			<!-- 지역의 관련된 리스트 출력  -->
-			<form action="/trip/entire" method = "get" style = "width: 40%; height: 600px; background-color: lightgray; margin-top:60px;">
+			<form action="/trip/entire" method = "get" style = "width: 35%; height: 600px; background-color: lightgray; margin-top:60px;">
 				<div style = "width: 60%;margin:100px auto 0 auto;">
 					<hr>
 					<div class= "e_location">
