@@ -7,6 +7,14 @@
 	margin-bottom : 100px;
 	border-collapse: collapse;
 }
+#p_location input {
+	background-color: transparent !important;
+	border:none;
+}
+#p_location input:hover{
+	color: rgb(255, 56, 142,0.5);
+}
+
 .p_list_title{
 	padding-bottom:30px;
 }
@@ -83,6 +91,13 @@
 	color : gray;
 	font-size: 1.2rem;
 }
+.e_listorder input {
+	background-color: transparent !important;
+	border:none;
+}
+.e_listorder input:hover{
+	color :  rgb(255, 56, 142,0.5);
+}
 .e_card{
 	display: flex;
 	justify-content: space-between;
@@ -132,6 +147,14 @@
 	justify-content: space-between;
 	margin-bottom:20px;
 }
+.e_location input{
+	border:none;
+	background-color: transparent !important;
+}
+.e_location input:hover{
+	color :  rgb(255, 56, 142,0.5);
+}
+
 .e_location a{
 	color : black;
 }
