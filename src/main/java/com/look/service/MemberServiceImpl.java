@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.look.mapper.MemberMapper;
 import com.look.model.MemberDTO;
+import com.look.model.TripDTO;
+import com.look.model.TripHeartDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService{
@@ -60,6 +62,21 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void updatePassword(MemberDTO dto) {
 		mapper.updatePassword(dto);
+	}
+
+	@Override
+	public List<TripDTO> wishList(String nickname) {
+		return mapper.wishList(nickname);
+	}
+
+	@Override
+	public void unheart(TripHeartDTO dto) {
+		mapper.unheart(dto);
+	}
+
+	@Override
+	public void minusHeart(TripHeartDTO dto) {
+		mapper.minusHeart(dto);
 	}
 	
 }

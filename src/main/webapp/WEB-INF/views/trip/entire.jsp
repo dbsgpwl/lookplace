@@ -11,6 +11,7 @@
 <link href="/resources/css/travelplace.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	<%@page import="java.util.*,com.look.model.*"%>
 	<!-- main 안에 작성 -->
@@ -39,7 +40,6 @@
 								<div style = "display: flex;">
 									<span>#<c:out value = "${all.tag.split(',')[0] }"></c:out></span>
 									<span>#<c:out value = "${all.tag.split(',')[1] }"></c:out></span>
-									<span>#<c:out value = "${all.tag.split(',')[2] }"></c:out></span>
 								</div>
 							</div>
 						</div>

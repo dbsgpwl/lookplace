@@ -23,7 +23,7 @@
 			</div>
 			<div class="info-menu">
 				<p style="border-left:2px solid pink;"><a href="/mypage/info">나의 정보</a></p>
-				<p><a href="/mypage/wishlist">찜한 여행</a></p>
+				<p><a href="/mypage/wishlist?nickname=${member.nickname }">찜한 여행</a></p>
 			</div>
 		</div>
 		<div class="info-main-area">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,8 +10,6 @@
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/infopage.css" rel="stylesheet" type="text/css">
 <body>
-
-	
 	<jsp:include page="/resources/includes/header.jsp"></jsp:include>
 	
 	<main>
@@ -38,46 +37,25 @@
 
 			</div>
 			
-			<div class="wish-list">
-				<div class="wish-list-article">
-					<div class="border border-1 wish-list-card" >
-					  <img src="/resources/image/대구.jpeg">
-					  <div class="wish-list-card-title">
-					    <p style="font-size:1rem;"><a href="/trip/travel-p">#지역명 #장소</a></p>
-					    <p><i style="font-size:1.9rem; color:rgb(255, 56, 142);" class="fa-solid fa-heart"></i></p>
-					  </div>
+			<div class="wish-list row">
+				<c:forEach items= "${wish }" var = "wish">
+					<div class="wish-list-article col-5">
+						<div class="border border-1 wish-list-card" >
+						  <img src="/resources/image/<c:out value = "${wish.course }"></c:out>">
+						  <div class="wish-list-card-title">
+						    <p style="font-size:1rem;"># ${wish.local } # ${wish.place }</p>
+						    <form method = "post">
+								<input type = "hidden" name ="nickname" value = "${member.nickname }">
+						    	<button onclick = "javascript: form.action='/mypage/unheart1';" name = "imgno" value ="${wish.imgno }"><i style="font-size:1.9rem; color:rgb(255, 56, 142);" class="fa-solid fa-heart"></i></button>
+						    </form>
+						  </div>
+						</div>
 					</div>
-				</div>
-				<div class="wish-list-article">
-					<div class="border border-1 wish-list-card" >
-					  <img src="/resources/image/대구.jpeg">
-					  <div class="wish-list-card-title">
-					    <p style="font-size:1rem;"><a href="/trip/travel-p">#지역명 #장소</a></p>
-					    <p><i style="font-size:1.9rem; color:rgb(255, 56, 142);" class="fa-solid fa-heart"></i></p>
-					  </div>
-					</div>
-				</div>
-				<div class="wish-list-article">
-					<div class="border border-1 wish-list-card" >
-					  <img src="/resources/image/대구.jpeg">
-					  <div class="wish-list-card-title">
-					    <p style="font-size:1rem;"><a href="/trip/travel-p">#지역명 #장소</a></p>
-					    <p><i style="font-size:1.9rem; color:rgb(255, 56, 142);" class="fa-solid fa-heart"></i></p>
-					  </div>
-					</div>
-				</div>
+				</c:forEach>
 			</div>
-			
-			
 		</div>
-		
-		
-		
-		
 	</div>
 	</main>
-	
-	
 	
 	<jsp:include page="/resources/includes/footer.jsp"></jsp:include>
 </body>

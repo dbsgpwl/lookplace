@@ -3,6 +3,8 @@ package com.look.service;
 import java.util.List;
 
 import com.look.model.MemberDTO;
+import com.look.model.TripDTO;
+import com.look.model.TripHeartDTO;
 
 public interface MemberService {
 
@@ -25,4 +27,13 @@ public interface MemberService {
 	MemberDTO findPassword(MemberDTO dto);
 	
 	void updatePassword(MemberDTO dto);
+	
+	/* 찜한 목록 가져오기 */
+	 public List<TripDTO> wishList(String nickname);
+
+	//좋아요 취소
+	public void unheart(TripHeartDTO dto);
+	
+	//좋아요 취소 heart 수 감소
+	public void  minusHeart(TripHeartDTO dto);
 }

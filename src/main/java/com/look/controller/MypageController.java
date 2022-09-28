@@ -1,25 +1,27 @@
 package com.look.controller;
 
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.look.mapper.MemberMapper;
 import com.look.model.MemberDTO;
+import com.look.model.TripHeartDTO;
 import com.look.service.MemberService;
+import com.look.service.TripService;
 
 @Controller
 @RequestMapping("/mypage/*")
@@ -28,14 +30,6 @@ public class MypageController {
 	@Autowired
 	private MemberService memberservice;
 
-	@Autowired
-	private MemberMapper membermapper;
-
-	@Autowired
-	private BCryptPasswordEncoder pwEncoder;
-
-	@Autowired
-	private HttpSession session;
 
 	private static final Logger log = LoggerFactory.getLogger(MypageController.class);
 
@@ -49,11 +43,28 @@ public class MypageController {
 		log.info("회원수정 페이지 진입");
 	}
 
+	
+	
 	@GetMapping("/wishlist")
-	public void wishlistGET(Model model) {
-
+	public void wishlistGET(Model model,MemberDTO dto){
+		model.addAttribute("wish", memberservice.wishList(dto.getNickname()));
 		log.info("위시리스트 페이지 진입");
 	}
+	@PostMapping("/unheart1")
+	
+	public String unheart(TripHeartDTO dto, HttpServletRequest request, @RequestParam(defaultValue = "")String nickname) throws UnsupportedEncodingException{
+		
+		String encodedParam1 = URLEncoder.encode(dto.getNickname(), "UTF-8");
+		
+		System.out.println(dto);
+		
+		memberservice.unheart(dto);
+		memberservice.minusHeart(dto);
+		
+		return "redirect:/mypage/wishlist?nickname="+encodedParam1;
+	}
+	
+	
 
 	@GetMapping("/leavemember")
 	public void leavememberGET(Model model) {
