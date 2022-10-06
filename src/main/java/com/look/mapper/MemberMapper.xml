@@ -8,9 +8,9 @@
 <mapper namespace="com.look.mapper.MemberMapper">
 
 	<insert id="memberJoin">
-		insert into tbl_member(name,
-		email,password,nickname,address,grade,createdAt) values(#{name},
-		#{email}, #{password}, #{nickname}, #{address}, #{grade}, now())
+		insert into tbl_member(name,phone,
+		email,password,nickname,address) values(#{name},#{phone},
+		#{email}, #{password}, #{nickname}, #{address})
 	</insert>
 
 	<!-- 아이디 중복 검사 -->
@@ -20,7 +20,7 @@
 
 	<!-- 로그인 -->
 	<select id="memberLogin" resultType="com.look.model.MemberDTO">
-		select email,name,nickname,grade,address,password from tbl_member
+		select email,name,nickname,address,password from tbl_member
 		where email =
 		#{email} and password= #{password}
 		<!-- select email,name,nickname,grade,address from tbl_member where email 

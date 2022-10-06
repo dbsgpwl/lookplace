@@ -35,8 +35,7 @@ CREATE TABLE `lookplace`.`tbl_member` (
   `password` VARCHAR(100) NOT NULL,
   `nickname` VARCHAR(50) NOT NULL,
   `address` VARCHAR(100) NULL,
-  `grade` CHAR(1) NOT NULL,
-  `createdAt` DATETIME NOT NULL,
+  'phone' varchar(100) not null,
   PRIMARY KEY (`membercode`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE,
   UNIQUE INDEX `nickname_UNIQUE` (`nickname` ASC) VISIBLE);
