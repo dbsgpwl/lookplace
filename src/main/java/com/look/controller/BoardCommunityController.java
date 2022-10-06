@@ -103,6 +103,7 @@ public class BoardCommunityController {
 		return "board/c-modify";
 	}
 
+	// 게시글 수정
 	@PostMapping("modify-r")
 	public String modify(CommunityDTO vo, @ModelAttribute("cri") Criteria cri, RedirectAttributes rttr) {
 		service.updateBoard(vo);

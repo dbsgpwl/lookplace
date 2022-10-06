@@ -34,7 +34,6 @@
 				<div><h3>글쓰기</h3></div>
 				<div>
 				<span><a href="/">home</a></span> &nbsp;>&nbsp;
-				<span><a href="notice">notice</a></span>&nbsp; >&nbsp;
 				<span><a href="community">Community</a></span> 
 				</div>
 			</div>

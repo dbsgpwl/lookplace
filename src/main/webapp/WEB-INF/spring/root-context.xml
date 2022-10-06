@@ -14,26 +14,28 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
 
 	<!-- Root Context: defines shared resources visible to all other web components -->
-	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
-		<!--<property name="driverClassName" value="com.mysql.jdbc.Driver"></property> 
-			<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/ksj?serverTimezone=Asia/Seoul"></property> -->
-
+	<!-- <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
 		<property name="driverClassName"
 			value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		<property name="jdbcUrl"
 			value="jdbc:log4jdbc:mysql://localhost:3306/lookplace?serverTimezone=Asia/Seoul"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="1234"></property>
+	</bean> -->
+	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+	    <property name="driverClassName" value="com.mysql.cj.jdbc.Driver"></property>
+	    <property name="url" value="jdbc:mysql://au77784bkjx6ipju.cbetxkdyhwsb.us-east-1.rds.amazonaws.com:3306/ccc9puriy7m3lpx4?reconnect=true"></property>
+	    <property name="username" value="jb1tusle677r0w0l"></property>
+	    <property name="password" value="puhjrbn9xwfn4sav"></property>
 	</bean>
-
-	<bean id="datasource" class="com.zaxxer.hikari.HikariDataSource"
+	<!-- <bean id="datasource" class="com.zaxxer.hikari.HikariDataSource"
 		destroy-method="close">
 		<constructor-arg ref="hikariConfig"></constructor-arg>
-	</bean>
+	</bean> -->
 
 	<bean id="sqlSessionFactory"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
-		<property name="dataSource" ref="datasource"></property>
+		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 
 	<!-- 메일 인증 -->
@@ -58,7 +60,7 @@
 	<!-- 트랜잭션 -->
 	<bean id="transactionManager"
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="datasource"></property>
+		<property name="dataSource" ref="dataSource"></property>
 	</bean>
 	<tx:annotation-driven />
 	<mybatis-spring:scan base-package="com.look.mapper" />
