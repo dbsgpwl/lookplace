@@ -113,3 +113,13 @@
 
 ![](https://velog.velcdn.com/images/dbsgpwl/post/f52d9c18-ef6a-455e-9205-3a652594c5fe/image.png)
 
+<br>
+
+## 5) 배포
+### 헤로쿠를 이용하여 배포
+[Lookplace 배포 사이트 클릭!](https://lookplacesite.herokuapp.com/
+).
+but 문제상황 발생
+문제 1) 헤로쿠는 DB에 저장된 이미지 파일 경로를 불러오지 못함.
+문제 2) 이미지 파일 업로드시 DB 저장 불가
+->> 문제 해결방안을 서치 중.
