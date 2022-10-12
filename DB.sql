@@ -16,12 +16,12 @@ insert into tbl_review(title,content, nisckname) values ('제목','내용','작�
 
 -- 뉴스 게시판 테이블
 create table tbl_news (
-bno int not null auto_increment,
+bno int NOT NULL AUTO_INCREMENT,
 title varchar(200) not null,
-content text null,
-nickname varchar(50) not null,
-regdate timestamp not null default now(),
-updatedate timestamp not null default now(),
+content text NULL,
+nickname varchar(50) NOT NULL,
+regdate timestamp NOT NULL default now(),
+updatedate timestamp NOT NULL default now(),
 hit int default 0,
 primary key (bno)
 );

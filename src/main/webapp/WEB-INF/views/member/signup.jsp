@@ -128,7 +128,7 @@ BTNOPENPOPUP.addEventListener("click", () => {
         return false;
     }
     if(MAILCHK.value===''){
-    	alert("인증번호를 입력해주세요")
+    	alert("인증번호를 입력해주세요.")
     	return false;
     }
     if (USERPWD.value === '') {

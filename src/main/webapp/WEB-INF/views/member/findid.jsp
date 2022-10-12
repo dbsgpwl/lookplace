@@ -10,11 +10,7 @@
 <jsp:include page="/resources/includes/link.jsp"></jsp:include>
 <link href="/resources/css/findid.css" rel="stylesheet" type="text/css">
 <body>
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="jquery/jquery.min.js"></script>
-	<script src="js/bootstrap.bundle.min.js"></script>
-	<main>
+	<main style="margin-top:20px;">
 	<h3 id="title">아이디 찾기</h3>
 		<form method="post" class="form-signin" action="findidform"
 			name="findform">
