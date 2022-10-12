@@ -32,9 +32,9 @@
 	
 	          <div class="autoLoginBox">
 	            <span>
-	              <input type="checkbox" name="chkbox" />
+	             
 	            </span>	          
-	            <span>자동로그인</span>
+	           
 	          </div>
 	          
 	          <c:if test = "${result == 0 }">

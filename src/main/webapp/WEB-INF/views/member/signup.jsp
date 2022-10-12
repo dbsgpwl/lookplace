@@ -68,9 +68,6 @@
             <input class="AddressInput2" type="text" placeholder="주소" id="address" name="address" readonly/>
             <input class="AddressInput3" type="text" placeholder="나머지 주소" name="address" />
           </div>
-           <div>
-            <input class="SignUpInput" type="text" placeholder="닉네임"  id="nickname" name="nickname" />
-          </div>
           
           
           <div>
