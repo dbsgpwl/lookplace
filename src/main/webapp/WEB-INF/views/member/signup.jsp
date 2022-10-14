@@ -53,6 +53,9 @@
             <input class="SignUpInput"  type="text"  placeholder="이름" id="name"  name="name"/>
           </div>
           <div>
+            <input class="SignUpInput"  type="text"  placeholder="휴대폰(010-0000-0000)" id="phone"  name="phone"/>
+          </div>
+          <div>
             <input class="SignUpInput" type="text" placeholder="닉네임"  id="nickname" name="nickname" />
           </div>
           <div class="Address_box">
