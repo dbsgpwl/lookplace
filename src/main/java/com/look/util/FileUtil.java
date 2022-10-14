@@ -52,7 +52,7 @@ public class FileUtil {
 
 	// 서버의 상대 주소를 절대 주소로 바꿔 주는 메서드
 	public static String getRealPath(String path, String fileName, HttpServletRequest request) {
-		String filePath = "/upload/" + fileName;
+		String filePath = "" + fileName;
 		System.out.println("주소 " + request.getServletContext().getRealPath(filePath));
 		return request.getServletContext().getRealPath(filePath);
 
