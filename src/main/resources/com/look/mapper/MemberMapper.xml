@@ -8,8 +8,7 @@
 <mapper namespace="com.look.mapper.MemberMapper">
 
 	<insert id="memberJoin">
-		insert into tbl_member(name,email,password,nickname,address,phone) 
-		values(#{name},#{email}, #{password}, #{nickname}, #{address} #{phone})
+		insert into tbl_member(name,email,password,nickname,address,phone) values(#{name},#{email}, #{password}, #{nickname}, #{address}, #{phone})
 	</insert>
 
 	<!-- 아이디 중복 검사 -->
