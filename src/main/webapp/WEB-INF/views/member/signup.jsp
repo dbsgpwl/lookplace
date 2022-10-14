@@ -67,10 +67,6 @@
           </div>
           
           
-           	<div>
-            <input class="SignUpInput" type="text" placeholder="grade"  id="grade" name="grade"/>
-          	</div>
-
           <div>
             <button type="button" class="CancelBtn">취소</button>
             <button type="button" class="SignUpBtn btn-open-popup">회원가입</button>
