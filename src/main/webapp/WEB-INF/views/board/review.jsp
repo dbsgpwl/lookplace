@@ -69,7 +69,7 @@
 				
 					<div class="col-md-6 review-card" style="">
 					<div class="thumbnail" style=" width:305px; margin-bottom:15%;">
-						<img src="${list.filename}"style="width: 300px;height: 250px;object-fit: cover; ">
+						<img src="/app/target/tomcat.39732/webapps/expanded${list.filename}"style="width: 300px;height: 250px;object-fit: cover; ">
 						<div class="caption" >
 							<div style="margin:5% 0; text-align:center; padding-right:6%;">
 								<span># ${list.title }</span>
